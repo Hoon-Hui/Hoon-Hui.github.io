@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Eventually by HTML5 UP</title>
+		<title>Hoon&Hui Wedding day</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -17,16 +17,17 @@
 			<header id="header">
 				<h1>Eventually</h1>
 				<p>A simple template for telling the world when you'll launch<br />
-				your next big thing. Brought to you by <a href="http://html5up.net">HTML5 UP</a>.</p>
+				your next big thing. Brought to you by </p>
 			</header>
 
 		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
-				<input type="email" name="email" id="email" placeholder="Email Address" />
+			<form id="signup-form" method="post" onsubmit="validateChk();">
+				<input type="number" name="wedding" id="wedding" placeholder="Enter Wedding day..!(YYYYMMDD)" />
 				<input type="submit" value="Sign Up" />
 			</form>
 
 		<!-- Footer -->
+		<!--
 			<footer id="footer">
 				<ul class="icons">
 					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -38,9 +39,14 @@
 					<li>&copy; Untitled.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
 			</footer>
-
+		-->
 		<!-- Scripts -->
 			<script src="assets/js/main.js"></script>
-
+			<script>
+				function validateForm() {
+    				alert(document.getElementById('wedding').value);
+				}
+			</script>
 	</body>
+
 </html>
