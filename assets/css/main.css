@@ -383,7 +383,7 @@ header h6 + p {
 
 @media screen and (max-width: 736px) {
   header br {
-    display: inline; } }
+    display: none; } }
 
 @media screen and (max-width: 480px) {
   header br {
@@ -886,3 +886,4 @@ button,
       left: auto;
       margin: 1em 0 0 0;
       position: relative; } }
+
