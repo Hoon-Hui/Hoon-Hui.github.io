@@ -234,7 +234,7 @@ body, input, select, textarea {
   font-family: "Roboto", sans-serif;
   font-size: 16pt;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  /*letter-spacing: -0.01em;*/
   line-height: 1.65em; }
   @media screen and (max-width: 1680px) {
     body, input, select, textarea {
@@ -448,7 +448,7 @@ ul.icons {
 
 /* Form */
 form {
-  margin: 0 0 2em 0; }
+  margin: 0 0 3em 0; }
   form .message {
     text-decoration: none;
     -moz-transition: opacity 0.2s ease-in-out, -moz-transform 0.2s ease-in-out;
@@ -888,5 +888,6 @@ button,
       left: auto;
       margin: 1em 0 0 0;
       position: relative; } }
+
 
 
