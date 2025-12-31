@@ -799,7 +799,7 @@ button,
 
 @media screen and (max-width: 480px) {
   #header {
-    margin: 0 0 0.3em 0; } }
+    margin: 0 0 0em 0; } }
 
 /* Signup Form */
 #signup-form {
@@ -888,6 +888,7 @@ button,
       left: auto;
       margin: 1em 0 0 0;
       position: relative; } }
+
 
 
 
