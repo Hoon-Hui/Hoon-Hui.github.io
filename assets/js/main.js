@@ -3,11 +3,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-function validateChk() {
-	if(document.getElementById('wedding').value=="20260411"){
-		location.href = "Hoon-Hui_Memories.html";
-	}
-}
+
 (function() {
 
 	"use strict";
@@ -175,3 +171,8 @@ function validateChk() {
 
 })();
 
+function validateChk() {
+	if(document.getElementById('wedding').value=="20260411"){
+		location.href = "Hoon-Hui_Memories.html";
+	}
+};
