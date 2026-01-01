@@ -3558,13 +3558,14 @@ input, select, textarea {
 /* 헤더와 항목 구분선도 투명하게 변경 */
 .card-header {
 position: relative;
-  font-size: 12px;
+  font-size: 15pt;
+  font-weight: bold;
     /* ... 기타 스타일 유지 ... */
 }
 
 .account-item {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  font-size: 12px;
+  font-size: 12pt;
   font-weight: bold;
   color: #666;
   margin: 0 5px;
