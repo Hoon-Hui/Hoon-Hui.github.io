@@ -78,20 +78,20 @@
 							            <div class="account-item" style="margin: 0.3em 0 0.3em 0;">
 							                <span class="name">아버지　장권재　</span>
 							                <span class="bank">국민은행</span>
-							                <span class="number">110-000-0001　</span>
-											<span><a href="bankAccountCopy(1)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							                <span class="number" data-copy-value="1100000001" id="bankAccount1">110-000-0001　</span>
+											<span><a href="javascript:bankAccountCopy(1)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
 							            </div>
 							            <div class="account-item" style="margin: 0.3em 0 0.3em 0;">
 							                <span class="name">어머니　서삼자　</span>
 							                <span class="bank">국민은행</span>
-							                <span class="number">110-000-0002　</span>
-											<span><a href="bankAccountCopy(2)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							                <span class="number" data-copy-value="1100000002" id="bankAccount2">110-000-0002　</span>
+											<span><a href="javascript:bankAccountCopy(2)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
 							            </div>
 										<div class="account-item" style="margin: 0.3em 0 0.3em 0;">
 							                <span class="name">신　랑　장용훈　</span>
 							                <span class="bank">국민은행</span>
-							                <span class="number">110-000-0003　</span>
-											<span><a href="bankAccountCopy(3)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							                <span class="number" data-copy-value="1100000003" id="bankAccount3">110-000-0003　</span>
+											<span><a href="javascript:bankAccountCopy(3)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
 							            </div>
 							        </div>
 							    </div>
@@ -112,20 +112,20 @@
 							            <div class="account-item" style="margin: 0.3em 0 0.3em 0;">
 							                <span class="name">아버지　윤석준　</span>
 							                <span class="bank">국민은행</span>
-							                <span class="number">210-000-0001　</span>
-											<span><a href="bankAccountCopy(4)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							                <span class="number" data-copy-value="2100000001" id="bankAccount4">210-000-0001　</span>
+											<span><a href="javascript:bankAccountCopy(4)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
 							            </div>
 							            <div class="account-item" style="margin: 0.3em 0 0.3em 0;">
 							                <span class="name">어머니　김현주　</span>
 							                <span class="bank">국민은행</span>
-							                <span class="number">210-000-0002　</span>
-											<span><a href="bankAccountCopy(5)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							                <span class="number" data-copy-value="2100000002" id="bankAccount5">210-000-0002　</span>
+											<span><a href="javascript:bankAccountCopy(5)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
 							            </div>
 										<div class="account-item" style="margin: 0.3em 0 0.3em 0;">
 							                <span class="name">신　부　윤소희　</span>
 							                <span class="bank">국민은행</span>
-							                <span class="number">210-000-0003　</span>
-											<span><a href="bankAccountCopy(6)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							                <span class="number" data-copy-value="2100000003" id="bankAccount6">210-000-0003　</span>
+											<span><a href="javascript:bankAccountCopy(6)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
 							            </div>
 							        </div>
 							    </div>
@@ -568,27 +568,36 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			    header.classList.toggle("active");
 			}
 			</script>
+
+			<script>
+		        function bankAccountCopy(chk) {
+					const span_txt = "";
+					if(chk=='1') {
+						span_txt = document.getElementById("bankAccount1");
+					} else if (chk=='2') {
+						span_txt = document.getElementById("bankAccount2");
+					} else if (chk=='3') {
+						span_txt = document.getElementById("bankAccount3");
+					} else if (chk=='4') {
+						span_txt = document.getElementById("bankAccount4");
+					} else if (chk=='5') {
+						span_txt = document.getElementById("bankAccount5");
+					} else if (chk=='6') {
+						span_txt = document.getElementById("bankAccount6");
+					} else {
+						span_txt = "000000000000";
+					}
+				    // 2. data-copy-value 속성의 값 읽기
+				    const valueToCopy = span_txt.getAttribute("data-copy-value");
+				
+				    // 3. 클립보드로 복사
+				    navigator.clipboard.writeText(valueToCopy).then(() => {
+				        alert("복사 성공: " + valueToCopy);
+				    }).catch(err => {
+				        console.error("복사 실패", err);
+				    });
+				}
+		    </script>
 	</body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
