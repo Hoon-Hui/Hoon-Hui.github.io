@@ -3453,10 +3453,11 @@ input, select, textarea {
 			#header {
 				padding: 4em 2em 4em 2em ;
 			}
-
+				/*
 				#header br {
 					display: none;
 				}
+				*/
 
 		/* Footer */
 
