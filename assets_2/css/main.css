@@ -3732,10 +3732,10 @@ input, select, textarea {
 	@media screen and (max-width: 480px) {
 
 		#footer .copyright li {
-			display: block;
+			display: inline-block;
 			border-left: 0;
 			margin-left: 0;
-			padding-left: 0;
+			/* padding-left: 0; */
 			line-height: inherit;
 		}
 
@@ -3951,4 +3951,5 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
