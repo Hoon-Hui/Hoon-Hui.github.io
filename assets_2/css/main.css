@@ -1817,7 +1817,7 @@ input, select, textarea {
 		}
 
 		header.major > div {
-				font-size: 1em;
+				font-size: 1.1em;
 				font-weight: 600;
 				letter-spacing: 0.25em;
 				margin-bottom: 0;
@@ -3591,7 +3591,7 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			#banner {
-				padding: 6em 0 2em 0 ;
+				padding: 6em 0 0 0 ;
 			}
 
 				#banner > .inner .content p br {
@@ -3968,6 +3968,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
 
