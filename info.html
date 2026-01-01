@@ -30,7 +30,9 @@
 					</ul>
 				</div>
 			</section>
-
+			<div id="toast">복사 되었습니다!</div>
+			<div id="toastErr">복사에 실패하였습니다..</div>
+		
 		<!-- One -->
 			<section id="one" class="main style1">
 				<div class="container">
@@ -592,13 +594,35 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				
 				    // 3. 클립보드로 복사
 				    navigator.clipboard.writeText(valueToCopy).then(() => {
-				        alert("복사 성공: " + valueToCopy);
+						copyAndShowToast(valueToCopy);
 				    }).catch(err => {
-				        console.error("복사 실패", err);
+				        copyAndShowToast("error");
 				    });
 				}
+
+				function copyAndShowToast(chk) {   
+					showToast(chk);
+				}
+		
+		        // 3. 토스트 알림 제어 함수
+		        function showToast(chk) {
+					var toast="";
+					if(chk=="error"){
+						toast = document.getElementById("toastErr");
+					} else {
+						toast = document.getElementById("toast");
+					}		            
+		            // 클래스 추가하여 나타나게 함
+		            toast.classList.add("show");
+		
+		            // 2초 뒤에 다시 사라지게 함 (2000ms)
+		            setTimeout(() => {
+		                toast.classList.remove("show");
+		            }, 2000);
+		        }
 		    </script>
 	</body>
 
 </html>
+
 
