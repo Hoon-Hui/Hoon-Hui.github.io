@@ -3511,3 +3511,26 @@ input, select, textarea {
 			}
 
 	}
+
+.collapsible-content {
+    max-height: 0; /* 기본적으로 숨김 */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out; /* 부드러운 애니메이션 */
+}
+
+.collapsible-content.active {
+    max-height: 500px; /* 내용이 충분히 보일 수 있는 크기로 설정 */
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+    transform: rotate(0deg); /* 기본 상태 (닫힘) */
+}
+
+.card-header.active .toggle-icon {
+    transform: rotate(180deg); /* 열렸을 때 아이콘 회전 */
+}
+
+.card-header {
+    cursor: pointer; /* 클릭 가능한 요소임을 표시 */
+}
