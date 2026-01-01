@@ -1818,8 +1818,6 @@ input, select, textarea {
 
 		header.major > div {
 				font-size: 1.1em;
-				font-weight: 600;
-				letter-spacing: 0.25em;
 				margin-bottom: 0;
 				text-transform: uppercase;
 		}
@@ -3968,6 +3966,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
 
