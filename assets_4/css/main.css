@@ -136,7 +136,7 @@ input, select, textarea {
 	h1, h2, h3, h4, h5, h6 {
 		color: #555;
 		line-height: 1em;
-		margin: 0 0 1em 0;
+		margin: 0 0 0 0;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -3558,9 +3558,7 @@ input, select, textarea {
 /* 헤더와 항목 구분선도 투명하게 변경 */
 .card-header {
 position: relative;
-  cursor: pointer;
-  font-size: 14px;
-  border-bottom: 1px solid #dddddd;
+  font-size: 12px;
     /* ... 기타 스타일 유지 ... */
 }
 
