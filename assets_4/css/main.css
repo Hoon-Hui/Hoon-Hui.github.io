@@ -3528,11 +3528,11 @@ input, select, textarea {
     transform: rotate(0deg); /* 기본 상태 (닫힘) */
 }
 
-.card-header.active .toggle-icon {
+.button wide primary.active .toggle-icon {
     transform: rotate(180deg); /* 열렸을 때 아이콘 회전 */
 }
 
-.card-header {
+.button wide primary {
     cursor: pointer; /* 클릭 가능한 요소임을 표시 */
 }
 
@@ -3561,7 +3561,7 @@ input, select, textarea {
 }
 
 /* 헤더와 항목 구분선도 투명하게 변경 */
-.card-header {
+.button wide primary {
 position: relative;
   padding: 17px 0;
   cursor: pointer;
@@ -3579,7 +3579,7 @@ position: relative;
 }
 
 /* 글자색을 더 선명하게 하여 가독성 확보 */
-.card-header h1, .name, .number {
+.button wide primary h1, .name, .number {
     color: #1a1a1a;
 }
 
@@ -3587,7 +3587,7 @@ position: relative;
     color: #4a4a4a;
 }
   
-.card-header:first-child{
+.button wide primary:first-child{
     border-top: 1px solid black;
   }
 
@@ -3597,15 +3597,15 @@ position: relative;
   transform: translate(0, -50%);
 }
 
-.card-header .arrow-top {
+.button wide primary .arrow-top {
   display: none;
 }
-.card-header .arrow-bottom {
+.button wide primary .arrow-bottom {
   display: block;
 }
-.card-header.active .arrow-bottom {
+.button wide primary.active .arrow-bottom {
   display: none;
 }
-.card-header.active .arrow-top {
+.button wide primary.active .arrow-top {
   display: block; 
 }
