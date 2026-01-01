@@ -3711,7 +3711,7 @@ input, select, textarea {
 	#footer .copyright {
 		font-size: 0.8em;
 		list-style: none;
-		padding-left: 0;
+		/* padding-left: 0; */
 	}
 
 		#footer .copyright li {
@@ -3951,3 +3951,4 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
