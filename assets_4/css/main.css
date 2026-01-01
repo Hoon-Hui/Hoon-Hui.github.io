@@ -3515,7 +3515,7 @@ input, select, textarea {
 .collapsible-content {
     max-height: 0; /* 기본적으로 숨김 */
     overflow: hidden;
-    transition: max-height 1s ease-out; /* 부드러운 애니메이션 */
+    transition: max-height 0.7s ease-out; /* 부드러운 애니메이션 */
 }
 
 .collapsible-content.active {
@@ -3562,12 +3562,20 @@ input, select, textarea {
 
 /* 헤더와 항목 구분선도 투명하게 변경 */
 .card-header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+position: relative;
+  padding: 17px 0;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid #dddddd;
     /* ... 기타 스타일 유지 ... */
 }
 
-.account-item:not(:last-child) {
+.account-item {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  margin: 0 5px;
 }
 
 /* 글자색을 더 선명하게 하여 가독성 확보 */
@@ -3577,4 +3585,27 @@ input, select, textarea {
 
 .bank {
     color: #4a4a4a;
+}
+  
+.card-header:first-child{
+    border-top: 1px solid black;
+  }
+
+  .arrow-wrap {
+  position: absolute;
+  top:50%; right: 10px;
+  transform: translate(0, -50%);
+}
+
+.card-header .arrow-top {
+  display: none;
+}
+.card-header .arrow-bottom {
+  display: block;
+}
+.card-header.active .arrow-bottom {
+  display: none;
+}
+.card-header.active .arrow-top {
+  display: block; 
 }
