@@ -1816,6 +1816,14 @@ input, select, textarea {
 				text-transform: uppercase;
 		}
 
+		header.major > div {
+				font-size: 1em;
+				font-weight: 600;
+				letter-spacing: 0.25em;
+				margin-bottom: 0;
+				text-transform: uppercase;
+		}
+
 	/*
 	@media screen and (max-width: 736px) {
 
@@ -3960,6 +3968,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
 
