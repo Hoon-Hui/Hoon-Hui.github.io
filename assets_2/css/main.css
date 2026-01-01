@@ -1808,13 +1808,22 @@ input, select, textarea {
 			max-width: 100% !important;
 		}
 
+		header.major > span {
+				font-size: 1.3em;
+				font-weight: 600;
+				letter-spacing: 0.25em;
+				margin-bottom: 0;
+				text-transform: uppercase;
+		}
+
+	/*
 	@media screen and (max-width: 736px) {
 
 		header.major > p br {
 			display: none;
 		}
 
-	}
+	} */
 
 /* Form */
 
@@ -3951,6 +3960,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
 
