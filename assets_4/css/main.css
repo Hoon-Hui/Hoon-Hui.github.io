@@ -3534,3 +3534,47 @@ input, select, textarea {
 .card-header {
     cursor: pointer; /* 클릭 가능한 요소임을 표시 */
 }
+
+.account-card {
+    /* 배경은 투명하게 유지하되, 더 뚜렷한 입체감을 위해 그림자를 강화 */
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 15px; 
+    
+    /* 여러 개의 box-shadow를 사용하여 깊이감 표현 */
+    box-shadow: 
+        /* 첫 번째: 아래쪽에 넓고 흐릿한 그림자로 깊이 표현 */
+        0 10px 30px rgba(0, 0, 0, 0.2),
+        /* 두 번째: 카드 자체의 윗부분에 밝은 하이라이트 (inset) */
+        0 -3px 5px rgba(255, 255, 255, 0.8) inset,
+        /* 세 번째: 오른쪽 측면에 약간의 음영 추가 */
+        3px 3px 5px rgba(0, 0, 0, 0.1);
+
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    
+    /* (선택 사항) 뒷 배경 흐림 효과 유지 */
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    
+    /* 마우스 인터랙션이 없으므로 transition은 필요 없음 */
+}
+
+/* 헤더와 항목 구분선도 투명하게 변경 */
+.card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* ... 기타 스타일 유지 ... */
+}
+
+.account-item:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 글자색을 더 선명하게 하여 가독성 확보 */
+.card-header h1, .name, .number {
+    color: #1a1a1a;
+}
+
+.bank {
+    color: #4a4a4a;
+}
