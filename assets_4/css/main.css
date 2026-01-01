@@ -3550,12 +3550,7 @@ input, select, textarea {
         /* 세 번째: 오른쪽 측면에 약간의 음영 추가 */
         5px 5px 7px rgba(0, 0, 0, 0.1);
 
-    padding: 5px;
     margin: 10px auto;
-    
-    /* (선택 사항) 뒷 배경 흐림 효과 유지 */
-    backdrop-filter: blur(10px); 
-    border: 1px solid rgba(255, 255, 255, 0.3); 
     
     /* 마우스 인터랙션이 없으므로 transition은 필요 없음 */
 }
@@ -3563,7 +3558,6 @@ input, select, textarea {
 /* 헤더와 항목 구분선도 투명하게 변경 */
 .card-header {
 position: relative;
-  padding: 17px 0;
   cursor: pointer;
   font-size: 14px;
   border-bottom: 1px solid #dddddd;
@@ -3572,7 +3566,7 @@ position: relative;
 
 .account-item {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   color: #666;
   margin: 0 5px;
@@ -3586,10 +3580,6 @@ position: relative;
 .bank {
     color: #4a4a4a;
 }
-  
-.card-header:first-child{
-    border-top: 1px solid black;
-  }
 
   .arrow-wrap {
   position: absolute;
