@@ -2858,11 +2858,7 @@ input, select, textarea {
 				box-shadow: inset 0 0 0 1px #ffffff;
 				color: #ffffff !important;
 			}
-			.main.style2 .div {
-				box-shadow: inset 0 0 0 1px #ffffff;
-				color: #ffffff !important;
-			}
-
+			
 				.main.style2 input[type="submit"]:hover,
 				.main.style2 input[type="reset"]:hover,
 				.main.style2 input[type="button"]:hover,
@@ -2870,10 +2866,7 @@ input, select, textarea {
 				.main.style2 .button:hover {
 					background-color: rgba(255, 255, 255, 0.125);
 				}
-				.main.style2 .div:hover {
-					background-color: rgba(255, 255, 255, 0.125);
-				}
-
+				
 				.main.style2 input[type="submit"]:active,
 				.main.style2 input[type="reset"]:active,
 				.main.style2 input[type="button"]:active,
@@ -2881,10 +2874,7 @@ input, select, textarea {
 				.main.style2 .button:active {
 					background-color: rgba(255, 255, 255, 0.25);
 				}
-				.main.style2 .div:active {
-					background-color: rgba(255, 255, 255, 0.25);
-				}
-
+				
 				.main.style2 input[type="submit"].primary,
 				.main.style2 input[type="reset"].primary,
 				.main.style2 input[type="button"].primary,
@@ -2894,12 +2884,7 @@ input, select, textarea {
 					box-shadow: inset 0 0 0 1px #ffffff !important;
 					color: #333 !important;
 				}
-				.main.style2 .div.card-header {
-					background-color: #ffffff;
-					box-shadow: inset 0 0 0 1px #ffffff !important;
-					color: #333 !important;
-				}
-
+				
 					.main.style2 input[type="submit"].primary:hover,
 					.main.style2 input[type="reset"].primary:hover,
 					.main.style2 input[type="button"].primary:hover,
@@ -2908,11 +2893,7 @@ input, select, textarea {
 						background-color: rgba(255, 255, 255, 0.125) !important;
 						color: #ffffff !important;
 					}
-					.main.style2 .div.card-header:hover {
-						background-color: rgba(255, 255, 255, 0.125) !important;
-						color: #ffffff !important;
-					}
-
+					
 					.main.style2 input[type="submit"].primary:active,
 					.main.style2 input[type="reset"].primary:active,
 					.main.style2 input[type="button"].primary:active,
@@ -2920,10 +2901,7 @@ input, select, textarea {
 					.main.style2 .button.primary:active {
 						background-color: rgba(255, 255, 255, 0.25) !important;
 					}
-					.main.style2 .div.card-header:active {
-						background-color: rgba(255, 255, 255, 0.25) !important;
-					}
-
+					
 			.main.style2 ul.major-icons li .icon {
 				border-color: #ffffff;
 			}
