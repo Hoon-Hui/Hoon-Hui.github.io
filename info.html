@@ -57,8 +57,7 @@
 					<div class="row gtr-150">
 						<div class="col-6 col-12-medium imp-medium">
 							<header class="major">
-								<h2>Lorem ipsum dolor adipiscing<br />
-								amet dolor consequat</h2>
+								<h2>마음 보내실 곳</h2>
 							</header>
 						</div>
 						<div class="col-6 col-12-medium">
@@ -70,6 +69,33 @@
 							    
 							    <!-- 이 부분이 토글될 내용입니다 -->
 							    <div class="collapsible-content" id="accountList">
+							        <div class="account-details">
+							            <div class="account-item">
+							                <span class="name">아버지 장권재</span>
+							                <span class="bank">국민은행</span>
+							                <span class="number">110-000-0001</span>
+							            </div>
+							            <div class="account-item">
+							                <span class="name">어머니 서삼자</span>
+							                <span class="bank">국민은행</span>
+							                <span class="number">110-000-0002</span>
+							            </div>
+										<div class="account-item">
+							                <span class="name">신랑 장용훈</span>
+							                <span class="bank">국민은행</span>
+							                <span class="number">110-000-0003</span>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+
+							<div class="account-card">
+							    <div class="card-header" onclick="toggleAccounts2()">
+							        <h1>신랑측 계좌번호</h1>
+							    </div>
+							    
+							    <!-- 이 부분이 토글될 내용입니다 -->
+							    <div class="collapsible-content" id="accountList2">
 							        <div class="account-details">
 							            <div class="account-item">
 							                <span class="name">아버지 장권재</span>
@@ -513,9 +539,21 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			    header.classList.toggle("active");
 			}
 			</script>
+
+			<script>
+			function toggleAccounts2() {
+			    var content = document.getElementById("accountList2");
+			    var header = content.previousElementSibling; // card-header를 선택
+			
+			    // active 클래스 토글 (있으면 제거, 없으면 추가)
+			    content.classList.toggle("active");
+			    header.classList.toggle("active");
+			}
+			</script>
 	</body>
 
 </html>
+
 
 
 
