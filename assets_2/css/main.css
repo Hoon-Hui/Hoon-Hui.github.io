@@ -1793,7 +1793,7 @@ input, select, textarea {
 			}
 
 		header.major > p {
-			font-size: 0.95em;
+			font-size: 0.9em;
 			font-weight: 600;
 			letter-spacing: 0.25em;
 			margin-bottom: 0;
@@ -3960,6 +3960,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
 
