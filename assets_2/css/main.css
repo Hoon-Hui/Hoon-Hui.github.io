@@ -1818,7 +1818,6 @@ input, select, textarea {
 		header.major > div {
 				font-size: 1.1em;
 				margin-bottom: 0;
-				text-transform: uppercase;
 		}
 
 	/*
@@ -3590,11 +3589,11 @@ input, select, textarea {
 			#banner {
 				padding: 6em 0 0 0 ;
 			}
-
+				/*
 				#banner > .inner .content p br {
 					display: none;
 				}
-
+				*/
 				#banner.major {
 					padding: 8em 0 0 0 ;
 				}
@@ -3965,6 +3964,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
 
