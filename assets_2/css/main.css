@@ -1811,9 +1811,8 @@ input, select, textarea {
 		header.major > span {
 				font-size: 1.3em;
 				font-weight: 600;
-				letter-spacing: 0.25em;
+				letter-spacing: 0.15em;
 				margin-bottom: 0;
-				text-transform: uppercase;
 		}
 
 		header.major > div {
@@ -3966,6 +3965,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
 
