@@ -1,0 +1,640 @@
+<!DOCTYPE HTML>
+<!--
+	Photon by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Infomation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets_4/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets_4/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+					<span class="icon solid major fa-cloud"></span>
+					<h1><b>여러분을 초대합니다</b></h1>
+					<br>
+					<h3><b>2026.4.11.(토)<br>원주 지오컨벤션 11:30</b></h3>
+					<br>
+					<div><b>장권재 ∙ 서삼자</b> 의 아들<b> 장용훈</b></div>
+					<div><b>윤석준 ∙ 김현주</b> 의 딸<b> 윤소희</b></div>
+					<p>평생 서로를 귀히 여기며 처음의 설렘과 순수함을<br>잃지 않고 존중하고 아껴 나가겠습니다.</p><p>저희의 새로운 시작을 함께 해주셔서 감사합니다.</p>
+					<ul class="actions special">
+						<li><a href="#one" class="button scrolly">상세사항 확인</a></li>
+					</ul>
+				</div>
+			</section>
+			<div id="toast">복사 되었습니다!</div>
+			<div id="toastErr">복사에 실패하였습니다..</div>
+		
+		<!-- One -->
+			<section id="one" class="main style1">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium imp-medium">
+							<header class="major">
+								<h2>오 시 는  길</h2>
+							</header>
+						</div>
+						<div class="col-6 col-12-medium">
+							<!-- * 카카오맵 - 지도퍼가기 -->
+							<!-- 1. 지도 노드 -->
+							<div id="daumRoughmapContainer1767270522862" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%"></div>
+							<!--
+							<p>Adipiscing a commodo ante nunc accumsan et interdum mi ante adipiscing. A nunc lobortis non nisl amet vis sed volutpat aclacus nascetur ac non. Lorem curae et ante amet sapien sed tempus adipiscing id accumsan.</p>
+							-->
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="main style2">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium imp-medium">
+							<header class="major">
+								<h2>마음 보내실 곳</h2>
+							</header>
+						</div>
+						<div class="col-6 col-12-medium">
+							<!-- 계좌 start -->
+							<div class="account-card">
+							    <div class="card-header" onclick="toggleAccounts()" style="padding: 1em 0 1em 0;">
+							        <span>신랑측 계좌번호</span>
+									<div class="arrow-wrap">
+				                        <span class="arrow-top">↑</span>
+				                    	<span class="arrow-bottom">↓</span>
+				                    </div>
+							    </div>
+							    
+							    <!-- 이 부분이 토글될 내용입니다 -->
+							    <div class="collapsible-content" id="accountList" style="padding: 0 0 0.5em 0;">
+							        <div class="account-details">
+							            <div class="account-item" style="margin: 0.7em 0 0.7em 0; letter-spacing: -0.5px;">
+							                <span class="name">아버지　장권재　</span>
+							                <span class="bank">국민은행</span>
+							                <span class="number" data-copy-value="1100000001" id="bankAccount1">110-000-0001　</span>
+											<span><a href="javascript:bankAccountCopy(1)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+							            <div class="account-item" style="margin: 0.7em 0 0.7em 0; letter-spacing: -0.5px;">
+							                <span class="name">어머니　서삼자　</span>
+							                <span class="bank">국민은행</span>
+							                <span class="number" data-copy-value="1100000002" id="bankAccount2">110-000-0002　</span>
+											<span><a href="javascript:bankAccountCopy(2)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+										<div class="account-item" style="margin: 0.7em 0 0.7em 0; letter-spacing: -0.5px;">
+							                <span class="name">신　랑　장용훈　</span>
+							                <span class="bank">국민은행</span>
+							                <span class="number" data-copy-value="1100000003" id="bankAccount3">110-000-0003　</span>
+											<span><a href="javascript:bankAccountCopy(3)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+
+							<div class="account-card">
+							    <div class="card-header" onclick="toggleAccounts2()" style="padding: 1em 0 1em 0;">
+							        <span>신부측 계좌번호</span>
+									<div class="arrow-wrap">
+				                        <span class="arrow-top">↑</span>
+				                    	<span class="arrow-bottom">↓</span>
+				                    </div>
+							    </div>
+							    
+							    <!-- 이 부분이 토글될 내용입니다 -->
+							    <div class="collapsible-content" id="accountList2" style="padding: 0 0 0.5em 0;">
+							        <div class="account-details">
+							            <div class="account-item" style="margin: 0.7em 0 0.7em 0; letter-spacing: -0.5px;">
+							                <span class="name">아버지　윤석준　</span>
+							                <span class="bank">국민은행</span>
+							                <span class="number" data-copy-value="2100000001" id="bankAccount4">210-000-0001　</span>
+											<span><a href="javascript:bankAccountCopy(4)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+							            <div class="account-item" style="margin: 0.7em 0 0.7em 0; letter-spacing: -0.5px;">
+							                <span class="name">어머니　김현주　</span>
+							                <span class="bank">국민은행</span>
+							                <span class="number" data-copy-value="2100000002" id="bankAccount5">210-000-0002　</span>
+											<span><a href="javascript:bankAccountCopy(5)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+										<div class="account-item" style="margin: 0.7em 0 0.7em 0; letter-spacing: -0.5px;">
+							                <span class="name">신　부　윤소희　</span>
+							                <span class="bank">국민은행</span>
+							                <span class="number" data-copy-value="2100000003" id="bankAccount6">210-000-0003　</span>
+											<span><a href="javascript:bankAccountCopy(6)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+							<!-- 계좌 end -->
+						</div>
+					</div>
+				</div>
+			</section>
+		
+		<!-- Three -->
+		<!--
+			<section id="three" class="main style1 special">
+				<div class="container">
+					<header class="major">
+						<h2>Adipiscing amet consequat</h2>
+					</header>
+					<p>Ante nunc accumsan et aclacus nascetur ac ante amet sapien sed.</p>
+					<div class="row gtr-150">
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="images_4/pic02.jpg" alt="" /></span>
+							<h3>Magna feugiat lorem</h3>
+							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+							<ul class="actions special">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</div>
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="images_4/pic03.jpg" alt="" /></span>
+							<h3>Magna feugiat lorem</h3>
+							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+							<ul class="actions special">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</div>
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="images_4/pic04.jpg" alt="" /></span>
+							<h3>Magna feugiat lorem</h3>
+							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+							<ul class="actions special">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		-->
+		<!-- Four -->
+		<!--
+			<section id="four" class="main style2 special">
+				<div class="container">
+					<header class="major">
+						<h2>Ipsum feugiat consequat?</h2>
+					</header>
+					<p>Sed lacus nascetur ac ante amet sapien.</p>
+					<ul class="actions special">
+						<li><a href="#" class="button wide primary">Sign Up</a></li>
+						<li><a href="#" class="button wide">Learn More</a></li>
+					</ul>
+				</div>
+			</section>
+		-->
+		<!-- Five -->
+		<!--
+			<section id="five" class="main style1">
+				<div class="container">
+					<header class="major special">
+						<h2>Elements</h2>
+					</header>
+
+					<section>
+						<h4>Text</h4>
+						<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+						This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+						This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+						<hr />
+						<header>
+							<h4>Heading with a Subtitle</h4>
+							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+						</header>
+						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+						<header>
+							<h5>Heading with a Subtitle</h5>
+							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+						</header>
+						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+						<hr />
+						<h2>Heading Level 2</h2>
+						<h3>Heading Level 3</h3>
+						<h4>Heading Level 4</h4>
+						<h5>Heading Level 5</h5>
+						<h6>Heading Level 6</h6>
+						<hr />
+						<h5>Blockquote</h5>
+						<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+						<h5>Preformatted</h5>
+						<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+print 'Iteration ' + i;
+deck.shuffle();
+i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+					</section>
+
+					<section>
+						<h4>Lists</h4>
+						<div class="row">
+							<div class="col-6 col-12-medium">
+								<h5>Unordered</h5>
+								<ul>
+									<li>Dolor pulvinar etiam.</li>
+									<li>Sagittis adipiscing.</li>
+									<li>Felis enim feugiat.</li>
+								</ul>
+								<h5>Alternate</h5>
+								<ul class="alt">
+									<li>Dolor pulvinar etiam.</li>
+									<li>Sagittis adipiscing.</li>
+									<li>Felis enim feugiat.</li>
+								</ul>
+							</div>
+							<div class="col-6 col-12-medium">
+								<h5>Ordered</h5>
+								<ol>
+									<li>Dolor pulvinar etiam.</li>
+									<li>Etiam vel felis viverra.</li>
+									<li>Felis enim feugiat.</li>
+									<li>Dolor pulvinar etiam.</li>
+									<li>Etiam vel felis lorem.</li>
+									<li>Felis enim et feugiat.</li>
+								</ol>
+								<h5>Icons</h5>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+								</ul>
+							</div>
+						</div>
+						<h5>Actions</h5>
+						<div class="row">
+							<div class="col-6 col-12-medium">
+								<ul class="actions">
+									<li><a href="#" class="button primary">Default</a></li>
+									<li><a href="#" class="button">Default</a></li>
+								</ul>
+								<ul class="actions small">
+									<li><a href="#" class="button primary small">Small</a></li>
+									<li><a href="#" class="button small">Small</a></li>
+								</ul>
+								<ul class="actions stacked">
+									<li><a href="#" class="button primary">Default</a></li>
+									<li><a href="#" class="button">Default</a></li>
+								</ul>
+								<ul class="actions stacked">
+									<li><a href="#" class="button primary small">Small</a></li>
+									<li><a href="#" class="button small">Small</a></li>
+								</ul>
+							</div>
+							<div class="col-6 col-12-medium">
+								<ul class="actions stacked">
+									<li><a href="#" class="button primary fit">Default</a></li>
+									<li><a href="#" class="button fit">Default</a></li>
+								</ul>
+								<ul class="actions stacked">
+									<li><a href="#" class="button primary small fit">Small</a></li>
+									<li><a href="#" class="button small fit">Small</a></li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h4>Table</h4>
+						<h5>Default</h5>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Item One</td>
+										<td>Ante turpis integer aliquet porttitor.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>Item Two</td>
+										<td>Vis ac commodo adipiscing arcu aliquet.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>Item Three</td>
+										<td> Morbi faucibus arcu accumsan lorem.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>Item Four</td>
+										<td>Vitae integer tempus condimentum.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>Item Five</td>
+										<td>Ante turpis integer aliquet porttitor.</td>
+										<td>29.99</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2"></td>
+										<td>100.00</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+
+						<h5>Alternate</h5>
+						<div class="table-wrapper">
+							<table class="alt">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Item One</td>
+										<td>Ante turpis integer aliquet porttitor.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>Item Two</td>
+										<td>Vis ac commodo adipiscing arcu aliquet.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>Item Three</td>
+										<td> Morbi faucibus arcu accumsan lorem.</td>
+										<td>29.99</td>
+									</tr>
+									<tr>
+										<td>Item Four</td>
+										<td>Vitae integer tempus condimentum.</td>
+										<td>19.99</td>
+									</tr>
+									<tr>
+										<td>Item Five</td>
+										<td>Ante turpis integer aliquet porttitor.</td>
+										<td>29.99</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2"></td>
+										<td>100.00</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</section>
+
+					<section>
+						<h4>Buttons</h4>
+						<ul class="actions">
+							<li><a href="#" class="button primary">Primary</a></li>
+							<li><a href="#" class="button">Default</a></li>
+						</ul>
+						<ul class="actions">
+							<li><a href="#" class="button large">Large</a></li>
+							<li><a href="#" class="button">Default</a></li>
+							<li><a href="#" class="button small">Small</a></li>
+						</ul>
+						<ul class="actions fit">
+							<li><a href="#" class="button fit">Fit</a></li>
+							<li><a href="#" class="button primary fit">Fit</a></li>
+							<li><a href="#" class="button fit">Fit</a></li>
+						</ul>
+						<ul class="actions fit small">
+							<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+							<li><a href="#" class="button fit small">Fit + Small</a></li>
+							<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+						</ul>
+						<ul class="actions">
+							<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+							<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+						</ul>
+						<ul class="actions">
+							<li><span class="button primary disabled">Disabled</span></li>
+							<li><span class="button disabled">Disabled</span></li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>Form</h4>
+						<form method="post" action="#">
+							<div class="row gtr-uniform gtr-50">
+								<div class="col-6 col-12-xsmall">
+									<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+								</div>
+								<div class="col-12">
+									<select name="demo-category" id="demo-category">
+										<option value="">- Category -</option>
+										<option value="1">Manufacturing</option>
+										<option value="1">Shipping</option>
+										<option value="1">Administration</option>
+										<option value="1">Human Resources</option>
+									</select>
+								</div>
+								<div class="col-4 col-12-small">
+									<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+									<label for="demo-priority-low">Low</label>
+								</div>
+								<div class="col-4 col-12-small">
+									<input type="radio" id="demo-priority-normal" name="demo-priority">
+									<label for="demo-priority-normal">Normal</label>
+								</div>
+								<div class="col-4 col-12-small">
+									<input type="radio" id="demo-priority-high" name="demo-priority">
+									<label for="demo-priority-high">High</label>
+								</div>
+								<div class="col-6 col-12-small">
+									<input type="checkbox" id="demo-copy" name="demo-copy">
+									<label for="demo-copy">Email me a copy</label>
+								</div>
+								<div class="col-6 col-12-small">
+									<input type="checkbox" id="demo-human" name="demo-human" checked>
+									<label for="demo-human">Not a robot</label>
+								</div>
+								<div class="col-12">
+									<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+								</div>
+								<div class="col-12">
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</section>
+
+					<section>
+						<h4>Image</h4>
+						<h5>Fit</h5>
+						<div class="box alt">
+							<div class="row gtr-uniform gtr-50">
+								<div class="col-12"><span class="image fit"><img src="images_4/pic06.jpg" alt="" /></span></div>
+								<div class="col-4"><span class="image fit"><img src="images_4/pic02.jpg" alt="" /></span></div>
+								<div class="col-4"><span class="image fit"><img src="images_4/pic03.jpg" alt="" /></span></div>
+								<div class="col-4"><span class="image fit"><img src="images_4/pic04.jpg" alt="" /></span></div>
+								<div class="col-4"><span class="image fit"><img src="images_4/pic03.jpg" alt="" /></span></div>
+								<div class="col-4"><span class="image fit"><img src="images_4/pic04.jpg" alt="" /></span></div>
+								<div class="col-4"><span class="image fit"><img src="images_4/pic02.jpg" alt="" /></span></div>
+								<div class="col-4"><span class="image fit"><img src="images_4/pic04.jpg" alt="" /></span></div>
+								<div class="col-4"><span class="image fit"><img src="images_4/pic02.jpg" alt="" /></span></div>
+								<div class="col-4"><span class="image fit"><img src="images_4/pic03.jpg" alt="" /></span></div>
+							</div>
+						</div>
+						<h5>Left &amp; Right</h5>
+						<p><span class="image left"><img src="images_4/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+						<p><span class="image right"><img src="images_4/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+					</section>
+
+				</div>
+			</section>
+		-->
+
+		<!-- Footer -->
+		
+			<section id="footer">
+				<!--
+				<ul class="icons">
+					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				-->
+				<ul class="icons">
+					<div>행복하게 잘 살겠습니다</div>
+					<div>감사합니다</div>
+				</ul>
+				<ul class="copyright">
+					<!-- <li>&copy; Untitled.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li> -->
+					<li><a href="info.html" class="icon brands fa-gratipay"><span class="label">Gratipay</span></a></li><li><a href="info.html">Kor Language</a></li>
+				</ul>
+			</section>
+		
+		<!-- Scripts -->
+			<script src="assets_4/js/jquery.min.js"></script>
+			<script src="assets_4/js/jquery.scrolly.min.js"></script>
+			<script src="assets_4/js/browser.min.js"></script>
+			<script src="assets_4/js/breakpoints.min.js"></script>
+			<script src="assets_4/js/util.js"></script>
+			<script src="assets_4/js/main.js"></script>
+
+			<!--
+				2. 설치 스크립트
+				* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+			-->
+			<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+			
+			<!-- 3. 실행 스크립트 -->
+			<script charset="UTF-8">
+				new daum.roughmap.Lander({
+					"timestamp" : "1767270522862",
+					"key" : "fa8ja5kzwor",
+					"mapHeight" : "360"
+				}).render();
+			</script>
+
+			<script>
+			function toggleAccounts() {
+			    var content = document.getElementById("accountList");
+			    var header = content.previousElementSibling; // card-header를 선택
+			
+			    // active 클래스 토글 (있으면 제거, 없으면 추가)
+			    content.classList.toggle("active");
+			    header.classList.toggle("active");
+			}
+			</script>
+
+			<script>
+			function toggleAccounts2() {
+			    var content = document.getElementById("accountList2");
+			    var header = content.previousElementSibling; // card-header를 선택
+			
+			    // active 클래스 토글 (있으면 제거, 없으면 추가)
+			    content.classList.toggle("active");
+			    header.classList.toggle("active");
+			}
+			</script>
+
+			<script>
+		        function bankAccountCopy(chk) {
+					var span_txt = "";
+					if(chk=='1') {
+						span_txt = document.getElementById("bankAccount1");
+					} else if (chk=='2') {
+						span_txt = document.getElementById("bankAccount2");
+					} else if (chk=='3') {
+						span_txt = document.getElementById("bankAccount3");
+					} else if (chk=='4') {
+						span_txt = document.getElementById("bankAccount4");
+					} else if (chk=='5') {
+						span_txt = document.getElementById("bankAccount5");
+					} else if (chk=='6') {
+						span_txt = document.getElementById("bankAccount6");
+					} else {
+						span_txt = "000000000000";
+					}
+				    // 2. data-copy-value 속성의 값 읽기
+				    const valueToCopy = span_txt.getAttribute("data-copy-value");
+				
+				    // 3. 클립보드로 복사
+				    navigator.clipboard.writeText(valueToCopy).then(() => {
+						copyAndShowToast(valueToCopy);
+				    }).catch(err => {
+				        copyAndShowToast("error");
+				    });
+				}
+
+				function copyAndShowToast(chk) {   
+					showToast(chk);
+				}
+		
+		        // 3. 토스트 알림 제어 함수
+		        function showToast(chk) {
+					var toast="";
+					if(chk=="error"){
+						toast = document.getElementById("toastErr");
+					} else {
+						toast = document.getElementById("toast");
+					}		     
+
+					const isAndroid = /Android/i.test(navigator.userAgent);
+
+					if (!isAndroid) {
+			            // 클래스 추가하여 나타나게 함
+			            toast.classList.add("show");
+			
+			            // 2초 뒤에 다시 사라지게 함 (2000ms)
+			            setTimeout(() => {
+			                toast.classList.remove("show");
+			            }, 2000);
+					}
+		        }
+		    </script>
+	</body>
+
+</html>
+
+
+
+
+
