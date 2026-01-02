@@ -173,12 +173,13 @@
 
 function validateChk() {
 	if(document.getElementById('wedding').value=="20260411"){
-		location.href = "Hoon-Hui_Memories.html";
+		location.href = "Hoon-Hui_Memories_eng.html";
 	}
 };
 
 function validateChk_kor() {
 	if(document.getElementById('wedding').value=="20260411"){
-		location.href = "Hoon-Hui_Memories_kor.html";
+		location.href = "Hoon-Hui_Memories.html";
 	}
 };
+
