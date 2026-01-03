@@ -78,6 +78,7 @@ input, select, textarea {
 			@-ms-viewport {
 				width: device-width;
 			}
+
 		*/
 
 	@media screen and (max-width: 480px) {
@@ -1104,7 +1105,7 @@ input, select, textarea {
 		position: absolute;
 		top: 0;
 		width: calc(100% - 22.5em);
-		height: 100%;
+		height: 100vh;
 		left: 0;
 	}
 
