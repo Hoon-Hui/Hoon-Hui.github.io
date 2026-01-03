@@ -1105,7 +1105,7 @@ input, select, textarea {
 		position: absolute;
 		top: 0;
 		width: calc(100% - 22.5em);
-		height: 100vh;
+		height: 100dvh;
 		left: 0;
 	}
 
@@ -1350,3 +1350,4 @@ input, select, textarea {
 				}
 
 		}
+
