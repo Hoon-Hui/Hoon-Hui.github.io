@@ -197,7 +197,7 @@ function blockPC() {
 
     // PC라고 판단되는 조건 (모바일 UA가 아니거나 터치를 지원하지 않을 때)
     if (!isMobileUA || !hasTouch) {
-        alert("알림: 보안 정책상 모바일 기기에서만 접속 가능합니다.");
+        alert("알림: 모바일 기기에서만 접속 가능합니다. 양해 부탁드립니다.");
         
         // 연결 실패 화면으로 즉시 교체
         document.documentElement.innerHTML = `
@@ -210,5 +210,6 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 }
+
 
 
