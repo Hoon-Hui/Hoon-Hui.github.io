@@ -52,7 +52,7 @@
 					k, v;
 
 			// Create BG wrapper, BGs.
-				/*
+				
 				$wrapper = document.createElement('div');
 					$wrapper.id = 'bg';
 					$body.appendChild($wrapper);
@@ -68,7 +68,7 @@
 					// Add it to array.
 						$bgs.push($bg);
 
-				} */
+				} 
 
 			// Main loop.
 				$bgs[pos].classList.add('visible');
@@ -183,5 +183,6 @@ function validateChk_kor() {
 		location.href = "Hoon-Hui_Memories.html";
 	}
 };
+
 
 
