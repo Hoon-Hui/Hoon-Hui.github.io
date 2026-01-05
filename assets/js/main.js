@@ -135,7 +135,6 @@
 					$message.classList.remove('visible');
 				};
 
-			/* 클릭 이벤트
 			// Events.
 			// Note: If you're *not* using AJAX, get rid of this event listener.
 				$form.addEventListener('submit', function(event) {
@@ -167,24 +166,21 @@
 						}, 750);
 
 				});
-				*/
 		})();
 
 
 })();
 
-/*
 function validateChk() {
-	if(document.getElementById('wedding').value=="20260411"){
+	//if(document.getElementById('wedding').value==""){
 		location.href = "Hoon-Hui_Memories_eng.html";
-	}
+	//}
 };
 
 function validateChk_kor() {
-	if(document.getElementById('wedding').value=="20260411"){
+	//if(document.getElementById('wedding').value==""){
 		location.href = "Hoon-Hui_Memories.html";
-	}
-};
+	//}
 */
 
 
