@@ -161,7 +161,7 @@
 								$submit.disabled = false;
 
 							// Show message.
-								$message._show('success', 'Sorry. not the correct day..');
+								//$message._show('success', 'Sorry. not the correct day..');
 								//$message._show('failure', 'Something went wrong. Please try again.');
 
 						}, 750);
@@ -210,6 +210,7 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 }
+
 
 
 
