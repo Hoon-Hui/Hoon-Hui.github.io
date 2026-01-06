@@ -4,29 +4,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-var main = (function($) { var _ = {
-
-	/**
-	 * Settings.
-	 * @var {object}
-	 */
-	settings: {
-		// Preload all images.
-			preload: false,
-
-		// Slide duration (must match "duration.slide" in _vars.scss).
-			slideDuration: 500,
-
-		// Layout duration (must match "duration.layout" in _vars.scss).
-			layoutDuration: 750,
-
-		// Thumbnails per "row" (must match "misc.thumbnails-per-row" in _vars.scss).
-			thumbnailsPerRow: 2,
-
-		// Side of main wrapper (must match "misc.main-side" in _vars.scss).
-			mainSide: 'right'
-
-	},
+var main = (function($) { 
 
 	$header1 = $('#header1'),
 	$header = $('#header'),
@@ -62,6 +40,30 @@ var main = (function($) { var _ = {
 		});
 
 	};
+	
+	var _ = {
+
+	/**
+	 * Settings.
+	 * @var {object}
+	 */
+	settings: {
+		// Preload all images.
+			preload: false,
+
+		// Slide duration (must match "duration.slide" in _vars.scss).
+			slideDuration: 500,
+
+		// Layout duration (must match "duration.layout" in _vars.scss).
+			layoutDuration: 750,
+
+		// Thumbnails per "row" (must match "misc.thumbnails-per-row" in _vars.scss).
+			thumbnailsPerRow: 2,
+
+		// Side of main wrapper (must match "misc.main-side" in _vars.scss).
+			mainSide: 'right'
+
+	},
 
 	/**
 	 * Window.
@@ -808,5 +810,6 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 };
+
 
 
