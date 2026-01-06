@@ -29,7 +29,7 @@
 				<!-- Thumbnail -->
 					<section id="thumbnails">
 						<article>
-							<a class="thumbnail" href="javascript:void(0);" onclick="moveAndRedirect('loveFrame', 'images_3/fulls/2_Palace/2.jpg')"><img src="images_3/fulls/2_Palace/1.jpg" alt="" /></a>
+							<a class="thumbnail" href="javascript:void(0);" onclick="moveAndLink(event, 'loveFrame', 'images_3/fulls/2_Palace/2.jpg')"><img src="images_3/fulls/2_Palace/1.jpg" alt="" /></a>
 							<!--
 							<h2>Diam tempus accumsan</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -80,27 +80,24 @@
 			<script src="assets_3/js/main.js"></script>
 
 			<script>
-			function moveAndRedirect(targetId, newUrl) {
-			    // 1. 부모 페이지(a.html)의 특정 ID 위치로 부드럽게 스크롤
-			    if (parent && parent.document) {
-			        const target = parent.document.getElementById(targetId);
-			        if (target) {
-			            target.scrollIntoView({ behavior: 'smooth' });
-			        }
-			    }
-			
-			    // 2. 약간의 지연 시간 후(스크롤되는 모습을 보여주기 위해)
-			    // iframe 자신의 주소를 변경 (window.location 사용)
-			    setTimeout(() => {
-			        window.location.href = newUrl;
-			    }, 1000); // 1초 후 이동	
-			}
+			function moveAndLink(event, id, newHref) {
+	            // 1. 기본 링크 동작 방지
+	            event.preventDefault();
+	
+	            // 2. 부모 창의 특정 ID로 스크롤 이동
+	            // parent.location.hash를 사용하면 페이지 새로고침 없이 ID 위치로 이동합니다.
+	            parent.location.hash = id;
+	
+	            // 3. 현재 iframe의 페이지 이동
+	            window.location.href = newHref;
+	        }
 			</script>
 
 		
 	</body>
 
 </html>
+
 
 
 
