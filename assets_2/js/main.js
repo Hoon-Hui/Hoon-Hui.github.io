@@ -352,7 +352,7 @@ function blockPC() {
         alert("알림: 모바일 기기에서만 접속 가능합니다. 양해 부탁드립니다.");
         
         // 연결 실패 화면으로 즉시 교체
-        document.documentElement.innerHTML = '
+        document.documentElement.innerHTML = `
             <div style="display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column;">
                 <h1 style="color:Gray;">Access Denied</h1>
                 <p>PC 접속이 감지되어 연결이 차단되었습니다.</p>
@@ -360,10 +360,11 @@ function blockPC() {
 				<p>감사합니다.</p>
                 <button onclick="location.reload()">다시 시도</button>
             </div>
-        ' ;
+        `;
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 };
+
 
 
 
