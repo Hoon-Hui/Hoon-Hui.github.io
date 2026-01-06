@@ -28,7 +28,7 @@
 					<nav id="menu">
 						<ul class="actions stacked">
 							<li><a href="index.html" class="button primary fit">[ 첫 화 면 으 로 ]</a></li>
-							<li><a href="#one" class="button fit">♥ 안 내 사 항 ♥</a></li>
+							<li><a href="info.html" class="button fit">♥ 안 내 사 항 ♥</a></li>
 						</ul>
 						<ul class="links">
 							<li><a href="Hoon-Hui_in_Studio.html">1. 스튜디오에서</a></li>
@@ -64,11 +64,22 @@
 			    const loveFrame = document.getElementById('loveFrame');
 			
 			    // 3. 변수값에 따라 주소 설정
-			    if (navi === '1') {
-			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Palace.html";
+			    if (navi === '0') {
+			        loveFrame.src = "https://hoon-hui.github.io/info.html";
+			    } else if (navi === '1') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Studio.html";
 			    } else if (navi === '2') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Palace.html";
+			    } else if (navi === '3') {
 			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Beach.html";
-			    }
+			    } else if (navi === '4') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Park.html";
+			    } else if (navi === '5') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_OtherPlace.html";
+			    } else {
+					alert("잘못된 값입니다. 메인 페이지로 이동합니다.");
+					loveFrame.src = "https://hoon-hui.github.io/";
+				}
 			</script>
 
 	</body>
