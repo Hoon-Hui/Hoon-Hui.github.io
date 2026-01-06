@@ -42,7 +42,7 @@
 				<!-- Banner -->
 					<section id="banner" class="major" style="height: 100vh; width: 100vw;">
 						<div class="inner" style="height: 100vh; width: 100vw;">
-							<iframe id="loveFrame" style="height: 100vh; width: 100vw;" src="https://hoon-hui.github.io/Hoon-Hui_in_Palace.html"></iframe>
+							<iframe id="loveFrame" style="height: 100vh; width: 100vw;"></iframe>
 						</div>
 					</section>
 
@@ -54,6 +54,22 @@
 			<script src="assets_2/js/breakpoints.min.js"></script>
 			<script src="assets_2/js/util.js"></script>
 			<script src="assets_2/js/main.js"></script>
+
+			<script>
+			    // 1. URL에서 파라미터 읽기 (예: target.html?type=1)
+			    const urlParams = new URLSearchParams(window.location.search);
+			    const navi = urlParams.get('navi');
+			
+			    // 2. iframe 요소 가져오기
+			    const loveFrame = document.getElementById('loveFrame');
+			
+			    // 3. 변수값에 따라 주소 설정
+			    if (navi === '1') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Palace.html";
+			    } else if (navi === '2') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Beach.html";
+			    }
+			</script>
 
 	</body>
 
