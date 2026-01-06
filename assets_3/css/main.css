@@ -1106,7 +1106,7 @@ input, select, textarea {
 		top: 0;
 		width: calc(100% - 22.5em);
 		/* height: 100dvh; */
-		height: calc(100% - 5em);
+		height: calc(100% - 10em);
 		left: 0;
 	}
 
@@ -1351,6 +1351,7 @@ input, select, textarea {
 				}
 
 		}
+
 
 
 
