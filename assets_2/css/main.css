@@ -32,10 +32,6 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
-	overflow: hidden; /* 스크롤바 숨김 */
-    position: fixed; /* 뷰포트에 본문 고정 */
-    width: 100%;
-    height: 100%; /* 뷰포트 높이만큼 설정 */
 }
 
 ol, ul {
@@ -3970,6 +3966,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
 
