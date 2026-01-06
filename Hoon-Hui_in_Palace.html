@@ -81,18 +81,19 @@
 
 			<script>
 			function moveAndRedirect(id, url) {
-			    // 1. 부모 페이지(a.html)의 특정 ID 요소를 찾음
-			    const target = parent.document.getElementById(id);
-			    
-			    if (target) {
-			        // 2. 부모 페이지 해당 위치로 스크롤
-			        target.scrollIntoView({ behavior: 'smooth' });
-			
-			        // 3. 1초 대기 후 URL 이동 (이동 과정을 보여주기 위함)
-			        setTimeout(() => {
-			            parent.location.href = url;
-			        }, 1000);
+			    // 1. 부모 페이지(a.html)의 특정 ID 위치로 부드럽게 스크롤
+			    if (parent && parent.document) {
+			        const target = parent.document.getElementById(targetId);
+			        if (target) {
+			            target.scrollIntoView({ behavior: 'smooth' });
+			        }
 			    }
+			
+			    // 2. 약간의 지연 시간 후(스크롤되는 모습을 보여주기 위해)
+			    // iframe 자신의 주소를 변경 (window.location 사용)
+			    setTimeout(() => {
+			        window.location.href = newUrl;
+			    }, 1000); // 1초 후 이동	
 			}
 			</script>
 
@@ -100,6 +101,7 @@
 	</body>
 
 </html>
+
 
 
 
