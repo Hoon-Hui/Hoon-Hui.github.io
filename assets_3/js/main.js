@@ -179,7 +179,7 @@ var main = (function($) { var _ = {
 
 			// Remove is-preload-* classes on load.
 				_.$window.on('load', function() {
-					blockPC();
+					//blockPC();
 					_.$body.removeClass('is-preload-0');
 
 					window.setTimeout(function() {
@@ -773,6 +773,7 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 };
+
 
 
 
