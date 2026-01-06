@@ -81,6 +81,7 @@
 
 			<script>
 			function moveParentAndJump(event) {
+				event.preventDefault();
 	            // 1. 부모 창의 주소에 #targetSection을 추가하여 해당 ID 위치로 스크롤 이동
 	            parent.location.hash = "targetSection";
 	        }
@@ -90,6 +91,7 @@
 	</body>
 
 </html>
+
 
 
 
