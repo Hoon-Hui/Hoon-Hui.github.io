@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe 사용 예제</title>
+    <style>
+        /* 반응형을 위한 스타일링 */
+        .iframe-container {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        iframe {
+            border: none; /* 테두리 제거 */
+            width: 100%;  /* 너비를 부모 요소에 맞춤 */
+            max-width: 800px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>iframe 사용법 예제</h1>
+
+    <!-- 1. 기본 웹페이지 삽입 -->
+    <div class="iframe-container">
+        <h2>1. 일반 웹페이지 삽입 (예: 위키백과)</h2>
+        <iframe 
+            src="https://ko.m.wikipedia.org" 
+            height="400" 
+            title="위키백과 모바일"
+            loading="lazy">
+        </iframe>
+        <p>* 일부 사이트는 보안 정책상 표시되지 않을 수 있습니다.</p>
+    </div>
+
+    <!-- 2. 유튜브 영상 삽입 -->
+    <div class="iframe-container">
+        <h2>2. YouTube 영상 삽입</h2>
+        <!-- 유튜브 주소에서 'watch?v=' 부분을 'embed/'로 바꿔야 합니다. -->
+        <iframe 
+            width="560" 
+            height="315" 
+            src="www.youtube.com" 
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- 3. 보안을 강화한 (sandbox) 삽입 -->
+    <div class="iframe-container">
+        <h2>3. 보안 설정(sandbox) 적용 예시</h2>
+        <iframe 
+            src="about:blank" 
+            height="100" 
+            sandbox="allow-scripts"
+            title="보안 적용 프레임">
+        </iframe>
+        <p>sandbox 속성을 사용하면 스크립트 실행이나 폼 제출 등을 제한할 수 있습니다.</p>
+    </div>
+
+</body>
+</html>
