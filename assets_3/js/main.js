@@ -28,6 +28,40 @@ var main = (function($) { var _ = {
 
 	},
 
+	$header1 = $('#header1'),
+
+	// Scrolly.
+	$('.scrolly').scrolly({
+		offset: function() {
+			return $header1.height() - 2;
+		}
+	}),
+
+		// Header.
+		if ($header.length > 0
+		&&	$header1.hasClass('alt')) {
+
+			$window.on('resize', function() {
+				$window.trigger('scroll');
+			});
+
+			$window.on('load', function() {
+
+				$header.scrollex({
+					bottom:		$header.height() + 10,
+					terminate:	function() { $header1.removeClass('alt'); },
+					enter:		function() { $header1.addClass('alt'); },
+					leave:		function() { $header1.removeClass('alt'); $header1.addClass('reveal'); }
+				});
+
+				window.setTimeout(function() {
+					$window.triggerHandler('scroll');
+				}, 100);
+
+			});
+
+		}
+
 	/**
 	 * Window.
 	 * @var {jQuery}
@@ -773,3 +807,4 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 };
+
