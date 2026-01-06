@@ -3,42 +3,6 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
-(function($) {
-	$header1 = $('#header1'),
-	$header = $('#header'),
-
-	// Scrolly.
-	$('.scrolly').scrolly({
-		offset: function() {
-			return $header1.height() - 2;
-		}
-	});
-
-	// Header.
-	if ($header.length > 0
-	&&	$header1.hasClass('alt')) {
-
-		$window.on('resize', function() {
-			$window.trigger('scroll');
-		});
-
-		$window.on('load', function() {
-
-			$header.scrollex({
-				bottom:		$header.height() + 10,
-				terminate:	function() { $header1.removeClass('alt'); },
-				enter:		function() { $header1.addClass('alt'); },
-				leave:		function() { $header1.removeClass('alt'); $header1.addClass('reveal'); }
-			});
-
-			window.setTimeout(function() {
-				$window.triggerHandler('scroll');
-			}, 100);
-
-		});
-
-	};
-})(jQuery);
 
 var main = (function($) { var _ = {
 
@@ -809,6 +773,7 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 };
+
 
 
 
