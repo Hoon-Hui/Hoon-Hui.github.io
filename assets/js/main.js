@@ -208,10 +208,11 @@ function blockPC() {
 				<p>감사합니다.</p>
                 <button onclick="location.reload()">다시 시도</button>
             </div>
-        `;
+        ;
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
-}
+};
+
 
 
 
