@@ -29,7 +29,7 @@
 				<!-- Thumbnail -->
 					<section id="thumbnails">
 						<article>
-							<a class="thumbnail" href="images_3/fulls/2_Palace/1.jpg"><img src="images_3/fulls/2_Palace/1.jpg" alt="" /></a>
+							<a class="thumbnail" href="javascript:void(0);" onclick="moveAndRedirect('loveFrame', 'images_3/fulls/2_Palace/2.jpg')"><img src="images_3/fulls/2_Palace/1.jpg" alt="" /></a>
 							<!--
 							<h2>Diam tempus accumsan</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -79,9 +79,28 @@
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
 
+			<script>
+			function moveAndRedirect(id, url) {
+			    // 1. 부모 페이지(a.html)의 특정 ID 요소를 찾음
+			    const target = parent.document.getElementById(id);
+			    
+			    if (target) {
+			        // 2. 부모 페이지 해당 위치로 스크롤
+			        target.scrollIntoView({ behavior: 'smooth' });
+			
+			        // 3. 1초 대기 후 URL 이동 (이동 과정을 보여주기 위함)
+			        setTimeout(() => {
+			            parent.location.href = url;
+			        }, 1000);
+			    }
+			}
+			</script>
+
+		
 	</body>
 
 </html>
+
 
 
 
