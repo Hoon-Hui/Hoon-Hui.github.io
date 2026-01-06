@@ -11,6 +11,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets_2/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets_2/css/noscript.css" /></noscript>
+
+		<style>
+		    /* 헤더를 화면 상단에 고정 */
+		    #header {
+		        position: fixed;
+		        top: 0;
+		        left: 0;
+		        width: 100%;
+		        z-index: 10000; /* 다른 요소보다 위에 보이게 설정 */
+		        background-color: rgba(36, 41, 67, 0.9); /* 배경색이 투명할 경우 글자가 겹쳐 보이므로 색상 지정 (필요시 수정) */
+		    }
+		
+		    /* 헤더가 고정되면서 본문 내용이 가려지지 않도록 여백 조정 */
+		    #wrapper {
+		        padding-top: 4em !important; /* 헤더 높이만큼 여백 확보 */
+		    }
+		</style>
 	</head>
 	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 		<!-- Wrapper -->
