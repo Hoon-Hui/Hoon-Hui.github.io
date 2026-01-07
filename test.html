@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Hoon & Hui Memories</title>
+		<meta charset="utf-8" http-equiv="refresh"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets_2/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets_2/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+		<!-- Wrapper -->
+			<div id="wrapper" style="height: 100vh; width: 100vw; padding-top: 1.8em;">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="#" class="logo"><strong>용훈 & 소희</strong> <span>Memories</span></a>
+						<nav>
+							<a href="#menu">Navi</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="actions stacked">
+							<li><a href="index.html" class="button primary fit">[ 첫 화 면 으 로 ]</a></li>
+							<li><a href="navi.html?navi=0" class="button fit">♥ 안 내 사 항 ♥</a></li>
+						</ul>
+						<ul class="links">
+							<li><a href="navi.html?navi=1">1. 스튜디오에서</a></li>
+							<li><a href="navi.html?navi=2">2. 고궁에서</a></li>
+							<li><a href="navi.html?navi=3">3. 해변에서</a></li>
+							<li><a href="navi.html?navi=4">4. 공원에서</a></li>
+							<li><a href="navi.html?navi=5">5. 또 다른 어딘가</a></li>
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" class="major" style="height: 100vh; width: 100vw;">
+						<div class="inner" style="height: 100vh; width: 100vw;">
+							<iframe id="loveFrame" style="height: 100vh; width: 100vw;"></iframe>
+						</div>
+					</section>
+			</div>
+		<!-- Scripts -->
+			<script src="assets_2/js/jquery.min.js"></script>
+			<script src="assets_2/js/jquery.scrolly.min.js"></script>
+			<script src="assets_2/js/jquery.scrollex.min.js"></script>
+			<script src="assets_2/js/browser.min.js"></script>
+			<script src="assets_2/js/breakpoints.min.js"></script>
+			<script src="assets_2/js/util.js"></script>
+			<script src="assets_2/js/main.js"></script>
+
+			<script>
+			    // 1. URL에서 파라미터 읽기 (예: target.html?type=1)
+			    const urlParams = new URLSearchParams(window.location.search);
+			    const navi = urlParams.get('navi');
+			
+			    // 2. iframe 요소 가져오기
+			    const loveFrame = document.getElementById('loveFrame');
+			
+			    // 3. 변수값에 따라 주소 설정
+			    if (navi === '0') {
+			        loveFrame.src = "https://hoon-hui.github.io/info.html";
+			    } else if (navi === '1') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Studio.html";
+			    } else if (navi === '2') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Palace.html";
+			    } else if (navi === '3') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Beach.html";
+			    } else if (navi === '4') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Park.html";
+			    } else if (navi === '5') {
+			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_OtherPlace.html";
+			    } else {
+					alert("잘못된 값입니다. 메인 페이지로 이동합니다.");
+					loveFrame.src = "https://hoon-hui.github.io/";
+				}
+			</script>
+
+	</body>
+
+</html>
