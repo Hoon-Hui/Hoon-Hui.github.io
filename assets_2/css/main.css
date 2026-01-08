@@ -3759,10 +3759,17 @@ input, select, textarea {
 /* Wrapper */
 
 	#wrapper {
+		/*
 		-moz-transition: -moz-filter 0.35s ease, -webkit-filter 0.35s ease, opacity 0.375s ease-out;
 		-webkit-transition: -webkit-filter 0.35s ease, -webkit-filter 0.35s ease, opacity 0.375s ease-out;
 		-ms-transition: -ms-filter 0.35s ease, -webkit-filter 0.35s ease, opacity 0.375s ease-out;
 		transition: filter 0.35s ease, -webkit-filter 0.35s ease, opacity 0.375s ease-out;
+		padding-top: 3.25em;
+		*/
+		-moz-transition: -moz-filter 0.15s ease, -webkit-filter 0.15s ease, opacity 0.175s ease-out;
+		-webkit-transition: -webkit-filter 0.15s ease, -webkit-filter 0.15s ease, opacity 0.175s ease-out;
+		-ms-transition: -ms-filter 0.15s ease, -webkit-filter 0.15s ease, opacity 0.175s ease-out;
+		transition: filter 0.15s ease, -webkit-filter 0.15s ease, opacity 0.175s ease-out;
 		padding-top: 3.25em;
 	}
 
@@ -3966,6 +3973,7 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
 
