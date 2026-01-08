@@ -1292,10 +1292,10 @@ input, select, textarea {
 			}
 
 				#viewer .inner .toggle {
-					-moz-transition: opacity 0.75s ease;
-					-webkit-transition: opacity 0.75s ease;
-					-ms-transition: opacity 0.75s ease;
-					transition: opacity 0.75s ease;
+					-moz-transition: opacity 1.75s ease;
+					-webkit-transition: opacity 1.75s ease;
+					-ms-transition: opacity 1.75s ease;
+					transition: opacity 1.75s ease;
 					background-image: url("images/open.svg");
 					opacity: 0;
 					right: 0;
@@ -1353,4 +1353,3 @@ input, select, textarea {
 				}
 
 		}
-
