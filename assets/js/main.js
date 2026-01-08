@@ -33,8 +33,8 @@
 		(function() {
 
 			// Settings.
-			/*
 				var settings = {
+					/*
 
 					// Images (in the format of 'url': 'alignment').
 						images: {
@@ -46,8 +46,9 @@
 					// Delay.
 						delay: 6000
 
+					*/	
+
 				};
-			*/
 			// Vars.
 				var	pos = 0, lastPos = 0,
 					$wrapper, $bgs = [], $bg,
@@ -213,6 +214,7 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단.
     }
 };
+
 
 
 
