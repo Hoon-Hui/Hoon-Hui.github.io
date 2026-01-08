@@ -824,12 +824,10 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		/*
 		-moz-transition: opacity 0.75s ease, right 0.75s ease, left 0.75s ease, visibility 0.75s;
 		-webkit-transition: opacity 0.75s ease, right 0.75s ease, left 0.75s ease, visibility 0.75s;
 		-ms-transition: opacity 0.75s ease, right 0.75s ease, left 0.75s ease, visibility 0.75s;
-		transition: opacity 0.75s ease, right 0.75s ease, left 0.75s ease, visibility 0.75s;
-		*/		
+		transition: opacity 0.75s ease, right 0.75s ease, left 0.75s ease, visibility 0.75s;		
 		-webkit-overflow-scrolling: touch;
 		position: fixed;
 		top: 0;
@@ -993,12 +991,10 @@ input, select, textarea {
 
 				#thumbnails article .thumbnail:before {
 					pointer-events: none;
-					/*
 					-moz-transition: opacity 0.25s ease;
 					-webkit-transition: opacity 0.25s ease;
 					-ms-transition: opacity 0.25s ease;
 					transition: opacity 0.25s ease;
-					*/
 					content: '';
 					position: absolute;
 					left: 0;
@@ -1351,4 +1347,3 @@ input, select, textarea {
 				}
 
 		}
-
