@@ -38,9 +38,11 @@
 
 					// Images (in the format of 'url': 'alignment').
 						images: {
+							/*
 							'images/bg01.jpg': 'center',
 							'images/bg02.jpg': 'center',
 							'images/bg03.jpg': 'center'
+							*/
 						},
 
 					// Delay.
@@ -214,6 +216,7 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단.
     }
 };
+
 
 
 
