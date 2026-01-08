@@ -829,10 +829,17 @@ input, select, textarea {
 /* Main */
 
 	#main {
+		/*
 		-moz-transition: opacity 0.75s ease, right 0.75s ease, left 0.75s ease, visibility 0.75s;
 		-webkit-transition: opacity 0.75s ease, right 0.75s ease, left 0.75s ease, visibility 0.75s;
 		-ms-transition: opacity 0.75s ease, right 0.75s ease, left 0.75s ease, visibility 0.75s;
 		transition: opacity 0.75s ease, right 0.75s ease, left 0.75s ease, visibility 0.75s;
+		*/
+		-moz-transition: opacity 0.15s ease, right 0.15s ease, left 0.15s ease, visibility 0.15s;
+		-webkit-transition: opacity 0.15s ease, right 0.15s ease, left 0.15s ease, visibility 0.15s;
+		-ms-transition: opacity 0.15s ease, right 0.15s ease, left 0.15s ease, visibility 0.15s;
+		transition: opacity 0.15s ease, right 0.15s ease, left 0.15s ease, visibility 0.15s;
+		
 		-webkit-overflow-scrolling: touch;
 		position: fixed;
 		top: 0;
@@ -1351,6 +1358,7 @@ input, select, textarea {
 				}
 
 		}
+
 
 
 
