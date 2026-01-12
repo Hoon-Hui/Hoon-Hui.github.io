@@ -44,15 +44,6 @@
 		<!-- Scripts -->
 			<script src="assets/js/main.js"></script>
 			<script>	
-				window.addEventListener("load", () => {
-				    if (!sessionStorage.getItem("reloaded")) {
-				        sessionStorage.setItem("reloaded", "true");
-				        location.reload();
-				    } else {
-				        sessionStorage.removeItem("reloaded"); // 다음번 방문엔 다시 reload 안 함
-				    }
-				});
-				
 				function toggleMusic() {					
 					var audio = document.getElementById("myAudio");
 					var gif = document.getElementById("gifMusic");
