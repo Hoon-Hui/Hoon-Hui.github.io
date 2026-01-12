@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.toggleMusic = function () {
         if (audio.paused) {
-            audio.play();
+            fadeIn(audio, 0.25, 0.05);
             localStorage.setItem(STORAGE_STATE, "true");
         } else {
             audio.pause();
@@ -26,24 +26,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // 재생 중일 때 현재 시간 저장 (1초마다)
+    // 재생 중일 때 현재 시간 저장
     setInterval(() => {
         if (!audio.paused) {
             localStorage.setItem(STORAGE_TIME, audio.currentTime);
         }
     }, 1000);
 
-    // 로드시 복구
+    // 페이지 로드 시 복구
     const savedTime = localStorage.getItem(STORAGE_TIME);
     const wasPlaying = localStorage.getItem(STORAGE_STATE) === "true";
 
     if (savedTime) {
-        audio.currentTime = parseFloat(savedTime);
+        audio.addEventListener("loadedmetadata", () => {
+            audio.currentTime = parseFloat(savedTime);
+        });
     }
 
-    // 모바일 정책: 사용자 제스처 필요
+    // 모바일/Chrome 정책: 사용자 터치 필요
     const resumeMusic = () => {
-        if (wasPlaying) audio.play();
+        if (wasPlaying) fadeIn(audio, 0.25, 0.05);
         updateIcon();
         document.removeEventListener("touchstart", resumeMusic);
         document.removeEventListener("click", resumeMusic);
@@ -56,4 +58,19 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.addEventListener("pause", updateIcon);
 
     updateIcon();
+
+    // 페이드 인 함수
+    function fadeIn(audioEl, targetVol = 0.25, step = 0.05, interval = 100) {
+        audioEl.volume = 0;
+        audioEl.play();
+        let vol = 0;
+        const fade = setInterval(() => {
+            vol += step;
+            if (vol >= targetVol) {
+                vol = targetVol;
+                clearInterval(fade);
+            }
+            audioEl.volume = vol;
+        }, interval);
+    }
 });
