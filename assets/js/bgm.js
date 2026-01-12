@@ -1,27 +1,28 @@
-<script>
-const BGM_SRC = "music.mp3";
-const BGM_VOLUME = 0.3;
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("myAudio");
+    const gifMusic = document.getElementById("gifMusic");
+    const pngMusic = document.getElementById("pngMusic");
 
-let bgm = new Audio(BGM_SRC);
-bgm.loop = true;
-bgm.volume = BGM_VOLUME;
+    function updateIcon() {
+        if (audio.paused) {
+            gifMusic.style.display = "none";
+            pngMusic.style.display = "block";
+        } else {
+            gifMusic.style.display = "block";
+            pngMusic.style.display = "none";
+        }
+    }
 
-// 재생 위치 저장
-bgm.addEventListener("timeupdate", () => {
-    localStorage.setItem("bgmTime", bgm.currentTime);
-    localStorage.setItem("bgmPlaying", !bgm.paused);
+    window.toggleMusic = function () {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    };
+
+    audio.addEventListener("play", updateIcon);
+    audio.addEventListener("pause", updateIcon);
+
+    updateIcon();
 });
-
-// 페이지 로드 시 복구
-window.addEventListener("load", () => {
-    const savedTime = localStorage.getItem("bgmTime");
-    const wasPlaying = localStorage.getItem("bgmPlaying") === "true";
-
-    if (savedTime) bgm.currentTime = parseFloat(savedTime);
-
-    // 최초 1회 사용자 클릭 필요
-    document.body.addEventListener("click", () => {
-        if (wasPlaying) bgm.play();
-    }, { once: true });
-});
-</script>
