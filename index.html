@@ -17,10 +17,10 @@
 		<!-- Background Video-->
         <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="images/main.mp4" type="video/mp4" /></video>
 		<div class="gif-container" onclick="toggleMusic()" style="cursor:pointer;">
-			<audio id="myAudio" src="images/music.mp3" autoplay="autoplay" loop="loop"></audio>
+			<audio id="myAudio" src="images/music.mp3" loop></audio>
 			<img id="gifMusic" src="images/gifMusic.gif" alt="재생" width="30" height="30" style="display:none;">
 			<img id="pngMusic" src="images/pngMusic.png" alt="정지" width="30" height="30">
-			<span id="toast">&nbsp; &nbsp;아이콘을 누르면 음악이 재생됩니다</span>
+			<span id="toast">아이콘을 누르면 음악이 재생됩니다</span>
 		</div>
 		<!-- Header -->
 			<header id="header">
@@ -67,7 +67,7 @@
 			
 					setTimeout(() => {
 						toast.classList.remove("show");
-					}, 3000);
+					}, 2000);
 				}
 				
 				window.addEventListener("load", showToast);
