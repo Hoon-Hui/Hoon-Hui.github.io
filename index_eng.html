@@ -20,6 +20,7 @@
 			<audio id="myAudio" src="images/music.mp3" autoplay="autoplay" loop="loop"></audio>
 			<img id="gifMusic" src="images/gifMusic.gif" alt="재생" width="30" height="30" style="display:none;">
 			<img id="pngMusic" src="images/pngMusic.png" alt="정지" width="30" height="30">
+			<span id="toast">&nbsp; &nbsp;아이콘을 누르면 음악이 재생됩니다</span>
 		</div>
 		<!-- Header -->
 			<header id="header">
@@ -42,26 +43,11 @@
 		
 		<!-- Scripts -->
 			<script src="assets/js/main.js"></script>
-			<script>				
-				function toggleMusic() {					
-					var audio = document.getElementById("myAudio");
-					var gif = document.getElementById("gifMusic");
-					var png = document.getElementById("pngMusic");
-					
-				    if (audio.paused) {
-				        audio.play();
-				        gif.style.display = "block";  // 움직이는 아이콘 보이기
-				        png.style.display = "none";   // 멈춘 아이콘 숨기기
-				    } else {
-				        audio.pause();
-				        gif.style.display = "none";   // 움직이는 아이콘 숨기기
-				        png.style.display = "block";  // 멈춘 아이콘 보이기
-				    }
-				}
-			</script>
+			<script src="assets/js/bgm.js"></script>
 	</body>
 
 </html>
+
 
 
 
