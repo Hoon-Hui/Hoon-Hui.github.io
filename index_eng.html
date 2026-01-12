@@ -5,10 +5,22 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			.gif-container {
+	            position: fixed;    /* 화면에 고정 */
+	            top: 20px;          /* 위에서 20px 띄움 */
+	            left: 20px;        /* 왼쪽에서 20px 띄움 */
+	        }
+		</style>
 	</head>
 	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 		<!-- Background Video-->
         <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="images/main.mp4" type="video/mp4" /></video>
+		<div class="gif-container" onclick="toggleMusic()" style="cursor:pointer;">
+			<audio id="myAudio" src="images/music.mp3" autoplay loop></audio>
+			<img id="gifMusic" src="images/gifMusic.gif" alt="재생" width="30" height="30" style="display:none;">
+			<img id="pngMusic" src="images/pngMusic.png" alt="정지" width="30" height="30">
+		</div>
 		<!-- Header -->
 			<header id="header">
 				<h1>Our journey begins</h1>
@@ -30,6 +42,24 @@
 		
 		<!-- Scripts -->
 			<script src="assets/js/main.js"></script>
+			<script>				
+				function toggleMusic() {					
+					var audio = document.getElementById("myAudio");
+					var gif = document.getElementById("gifMusic");
+					var png = document.getElementById("pngMusic");
+					
+				    if (audio.paused) {
+				        audio.play();
+				        gif.style.display = "block";  // 움직이는 아이콘 보이기
+				        png.style.display = "none";   // 멈춘 아이콘 숨기기
+				    } else {
+				        audio.pause();
+				        gif.style.display = "none";   // 움직이는 아이콘 숨기기
+				        png.style.display = "block";  // 멈춘 아이콘 보이기
+				    }
+				}
+			</script>
 	</body>
 
 </html>
+
