@@ -20,7 +20,7 @@
 			<audio id="myAudio" src="images/music.mp3" autoplay loop></audio>
 			<img id="gifMusic" src="images/gifMusic.gif" alt="재생" width="30" height="30" style="display:none;">
 			<img id="pngMusic" src="images/pngMusic.png" alt="정지" width="30" height="30">
-			<span id="toast">복사 되었습니다!</span>
+			<span id="toast">&nbsp; &nbsp;아이콘은 누르면 음악이 재생됩니다</span>
 		</div>
 		<!-- Header -->
 			<header id="header">
@@ -60,6 +60,17 @@
 				        png.style.display = "block";  // 멈춘 아이콘 보이기
 				    }
 				}
+
+				function showToast() {
+					var toast = document.getElementById("toast");
+					toast.classList.add("show");
+			
+					setTimeout(() => {
+						toast.classList.remove("show");
+					}, 3000);
+				}
+				
+				window.addEventListener("load", a);
 			</script>
 	</body>
 
