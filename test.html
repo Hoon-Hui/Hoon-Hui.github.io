@@ -15,9 +15,10 @@
 		<!-- Background Video-->
         <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="images/main.mp4" type="video/mp4" /></video>
 
-		<div class="gif-container">
-			<img id="gifMusic" src="images/gif_music.gif" alt="음악 상태에 따라 변경되는 이미지" width="30" height="30">
-			<img id="jpgMusic" src="images/jpg_music.jpg" alt="음악 상태에 따라 변경되는 이미지" width="30" height="30">
+		<div class="gif-container" onclick="toggleMusic()" style="cursor:pointer;">
+			<audio id="myAudio" src="images/music.mp3" autoplay loop></audio>
+			<img id="gifMusic" src="images/gif_music.gif" alt="재생" width="30" height="30">
+			<img id="jpgMusic" src="images/jpg_music.jpg" alt="정지" width="30" height="30" style="display:none;">
 		</div>
 		<!-- Header -->
 			<header id="header">
@@ -41,6 +42,23 @@
 		
 		<!-- Scripts -->
 			<script src="assets/js/main.js"></script>
+			<script>
+				function toggleMusic() {
+				    var audio = document.getElementById("myAudio");
+				    var gif = document.getElementById("gifMusic");
+				    var jpg = document.getElementById("jpgMusic");
+				
+				    if (audio.paused) {
+				        audio.play();
+				        gif.style.display = "block";  // 움직이는 아이콘 보이기
+				        jpg.style.display = "none";   // 멈춘 아이콘 숨기기
+				    } else {
+				        audio.pause();
+				        gif.style.display = "none";   // 움직이는 아이콘 숨기기
+				        jpg.style.display = "block";  // 멈춘 아이콘 보이기
+				    }
+				}
+			</script>
 	</body>
 
 </html>
