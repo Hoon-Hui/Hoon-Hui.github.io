@@ -794,7 +794,7 @@ button,
 
 @media screen and (max-width: 480px) {
   #header {
-    margin: 0 0 0em 0; } }
+    margin: 15em 0 0em 0; } }
 
 /* Signup Form */
 #signup-form {
@@ -925,3 +925,4 @@ video.bg-video {
 	opacity: 1;
 	top: 50px;
 }
+
