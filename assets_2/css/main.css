@@ -3394,7 +3394,7 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		padding: 6em 0 2em 0 ;
+		/* padding: 6em 0 2em 0 ; */
 		background-attachment: fixed;
 		background-position: right;
 		background-repeat: no-repeat;
@@ -3491,7 +3491,7 @@ input, select, textarea {
 				}
 
 		#banner.major {
-			height: 75vh;
+			height: 100dvh;
 			min-height: 30em;
 			max-height: 50em;
 		}
@@ -3548,6 +3548,7 @@ input, select, textarea {
 
 		}
 
+		/*
 		@media screen and (max-width: 736px) {
 
 			#banner {
@@ -3573,28 +3574,31 @@ input, select, textarea {
 					}
 
 				#banner.major {
-					height: auto;
+					/* height: auto; */
 					min-height: 0;
 					max-height: none;
 				}
 
 		}
+		*/
 
+		/*
 		@media screen and (max-width: 480px) {
-
+			
 			#banner {
 				padding: 6em 0 0 0 ;
 			}
-				/*
+				
 				#banner > .inner .content p br {
 					display: none;
 				}
-				*/
+				
 				#banner.major {
-					padding: 8em 0 0 0 ;
+					padding: 11em 0 0 0 ;
 				}
 
 		}
+		*/
 
 /* Main */
 
@@ -3962,4 +3966,5 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
