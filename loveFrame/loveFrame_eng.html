@@ -1,25 +1,24 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>용훈 & 소희 청첩장</title>
+		<title>Hoon & Hui invitation</title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets_2/css/main.css" />
 		<noscript><link rel="stylesheet" href="/assets_2/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="/assets_2/css/sakura.min.css">
-		<link rel="prefetch" href="/assets/js/images2.json" as="fetch">
 	</head>
 	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 		<!-- Wrapper -->
 			<div id="wrapper" style="height: 100dvh;">
 
-				<!-- Header -->
+				<!-- Header -->				
 					<header id="header" class="alt">
-						<a href="/index.html" class="logo"><strong>용훈 & 소희</strong> <span>청첩장</span></a>
+						<a href="/index_eng.html" class="logo"><strong>Hoon & Hui</strong> <span>invitation</span></a>
 						<span class="gif-container" onclick="toggleMusic()" style="cursor:pointer;">
 							<audio id="myAudio" src="/images/music.mp3" autoplay loop></audio>
-							<img id="gifMusic" src="/images/gifMusic.gif" alt="재생" width="35" height="35">
-							<img id="pngMusic" src="/images/pngMusic.png" alt="정지" width="35" height="35" style="display:none;">
+							<img id="gifMusic" src="/images/gifMusic.gif" alt="start" width="35" height="35">
+							<img id="pngMusic" src="/images/pngMusic.png" alt="stop" width="35" height="35" style="display:none;">
 						</span>
 						<nav>
 							<a href="#menu">Navi</a>
@@ -29,21 +28,21 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="actions stacked">
-							<li><a href="/index.html" class="button primary fit">[ 첫 화 면 으 로 ]</a></li>
-							<li><a href="#" onclick="navi(0);" class="button fit">♥ 안 내 사 항 ♥</a></li>
+							<li><a href="/index.html" class="button primary fit">[ H O M E ]</a></li>
+							<li><a href="#" onclick="navi(0);" class="button fit">♥ I N F O ♥</a></li>
 						</ul>
 						<ul class="links">
-							<li><a href="#" onclick="navi(1);">1. 스튜디오에서</a></li>
-							<li><a href="#" onclick="navi(2);">2. 고궁에서</a></li>
-							<li><a href="#" onclick="navi(3);">3. 바다에서</a></li>
-							<li><a href="#" onclick="navi(4);">4. 공원에서</a></li>
-							<li><a href="#" onclick="navi(5);">5. 또 다른 어딘가</a></li>
+							<li><a href="#" onclick="navi(1);">1. in the Studio</a></li>
+							<li><a href="#" onclick="navi(2);">2. in the Palace</a></li>
+							<li><a href="#" onclick="navi(3);">3. by the Sea</a></li>
+							<li><a href="#" onclick="navi(4);">4. in the Park</a></li>
+							<li><a href="#" onclick="navi(5);">5. in the OtherPlace</a></li>
 						</ul>
 					</nav>
 
 				<!-- Banner -->
 				<div style="height: 100%; width:100%;">
-					<iframe id="loveFrame" style="height: 100%; width:100%;" src="/loveFrame/Hoon-Hui_Memories.html" scrolling="auto"></iframe>
+					<iframe id="loveFrame" style="height: 100%; width:100%;" src="/loveFrame/Hoon-Hui_Memories_eng.html" scrolling="auto"></iframe>
 				</div>
 			</div>
 		<!-- Scripts -->
@@ -57,7 +56,6 @@
 
 			<script src="/assets_2/js/sakura.min.js"></script>
 			<script>
-			  //적용할 부분을 넣고 실행
 			  var sakura = new Sakura('body');
 			</script>
 
@@ -65,8 +63,7 @@
 			<script>
 				function navi(naviChk){
 				    const loveFrame = document.getElementById('loveFrame');
-				
-				    // 3. 변수값에 따라 주소 설정
+			
 				    if (naviChk == '0') {
 				        loveFrame.src = "/loveFrame/navi.html?navi=0";
 				    } else if (naviChk == '1') {
@@ -80,22 +77,10 @@
 				    } else if (naviChk == '5') {
 				        loveFrame.src = "/loveFrame/navi.html?navi=5";
 				    } else {
-						alert("잘못된 값입니다. 메인 페이지로 이동합니다.");
-						loveFrame.src = "/index.html";
+						alert("Invalid value. Returning to the main page");
+						loveFrame.src = "/index_eng.html";
 					}
 				}			    
-			</script>
-
-			<script>
-			  fetch('/assets/js/images2.json', { cache: 'force-cache' })
-			    .then(res => res.json())
-			    .then(images => {
-			      images.forEach(src => {
-			        const img = new Image();
-			        img.loading = 'eager';
-			        img.src = src;
-			      });
-			    });
 			</script>
 	</body>
 
