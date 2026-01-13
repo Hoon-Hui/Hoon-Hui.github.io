@@ -3327,7 +3327,7 @@ input, select, textarea {
 			}
 
 				#header .logo {
-					padding: 0 1em;
+					padding: 0 0.5em 0 1em;
 				}
 
 				#header nav a {
@@ -3989,6 +3989,7 @@ input, select, textarea {
 	opacity: 1;
 	top: 7px;
 }
+
 
 
 
