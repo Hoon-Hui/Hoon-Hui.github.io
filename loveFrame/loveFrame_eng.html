@@ -93,11 +93,23 @@
 					const toast=document.getElementById("toast");
 					const isAndroid = /Android/i.test(navigator.userAgent);
 
+					const gifMusic=document.getElementById("gifMusic");
+					const pngMusic=document.getElementById("pngMusic");
+					
 					if (!isAndroid) {
-			            toast.classList.add("show");
+						pngMusic.style.display = "block";
+						
+			            // 클래스 추가하여 나타나게 함
+						setTimeout(() => {
+			                toast.classList.add("show");
+			            }, 3000);
+			
+			            // 2초 뒤에 다시 사라지게 함 (2000ms)
 			            setTimeout(() => {
 			                toast.classList.remove("show");
 			            }, 2000);
+					} else {
+						gifMusic.style.display = "block";
 					}
 		        }
 			</script>
