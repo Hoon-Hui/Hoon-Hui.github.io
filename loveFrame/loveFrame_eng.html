@@ -7,7 +7,6 @@
 		<link rel="stylesheet" href="/assets_2/css/main.css" />
 		<noscript><link rel="stylesheet" href="/assets_2/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="/assets_2/css/sakura.min.css">
-		<link rel="icon" href="data:,">
 	</head>
 	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 		<!-- Wrapper -->
@@ -25,6 +24,7 @@
 							<a href="#menu">Navi</a>
 						</nav>
 					</header>
+					<div id="toast">Tap the image to play</div>
 
 				<!-- Menu -->
 					<nav id="menu">
@@ -82,6 +82,24 @@
 						loveFrame.src = "/index_eng.html";
 					}
 				}			    
+			</script>
+
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+				    showToast();
+				});
+				
+				function showToast() {
+					const toast=document.getElementById("toast");
+					const isAndroid = /Android/i.test(navigator.userAgent);
+
+					if (!isAndroid) {
+			            toast.classList.add("show");
+			            setTimeout(() => {
+			                toast.classList.remove("show");
+			            }, 2000);
+					}
+		        }
 			</script>
 	</body>
 
