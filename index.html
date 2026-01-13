@@ -5,6 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="prefetch" href="assets/js/images.json" as="fetch">
 		<!--
 		<style>
 			.gif-container {
@@ -49,6 +50,20 @@
 		<!-- Scripts -->
 			<script src="assets/js/main.js"></script>
 		<!--	<script src="assets/js/bgm.js"></script> -->
+
+			<script>
+			    fetch('assets/js/images.json')
+			      .then(res => res.json())
+			      .then(images => {
+			        images.forEach(src => {
+			          const img = new Image();
+			          img.src = src;
+			        });
+			      })
+			      .catch(err => {
+			        console.error('이미지 목록 로딩 실패:', err);
+			      });
+		  </script>
 	</body>
 
 </html>
