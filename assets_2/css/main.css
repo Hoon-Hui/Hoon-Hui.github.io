@@ -3970,7 +3970,7 @@ input, select, textarea {
 /* 알림창(Toast) 스타일 */
 #toast {
 	position: fixed;
-	bottom: 7px;
+	top: 7px;
 	left: 45%;
 	/* transform: translateX(-50%); */
 	background-color: rgba(0, 0, 0, 0.8);
@@ -3989,6 +3989,7 @@ input, select, textarea {
 	opacity: 1;
 	top: 7px;
 }
+
 
 
 
