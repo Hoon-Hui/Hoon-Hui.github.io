@@ -102,7 +102,9 @@
 						pngMusic.style.display = "block";
 						
 			            // 클래스 추가하여 나타나게 함
-			            toast.classList.add("show");
+						setTimeout(() => {
+			                toast.classList.add("show");
+			            }, 3000);
 			
 			            // 2초 뒤에 다시 사라지게 함 (2000ms)
 			            setTimeout(() => {
