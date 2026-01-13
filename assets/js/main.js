@@ -18,7 +18,7 @@
 
 	// Play initial animations on page load.
 		window.addEventListener('load', function() {
-			//blockPC();
+			blockPC();
 			window.setTimeout(function() {
 				$body.classList.remove('is-preload');
 			}, 100);
@@ -135,5 +135,6 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단.
     }
 };
+
 
 
