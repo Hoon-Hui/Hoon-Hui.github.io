@@ -17,7 +17,7 @@
 						<a href="/index.html" class="logo"><strong>용훈 & 소희</strong> <span>청첩장</span></a>
 						<span class="gif-container" onclick="toggleMusic()" style="cursor:pointer;">
 							<audio id="myAudio" src="/images/music.mp3" autoplay loop></audio>
-							<img id="gifMusic" src="/images/gifMusic.gif" alt="재생" width="35" height="35">
+							<img id="gifMusic" src="/images/gifMusic.gif" alt="재생" width="35" height="35" style="display:none;">
 							<img id="pngMusic" src="/images/pngMusic.png" alt="정지" width="35" height="35" style="display:none;">
 						</span>
 						<nav>
@@ -95,7 +95,12 @@
 					const toast=document.getElementById("toast");
 					const isAndroid = /Android/i.test(navigator.userAgent);
 
+					const gifMusic=document.getElementById("gifMusic");
+					const pngMusic=document.getElementById("pngMusic");
+					
 					if (!isAndroid) {
+						pngMusic.style.display = "block";
+						
 			            // 클래스 추가하여 나타나게 함
 			            toast.classList.add("show");
 			
@@ -103,6 +108,8 @@
 			            setTimeout(() => {
 			                toast.classList.remove("show");
 			            }, 2000);
+					} else {
+						gifMusic.style.display = "block";
 					}
 		        }
 			</script>
