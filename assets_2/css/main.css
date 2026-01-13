@@ -3967,5 +3967,27 @@ input, select, textarea {
 			visibility: visible;
 		}
 
+/* 알림창(Toast) 스타일 */
+#toast {
+	position: fixed;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 30px;
+	font-size: 13px;
+	opacity: 0; /* 평소에는 투명하게 */
+	transition: opacity 0.3s, bottom 0.3s;
+	z-index: 9999;
+	pointer-events: none; /* 클릭 방해 금지 */
+}
+
+/* 알림창이 보일 때 적용될 클래스 */
+#toast.show {
+	opacity: 1;
+	top: 50px;
+}
 
 
