@@ -23,8 +23,7 @@
 							<div class="content">
 								<p>평생 서로를 귀하게 여기며<br>처음의 설렘과 순수함을 잃지 않고<br>존중하고 아껴 나가겠습니다</p><p>저희의 새로운 시작을 축복해 주시면 감사하겠습니다</p>
 								<ul class="actions">
-									<li><a href="#one" class="button next scrolly">시작하기</a></li>
-									<li><a href="javascript:void(0);" class="button next scrolly" onclick="scrollToOne()">시작하기</a></li>
+									<li><a href="javascript:void(0);" class="button next scrolly" onclick="scrollToOne(1)">시작하기</a></li>
 								</ul>
 							</div>
 						</div>
@@ -94,7 +93,7 @@
 							<section id="two">
 								<div class="inner">
 									<ul class="actions">
-										<li><a href="#banner" class="button next scrolly">다시 시작하기</a></li>
+										<li><a href="javascript:void(0);" class="button next scrolly" onclick="scrollToOne(2)">위로가기</a></li>
 									</ul>
 								</div>
 							</section>
@@ -117,9 +116,20 @@
 			<script src="/assets_2/js/main.js"></script>
 
 			<script>
-			function scrollToOne() {
-			  const target = document.getElementById('one');
-			  target.scrollIntoView({ behavior: 'smooth' });
+			function scrollToOne(chk) {
+			  const target = "";
+			  if(chk==1){
+				target = document.getElementById('one');
+			  } else {
+			  	target = document.getElementById('banner');
+			  };
+			  
+			  setTimeout(() => {
+			    target.scrollIntoView({
+			      behavior: 'smooth',
+			      block: 'start'
+			    });
+			  }, 50);
 			}
 			</script>
 	</body>
