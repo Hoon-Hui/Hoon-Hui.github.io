@@ -29,7 +29,7 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="actions stacked">
-							<li><a href="index.html" class="button primary fit">[ 첫 화 면 으 로 ]</a></li>
+							<li><a href="/index.html" class="button primary fit">[ 첫 화 면 으 로 ]</a></li>
 							<li><a href="#" onclick="navi(0);" class="button fit">♥ 안 내 사 항 ♥</a></li>
 						</ul>
 						<ul class="links">
@@ -88,13 +88,13 @@
 				        loveFrame.src = "/loveFrame/navi.html?navi=5";
 				    } else {
 						alert("잘못된 값입니다. 메인 페이지로 이동합니다.");
-						loveFrame.src = "index.html";
+						loveFrame.src = "/index.html";
 					}
 				}			    
 			</script>
 
 			<script>
-			  fetch('assets/js/images2.json', { cache: 'force-cache' })
+			  fetch('/assets/js/images2.json', { cache: 'force-cache' })
 			    .then(res => res.json())
 			    .then(images => {
 			      images.forEach(src => {
