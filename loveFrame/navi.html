@@ -10,29 +10,11 @@
 	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 		<!-- Wrapper -->
 			<div id="wrapper" style="height: 100dvh;">
-
-				<!-- Banner -->
-				<!--
-					<section id="banner" class="major" style="height: 100%; width:100%; position: fixed; margin: 3em 0 0 0; padding: 3em 0 0 0;">
-						<div class="inner" style="height: 100%; width:100%;">
-							<iframe id="loveFrame" style="height: 100%; width:100%;"></iframe>
-						</div>
-					</section>
-				-->
 				<div style="height: 100%; width:100%;">
 					<iframe id="loveFrame" style="height: 100%; width:100%;"></iframe>
 				</div>
 			</div>
-		<!-- Scripts -->
-		<!--
-			<script src="assets_2/js/jquery.min.js"></script>
-			<script src="assets_2/js/jquery.scrolly.min.js"></script>
-			<script src="assets_2/js/jquery.scrollex.min.js"></script>
-			<script src="assets_2/js/browser.min.js"></script>
-			<script src="assets_2/js/breakpoints.min.js"></script>
-			<script src="assets_2/js/util.js"></script>
-			<script src="assets_2/js/main.js"></script>
-		-->
+		
 			<script>
 			    // 1. URL에서 파라미터 읽기 (예: target.html?type=1)
 			    const urlParams = new URLSearchParams(window.location.search);
@@ -43,20 +25,20 @@
 			
 			    // 3. 변수값에 따라 주소 설정
 			    if (navi === '0') {
-			        loveFrame.src = "https://hoon-hui.github.io/info.html";
+			        loveFrame.src = "/info.html";
 			    } else if (navi === '1') {
-			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Studio.html";
+			        loveFrame.src = "/Hoon-Hui_in_Studio.html";
 			    } else if (navi === '2') {
-			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Palace.html";
+			        loveFrame.src = "/Hoon-Hui_in_Palace.html";
 			    } else if (navi === '3') {
-			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Beach.html";
+			        loveFrame.src = "/Hoon-Hui_in_Beach.html";
 			    } else if (navi === '4') {
-			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_Park.html";
+			        loveFrame.src = "/Hoon-Hui_in_Park.html";
 			    } else if (navi === '5') {
-			        loveFrame.src = "https://hoon-hui.github.io/Hoon-Hui_in_OtherPlace.html";
+			        loveFrame.src = "/Hoon-Hui_in_OtherPlace.html";
 			    } else {
 					alert("잘못된 값입니다. 메인 페이지로 이동합니다.");
-					loveFrame.src = "https://hoon-hui.github.io/";
+					loveFrame.src = "/index.html";
 				}
 			</script>
 	</body>
