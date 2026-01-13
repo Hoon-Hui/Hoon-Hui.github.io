@@ -13,7 +13,7 @@ function toggleMusic() {
 				        png.style.display = "block";  // 멈춘 아이콘 보이기
 				    }
 				}
-
+/*
 				function showToast() {
 					var toast = document.getElementById("toast");
 					toast.classList.add("show");
@@ -24,3 +24,4 @@ function toggleMusic() {
 				}
 				
 				window.addEventListener("load", showToast);
+*/
