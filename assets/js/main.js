@@ -95,7 +95,8 @@
 
 function validateChk() {
 	//if(document.getElementById('wedding').value==""){
-		location.href = "Hoon-Hui_Memories_eng.html";
+		//location.href = "Hoon-Hui_Memories_eng.html";
+		location.href = "/loveFrame/loveFrame_eng.html";
 	//}
 };
 
@@ -134,4 +135,5 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단.
     }
 };
+
 
