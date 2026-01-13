@@ -24,6 +24,7 @@
 								<p>평생 서로를 귀하게 여기며<br>처음의 설렘과 순수함을 잃지 않고<br>존중하고 아껴 나가겠습니다</p><p>저희의 새로운 시작을 축복해 주시면 감사하겠습니다</p>
 								<ul class="actions">
 									<li><a href="#one" class="button next scrolly">시작하기</a></li>
+									<li><a href="javascript:void(0);" class="button next scrolly" onclick="scrollToOne()">시작하기</a></li>
 								</ul>
 							</div>
 						</div>
@@ -113,6 +114,13 @@
 			<script src="/assets_2/js/browser.min.js"></script>
 			<script src="/assets_2/js/breakpoints.min.js"></script>
 			<script src="/assets_2/js/util.js"></script>
-			<script src="/assets_2/js/main.js"></script>		
+			<script src="/assets_2/js/main.js"></script>
+
+			<script>
+			function scrollToOne() {
+			  const target = document.getElementById('one');
+			  target.scrollIntoView({ behavior: 'smooth' });
+			}
+			</script>
 	</body>
 </html>
