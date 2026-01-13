@@ -3548,7 +3548,7 @@ input, select, textarea {
 
 		}
 
-		/*
+		
 		@media screen and (max-width: 736px) {
 
 			#banner {
@@ -3580,7 +3580,7 @@ input, select, textarea {
 				}
 
 		}
-		*/
+		
 
 		/*
 		@media screen and (max-width: 480px) {
@@ -3966,5 +3966,6 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
 
 
