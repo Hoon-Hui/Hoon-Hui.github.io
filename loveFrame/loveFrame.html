@@ -24,6 +24,7 @@
 							<a href="#menu">Navi</a>
 						</nav>
 					</header>
+					<div id="toast">이미지를 누르면 재생됩니다</div>
 
 				<!-- Menu -->
 					<nav id="menu">
@@ -83,6 +84,27 @@
 						loveFrame.src = "/index.html";
 					}
 				}			    
+			</script>
+
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+				    showToast();
+				});
+				
+				function showToast() {
+					const toast=document.getElementById("toast");
+					const isAndroid = /Android/i.test(navigator.userAgent);
+
+					if (!isAndroid) {
+			            // 클래스 추가하여 나타나게 함
+			            toast.classList.add("show");
+			
+			            // 2초 뒤에 다시 사라지게 함 (2000ms)
+			            setTimeout(() => {
+			                toast.classList.remove("show");
+			            }, 2000);
+					}
+		        }
 			</script>
 	</body>
 
