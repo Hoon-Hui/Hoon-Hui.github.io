@@ -15,6 +15,11 @@
 				<!-- Header -->
 					<header id="header" class="alt">
 						<a href="/index.html" class="logo"><strong>용훈 & 소희</strong> <span>청첩장</span></a>
+						<span class="gif-container" onclick="toggleMusic()" style="cursor:pointer;">
+							<audio id="myAudio" src="/images/music.mp3" loop></audio>
+							<img id="gifMusic" src="/images/gifMusic.gif" alt="재생" width="30" height="30">
+							<img id="pngMusic" src="/images/pngMusic.png" alt="정지" width="30" height="30" style="display:none;>
+						</span>
 						<nav>
 							<a href="#menu">Navi</a>
 						</nav>
@@ -62,6 +67,7 @@
 			  var sakura = new Sakura('body');
 			</script>
 
+			<script src="assets/js/bgm.js"></script>
 			<script>
 				function navi(naviChk){
 				    alert(naviChk);
