@@ -124,12 +124,34 @@
 			  	target = document.getElementById('banner');
 			  };
 			  
-			  setTimeout(() => {
-			    target.scrollIntoView({
-			      behavior: 'smooth',
-			      block: 'start'
-			    });
-			  }, 50);
+			  smoothScrollTo(target, 1300); // ← 숫자 커질수록 더 천천히
+			}
+			
+			function smoothScrollTo(target, duration) {
+			  const startY = window.pageYOffset;
+			  const targetY = target.getBoundingClientRect().top + startY;
+			  const distance = targetY - startY;
+			  const startTime = performance.now();
+			
+			  function easeInOutCubic(t) {
+			    return t < 0.5
+			      ? 4 * t * t * t
+			      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+			  }
+			
+			  function animate(currentTime) {
+			    const elapsed = currentTime - startTime;
+			    const progress = Math.min(elapsed / duration, 1);
+			    const eased = easeInOutCubic(progress);
+			
+			    window.scrollTo(0, startY + distance * eased);
+			
+			    if (progress < 1) {
+			      requestAnimationFrame(animate);
+			    }
+			  }
+			
+			  requestAnimationFrame(animate);
 			}
 			</script>
 	</body>
