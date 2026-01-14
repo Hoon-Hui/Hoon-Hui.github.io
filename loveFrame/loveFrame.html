@@ -87,7 +87,8 @@
 			</script>
 
 			<script>
-				document.addEventListener('DOMContentLoaded', function() {
+				//document.addEventListener('DOMContentLoaded', function() {
+				window.onload = function(){	
 				    showToast();
 					const hash = location.hash;
 				    if (!hash) return;
@@ -98,7 +99,8 @@
 				    if (action === 'navi') {
 				        navi(param);
 				    }					
-				});
+				}
+				//});
 				
 				function showToast() {
 					const toast=document.getElementById("toast");
