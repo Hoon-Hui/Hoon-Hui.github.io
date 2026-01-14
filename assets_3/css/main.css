@@ -641,7 +641,6 @@ input, select, textarea {
 
 	ul {
 		list-style: disc;
-		margin: 0 0 1.25em 0;
 		padding-left: 1em;
 	}
 
@@ -936,7 +935,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		padding: 2.25em 2.25em 1em 2.25em ;
+		padding: 0 ;
 	}
 
 		#footer .copyright {
@@ -1348,6 +1347,7 @@ input, select, textarea {
 				}
 
 		}
+
 
 
 
