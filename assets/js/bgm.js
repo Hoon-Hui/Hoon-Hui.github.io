@@ -14,6 +14,12 @@ function toggleMusic() {
 	}
 }
 
+// 공통 스크립트
+function safeMove(url) {
+    window.top.location.replace(url);
+}
+
+/*
 window.addEventListener("beforeunload", () => {
 	var gif = document.getElementById("gifMusic");
 	var png = document.getElementById("pngMusic");
@@ -21,3 +27,4 @@ window.addEventListener("beforeunload", () => {
     gif.style.display = "none";
     png.style.display = "block";
 });
+*/
