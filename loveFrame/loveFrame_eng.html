@@ -87,6 +87,7 @@
 
 			<script>
 				//document.addEventListener('DOMContentLoaded', function() {
+				/*
 				window.onload = function(){
 					showToast();
 					const hash = location.hash;
@@ -99,6 +100,7 @@
 				        navi(param);
 				    }					
 				}
+				*/
 				//});
 				
 				function showToast() {
@@ -125,6 +127,28 @@
 					}
 		        }
 			</script>
+		<script>
+window.onload = function () {
+    showToast();
+
+    const params = new URLSearchParams(location.search);
+    const naviValue = params.get('navi');
+    if (!naviValue) return;
+
+    history.replaceState(null, '', location.pathname);
+    history.pushState({ page: 'Hoon-Hui_Memories_eng' }, '', location.pathname);
+
+    navi(naviValue);
+};
+
+
+window.addEventListener('popstate', function (e) {
+    if (e.state && e.state.page === 'Hoon-Hui_Memories_eng') {
+        const iframe = document.getElementById('iframe');
+        iframe.contentWindow.location.replace('Hoon-Hui_Memories_eng.html');
+    }
+});
+		</script>
 	</body>
 
 </html>
