@@ -87,7 +87,6 @@
 
 			<script>
 				//document.addEventListener('DOMContentLoaded', function() {
-				/*
 				window.onload = function(){
 					showToast();
 					const hash = location.hash;
@@ -100,7 +99,6 @@
 				        navi(param);
 				    }					
 				}
-				*/
 				//});
 				
 				function showToast() {
@@ -127,37 +125,6 @@
 					}
 		        }
 			</script>
-		<script>
-    // 🔹script>
-    window.onload = function() {
-      const params = new URLSearchParams(location.search);
-      const naviValue = params.get('navi'); // ?navi=2 등
-
-      // URL 깔끔하게
-      history.replaceState(null, '', location.pathname);
-
-      // 뒤로가기 기준 bb 상태 push
-      history.pushState({ page: 'Hoon-Hui_Memories_eng' }, '', location.pathname);
-
-      const iframe = document.getElementById('loveFrame');
-
-      // iframe 로드 완료 시 분기 처리
-      iframe.onload = function() {
-        if (naviValue === '2') {
-          // bb → cc 이동 (replace → iframe history에 쌓이지 않음)
-          iframe.contentWindow.location.replace('Hoon-Hui_in_Palace_eng.html');
-        }
-      };
-    };
-
-    // 뒤로가기 시 bb로 강제 복원
-    window.addEventListener('popstate', function(e) {
-      if (e.state?.page === 'Hoon-Hui_Memories_eng') {
-        const iframe = document.getElementById('loveFrame');
-        iframe.contentWindow.location.replace('Hoon-Hui_Memories_eng.html');
-      }
-    });
-		</script>
 	</body>
 
 </html>
