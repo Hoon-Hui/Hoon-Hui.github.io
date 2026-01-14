@@ -2,6 +2,21 @@ function toggleMusic() {
 	var audio = document.getElementById("myAudio");
 	var gif = document.getElementById("gifMusic");
 	var png = document.getElementById("pngMusic");
+
+	audio.addEventListener("pause", () => {
+    gif.style.display = "none";
+    png.style.display = "block";
+	});
+	
+	audio.addEventListener("play", () => {
+	    gif.style.display = "block";
+	    png.style.display = "none";
+	});
+	
+	audio.addEventListener("ended", () => {
+	    gif.style.display = "none";
+	    png.style.display = "block";
+	});
 	
 	if (audio.paused) {
 		audio.play();
