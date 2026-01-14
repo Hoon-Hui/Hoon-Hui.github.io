@@ -935,7 +935,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		padding: 0 ;
+		padding: 1.5em ;
 	}
 
 		#footer .copyright {
@@ -1347,6 +1347,7 @@ input, select, textarea {
 				}
 
 		}
+
 
 
 
