@@ -146,7 +146,7 @@ window.onload = function () {
 
 window.addEventListener('popstate', function (e) {
     if (e.state && e.state.page === 'Hoon-Hui_Memories') {
-        const iframe = document.getElementById('iframe');
+        const iframe = document.getElementById('loveFrame');
         iframe.contentWindow.location.replace('Hoon-Hui_Memories.html');
     }
 });
