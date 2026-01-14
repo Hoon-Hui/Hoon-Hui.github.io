@@ -88,7 +88,8 @@
 
 			<script>
 				document.addEventListener('DOMContentLoaded', function() {
-				    const hash = location.hash;
+				    showToast();
+					const hash = location.hash;
 				    if (!hash) return;
 				
 				    // #runFunctionB=hello
@@ -96,8 +97,7 @@
 				
 				    if (action === 'navi') {
 				        navi(param);
-				    }	
-					showToast();
+				    }					
 				});
 				
 				function showToast() {
