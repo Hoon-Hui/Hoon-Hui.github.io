@@ -128,40 +128,35 @@
 		        }
 			</script>
 		<script>
-    // 🔹 뒤로가기 처리
-    window.addEventListener('popstate', function(e) {
-        if (e.state?.page === 'Hoon-Hui_Memories_eng') {
-            const iframe = document.getElementById('loveFrame');
-            if (iframe && iframe.contentWindow) {
-                // iframe 내부 history 초기화
-                iframe.contentWindow.location.replace('Hoon-Hui_Memories_eng.html');
-            }
-        }
-    });
-
+    // 🔹script>
     window.onload = function() {
-		showToast();
-        const params = new URLSearchParams(location.search);
-        const naviValue = params.get('navi'); // ?navi=2 등
+      const params = new URLSearchParams(location.search);
+      const naviValue = params.get('navi'); // ?navi=2 등
 
-        // 🔹 URL 깔끔하게
-        history.replaceState(null, '', location.pathname);
+      // URL 깔끔하게
+      history.replaceState(null, '', location.pathname);
 
-        // 🔹 bb 상태를 history에 push (뒤로가기 기준)
-        history.pushState({ page: 'Hoon-Hui_Memories_eng' }, '', location.pathname);
+      // 뒤로가기 기준 bb 상태 push
+      history.pushState({ page: 'Hoon-Hui_Memories_eng' }, '', location.pathname);
 
-        const iframe = document.getElementById('loveFrame');
+      const iframe = document.getElementById('loveFrame');
 
-        // iframe이 bb.html 로드 완료 후
-        iframe.onload = function() {
-            // 🔹 분기 조건
-            if (naviValue === '2') {
-                // 분기: cc.html 로 이동 (replace → history에 안 쌓임)
-                iframe.contentWindow.location.replace('Hoon-Hui_in_Palace_eng.html');
-            }
-            // 다른 naviValue 분기도 여기에 추가 가능
-        };
+      // iframe 로드 완료 시 분기 처리
+      iframe.onload = function() {
+        if (naviValue === '2') {
+          // bb → cc 이동 (replace → iframe history에 쌓이지 않음)
+          iframe.contentWindow.location.replace('Hoon-Hui_in_Palace_eng.html');
+        }
+      };
     };
+
+    // 뒤로가기 시 bb로 강제 복원
+    window.addEventListener('popstate', function(e) {
+      if (e.state?.page === 'Hoon-Hui_Memories_eng') {
+        const iframe = document.getElementById('loveFrame');
+        iframe.contentWindow.location.replace('Hoon-Hui_Memories_eng.html');
+      }
+    });
 		</script>
 	</body>
 
