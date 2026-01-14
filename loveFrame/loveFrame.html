@@ -130,27 +130,36 @@
 			</script>
 
 		    <script>
-window.onload = function () {
-    showToast();
+    // 뒤로가기 처리
+    window.addEventListener('popstate', function(e) {
+        if (e.state?.page === 'bb') {
+            const iframe = document.getElementById('iframe');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.location.replace('bb.html');
+            }
+        }
+    });
 
-    const params = new URLSearchParams(location.search);
-    const naviValue = params.get('navi');
-    if (!naviValue) return;
+    window.onload = function() {
+        const params = new URLSearchParams(location.search);
+        const naviValue = params.get('navi'); // ?navi=2
 
-    history.replaceState(null, '', location.pathname);
-    history.pushState({ page: 'Hoon-Hui_Memories' }, '', location.pathname);
+        // URL 깔끔하게
+        history.replaceState(null, '', location.pathname);
 
-    navi(naviValue);
-};
+        // bb 상태를 history에 push
+        history.pushState({ page: 'bb' }, '', location.pathname);
 
+        if (!naviValue) return;
 
-window.addEventListener('popstate', function (e) {
-    if (e.state && e.state.page === 'Hoon-Hui_Memories') {
-        const iframe = document.getElementById('loveFrame');
-        iframe.contentWindow.location.replace('Hoon-Hui_Memories.html');
-    }
-});
-</script>
+        // iframe 내부 cc 로드
+        const iframe = document.getElementById('iframe');
+        iframe.onload = function() {
+            // replace → iframe history에 쌓이지 않음
+            iframe.contentWindow.location.replace('cc.html');
+        };
+    };
+			</script>
 	</body>
 
 </html>
