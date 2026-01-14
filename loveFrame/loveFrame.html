@@ -88,7 +88,16 @@
 
 			<script>
 				document.addEventListener('DOMContentLoaded', function() {
-				    showToast();
+				    const hash = location.hash;
+				    if (!hash) return;
+				
+				    // #runFunctionB=hello
+				    const [action, param] = hash.substring(1).split('=');
+				
+				    if (action === 'navi') {
+				        navi(param);
+				    }	
+					showToast();
 				});
 				
 				function showToast() {
