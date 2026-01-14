@@ -88,6 +88,7 @@
 
 			<script>
 				//document.addEventListener('DOMContentLoaded', function() {
+				/*
 				window.onload = function(){		    
 					showToast();
 					const hash = location.hash;
@@ -100,7 +101,22 @@
 				        navi(param);
 				    }			
 				}
+				*/
 				//});
+
+				window.onload = function () {
+    showToast();
+
+    const params = new URLSearchParams(location.search);
+    const naviValue = params.get('navi');
+    if (!naviValue) return;
+
+    history.replaceState(null, '', location.pathname);
+
+    navi(naviValue);
+};
+
+
 				
 				function showToast() {
 					const toast=document.getElementById("toast");
