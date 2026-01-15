@@ -155,25 +155,9 @@
 			  requestAnimationFrame(animate);
 			}
 			</script>
-
-			<script>
-				window.addEventListener('pageshow', function () {
-				  const navEntries = performance.getEntriesByType("navigation");
-				  if (!navEntries.length) return;
-				
-				  if (navEntries[0].type !== "back_forward") return;
-				
-				  const ref = document.referrer || '';
-				
-				  if (/_eng\.html$/i.test(ref)) {
-				    window.top.location.replace('/loveFrame/loveFrame_eng.html');
-				  } else if (/\.html$/i.test(ref)) {
-				    window.top.location.replace('/loveFrame/loveFrame.html');
-				  }
-				});
-			</script>
 	</body>
 </html>
+
 
 
 
