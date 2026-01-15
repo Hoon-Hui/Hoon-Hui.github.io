@@ -87,20 +87,17 @@
 			</script>
 
 			<script>
-				//document.addEventListener('DOMContentLoaded', function() {
 				window.onload = function(){		    
 					showToast();
 					const hash = location.hash;
 				    if (!hash) return;
 				
-				    // #runFunctionB=hello
 				    const [action, param] = hash.substring(1).split('=');
 				
 				    if (action === 'navi') {
 				        navi(param);
 				    }			
 				}
-				//});
 	
 				function showToast() {
 					const toast=document.getElementById("toast");
