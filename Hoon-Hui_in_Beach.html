@@ -82,26 +82,10 @@
 			<script src="assets_3/js/browser.min.js"></script>
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
-
-			<script>
-				sessionStorage.setItem('lang', 'kor');
-			</script>
-
-			<script>
-				(function () {
-				  if (!/Android/i.test(navigator.userAgent)) return;
-				
-				  // 뒤로가기 / 앞으로가기 감지
-				  window.addEventListener('pageshow', function (e) {				  
-				    if (!e.persisted) return;  // 뒤로가기/앞으로가기 아닐 때는 실행 안 함
-
-				    window.top.location.replace('/loveFrame/loveFrame_eng.html');
-				  });
-				})();
-			</script>
 	</body>
 
 </html>
+
 
 
 
