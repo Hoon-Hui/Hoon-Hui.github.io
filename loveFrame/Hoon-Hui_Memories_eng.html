@@ -171,8 +171,19 @@
 			  }
 			})();
 			</script>
+
+			<script>
+				(function () {
+				  if (!/Android/i.test(navigator.userAgent)) return;
+				
+				  if (sessionStorage.getItem('lang') === 'kor') {
+				    location.replace('/loveFrame/Hoon-Hui_Memories_kor.html');
+				  }
+				})();
+			</script>
 	</body>
 </html>
+
 
 
 
