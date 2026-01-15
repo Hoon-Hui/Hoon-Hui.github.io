@@ -126,6 +126,15 @@
 					}
 		        }
 			</script>
+
+			<script>
+			(function () {
+			  // Android iframe history 제거
+			  if (document.referrer && document.referrer.includes('loveFrame.html')) {
+			    window.history.replaceState(null, '', location.href);
+			  }
+			})();
+			</script>
 	</body>
 
 </html>
