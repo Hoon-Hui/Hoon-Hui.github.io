@@ -157,13 +157,9 @@
 				(function () {
 				  if (!/Android/i.test(navigator.userAgent)) return;
 				
-				  // 뒤로가기 / 앞으로가기 감지
 				  window.addEventListener('pageshow', function (e) {
-					alert("1");
-				    if (performance.getEntriesByType("navigation")[0].type === "back_forward"){  // 뒤로가기/앞으로가기 아닐 때는 실행 안 함
-						alert("2");
+				    if (performance.getEntriesByType("navigation")[0].type === "back_forward"){
 					    window.top.location.replace('/loveFrame/loveFrame_eng.html');
-						alert("3");
 					}
 				  });
 				})();
