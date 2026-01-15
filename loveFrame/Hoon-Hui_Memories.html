@@ -161,14 +161,7 @@
 				  window.addEventListener('pageshow', function (e) {
 				    if (!e.persisted) return;  // 뒤로가기/앞으로가기 아닐 때는 실행 안 함
 				
-				    // ENG 흐름 판단: sessionStorage OR hash
-				    if (
-				      sessionStorage.getItem('lang') === 'eng' ||
-				      location.hash.includes('navi=3')
-				    ) {
-				      // 최상위 프레임을 ENG 페이지로 교체
-				      window.top.location.replace('/loveFrame/loveFrame_eng.html');
-				    }
+				    window.top.location.replace('/loveFrame/loveFrame_eng.html');
 				  });
 				})();
 			</script>
