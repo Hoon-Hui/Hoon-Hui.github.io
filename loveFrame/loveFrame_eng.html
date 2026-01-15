@@ -114,6 +114,21 @@
 					}
 		        }
 			</script>
+
+			<script>
+				const audio = document.getElementById('myAudio');
+				
+				document.addEventListener('visibilitychange', () => {
+				  if (document.hidden) {
+				    audio.pause();
+				    audio.currentTime = 0;
+				  }
+				});
+				
+				window.addEventListener('pagehide', () => {
+				  audio.pause();
+				});
+			</script>
 	</body>
 
 </html>
