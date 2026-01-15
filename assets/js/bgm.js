@@ -13,18 +13,3 @@ function toggleMusic() {
 		png.style.display = "block";  // 멈춘 아이콘 보이기
 	}
 }
-
-// 공통 스크립트
-function safeMove(url) {
-    window.top.location.replace(url);
-}
-
-/*
-window.addEventListener("beforeunload", () => {
-	var gif = document.getElementById("gifMusic");
-	var png = document.getElementById("pngMusic");
-	
-    gif.style.display = "none";
-    png.style.display = "block";
-});
-*/
