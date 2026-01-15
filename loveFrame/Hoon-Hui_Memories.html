@@ -155,13 +155,21 @@
 
 			<script>
 				(function () {
-				  // Android만
 				  if (!/Android/i.test(navigator.userAgent)) return;
 				
-				  // ENG 흐름 판단 (hash / sessionStorage 중 하나)
-				  if (sessionStorage.getItem('lang') === 'eng' || location.hash.includes('navi=3')) {
-				  		window.top.location.replace('/loveFrame/loveFrame_eng.html#navi=3');
-				  }
+				  window.addEventListener('pageshow', function (e) {
+				    // ✅ 뒤로가기 / 앞으로가기일 때만 true
+				    if (!e.persisted) return;
+				
+				    // ENG 흐름 판단
+				    if (
+				      sessionStorage.getItem('lang') === 'eng' ||
+				      location.hash.includes('navi=3')
+				    ) {
+				      // ❗ 뒤로가기일 때만 최상위 ENG 프레임으로 교체
+				      window.top.location.replace('/loveFrame/loveFrame_eng.html#navi=3');
+				    }
+				  });
 				})();
 			</script>
 
