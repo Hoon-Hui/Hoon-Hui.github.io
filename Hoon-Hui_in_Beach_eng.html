@@ -82,6 +82,16 @@
 			<script src="assets_3/js/browser.min.js"></script>
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
+
+			<script>
+			  const NAVI = 3; // ← 페이지만 바꾸세요
+			
+			  history.replaceState({ page: 'eng' }, '', location.href);
+			
+			  window.addEventListener('popstate', function () {
+			    location.href = `/loveFrame/loveFrame_eng.html#navi=${NAVI}`;
+			  });
+			</script>
 	</body>
 
 </html>
