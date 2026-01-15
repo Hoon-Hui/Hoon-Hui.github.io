@@ -125,6 +125,30 @@
 					}
 		        }
 			</script>
+
+			<script>
+				function handleNaviFromHash() {
+				  var hash = location.hash;
+				  if (!hash) return;
+				
+				  var match = hash.match(/navi=(\d+)/);
+				  if (!match) return;
+				
+				  var naviIndex = parseInt(match[1], 10);
+				
+				  // 기존 navi 함수 호출
+				  if (typeof navi === 'function') {
+				    navi(naviIndex);
+				  }
+				}
+				
+				// 최초 페이지 진입
+				window.addEventListener('DOMContentLoaded', handleNaviFromHash);
+				
+				// 뒤로가기 / 앞으로가기 시 hash 변경 감지
+				window.addEventListener('hashchange', handleNaviFromHash);
+			</script>
+
 	</body>
 
 </html>
