@@ -84,12 +84,13 @@
 			<script src="assets_3/js/main.js"></script>
 
 			<script>
-			  const NAVI = 3; // ← 페이지만 바꾸세요
+			  // 현재 페이지를 히스토리에서 기준점으로 고정
+			  history.replaceState({ page: 'beach_eng' }, '', location.href);
 			
-			  history.replaceState({ page: 'eng' }, '', location.href);
-			
+			  // 뒤로가기 감지
 			  window.addEventListener('popstate', function () {
-			    location.href = `/loveFrame/loveFrame_eng.html#navi=${NAVI}`;
+			    // 무조건 영문 top 페이지로 이동
+			    location.href = '/loveFrame/loveFrame_eng.html';
 			  });
 			</script>
 	</body>
