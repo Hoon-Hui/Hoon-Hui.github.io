@@ -3511,12 +3511,12 @@ input, select, textarea {
 .collapsible-content {
     max-height: 0; /* 기본적으로 숨김 */
     overflow: hidden;
-    transition: max-height 0.7s ease-out; /* 부드러운 애니메이션 */
+    transition: max-height 2.5s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .collapsible-content.active {
     max-height: 800px; /* 내용이 충분히 보일 수 있는 크기로 설정 */
-    transition: max-height 3s ease-out;
+    transition: max-height 2s cubic-bezier(0.4, 0, 1, 1);
 }
 
 .toggle-icon {
