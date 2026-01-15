@@ -163,10 +163,17 @@
 				  if (navEntries[0].type !== "back_forward") return;
 					alert("2");
 				  const ref = document.referrer || '';
-					alert(/_eng\.html$/i.test(ref));
-				  if (/_eng\.html$/i.test(ref)) {
+
+				let refPath = '';
+					try {
+					  refPath = new URL(ref).pathname;
+					} catch (e) {}
+					
+					alert(/_eng\.html$/i.test(refPath));
+					
+				  if (/_eng\.html$/i.test(refPath)) {
 				    window.top.location.replace('/loveFrame/loveFrame_eng.html');
-				  } else if (/\.html$/i.test(ref)) {
+				  } else if (/\.html$/i.test(refPath)) {
 				    window.top.location.replace('/loveFrame/loveFrame.html');
 				  } else {
 					window.top.location.replace('index.html');
