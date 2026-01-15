@@ -88,6 +88,19 @@
 			  sessionStorage.setItem('lang', 'eng');
 			</script>
 
+			<script>
+				(function () {
+				  if (!/Android/i.test(navigator.userAgent)) return;
+				
+				  // 뒤로가기 / 앞으로가기 감지
+				  window.addEventListener('pageshow', function (e) {
+				    if (!e.persisted) return;  // 뒤로가기/앞으로가기 아닐 때는 실행 안 함
+				
+				    window.top.location.replace('/loveFrame/loveFrame.html');
+				  });
+				})();
+			</script>
+
 	</body>
 
 </html>
