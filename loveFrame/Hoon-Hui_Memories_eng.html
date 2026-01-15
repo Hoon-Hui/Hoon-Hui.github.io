@@ -157,32 +157,20 @@
 			</script>
 
 			<script>
-			(function () {
-			  // Android 감지
-			  var isAndroid = /Android/i.test(navigator.userAgent);
-			  if (!isAndroid) return;
-			
-			  // ENG 페이지에서 뒤로 온 경우
-			  if (document.referrer &&
-			      document.referrer.includes('loveFrame.html')) {
-			
-			    // history에 남기지 않고 즉시 교체
-			    location.replace('/loveFrame/Hoon-Hui_Memories.html');
-			  }
-			})();
-			</script>
-
-			<script>
 				(function () {
 				  if (!/Android/i.test(navigator.userAgent)) return;
 				
-				  if (sessionStorage.getItem('lang') === 'kor') {
-				    location.replace('/loveFrame/Hoon-Hui_Memories_kor.html');
-				  }
+				  // 뒤로가기 / 앞으로가기 감지
+				  window.addEventListener('pageshow', function (e) {
+				    if (!e.persisted) return;  // 뒤로가기/앞으로가기 아닐 때는 실행 안 함
+				
+				    window.top.location.replace('/loveFrame/loveFrame.html');
+				  });
 				})();
 			</script>
 	</body>
 </html>
+
 
 
 
