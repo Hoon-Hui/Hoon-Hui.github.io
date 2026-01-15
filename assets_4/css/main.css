@@ -3532,68 +3532,193 @@ input, select, textarea {
     cursor: pointer; /* 클릭 가능한 요소임을 표시 */
 }
 
+
+/* ===============================
+   Premium Wedding Account Card
+   =============================== */
+
 .account-card {
-    /* 배경은 투명하게 유지하되, 더 뚜렷한 입체감을 위해 그림자를 강화 */
-    background-color: rgba(255, 255, 255, 0.9); 
-    border-radius: 10px; 
-    
-    /* 여러 개의 box-shadow를 사용하여 깊이감 표현 */
-    box-shadow: 
-        /* 첫 번째: 아래쪽에 넓고 흐릿한 그림자로 깊이 표현 */
-        0 10px 30px rgba(0, 0, 0, 0.2),
-        /* 두 번째: 카드 자체의 윗부분에 밝은 하이라이트 (inset) */
-        0 -3px 5px rgba(255, 255, 255, 0.8) inset,
-        /* 세 번째: 오른쪽 측면에 약간의 음영 추가 */
-        5px 5px 7px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    180deg,
+    #fffdfa 0%,
+    #f6f3ec 100%
+  );
+  border-radius: 18px;
+  margin: 22px auto;
+  overflow: hidden;
 
-    margin: 10px auto;
-    
-    /* 마우스 인터랙션이 없으므로 transition은 필요 없음 */
+  border: 1px solid rgba(200, 185, 140, 0.35);
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.18),
+    0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* 헤더와 항목 구분선도 투명하게 변경 */
+/* -------------------------------
+   Header
+-------------------------------- */
+
 .card-header {
-position: relative;
-  font-size: 15pt;
-  font-weight: bold;
-    /* ... 기타 스타일 유지 ... */
+  position: relative;
+  padding: 1.2em 1em 1.3em;
+  font-size: 16pt;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: #2a2a2a;
+  text-align: center;
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #f3efe6
+  );
 }
 
-.account-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  font-size: 12pt;
-  font-weight: bold;
-  color: #666;
-  margin: 0 5px;
-}
-
-/* 글자색을 더 선명하게 하여 가독성 확보 */
-.card-header h1, .name, .number {
-    color: #1a1a1a;
-}
-
-.bank {
-    color: #4a4a4a;
-}
-
-  .arrow-wrap {
+/* Gold decorative lines */
+.card-header::before,
+.card-header::after {
+  content: "";
   position: absolute;
-  top:50%; right: 10px;
-  transform: translate(0, -50%);
+  left: 20%;
+  right: 20%;
+  height: 1px;
+}
+
+.card-header::before {
+  top: 12px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d4b97a,
+    transparent
+  );
+}
+
+.card-header::after {
+  bottom: 12px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #e8dcb5,
+    transparent
+  );
+}
+
+/* -------------------------------
+   Arrow
+-------------------------------- */
+
+.arrow-wrap {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow-wrap a {
+  color: #c9b06e;
 }
 
 .card-header .arrow-top {
   display: none;
 }
+
 .card-header .arrow-bottom {
   display: block;
 }
+
 .card-header.active .arrow-bottom {
   display: none;
 }
+
 .card-header.active .arrow-top {
-  display: block; 
+  display: block;
 }
+
+/* -------------------------------
+   Collapsible Content
+-------------------------------- */
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.1s ease;
+  background: #f7f4ee;
+}
+
+.account-card.open .collapsible-content {
+  max-height: 600px;
+}
+
+/* -------------------------------
+   Account List
+-------------------------------- */
+
+.account-details {
+  padding: 1em 1.1em 1.3em;
+}
+
+.account-item {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 0.85em 1em;
+  margin-bottom: 0.8em;
+
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.08),
+    0 1px 3px rgba(0,0,0,0.05);
+
+  font-size: 12.5pt;
+  font-weight: 600;
+  color: #444;
+}
+
+.account-item:last-child {
+  margin-bottom: 0;
+}
+
+/* -------------------------------
+   Text Styling
+-------------------------------- */
+
+.name {
+  font-weight: 700;
+  color: #2b2b2b;
+}
+
+.bank {
+  font-size: 0.85em;
+  color: #8a8a8a;
+  margin: 0 0.2em;
+}
+
+.number {
+  font-family: 'Playfair Display', 'Noto Serif KR', serif;
+  letter-spacing: 0.6px;
+  color: #1f1f1f;
+}
+
+/* -------------------------------
+   Copy Icon
+-------------------------------- */
+
+.fa-copy {
+  color: #d4b97a;
+}
+
+/* -------------------------------
+   Open State (Extra Depth)
+-------------------------------- */
+
+.account-card.open {
+  box-shadow:
+    0 28px 60px rgba(0,0,0,0.25),
+    0 6px 16px rgba(0,0,0,0.1);
+}
+
+
+
 
 /* 알림창(Toast) 스타일 */
 #toast {
