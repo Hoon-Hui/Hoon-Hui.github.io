@@ -148,13 +148,15 @@
 			</script>
 
 			<script>
-			  // 영문 top을 히스토리 기준점으로 설정
-			  history.replaceState({ page: 'eng_top' }, '', location.href);
+			  (function () {
+			    // 영문 top을 히스토리 기준점으로 고정
+			    history.pushState({ page: 'eng_root' }, '', location.href);
 			
-			  window.addEventListener('popstate', function () {
-			    // 뒤로가기 시 자기 자신 유지
-			    history.pushState(null, '', location.href);
-			  });
+			    window.addEventListener('popstate', function () {
+			      // 뒤로가기 시 자기 자신으로 복귀
+			      history.pushState({ page: 'eng_root' }, '', location.href);
+			    });
+			  })();
 			</script>
 
 	</body>
