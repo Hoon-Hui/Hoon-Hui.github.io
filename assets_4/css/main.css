@@ -3662,8 +3662,8 @@ input, select, textarea {
 .account-item {
   background: #ffffff;
   border-radius: 14px;
-  padding: 0.85em 1em;
-  margin-bottom: 0.8em;
+  padding: 0.25em 1em;
+  margin-bottom: 0.5em;
 
   box-shadow:
     0 6px 14px rgba(0,0,0,0.08),
