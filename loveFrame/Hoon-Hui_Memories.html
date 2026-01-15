@@ -154,19 +154,13 @@
 			</script>
 
 			<script>
-			(function () {
-			  // Android 감지
-			  var isAndroid = /Android/i.test(navigator.userAgent);
-			  if (!isAndroid) return;
-			
-			  // ENG 페이지에서 뒤로 온 경우
-			  if (document.referrer &&
-			      document.referrer.includes('loveFrame_eng.html')) {
-			
-			    // history에 남기지 않고 즉시 교체
-			    location.replace('/loveFrame/Hoon-Hui_Memories_eng.html');
-			  }
-			})();
+				(function () {
+				  if (!/Android/i.test(navigator.userAgent)) return;
+				
+				  if (sessionStorage.getItem('lang') === 'eng') {
+				    location.replace('/loveFrame/Hoon-Hui_Memories_eng.html');
+				  }
+				})();
 			</script>
 
 	</body>
