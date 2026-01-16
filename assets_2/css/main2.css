@@ -3396,9 +3396,9 @@ input, select, textarea {
 		display: flex;
 		/* padding: 6em 0 2em 0 ; */
 		background-attachment: fixed;
-		background-position: right;
+		background-position: center;
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: 100% 100%;
 		border-bottom: 0 !important;
 		cursor: default;
 		height: 60vh;
@@ -3419,7 +3419,7 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			pointer-events: none;
-			background-color: #242943;
+			background-color: #24294361;
 			content: '';
 			display: block;
 			height: 100%;
