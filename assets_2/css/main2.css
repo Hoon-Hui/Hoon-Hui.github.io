@@ -1783,7 +1783,7 @@ input, select, textarea {
 			    display: block;
 			    width: 80%;
 			    height: 1px;
-			    margin: 0.5em auto 0.1em;
+			    margin: 0.3em 0 0.7em;
 			    background: linear-gradient(to right, rgba(201, 179, 126, 0), #c9b37e, rgba(201, 179, 126, 0));
 			}
 
