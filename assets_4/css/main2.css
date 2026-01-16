@@ -2002,11 +2002,6 @@ input, select, textarea {
    =============================== */
 
 section#header {
-    background: linear-gradient(
-        to bottom,
-        #f8f6f3 0%,
-        #ffffff 100%
-    );
     font-family: 'Noto Serif KR', serif;
     color: #3a3a3a;
 }
