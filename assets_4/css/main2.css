@@ -3081,6 +3081,7 @@ section#header p + p {
 				padding-left: 0;
 			}
 
+			/*
 			#header .actions:after {
 				background: #242943;
 				content: '';
@@ -3090,6 +3091,7 @@ section#header p + p {
 				top: 100%;
 				width: 1px;
 			}
+			*/
 
 		#header .inner {
 			-moz-transition: -moz-transform 1.5s ease, opacity 2s ease;
