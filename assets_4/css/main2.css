@@ -2878,7 +2878,7 @@ section#header p + p {
 			background: #fff;
 		}
 
-		.main.style2 header.major:after {
+		.main.style1 header.major:after {
 				content: '';
 			    display: block;
 			    width: 80%;
