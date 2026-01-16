@@ -3419,7 +3419,7 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			pointer-events: none;
-			background-color: #24294361;
+			/* background-color: #24294361; */
 			content: '';
 			display: block;
 			height: 100%;
