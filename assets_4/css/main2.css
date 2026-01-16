@@ -2001,57 +2001,26 @@ input, select, textarea {
    PREMIUM WEDDING INVITATION
    =============================== */
 
+/* Header Section */
 section#header {
+    height: 100dvh;
     font-family: 'Noto Serif KR', serif;
     color: #3a3a3a;
 }
 
-/* 중앙 정렬 및 여백 */
+/* Inner Layout */
 section#header .inner {
+    height: 100%;
     max-width: 720px;
+    margin: 0 auto;
     padding: 4rem 2rem 5rem;
+    display: grid;
+    place-items: center;
+    align-content: end;
     text-align: center;
 }
 
-/* 날짜 & 장소 */
-section#header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.55rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    line-height: 1.6;
-    color: #2f2f2f;
-    margin-bottom: 2.2rem;
-}
-
-/* 혼주 & 신랑신부 */
-section#header div {
-    font-size: 1rem;
-    line-height: 2.1;
-    color: #555;
-    letter-spacing: 0.03em;
-}
-
-section#header div b {
-    font-weight: 500;
-    color: #222;
-}
-
-/* 본문 인사말 */
-section#header p {
-    font-size: 0.95rem;
-    line-height: 1.9;
-    color: #666;
-    margin-top: 2rem;
-    letter-spacing: 0.02em;
-}
-
-/* 첫 문단과 두 번째 문단 간격 */
-section#header p + p {
-    margin-top: 1.2rem;
-}
-
-/* 장식용 구분선 */
+/* Decorative Line */
 section#header .inner::before {
     content: '';
     display: block;
@@ -2066,7 +2035,44 @@ section#header .inner::before {
     margin: 0 auto 2.5rem;
 }
 
-/* 버튼 */
+/* Date & Location */
+section#header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.45;
+    color: #2f2f2f;
+    margin-bottom: 2.2rem;
+}
+
+/* Parents & Couple Info */
+section#header div {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #555;
+    letter-spacing: 0.03em;
+}
+
+section#header div b {
+    font-weight: 500;
+    color: #222;
+}
+
+/* Greeting Text */
+section#header p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #666;
+    margin-top: 2rem;
+    letter-spacing: 0.02em;
+}
+
+section#header p + p {
+    margin-top: 1rem;
+}
+
+/* Action Button */
 .actions.special {
     margin-top: 3.5rem;
 }
@@ -2088,18 +2094,21 @@ section#header .inner::before {
     transform: translateY(-2px);
 }
 
-/* 모바일 최적화 */
+/* Mobile Optimization */
 @media (max-width: 480px) {
     section#header h3 {
         font-size: 1.35rem;
+        line-height: 1.4;
     }
 
     section#header div {
         font-size: 0.95rem;
+        line-height: 1.75;
     }
 
     section#header p {
         font-size: 0.9rem;
+        line-height: 1.65;
     }
 }
 
