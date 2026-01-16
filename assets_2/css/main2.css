@@ -2771,7 +2771,7 @@ input, select, textarea {
 			padding: 4em 4em 2em 4em ;
 			background-position: center;
 			background-repeat: no-repeat;
-			background-size: cover;
+			background-size: 100% 100%;
 			cursor: default;
 			height: 40vh;
 			max-height: 40em;
