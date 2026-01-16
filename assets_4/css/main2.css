@@ -2870,299 +2870,154 @@ section#header p + p {
 
 /* Main */
 
-	.main {
-		padding: 6em 0 4em 0 ;
-	}
+	/* =================================
+   PREMIUM WEDDING INVITATION STYLE
+   (Account list 제외)
+   ================================= */
 
-		.main.style1 {
-			background: #fff;
-		}
+/* 공통 섹션 */
+.main {
+    padding: 8em 0 7em 0;
+    font-family: 'Noto Serif KR', 'Apple SD Gothic Neo', serif;
+    letter-spacing: -0.015em;
+    line-height: 1.8;
+}
 
-		.main.style2 {
-			background-color: #333;
-			/* color: rgba(255, 255, 255, 0.75); */
-			background-attachment: fixed,							fixed;
-			/* background-image: url("images/overlay1.png"), url("../../images/header.jpg"); */
-			background-size: auto,							cover;
-		}
+/* =================================
+   STYLE 1 – 오시는 길
+   ================================= */
+.main.style1 {
+    background: #fbfbfb;
+}
 
-			.main.style2 a {
-				border-bottom-color: rgba(255, 255, 255, 0.5);
-			}
+.main.style1 .container {
+    max-width: 1100px;
+}
 
-				.main.style2 a:hover {
-					color: #ffffff;
-				}
+/* 타이틀 */
+.main.style1 header.major {
+    text-align: center;
+}
 
-			.main.style2 h1, .main.style2 h2, .main.style2 h3, .main.style2 h4, .main.style2 h5, .main.style2 h6, .main.style2 strong, .main.style2 b {
-				color: #ffffff;
-			}
+.main.style1 header.major h2 {
+    font-size: 2.3em;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    color: #2a2a2a;
+}
 
-			.main.style2 header p {
-				color: #ffffff;
-			}
+/* 타이틀 하단 라인 */
+.main.style1 header.major:after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 1px;
+    margin: 1.4em auto 0;
+    background: linear-gradient(
+        to right,
+        rgba(201,179,126,0),
+        #c9b37e,
+        rgba(201,179,126,0)
+    );
+}
 
-			.main.style2 header.major:after {
-				background: #ffffff;
-			}
+/* 지도 카드화 */
+#daumRoughmapContainer1768478023932 {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.10);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-			.main.style2 input[type="submit"],
-			.main.style2 input[type="reset"],
-			.main.style2 input[type="button"],
-			.main.style2 button,
-			.main.style2 .button {
-				box-shadow: inset 0 0 0 1px #ffffff;
-				color: #ffffff !important;
-			}
-			
-				.main.style2 input[type="submit"]:hover,
-				.main.style2 input[type="reset"]:hover,
-				.main.style2 input[type="button"]:hover,
-				.main.style2 button:hover,
-				.main.style2 .button:hover {
-					background-color: rgba(255, 255, 255, 0.125);
-				}
-				
-				.main.style2 input[type="submit"]:active,
-				.main.style2 input[type="reset"]:active,
-				.main.style2 input[type="button"]:active,
-				.main.style2 button:active,
-				.main.style2 .button:active {
-					background-color: rgba(255, 255, 255, 0.25);
-				}
-				
-				.main.style2 input[type="submit"].primary,
-				.main.style2 input[type="reset"].primary,
-				.main.style2 input[type="button"].primary,
-				.main.style2 button.primary,
-				.main.style2 .button.primary {
-					background-color: #ffffff;
-					box-shadow: inset 0 0 0 1px #ffffff !important;
-					color: #333 !important;
-				}
-				
-					.main.style2 input[type="submit"].primary:hover,
-					.main.style2 input[type="reset"].primary:hover,
-					.main.style2 input[type="button"].primary:hover,
-					.main.style2 button.primary:hover,
-					.main.style2 .button.primary:hover {
-						background-color: rgba(255, 255, 255, 0.125) !important;
-						color: #ffffff !important;
-					}
-					
-					.main.style2 input[type="submit"].primary:active,
-					.main.style2 input[type="reset"].primary:active,
-					.main.style2 input[type="button"].primary:active,
-					.main.style2 button.primary:active,
-					.main.style2 .button.primary:active {
-						background-color: rgba(255, 255, 255, 0.25) !important;
-					}
-					
-			.main.style2 ul.major-icons li .icon {
-				border-color: #ffffff;
-			}
+/* =================================
+   STYLE 2 – 마음 보내실 곳
+   (계좌 UI 제외)
+   ================================= */
+.main.style2 {
+    background: linear-gradient(180deg, #262626, #1c1c1c);
+    color: #e6e6e6;
+}
 
-			.main.style2 .icon.major {
-				color: #ffffff;
-			}
+.main.style2 .container {
+    max-width: 1100px;
+}
 
-/* Header */
+/* 타이틀 */
+.main.style2 header.major {
+    text-align: center;
+    margin-bottom: 3em;
+}
 
-	#header {
-		padding: 9em 0 9em 0 ;
-		background-color: #ffffff;
-		color: #242943;
-		background-image: url("/images_4/Invitation.jpg");
-		background-position: center center;
-		background-size: 100% 100%;
-		overflow: hidden;
-		position: relative;
-		text-align: center;
-		background-repeat: no-repeat;
-	}
+.main.style2 header.major h2 {
+    font-size: 2.1em;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: #ffffff;
+}
 
-		#header a {
-			border-bottom-color: rgba(255, 255, 255, 0.5);
-		}
+/* 타이틀 하단 라인 */
+.main.style2 header.major:after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 1px;
+    margin: 1.4em auto 0;
+    background: linear-gradient(
+        to right,
+        rgba(201,179,126,0),
+        #c9b37e,
+        rgba(201,179,126,0)
+    );
+}
 
-			#header a:hover {
-				color: #ffffff;
-			}
+/* =================================
+   텍스트 & 링크 정리
+   ================================= */
+.main.style2 p {
+    color: rgba(255, 255, 255, 0.75);
+}
 
-		#header h1, #header h2, #header h3, #header h4, #header h5, #header h6, #header strong, #header b {
-			color: #242943;
-		}
+.main.style2 a {
+    color: #c9b37e;
+    border-bottom: none;
+}
 
-		#header header p {
-			color: #ffffff;
-		}
+.main.style2 a:hover {
+    color: #ffffff;
+}
 
-		#header header.major:after {
-			background: #ffffff;
-		}
+/* =================================
+   아이콘 스타일 통일
+   ================================= */
+.icon {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
 
-		#header input[type="submit"],
-		#header input[type="reset"],
-		#header input[type="button"],
-		#header button,
-		#header .button {
-			box-shadow: inset 0 0 0 1px #242943;
-			color: #242943 !important;
-		}
+.icon:hover {
+    transform: scale(1.08);
+}
 
-			#header input[type="submit"]:hover,
-			#header input[type="reset"]:hover,
-			#header input[type="button"]:hover,
-			#header button:hover,
-			#header .button:hover {
-				background-color: rgba(255, 255, 255, 0.125);
-			}
+/* =================================
+   섹션 간 구분감 (프리미엄 여백)
+   ================================= */
+.main.style1 + .main.style2 {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
 
-			#header input[type="submit"]:active,
-			#header input[type="reset"]:active,
-			#header input[type="button"]:active,
-			#header button:active,
-			#header .button:active {
-				background-color: rgba(255, 255, 255, 0.25);
-			}
+/* =================================
+   모바일 최적화
+   ================================= */
+@media screen and (max-width: 736px) {
+    .main {
+        padding: 6em 0 5em 0;
+    }
 
-			#header input[type="submit"].primary,
-			#header input[type="reset"].primary,
-			#header input[type="button"].primary,
-			#header button.primary,
-			#header .button.primary {
-				background-color: #ffffff;
-				box-shadow: inset 0 0 0 1px #ffffff !important;
-				color: #4686a0 !important;
-			}
+    .main header.major h2 {
+        font-size: 1.8em;
+        letter-spacing: 0.25em;
+    }
+}
 
-				#header input[type="submit"].primary:hover,
-				#header input[type="reset"].primary:hover,
-				#header input[type="button"].primary:hover,
-				#header button.primary:hover,
-				#header .button.primary:hover {
-					background-color: rgba(255, 255, 255, 0.125) !important;
-					color: #ffffff !important;
-				}
-
-				#header input[type="submit"].primary:active,
-				#header input[type="reset"].primary:active,
-				#header input[type="button"].primary:active,
-				#header button.primary:active,
-				#header .button.primary:active {
-					background-color: rgba(255, 255, 255, 0.25) !important;
-				}
-
-		#header ul.major-icons li .icon {
-			border-color: #ffffff;
-		}
-
-		#header .icon.major {
-			color: #ffffff;
-		}
-
-		#header h1 {
-			margin: 0;
-		}
-
-		#header p {
-			margin: 1em 0 0 0;
-		}
-
-		#header .actions {
-			-moz-justify-content: center;
-			-webkit-justify-content: center;
-			-ms-justify-content: center;
-			justify-content: center;
-			margin-top: 2.5em;
-			margin-left: 0;
-			position: relative;
-		}
-
-			#header .actions li:first-child {
-				padding-left: 0;
-			}
-
-			/*
-			#header .actions:after {
-				background: #242943;
-				content: '';
-				height: 100vh;
-				left: 50%;
-				position: absolute;
-				top: 100%;
-				width: 1px;
-			}
-			*/
-
-		#header .inner {
-			-moz-transition: -moz-transform 1.5s ease, opacity 2s ease;
-			-webkit-transition: -webkit-transform 1.5s ease, opacity 2s ease;
-			-ms-transition: -ms-transform 1.5s ease, opacity 2s ease;
-			transition: transform 1.5s ease, opacity 2s ease;
-			-moz-transition-delay: 0.25s;
-			-webkit-transition-delay: 0.25s;
-			-ms-transition-delay: 0.25s;
-			transition-delay: 0.25s;
-			-moz-transform: scale(1);
-			-webkit-transform: scale(1);
-			-ms-transform: scale(1);
-			transform: scale(1);
-			opacity: 1;
-			position: relative;
-			z-index: 1;
-		}
-
-			#header .inner .actions {
-				-moz-transition: -moz-transform 1.25s ease;
-				-webkit-transition: -webkit-transform 1.25s ease;
-				-ms-transition: -ms-transform 1.25s ease;
-				transition: transform 1.25s ease;
-				-moz-transition-delay: 1s;
-				-webkit-transition-delay: 1s;
-				-ms-transition-delay: 1s;
-				transition-delay: 1s;
-				-moz-transform: translateY(0);
-				-webkit-transform: translateY(0);
-				-ms-transform: translateY(0);
-				transform: translateY(0);
-				opacity: 1;
-			}
-
-		#header:after {
-			-moz-transition: opacity 1s ease;
-			-webkit-transition: opacity 1s ease;
-			-ms-transition: opacity 1s ease;
-			transition: opacity 1s ease;
-			/* background-image: linear-gradient(45deg, #db98a3, #a64555); */
-			content: '';
-			height: 100%;
-			left: 0;
-			opacity: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
-		}
-
-	body.is-preload #header .inner {
-		-moz-transform: scale(1.05);
-		-webkit-transform: scale(1.05);
-		-ms-transform: scale(1.05);
-		transform: scale(1.05);
-		opacity: 0;
-	}
-
-		body.is-preload #header .inner .actions {
-			-moz-transform: translateY(30em);
-			-webkit-transform: translateY(30em);
-			-ms-transform: translateY(30em);
-			transform: translateY(30em);
-			opacity: 0;
-		}
-
-	body.is-preload #header:after {
-		opacity: 1;
-	}
 
 /* Footer */
 
