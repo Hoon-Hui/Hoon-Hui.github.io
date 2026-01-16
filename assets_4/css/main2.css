@@ -2083,7 +2083,7 @@ section#header p + p {
     color: #5a4a2f;
     font-size: 0.8rem;
     letter-spacing: 0.2em;
-    padding: 0.8rem 2.4rem;
+    /* padding: 0.8rem 2.4rem; */
     border-radius: 40px;
     transition: all 0.4s ease;
 }
