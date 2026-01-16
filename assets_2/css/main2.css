@@ -160,10 +160,11 @@ input, select, textarea {
 			color: #9bf1ff !important;
 		}
 		*/
-
+		/*
 		a:active {
 			color: #53e3fb !important;
 		}
+		*/
 
 	strong, b {
 		color: #555;
@@ -2417,9 +2418,11 @@ input, select, textarea {
 						color: #242943 !important;
 					}
 
+					/*
 					ul.pagination li > .page.active:active {
 						background-color: #53e3fb;
 					}
+					*/
 
 			ul.pagination li:first-child {
 				padding-right: 0.75em;
@@ -2714,9 +2717,11 @@ input, select, textarea {
 			input[type="reset"].primary:active,
 			input[type="button"].primary:active,
 			button.primary:active,
+			/*
 			.button.primary:active {
 				background-color: #53e3fb;
 			}
+			*/
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
 		input[type="reset"].disabled,
