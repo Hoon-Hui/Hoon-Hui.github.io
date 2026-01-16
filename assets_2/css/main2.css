@@ -2562,11 +2562,13 @@ input, select, textarea {
 		input[type="reset"]:active,
 		input[type="button"]:active,
 		button:active,
+		/*
 		.button:active {
 			background-color: rgba(155, 241, 255, 0.1);
 			box-shadow: inset 0 0 0 2px #53e3fb;
 			color: #53e3fb;
 		}
+		*/
 
 		input[type="submit"].icon:before,
 		input[type="reset"].icon:before,
