@@ -1780,11 +1780,11 @@ input, select, textarea {
 
 			header.major > :first-child:after {
 				content: '';
-				background-color: #ffffff;
-				display: block;
-				height: 2px;
-				margin: 0.325em 0 0.5em 0;
-				width: 100%;
+			    display: block;
+			    width: 80%;
+			    height: 1px;
+			    margin: 0.5em auto 0.1em;
+			    background: linear-gradient(to right, rgba(201, 179, 126, 0), #c9b37e, rgba(201, 179, 126, 0));
 			}
 
 		header.major > p {
