@@ -2701,10 +2701,12 @@ input, select, textarea {
 			button.primary:hover,
 			button.primary:active,
 			.button.primary:hover,
+			/*
 			.button.primary:active {
 				background-color: #9bf1ff;
 				color: #242943 !important;
 			}
+			*/
 
 			input[type="submit"].primary:active,
 			input[type="reset"].primary:active,
