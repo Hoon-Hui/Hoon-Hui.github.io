@@ -2875,7 +2875,7 @@ section#header p + p {
 	}
 
 		.main.style1 {
-			background: #fff;
+			background: #FAF7F2;
 		}
 
 		.main.style1 header.major:after {
@@ -2888,11 +2888,7 @@ section#header p + p {
 		}
 
 		.main.style2 {
-			background-color: #333;
-			/* color: rgba(255, 255, 255, 0.75); */
-			background-attachment: fixed,							fixed;
-			/* background-image: url("images/overlay1.png"), url("../../images/header.jpg"); */
-			background-size: auto,							cover;
+			background-color: ##EFEDEA;
 		}
 
 			.main.style2 a {
@@ -3183,12 +3179,8 @@ section#header p + p {
 
 	#footer {
 		padding: 6em 0 6em 0 ;
-		background-color: #4686a0;
-		color: rgba(255, 255, 255, 0.75);
-		background-attachment: fixed,							fixed,							fixed;
-		background-image: url("images/overlay2.png"), url("images/overlay4.svg"), linear-gradient(45deg, #a64555, #db98a3 50%, #c04e62 95%);
-		background-position: top left,						center center,					center center;
-		background-size: auto,							cover,							cover;
+		background-color: #EFEDEA;
+		color: #555;
 		text-align: center;
 	}
 
