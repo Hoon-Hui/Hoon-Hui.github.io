@@ -3121,7 +3121,7 @@ section#header .inner::before {
 			-webkit-transition: opacity 1s ease;
 			-ms-transition: opacity 1s ease;
 			transition: opacity 1s ease;
-			background-image: linear-gradient(45deg, #db98a3, #a64555);
+			/* background-image: linear-gradient(45deg, #db98a3, #a64555); */
 			content: '';
 			height: 100%;
 			left: 0;
