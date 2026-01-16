@@ -2021,6 +2021,7 @@ section#header .inner {
 }
 
 /* Decorative Line */
+/*
 section#header .inner::before {
     content: '';
     display: block;
@@ -2034,6 +2035,7 @@ section#header .inner::before {
     );
     margin: 0 auto 2.5rem;
 }
+*/
 
 /* Date & Location */
 section#header h3 {
