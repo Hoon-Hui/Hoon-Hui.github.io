@@ -2006,6 +2006,7 @@ section#header {
     height: 100dvh;
     font-family: 'Noto Serif KR', serif;
     color: #3a3a3a;
+	padding: 2em 1em 4em 1em;
 }
 
 /* Inner Layout */
@@ -3477,7 +3478,7 @@ section#header p + p {
 			}
 
 		/* Header */
-
+			/*
 			#header {
 				padding: 4em 3em 4em 3em ;
 			}
@@ -3485,6 +3486,7 @@ section#header p + p {
 				#header .actions {
 					margin: 2em 0 0 0;
 				}
+			*/
 
 		/* Footer */
 
@@ -3514,11 +3516,11 @@ section#header p + p {
 			}
 
 		/* Header */
-
+			/*
 			#header {
 				padding: 4em 1em 4em 1em ;
 			}
-				/*
+				
 				#header br {
 					display: none;
 				}
