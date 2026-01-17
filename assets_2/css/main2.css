@@ -4012,6 +4012,12 @@ input, select, textarea {
    WEDDING TILE DESIGN UPGRADE
    ========================= */
 
+.tiles article {
+  background-size: cover !important;
+  background-position: center !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
 /* 웨딩 감성 그라데이션 오버레이 */
 .tiles article:before {
   background: linear-gradient(
