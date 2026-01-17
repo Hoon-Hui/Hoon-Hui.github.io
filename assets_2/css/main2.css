@@ -4009,86 +4009,140 @@ input, select, textarea {
 
 
 /* =====================================
-   PREMIUM WEDDING INVITATION STYLE
-   (ADD ONLY - NO MODIFY)
+   PREMIUM WEDDING INVITATION – FULL UPGRADE
+   ADD ONLY (SAFE)
    ===================================== */
 
-/* 전체 타일 여백감 + 부드러운 움직임 */
+/* 전체 배경 – 아이보리 종이 */
+#main {
+  background: linear-gradient(
+    180deg,
+    #faf8f3 0%,
+    #f2ede4 100%
+  ) !important;
+}
+
+/* 섹션 구분선 은은하게 */
+#main > * {
+  border-top: 1px solid rgba(201, 179, 126, 0.25) !important;
+}
+
+/* =========================
+   TILE SECTION (ONE)
+   ========================= */
+
+/* 타일 기본 */
 .tiles article {
   background-size: cover !important;
   background-position: center !important;
   transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
-/* 종이 위에 얹힌 듯한 오버레이 */
+/* 종이 위에 얹힌 오버레이 */
 .tiles article:before {
   background: linear-gradient(
     180deg,
-    rgba(255, 252, 247, 0.96),
-    rgba(245, 238, 228, 0.88)
+    rgba(255, 252, 247, 0.97),
+    rgba(242, 235, 225, 0.88)
   ) !important;
 }
 
-/* 텍스트 영역 = 고급 종이 카드 */
+/* 텍스트 카드 (프리미엄 종이) */
 .tiles article header.major {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 2.2em 2.6em;
-  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 2.3em 2.8em;
+  border-radius: 20px;
   box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(201, 179, 126, 0.35);
+    0 18px 40px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(201, 179, 126, 0.4);
   backdrop-filter: blur(6px);
 }
 
-/* 제목 – 청첩장 느낌의 여백 있는 타이포 */
+/* 제목 – 청첩장 타이포 */
 .tiles article h3 {
   font-size: 1.85em;
   font-weight: 500;
-  letter-spacing: 0.18em;
-  color: #2f2f2f;
+  letter-spacing: 0.22em;
+  color: #2e2b27;
+  text-align: center;
 }
 
 /* 제목 아래 금빛 라인 */
 .tiles article h3:after {
   content: '';
   display: block;
-  width: 45px;
+  width: 46px;
   height: 1px;
-  margin: 0.8em auto 0.6em;
+  margin: 0.9em auto 0.7em;
   background: linear-gradient(
     to right,
     rgba(201,179,126,0),
-    rgba(201,179,126,0.9),
+    rgba(201,179,126,1),
     rgba(201,179,126,0)
   );
 }
 
-/* 설명 문구 – 잉크 인쇄 느낌 */
+/* 설명 – 잉크 인쇄 느낌 */
 .tiles article p {
   font-size: 0.9em;
-  color: #5a554f;
-  line-height: 1.8;
-  letter-spacing: 0.08em;
+  color: #5b554d;
+  line-height: 1.9;
+  letter-spacing: 0.1em;
+  text-align: center;
 }
 
-/* 링크 컬러 절제 */
+/* 링크 색 절제 */
 .tiles article h3 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* 호버 – 살짝 떠오르는 종이 느낌 */
+/* 호버 – 종이가 살짝 떠오르는 느낌 */
 .tiles article:hover {
   transform: translateY(-6px);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 45px 90px rgba(0, 0, 0, 0.18);
 }
 
-/* 호버 시 오버레이만 아주 살짝 연해짐 */
 .tiles article:hover:before {
-  opacity: 0.35;
+  opacity: 0.38;
 }
 
-/* 모바일에서는 여백 조금 줄이기 */
+/* =========================
+   SECTION TWO (BUTTON AREA)
+   ========================= */
+
+#two {
+  background: transparent !important;
+  padding-bottom: 4em;
+}
+
+/* 메인 버튼 – 청첩장 버튼 */
+#two .button {
+  background: transparent;
+  border: 1px solid rgba(201, 179, 126, 0.9);
+  color: #3a352f;
+  padding: 0.9em 3.5em;
+  letter-spacing: 0.25em;
+  font-size: 0.9em;
+  transition: all 0.4s ease;
+}
+
+#two .button:hover {
+  background: rgba(201, 179, 126, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 하단 링크 정돈 */
+#two ul.actions a {
+  color: #6a635b;
+  letter-spacing: 0.15em;
+  font-size: 0.85em;
+}
+
+/* =========================
+   MOBILE TUNING
+   ========================= */
+
 @media screen and (max-width: 736px) {
   .tiles article header.major {
     padding: 1.8em 2em;
@@ -4098,4 +4152,3 @@ input, select, textarea {
     font-size: 1.6em;
   }
 }
-
