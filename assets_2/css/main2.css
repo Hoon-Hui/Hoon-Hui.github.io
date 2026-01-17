@@ -4008,5 +4008,49 @@ input, select, textarea {
 }
 
 
+/* =========================
+   WEDDING TILE DESIGN UPGRADE
+   ========================= */
 
+/* 웨딩 감성 그라데이션 오버레이 */
+.tiles article:before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 245, 240, 0.95),
+    rgba(255, 225, 210, 0.75)
+  );
+}
 
+/* 텍스트 카드화 */
+.tiles article header.major {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 1.8em 2em;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* 제목 */
+.tiles article h3 {
+  font-size: 1.9em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* 설명 */
+.tiles article p {
+  font-size: 0.95em;
+  color: #555;
+  margin-top: 0.5em;
+}
+
+/* 호버 효과 */
+.tiles article:hover {
+  transform: scale(1.03);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+}
+
+/* 호버 시 오버레이 연해짐 */
+.tiles article:hover:before {
+  opacity: 0.25;
+}
