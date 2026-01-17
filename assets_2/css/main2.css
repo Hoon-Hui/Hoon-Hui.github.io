@@ -4044,9 +4044,9 @@ input, select, textarea {
 /* 종이 위에 얹힌 오버레이 */
 .tiles article:before {
   background: linear-gradient(
-    180deg,
-    rgba(255, 252, 247, 0.97),
-    rgba(242, 235, 225, 0.88)
+    360deg,
+    rgba(255, 252, 247, 0.85),
+    rgba(241, 218, 228, 0.85)
   ) !important;
 }
 
