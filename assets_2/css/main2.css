@@ -4056,6 +4056,9 @@ input, select, textarea {
     0 18px 40px rgba(0, 0, 0, 0.08),
     inset 0 0 0 1px rgba(201, 179, 126, 0.4);
   backdrop-filter: blur(6px);
+  opacity: 0.5;
+  top: -37%;
+  padding: 1.5em 1.5e	
 }
 
 /* 제목 – 청첩장 타이포 */
@@ -4113,7 +4116,6 @@ input, select, textarea {
 
 #two {
   background: transparent !important;
-  padding-bottom: 4em;
 }
 
 /* 메인 버튼 – 청첩장 버튼 */
@@ -4142,11 +4144,6 @@ input, select, textarea {
 /* =========================
    MOBILE TUNING
    ========================= */
-
-@media screen and (max-width: 736px) {
-  .tiles article header.major {
-    padding: 1.8em 2em;
-  }
 
   .tiles article h3 {
     font-size: 1.6em;
