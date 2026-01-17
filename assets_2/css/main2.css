@@ -2768,7 +2768,7 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.25s ease, opacity 0.25s ease, -webkit-filter 1s ease, -webkit-filter 1s ease;
 			-ms-transition: -ms-transform 0.25s ease, opacity 0.25s ease, -ms-filter 1s ease, -webkit-filter 1s ease;
 			transition: transform 0.25s ease, opacity 0.25s ease, filter 1s ease, -webkit-filter 1s ease;
-			padding: 4em 4em 2em 4em ;
+			padding: 3em 1.5em 1em 1.5em;
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
@@ -2879,7 +2879,7 @@ input, select, textarea {
 			.tiles article:nth-child(6n):before {
 				background-color: #B0DDE8;
 			}
-
+		/*
 		@media screen and (max-width: 1280px) {
 
 			.tiles article {
@@ -2926,6 +2926,7 @@ input, select, textarea {
 				}
 
 		}
+	*/
 
 /* Contact Method */
 
@@ -4067,21 +4068,6 @@ input, select, textarea {
 .tiles article h3 {
   letter-spacing: 0.15em;
   color: #2e2b27;
-}
-
-/* 제목 아래 금빛 라인 */
-.tiles article h3:after {
-  content: '';
-  display: block;
-  width: 46px;
-  height: 1px;
-  margin: 0.9em auto 0.7em;
-  background: linear-gradient(
-    to right,
-    rgba(201,179,126,0),
-    rgba(201,179,126,1),
-    rgba(201,179,126,0)
-  );
 }
 
 /* 설명 – 잉크 인쇄 느낌 */
