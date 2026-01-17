@@ -4032,11 +4032,13 @@ input, select, textarea {
    ========================= */
 
 /* 타일 기본 */
+/*
 .tiles article {
   background-size: cover !important;
   background-position: center !important;
   transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
+*/
 
 /* 종이 위에 얹힌 오버레이 */
 .tiles article:before {
