@@ -1784,7 +1784,7 @@ input, select, textarea {
 			header.major > :first-child:after {
 				content: '';
 			    display: block;
-			    width: 80%;
+			    width: 100%;
 			    height: 1px;
 			    margin: 0.3em 0 0.7em;
 			    background: linear-gradient(to right, rgba(201, 179, 126, 0), #c9b37e, rgba(201, 179, 126, 0));
@@ -4074,7 +4074,8 @@ input, select, textarea {
 .tiles article p {
   font-size: 0.9em;
   color: #5b554d;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  text-align: center;
 }
 
 /* 링크 색 절제 */
@@ -4130,5 +4131,6 @@ input, select, textarea {
 
   .tiles article h3 {
     font-size: 1.3em;
+	text-align: center;
   }
 }
