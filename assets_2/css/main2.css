@@ -4058,7 +4058,7 @@ input, select, textarea {
   backdrop-filter: blur(6px);
   opacity: 0.5;
   top: -37%;
-  padding: 1.5em 1.5e	
+  padding: 1.5em 1.5em;	
 }
 
 /* 제목 – 청첩장 타이포 */
