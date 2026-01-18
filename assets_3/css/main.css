@@ -973,7 +973,7 @@ input, select, textarea {
 			width: 50%;
 			background: #101010;
 			outline: 0;
-			border: 1.5px solid #ffffff;
+			border: 2px solid #ffffff;
 		}
 
 			#thumbnails article .thumbnail {
@@ -982,6 +982,7 @@ input, select, textarea {
 				position: relative;
 				border: 0;
 				outline: 0;
+				border: 0.3px solid gold;
 			}
 
 				#thumbnails article .thumbnail img {
@@ -1348,6 +1349,7 @@ input, select, textarea {
 				}
 
 		}
+
 
 
 
