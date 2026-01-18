@@ -1,44 +1,48 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Hoon&Hui Wedding day</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
-		<!-- Background Video-->
-        <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="images/main.mp4" type="video/mp4" /></video>
-		<!-- Header -->
-			<header id="header">
-				<h1>Our journey begins</h1>
-				<p><b>We have finally become 'us'<br>Please watch over our new beginning<br>as we navigate the journey of life together</b></p>
-			</header>
+<head>
+  <title>Hoon & Hui Wedding day</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main2.css" />
+</head>
 
-		<!-- Signup Form -->
-			<form id="signup-form" method="post" onsubmit="validateChk();">
-				<!-- <input type="text" name="wedding" id="wedding" maxlength="8" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Enter Wedding day..! (YYYYMMDD)" /> -->
-				<input type="submit" value="Blessings" />
-			</form>
+<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 
-		<!-- Footer -->
-		<footer id="footer">
-				<ul class="copyright">
-					<li><a href="index.html" class="icon brands fa-gratipay"><span class="label">Gratipay</span></a></li><li><a href="index.html">Kor Language</a></li>
-				</ul>
-			</footer>
-		
-		<!-- Scripts -->
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/bgm.js"></script>
-	</body>
+  <!-- Background Video -->
+  <video class="bg-video" playsinline autoplay muted loop>
+    <source src="images/main.mp4" type="video/mp4" />
+  </video>
 
+  <!-- Header -->
+  <header id="header">
+    <h1 class="title fade-in">Our journey begins</h1>
+    <span class="divider fade-in delay-1"></span>
+    <p class="subtitle fade-in delay-2">
+      We have finally become 'us'<br>
+      Please watch over our new beginning<br>
+      as we navigate the journey of life together
+    </p>
+  </header>
+
+  <!-- Button -->
+  <form id="signup-form" method="post" onsubmit="validateChk_kor();" class="subtitle fade-in delay-3">
+    <input type="submit" value="Blessings" class="luxury-btn" />
+  </form>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="copyright">
+      <li>
+        <a href="index_eng.html" class="icon brands fa-gratipay">
+          <span class="label">Gratipay</span>
+        </a>
+      </li>
+      <li><a href="index_eng.html">Eng Language</a></li>
+    </ul>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+
+</body>
 </html>
-
-
-
-
-
-
-
-
