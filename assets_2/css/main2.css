@@ -4067,7 +4067,7 @@ input, select, textarea {
 }
 
 .tiles article header.major.visible {
-  opacity: 1;
+  opacity: 0.5;
   transform: translateY(0);
 }
 
