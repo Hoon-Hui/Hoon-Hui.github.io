@@ -154,5 +154,23 @@
 			  requestAnimationFrame(animate);
 			}
 			</script>
+
+			<script>
+				document.addEventListener("DOMContentLoaded", function() {
+				  const headers = document.querySelectorAll("#one article header.major");
+				
+				  function checkHeaders() {
+				    headers.forEach(header => {
+				      const rect = header.getBoundingClientRect();
+				      if (rect.top < window.innerHeight * 0.85) { // 화면 85% 지점
+				        header.classList.add("visible");
+				      }
+				    });
+				  }
+				
+				  window.addEventListener("scroll", checkHeaders);
+				  checkHeaders(); // 로딩 시 한번 체크
+				});
+			</script>
 	</body>
 </html>
