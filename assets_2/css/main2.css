@@ -3457,7 +3457,7 @@ input, select, textarea {
 			-moz-transition: opacity 0.5s ease, -moz-transform 0.5s ease-out, -moz-filter 0.5s ease, -webkit-filter 0.5s ease;
 			-webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease-out, -webkit-filter 0.5s ease, -webkit-filter 0.5s ease;
 			-ms-transition: opacity 0.5s ease, -ms-transform 0.5s ease-out, -ms-filter 0.5s ease, -webkit-filter 0.5s ease;
-			transition: opacity 0.5s ease, transform 0.5s ease-out, filter 0.5s ease, -webkit-filter 0.5s ease;
+			transition: opacity 0.75s ease, transform 0.75s ease-out, filter 0.75s ease, -webkit-filter 0.75s ease;
 			
 			padding: 0 !important;
 			position: relative;
@@ -4132,19 +4132,4 @@ input, select, textarea {
     font-size: 1.3em;
 	text-align: center;
   }
-}
-
-/* ===============================
-   Fade-In Section
-================================ */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(30px); /* 살짝 아래에서 올라오는 느낌 */
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-/* 화면 로딩 시 active 클래스 붙이면 실행 */
-.fade-in-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
