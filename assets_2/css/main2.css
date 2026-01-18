@@ -4061,6 +4061,14 @@ input, select, textarea {
   opacity: 0.5;
   top: -37%;
   padding: 0.7em 1em;	
+  opacity: 0;
+  transform: translateY(24px); /* 살짝 위에서 내려오는 느낌 */
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.tiles article header.major.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* 제목 – 청첩장 타이포 */
@@ -4134,15 +4142,15 @@ input, select, textarea {
   }
 }
 
-/* 기본 상태 */
+/*
 #one article header.major {
   opacity: 0;
-  transform: translateY(24px); /* 살짝 위에서 내려오는 느낌 */
+  transform: translateY(24px);
   transition: opacity 0.9s ease-out, transform 0.9s ease-out;
 }
 
-/* 화면에 보이면 활성화 */
 #one article header.major.visible {
   opacity: 1;
   transform: translateY(0);
 }
+*/
