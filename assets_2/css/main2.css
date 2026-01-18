@@ -4133,3 +4133,18 @@ input, select, textarea {
 	text-align: center;
   }
 }
+
+/* ===============================
+   Fade-In Section
+================================ */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px); /* 살짝 아래에서 올라오는 느낌 */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* 화면 로딩 시 active 클래스 붙이면 실행 */
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
