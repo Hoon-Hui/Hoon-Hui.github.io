@@ -2006,7 +2006,7 @@ section#header {
     height: 100dvh;
     font-family: 'Noto Serif KR', serif;
     color: #3a3a3a;
-	padding: 4em 1em 2em 1em;
+	padding: 4em 0.5em 2em 0.5em;
 }
 
 /* Inner Layout */
