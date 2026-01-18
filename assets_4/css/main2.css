@@ -2014,10 +2014,10 @@ section#header .inner {
     height: 100%;
     max-width: 720px;
     margin: 0 auto;
-    padding: 4rem 2rem 5rem;
+    padding: 9rem 2rem 5rem;
     display: grid;
     place-items: center;
-    align-content: end;
+    align-content: center;
     text-align: center;
 }
 
