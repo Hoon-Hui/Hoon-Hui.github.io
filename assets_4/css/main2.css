@@ -2006,7 +2006,7 @@ section#header {
     height: 100dvh;
     font-family: 'Noto Serif KR', serif;
     color: #3a3a3a;
-	padding: 4em 1em 4em 1em;
+	padding: 4em 1em 2em 1em;
 }
 
 /* Inner Layout */
@@ -2465,7 +2465,7 @@ section#header p + p {
 
 	ul {
 		list-style: disc;
-		margin: 0 0 2em 0;
+		margin: 0 0 1em 0;
 		padding-left: 1em;
 	}
 
