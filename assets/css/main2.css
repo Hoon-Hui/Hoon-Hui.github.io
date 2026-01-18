@@ -738,13 +738,13 @@ button,
 
   /* Luxury Look */
   background-color: transparent;
-  border: 1px solid rgba(212, 175, 55, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 0;
 
-  color: rgba(212, 175, 55, 0.95) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
 
   font-family: 'Playfair Display', 'Noto Serif KR', serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.28em;
 
@@ -758,6 +758,7 @@ button,
   text-decoration: none;
   white-space: nowrap;
 }
+  /*
   input[type="submit"]:hover,
   input[type="reset"]:hover,
   input[type="button"]:hover,
@@ -780,13 +781,14 @@ button,
   .button.disabled,
   .button:disabled {
     opacity: 0.5; }
+  */
   @media screen and (max-width: 480px) {
     input[type="submit"],
     input[type="reset"],
     input[type="button"],
     button,
     .button {
-      padding: 0; } }
+      padding: 0.3em 0 0.3em 0; } }
 
 /* Header */
 #header h1 {
