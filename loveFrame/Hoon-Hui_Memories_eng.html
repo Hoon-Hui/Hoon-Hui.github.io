@@ -155,8 +155,27 @@
 			  requestAnimationFrame(animate);
 			}
 			</script>
+
+			<script>
+				document.addEventListener("DOMContentLoaded", function() {
+				  const headers = document.querySelectorAll(".tiles article header.major");
+				
+				  function checkHeaders() {
+				    headers.forEach(header => {
+				      const rect = header.getBoundingClientRect();
+				      if (rect.top < window.innerHeight * 0.85) {
+				        header.classList.add("visible");
+				      }
+				    });
+				  }
+				
+				  window.addEventListener("scroll", checkHeaders);
+				  checkHeaders();
+				});
+			</script>
 	</body>
 </html>
+
 
 
 
