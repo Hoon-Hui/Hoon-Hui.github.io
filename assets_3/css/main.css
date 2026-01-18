@@ -973,6 +973,7 @@ input, select, textarea {
 			width: 50%;
 			background: #101010;
 			outline: 0;
+			border: 1.5px solid #ffffff;
 		}
 
 			#thumbnails article .thumbnail {
@@ -1347,6 +1348,7 @@ input, select, textarea {
 				}
 
 		}
+
 
 
 
