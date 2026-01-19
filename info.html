@@ -97,19 +97,61 @@
 							        <div class="account-details">
 							            <div class="account-item" style="letter-spacing: -0.5px;">
 							                <div class="name">아버지　윤석준</div>
-							                <span class="bank">농　협</span>
+							                <span class="bank">농협은행						<div class="account-card">
+							    <div class="card-header" onclick="toggleAccounts()" style="padding: 1em 0 1em 0;"></
+							        <span>신랑측 계좌번호</span>
+									<div class="arrow-wrap">
+				                        <span class="arrow-top"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-up"><span class="label">top</span></a></span>
+				                    	<span class="arrow-bottom"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-down"><span class="label">bottom</span></a></span>
+				                    </div>
+							    </div>
+							    
+							    <!-- 이 부분이 토글될 내용입니다 -->
+							    <div class="collapsible-content" id="accountList">
+							        <div class="account-details">
+							            <div class="account-item" style="letter-spacing: -0.5px;">
+							                <div class="name">아버지　장권재</div>
+							                <span class="bank">부산은행</span>
+							                <span class="number" data-copy-value="1122111081005" id="bankAccount1">112-2111-0810-05 </span>
+											<span><a href="javascript:bankAccountCopy(1)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+										<div class="account-item" style="letter-spacing: -0.5px;">
+							                <div class="name">신　랑　장용훈</div>
+							                <span class="bank">우리은행</span>
+							                <span class="number" data-copy-value="1002352699191" id="bankAccount3">1002-352-699191 </span>
+											<span><a href="javascript:bankAccountCopy(3)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+
+							<div class="account-card">
+							    <div class="card-header" onclick="toggleAccounts2()" style="padding: 1em 0 1em 0;">
+							        <span>신부측 계좌번호</span>
+									<div class="arrow-wrap">
+				                        <span class="arrow-top"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-up"><span class="label">top</span></a></span>
+				                    	<span class="arrow-bottom"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-down"><span class="label">bottom</span></a></span>
+				                    </div>
+							    </div>
+							    
+							    <!-- 이 부분이 토글될 내용입니다 -->
+							    <div class="collapsible-content" id="accountList2">
+							        <div class="account-details">
+							            <div class="account-item" style="letter-spacing: -0.5px;">
+							                <div class="name">아버지　윤석준</div>
+							                <span class="bank">농협은행span>
 							                <span class="number" data-copy-value="60114456026752" id="bankAccount4">601144-56-026752 </span>
 											<span><a href="javascript:bankAccountCopy(4)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
 							            </div>
 							            <div class="account-item" style="letter-spacing: -0.5px;">
 							                <div class="name">어머니　김현주</div>
-							                <span class="bank">우체국</span>
+							                <span class="bank">우 체 국</span>
 							                <span class="number" data-copy-value="50388802002794" id="bankAccount5">503888-02-002794 </span>
 											<span><a href="javascript:bankAccountCopy(5)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
 							            </div>
 										<div class="account-item" style="letter-spacing: -0.5px;">
 							                <div class="name">신　부　윤소희</div>
-							                <span class="bank">농　협</span>
+							                <span class="bank">농협은행</span>
 							                <span class="number" data-copy-value="60110452116136" id="bankAccount6">601104-52-116136 </span>
 											<span><a href="javascript:bankAccountCopy(6)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
 							            </div>
@@ -237,6 +279,7 @@
 	</body>
 
 </html>
+
 
 
 
