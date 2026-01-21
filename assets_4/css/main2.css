@@ -3500,39 +3500,25 @@ section#header p + p {
 		  section#header {
 			  padding: 0;
 		  }
+		
 		  section#header .inner {
-			display: flex;
-	        width: 100%;
-	        margin: 0;
-	        align-items: center;
+		    display: flex;        /* Flex로 좌우 분할 */
+		    flex-wrap: wrap;      /* 작은 화면에서 줄바꿈 허용 */
+		    gap: 2rem;            /* 컬럼 간격 */
+		    align-items: flex-start; /* 위쪽 정렬 */
+		    padding: 1rem;        /* 여백 */
 		  }
 		
-		  #wrapper > * > .inner header.major {
-			flex: 1;
-			text-align: center;
-			margin: 0;
+		  section#header .inner h3, .inner div, .inner p {
+		    flex: 1 1 45%;        /* 각 요소가 45% 너비로 두 컬럼 차지 */
+		    margin: 0.5rem 0;     /* 요소 간 간격 */
 		  }
 		
-		  #wrapper > * > .inner .content {
-			flex: 1;
-			display: grid;
-        	text-align: center;
-			margin: 3em 0 0 0;
+		  section#header .inner .actions.special {
+		    flex-basis: 100%;     /* 버튼은 전체 너비로 */
+		    text-align: center;   /* 가운데 정렬 */
+		    margin-top: 1rem;
 		  }
-		
-		  /* 버튼이 너무 아래로 밀리지 않게 */
-		  #wrapper > * > .inner .actions {
-			display: flex;
-        	justify-content: center;
-		  }
-
-		  #banner > .inner .content > * {
-			  margin-bottom: 1em;
-		  }	
-
-		  #banner.major {
-			 padding: 0;
-		  }	
 		}
 
 /* XSmall */
