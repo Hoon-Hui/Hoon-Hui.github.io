@@ -3805,10 +3805,21 @@ input, select, textarea {
 
 			@media screen and (min-width: 738px) {
 
-				#wrapper > * > .inner {
-					padding: 3em 0 1em 0 ;
-					width: calc(100% - 3em);
-				}
+				.inner {
+				    display: flex;
+				    align-items: center;
+				    gap: 2rem;
+				  }
+				
+				  .inner header.major {
+				    flex: 1;
+				    text-align: left;
+				  }
+				
+				  .inner .content {
+				    flex: 1;
+				    text-align: left;
+				  }
 
 			}
 
