@@ -909,25 +909,12 @@ button,
 
   /* 모바일 가로 모드에서만 적용 */
 	@media screen and (max-height: 500px) {
-	  section#header {
+	  input[type="submit"] {
 		  padding: 0;
-		  background-size: contain;
 	  }
 	
-	  section#header .inner {
-		display: flex;
-		flex-wrap: wrap;
+	  #footer {
 		padding: 0;
-	  }
-	  .left-col, .right-col {
-		flex: 1 1 45%;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	  }
-	  .right-col .actions.special {
-		flex-basis: 100%;
-		text-align: center;
 	  }
 	}
 
