@@ -3559,8 +3559,51 @@ input, select, textarea {
 
 		@media screen and (max-width: 1280px) {
 
-			#banner {
-				background-attachment: scroll;
+			/* 전체 배너 */
+			#banner.major {
+			    min-height: 100vh;
+			    padding: 4rem 2rem;
+			    box-sizing: border-box;
+			}
+			
+			/* 내부 컨테이너 */
+			#banner .inner {
+			    max-width: 1100px;
+			    margin: 0 auto;
+			}
+			
+			/* 다단 적용 */
+			#banner .content {
+			    column-width: 320px;          /* 단 최소 너비 */
+			    column-gap: 3rem;             /* 단 사이 간격 */
+			}
+			
+			/* 헤더는 단 전체를 가로질러 표시 */
+			#banner header.major {
+			    column-span: all;
+			    margin-bottom: 3rem;
+			    text-align: center;
+			}
+			
+			/* 문단 스타일 */
+			#banner .content p {
+			    break-inside: avoid;
+			    margin-bottom: 1.5rem;
+			    line-height: 1.8;
+			}
+			
+			/* 버튼 영역도 단 나눔 방지 */
+			#banner .actions {
+			    break-inside: avoid;
+			    margin-top: 2rem;
+			    text-align: center;
+			}
+			
+			/* 반응형 조정 */
+			@media (max-width: 768px) {
+			    #banner .content {
+			        column-count: 1;
+			    }
 			}
 
 		}
