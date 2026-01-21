@@ -3596,24 +3596,6 @@ input, select, textarea {
 					max-height: none;
 				}
 
-				#banner > .inner {
-				    display: flex;
-				    gap: 2rem;
-				    align-items: flex-start;
-				  }
-				
-				  .inner header.major {
-				    flex: 1;
-				  }
-				
-				  .inner .content {
-				    flex: 1;
-				  }
-				
-				  /* 버튼이 너무 아래로 밀리지 않게 */
-				  .inner .actions {
-				    margin-top: 1.5rem;
-				  }
 		}
 		
 
@@ -4171,3 +4153,26 @@ input, select, textarea {
   transform: translateY(0);
 }
 */
+
+/* 모바일 가로 모드에서만 적용 */
+@media screen and (min-width: 650px){
+
+  .inner {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .inner header.major {
+    flex: 1;
+  }
+
+  .inner .content {
+    flex: 1;
+  }
+
+  /* 버튼이 너무 아래로 밀리지 않게 */
+  .inner .actions {
+    margin-top: 1.5rem;
+  }
+}
