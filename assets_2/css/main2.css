@@ -3825,12 +3825,14 @@ input, select, textarea {
 		  #wrapper > * > .inner header.major {
 			flex: 1;
 			text-align: center;
+			margin: 0;
 		  }
 		
 		  #wrapper > * > .inner .content {
 			flex: 1;
 			display: grid;
         	text-align: center;
+			margin: 3em 0 0 0;
 		  }
 		
 		  /* 버튼이 너무 아래로 밀리지 않게 */
@@ -3844,8 +3846,12 @@ input, select, textarea {
 		  }	
 
 		  #banner.major {
-			 height: 100dvh;
+			 padding: 0;
 		  }	
+
+		  .tiles article p {
+			  letter-spacing: 0.0em;
+		  }
 		}
 
 
