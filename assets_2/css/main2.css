@@ -3848,10 +3848,6 @@ input, select, textarea {
 		  #banner.major {
 			 padding: 0;
 		  }	
-
-		  .tiles article p {
-			  letter-spacing: 0.0em;
-		  }
 		}
 
 
@@ -4124,7 +4120,7 @@ input, select, textarea {
 .tiles article p {
   font-size: 0.9em;
   color: #5b554d;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.03em;
   text-align: center;
 }
 
