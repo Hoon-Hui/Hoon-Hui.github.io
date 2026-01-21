@@ -3497,8 +3497,10 @@ section#header p + p {
 
 	/* 모바일 가로 모드에서만 적용 */
 		@media screen and (max-height: 500px) {
-		
-		  #wrapper > * > .inner {
+		  #header {
+			  padding: 0;
+		  }
+		  #header > .inner {
 			display: flex;
 	        width: 100%;
 	        margin: 0;
