@@ -910,10 +910,11 @@ button,
   /* 모바일 가로 모드에서만 적용 */
 	@media screen and (max-height: 500px) {
 	  input[type="submit"] {
-		  padding: 1em 3em;
+		  padding: 0em 3em;
 	  }
 	  #footer {
 		padding: 0;
+	    margin: 0.5em;
 	  }
 	  form {
 		 margin: 0;
