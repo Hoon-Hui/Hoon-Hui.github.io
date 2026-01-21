@@ -3598,6 +3598,28 @@ input, select, textarea {
 
 		}
 		
+		/* 모바일 가로 모드에서만 적용 */
+		@media screen and (max-height: 500px) {
+		
+		  #banner > .inner {
+		    display: flex;
+		    gap: 2rem;
+		    align-items: flex-start;
+		  }
+		
+		  #wrapper > * > .inner header.major {
+		    flex: 1;
+		  }
+		
+		  #wrapper > * > .inner .content {
+		    flex: 1;
+		  }
+		
+		  /* 버튼이 너무 아래로 밀리지 않게 */
+		  #wrapper > * > .inner .actions {
+		    margin-top: 1.5rem;
+		  }
+		}
 
 		/*
 		@media screen and (max-width: 480px) {
@@ -4153,26 +4175,3 @@ input, select, textarea {
   transform: translateY(0);
 }
 */
-
-/* 모바일 가로 모드에서만 적용 */
-@media screen and (max-height: 500px) {
-
-  #wrapper > * > .inner {
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-  }
-
-  #wrapper > * > .inner header.major {
-    flex: 1;
-  }
-
-  #wrapper > * > .inner .content {
-    flex: 1;
-  }
-
-  /* 버튼이 너무 아래로 밀리지 않게 */
-  #wrapper > * > .inner .actions {
-    margin-top: 1.5rem;
-  }
-}
