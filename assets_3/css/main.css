@@ -924,6 +924,7 @@ input, select, textarea {
 
 	#header {
 		padding: 3em 2.25em 1.75em 2.25em ;
+		text-align: center;
 	}
 
 		#header h1 {
@@ -1347,3 +1348,4 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
+
