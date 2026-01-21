@@ -4155,7 +4155,7 @@ input, select, textarea {
 */
 
 /* 모바일 가로 모드에서만 적용 */
-@media screen and (max-width: 900px) and (orientation: landscape) {
+@media screen and (max-width: 900px) and (min-aspect-ratio: 1/1) {
   .inner {
     display: flex;
     gap: 2rem;
