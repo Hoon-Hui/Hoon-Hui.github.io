@@ -3559,7 +3559,7 @@ input, select, textarea {
 
 		@media screen and (max-width: 1280px) {
 
-			.inner {
+			#wrapper > * > .inner {
 				display: grid;
 				grid-template-columns: 1fr 1fr; /* 2단 */
 				gap: 2.5rem;
@@ -3572,7 +3572,7 @@ input, select, textarea {
 				text-align: center;
 			}
 			
-			.inner .content {
+			#banner > .inner .content {
 				text-align: center;
 			}
 
