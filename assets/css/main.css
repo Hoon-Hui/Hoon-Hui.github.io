@@ -442,7 +442,8 @@ ul.icons {
 
 /* Form */
 form {
-  margin: 0 0 3em 0; }
+  /* margin: 0 0 3em 0; */
+}
   form .message {
     text-decoration: none;
     -moz-transition: opacity 0.2s ease-in-out, -moz-transform 0.2s ease-in-out;
@@ -924,3 +925,4 @@ video.bg-video {
 	opacity: 1;
 	top: 15px;
 }
+
