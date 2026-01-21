@@ -3831,6 +3831,10 @@ input, select, textarea {
 		  #wrapper > * > .inner .actions {
 			margin-top: 1.5rem;
 		  }
+
+		  #banner.major {
+			  margin-top: 1.5rem;
+		  }	
 		}
 
 
