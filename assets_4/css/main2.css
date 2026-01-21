@@ -3497,7 +3497,7 @@ section#header p + p {
 
 	/* 모바일 가로 모드에서만 적용 */
 		@media screen and (max-height: 500px) {
-		  #header {
+		  section#header {
 			  padding: 0;
 		  }
 		  section#header .inner {
