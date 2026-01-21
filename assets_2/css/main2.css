@@ -3847,6 +3847,8 @@ input, select, textarea {
 
 		  #banner.major {
 			 padding: 0;
+			 min-height: 0;
+        	 max-height: none;
 		  }	
 		}
 
