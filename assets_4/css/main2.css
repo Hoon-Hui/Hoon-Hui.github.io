@@ -3499,12 +3499,13 @@ section#header p + p {
 		@media screen and (max-height: 500px) {
 		  section#header {
 			  padding: 0;
+			  background-size: contain;
 		  }
 		
 		  section#header .inner {
 		    display: flex;
-		    gap: 2rem;
 		    flex-wrap: wrap;
+			padding: 0;
 		  }
 		  .left-col, .right-col {
 		    flex: 1 1 45%;
