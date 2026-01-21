@@ -3500,7 +3500,7 @@ section#header p + p {
 		  #header {
 			  padding: 0;
 		  }
-		  #header > .inner {
+		  section#header .inner {
 			display: flex;
 	        width: 100%;
 	        margin: 0;
