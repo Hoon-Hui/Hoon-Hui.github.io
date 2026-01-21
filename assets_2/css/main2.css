@@ -2921,7 +2921,7 @@ input, select, textarea {
 			}
 
 				.tiles article {
-					height: 70vh;
+					height: 100dvh;
 					width: 100% !important;
 				}
 
@@ -4060,7 +4060,7 @@ input, select, textarea {
   backdrop-filter: blur(6px);
   opacity: 0.5;
   top: -37%;
-  padding: 0.7em 1em;	
+  padding: 1em 1.5em;	
   opacity: 0;
   transform: translateY(24px); /* 살짝 위에서 내려오는 느낌 */
   transition: opacity 0.9s ease-out, transform 0.9s ease-out;
