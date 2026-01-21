@@ -3511,7 +3511,7 @@ section#header p + p {
 		    flex: 1 1 45%;
 		    display: flex;
 		    flex-direction: column;
-		    gap: 0.5rem;
+		    line-height: 2em;
 		  }
 		  .right-col .actions.special {
 		    flex-basis: 100%;
