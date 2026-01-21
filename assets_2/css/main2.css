@@ -4155,24 +4155,24 @@ input, select, textarea {
 */
 
 /* 모바일 가로 모드에서만 적용 */
-@media screen and (max-height: 500px){
+@media screen and (max-height: 500px) {
 
-  .inner {
+  #wrapper > * > .inner {
     display: flex;
     gap: 2rem;
     align-items: flex-start;
   }
 
-  .inner header.major {
+  #wrapper > * > .inner header.major {
     flex: 1;
   }
 
-  .inner .content {
+  #wrapper > * > .inner .content {
     flex: 1;
   }
 
   /* 버튼이 너무 아래로 밀리지 않게 */
-  .inner .actions {
+  #wrapper > * > .inner .actions {
     margin-top: 1.5rem;
   }
 }
