@@ -3495,6 +3495,44 @@ section#header p + p {
 
 	}
 
+	/* 모바일 가로 모드에서만 적용 */
+		@media screen and (max-height: 500px) {
+		
+		  #wrapper > * > .inner {
+			display: flex;
+	        width: 100%;
+	        margin: 0;
+	        align-items: center;
+		  }
+		
+		  #wrapper > * > .inner header.major {
+			flex: 1;
+			text-align: center;
+			margin: 0;
+		  }
+		
+		  #wrapper > * > .inner .content {
+			flex: 1;
+			display: grid;
+        	text-align: center;
+			margin: 3em 0 0 0;
+		  }
+		
+		  /* 버튼이 너무 아래로 밀리지 않게 */
+		  #wrapper > * > .inner .actions {
+			display: flex;
+        	justify-content: center;
+		  }
+
+		  #banner > .inner .content > * {
+			  margin-bottom: 1em;
+		  }	
+
+		  #banner.major {
+			 padding: 0;
+		  }	
+		}
+
 /* XSmall */
 
 	@media screen and (max-width: 480px) {
