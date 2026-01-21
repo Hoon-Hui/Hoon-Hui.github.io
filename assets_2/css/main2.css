@@ -3559,51 +3559,61 @@ input, select, textarea {
 
 		@media screen and (max-width: 1280px) {
 
-			/* 전체 배너 */
-			#banner.major {
-			    min-height: 100vh;
-			    padding: 4rem 2rem;
-			    box-sizing: border-box;
-			}
-			
-			/* 내부 컨테이너 */
-			#banner .inner {
-			    max-width: 1100px;
+			/* content를 그리드로 */
+			#banner .content {
+			    display: grid;
+			    grid-template-columns: 140px 1fr;
+			    row-gap: 2.2rem;
+			    column-gap: 2.5rem;
+			    max-width: 900px;
 			    margin: 0 auto;
 			}
 			
-			/* 다단 적용 */
-			#banner .content {
-			    column-width: 320px;          /* 단 최소 너비 */
-			    column-gap: 3rem;             /* 단 사이 간격 */
+			/* 첫 번째 p : 초대문구 (오른쪽) */
+			#banner .content p:nth-of-type(1) {
+			    grid-column: 2;
 			}
 			
-			/* 헤더는 단 전체를 가로질러 표시 */
-			#banner header.major {
-			    column-span: all;
-			    margin-bottom: 3rem;
-			    text-align: center;
+			/* 두 번째 p : 장소 (오른쪽) */
+			#banner .content p:nth-of-type(2) {
+			    grid-column: 2;
 			}
 			
-			/* 문단 스타일 */
-			#banner .content p {
-			    break-inside: avoid;
-			    margin-bottom: 1.5rem;
-			    line-height: 1.8;
+			/* 버튼 : 오른쪽 */
+			#banner .content .actions {
+			    grid-column: 2;
 			}
 			
-			/* 버튼 영역도 단 나눔 방지 */
-			#banner .actions {
-			    break-inside: avoid;
-			    margin-top: 2rem;
-			    text-align: center;
+			/* 왼쪽 라벨 생성 (CSS only) */
+			#banner .content p:nth-of-type(1)::before {
+			    content: "초대 문구";
+			    grid-column: 1;
+			    font-weight: 600;
+			    opacity: 0.8;
+			    position: absolute;
+			    transform: translateX(-160px);
 			}
 			
-			/* 반응형 조정 */
-			@media (max-width: 768px) {
-			    #banner .content {
-			        column-count: 1;
-			    }
+			#banner .content p:nth-of-type(2)::before {
+			    content: "장소";
+			    font-weight: 600;
+			    opacity: 0.8;
+			    position: absolute;
+			    transform: translateX(-160px);
+			}
+			
+			#banner .content .actions::before {
+			    content: "가족";
+			    font-weight: 600;
+			    opacity: 0.8;
+			    position: absolute;
+			    transform: translateX(-160px);
+			}
+			
+			/* 위치 기준 */
+			#banner .content p,
+			#banner .content .actions {
+			    position: relative;
 			}
 
 		}
