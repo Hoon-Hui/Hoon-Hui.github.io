@@ -3811,7 +3811,7 @@ input, select, textarea {
 
 			@media screen and (min-width: 638px) {
 
-				.inner {
+				#wrapper > * > .inner {
 				    display: flex;
 				    align-items: center;
 					margin: 0 0 0 2.5em;
