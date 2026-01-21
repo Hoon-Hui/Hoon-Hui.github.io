@@ -4153,3 +4153,24 @@ input, select, textarea {
   transform: translateY(0);
 }
 */
+
+/* 모바일 가로 모드 */
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+	#banner .inner {
+		max-width: 100%;
+	}
+
+	#banner .content {
+		column-count: 2;          /* 2단 */
+		column-gap: 2rem;         /* 단 사이 간격 */
+	}
+
+	/* 단 나눌 때 깨지지 않게 */
+	#banner .content p,
+	#banner .content ul,
+	#banner .content div {
+		break-inside: avoid;
+		-webkit-column-break-inside: avoid;
+		page-break-inside: avoid;
+	}
+}
