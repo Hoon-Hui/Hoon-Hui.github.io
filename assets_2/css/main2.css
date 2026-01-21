@@ -3509,8 +3509,10 @@ input, select, textarea {
 
 		#banner.major {
 			height: 100dvh;
+			/*
 			min-height: 30em;
 			max-height: 50em;
+			*/
 		}
 
 			#banner.major.alt {
@@ -3815,25 +3817,34 @@ input, select, textarea {
 		
 		  #wrapper > * > .inner {
 			display: flex;
-			gap: 2rem;
-			align-items: flex-start;
+	        width: 100%;
+	        margin: 0;
+	        align-items: center;
 		  }
 		
 		  #wrapper > * > .inner header.major {
 			flex: 1;
+			text-align: center;
 		  }
 		
 		  #wrapper > * > .inner .content {
 			flex: 1;
+			display: grid;
+        	text-align: center;
 		  }
 		
 		  /* 버튼이 너무 아래로 밀리지 않게 */
 		  #wrapper > * > .inner .actions {
-			margin-top: 1.5rem;
+			display: flex;
+        	justify-content: center;
 		  }
 
+		  #banner > .inner .content > * {
+			  margin-bottom: 1em;
+		  }	
+
 		  #banner.major {
-			  margin-top: 1.5rem;
+			 height: 100dvh;
 		  }	
 		}
 
