@@ -76,36 +76,5 @@
 			<script src="assets_3/js/browser.min.js"></script>
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
-
-			<script>
-			  const mq = window.matchMedia('(max-height: 500px)');
-			
-			  const targets = document.querySelectorAll(
-			    '#thumbnails article:nth-child(3) a.thumbnail, ' +
-			    '#thumbnails article:nth-child(12) a.thumbnail'
-			  );
-			
-			  function updatePosition(e) {
-			    targets.forEach(target => {
-			      if (e.matches) {
-			        // 높이 500px 이하
-			        target.setAttribute('data-position', 'center center');
-			      } else {
-			        // 원래 값 (필요하면 원하는 기본값으로 수정)
-			        target.setAttribute('data-position', 'left center');
-			      }
-			    });
-			  }
-			
-			  // 최초 실행
-			  updatePosition(mq);
-			
-			  // 화면 높이 변경 감지
-			  mq.addEventListener('change', updatePosition);
-			</script>
-
 	</body>
 </html>
-
-
-
