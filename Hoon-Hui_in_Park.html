@@ -76,5 +76,31 @@
 			<script src="assets_3/js/browser.min.js"></script>
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
+
+			<script>
+			  const mq = window.matchMedia('(max-height: 500px)');
+			  const target = document.querySelector(
+			    '#thumbnails a.thumbnail[data-position]'
+			  );
+			
+			  function updatePosition(e) {
+			    if (!target) return;
+			
+			    if (e.matches) {
+			      // 높이 500px 이하
+			      target.setAttribute('data-position', 'center center');
+			    } else {
+			      // 원래 값
+			      target.setAttribute('data-position', 'left center');
+			    }
+			  }
+			
+			  // 최초 실행
+			  updatePosition(mq);
+			
+			  // 리사이즈 감지
+			  mq.addEventListener('change', updatePosition);
+			</script>
 	</body>
 </html>
+
