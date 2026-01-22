@@ -1322,6 +1322,13 @@ input, select, textarea {
 
 		}
 
+		@media screen and (max-height: 500px) {
+			  #thumbnails article:nth-child(3) a.thumbnail,
+			  #thumbnails article:nth-child(12) a.thumbnail {
+			    background-position: center center !important;
+			  }
+		}
+
 		@media screen and (max-width: 480px) {
 
 			#viewer {
@@ -1349,5 +1356,6 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
+
 
 
