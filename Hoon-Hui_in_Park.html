@@ -82,15 +82,20 @@
 			  const target = document.querySelector(
 			    '#thumbnails a.thumbnail[data-position]'
 			  );
+
+				alert("1");	
 			
 			  function updatePosition(e) {
+				  alert("2");	
 			    if (!target) return;
-			
+			alert("3");	
 			    if (e.matches) {
 			      // 높이 500px 이하
+					alert("4");	
 			      target.setAttribute('data-position', 'center center');
 			    } else {
 			      // 원래 값
+					alert("5");	
 			      target.setAttribute('data-position', 'left center');
 			    }
 			  }
@@ -103,4 +108,5 @@
 			</script>
 	</body>
 </html>
+
 
