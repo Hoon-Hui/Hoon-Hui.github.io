@@ -1191,6 +1191,7 @@ input, select, textarea {
 			z-index: 1;
 		}
 
+			/*
 			#viewer .slide .caption {
 				background-image: -moz-linear-gradient(bottom, rgba(16,16,16,0.75), rgba(16,16,16,0.25) 80%, rgba(16,16,16,0));
 				background-image: -webkit-linear-gradient(bottom, rgba(16,16,16,0.75), rgba(16,16,16,0.25) 80%, rgba(16,16,16,0));
@@ -1204,6 +1205,7 @@ input, select, textarea {
 				color: rgba(255, 255, 255, 0.5);
 				z-index: 1;
 			}
+			*/
 
 				#viewer .slide .caption h2, #viewer .slide .caption h3, #viewer .slide .caption h4, #viewer .slide .caption h5, #viewer .slide .caption h6 {
 					color: #fff;
@@ -1355,6 +1357,7 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
+
 
 
 
