@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury Wedding Invitation</title>
+<title>Cherry Blossom Luxury Wedding</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;600&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --gold1:#f5e6c8;
-  --gold2:#d4b483;
-  --gold3:#a8834a;
+  --gold:#d4b483;
+  --pink:#f8c8d8;
   --dark:#0f0f0f;
+  --light:#fff5f7;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -20,26 +20,54 @@
 body{
   background:#0b0b0b;
   font-family:'Noto Serif KR',serif;
-  color:#eee;
+  color:#333;
 }
 
 .wrapper{
   max-width:430px;
   margin:0 auto;
-  background:linear-gradient(180deg,#0b0b0b,#141414);
+  background:linear-gradient(180deg,#0b0b0b,#1c1c1c);
   overflow:hidden;
+  position:relative;
 }
 
-/* ================== COMMON ================== */
+/* 벚꽃 입체 애니메이션 */
+@keyframes blossomFall{
+  0%{transform:translateY(-10%) rotate(0deg); opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(120%) rotate(360deg); opacity:0;}
+}
+
+.blossom{
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:radial-gradient(circle at center,var(--pink),transparent 70%);
+  border-radius:50%;
+  top:-20px;
+  animation:blossomFall 12s linear infinite;
+  pointer-events:none;
+  opacity:0;
+}
+
+/* 랜덤화 */
+.blossom:nth-child(1){left:10%; animation-delay:0s; width:16px;height:16px;}
+.blossom:nth-child(2){left:25%; animation-delay:2s; width:20px;height:20px;}
+.blossom:nth-child(3){left:40%; animation-delay:4s; width:18px;height:18px;}
+.blossom:nth-child(4){left:60%; animation-delay:6s; width:22px;height:22px;}
+.blossom:nth-child(5){left:75%; animation-delay:1s; width:14px;height:14px;}
+.blossom:nth-child(6){left:85%; animation-delay:3s; width:19px;height:19px;}
+
+/* ================= COMMON ================= */
 section{
-  padding:110px 28px;
+  padding:120px 28px;
   text-align:center;
   position:relative;
 }
 
 .reveal{
   opacity:0;
-  transform:translateY(80px) scale(.98);
+  transform:translateY(60px) scale(.97);
   transition:1.6s cubic-bezier(.16,1,.3,1);
 }
 
@@ -50,28 +78,35 @@ section{
 
 .title{
   font-family:'Playfair Display',serif;
-  font-size:26px;
+  font-size:28px;
   letter-spacing:4px;
-  margin-bottom:50px;
-  background:linear-gradient(120deg,var(--gold1),var(--gold2),var(--gold3));
+  margin-bottom:40px;
+  background:linear-gradient(120deg,var(--gold),var(--pink));
   -webkit-background-clip:text;
   color:transparent;
 }
 
-/* ================== HERO ================== */
+.ornament{
+  width:120px;
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  margin:30px auto;
+}
+
+/* ================= HERO ================= */
 .hero{
   height:100vh;
   background:
-    radial-gradient(circle at top,rgba(255,215,150,.15),transparent 60%),
-    url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e") center/cover;
+    url("https://images.unsplash.com/photo-1556761175-129418cb2dfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NjY0Nzd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODU5MjEyNzY&ixlib=rb-4.0.3&q=80&w=1080") center/cover no-repeat;
   position:relative;
+  overflow:hidden;
 }
 
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.3),#0b0b0b 85%);
+  background:linear-gradient(to bottom,rgba(0,0,0,.2),#0b0b0b 90%);
 }
 
 .hero-inner{
@@ -80,41 +115,34 @@ section{
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align:center;
 }
 
 .hero h1{
   font-family:'Cormorant Garamond',serif;
-  font-size:42px;
-  letter-spacing:6px;
-  margin-bottom:16px;
-  background:linear-gradient(120deg,var(--gold1),var(--gold3));
+  font-size:44px;
+  letter-spacing:5px;
+  margin-bottom:18px;
+  background:linear-gradient(120deg,var(--gold),var(--pink));
   -webkit-background-clip:text;
   color:transparent;
 }
 
 .hero p{
-  font-size:14px;
+  font-size:16px;
   letter-spacing:3px;
-  color:#ddd;
+  color:#fff;
 }
 
-/* ================== ORNAMENT ================== */
-.ornament{
-  width:120px;
-  height:1px;
-  background:linear-gradient(to right,transparent,var(--gold2),transparent);
-  margin:40px auto;
-}
-
-/* ================== MESSAGE ================== */
+/* ================= MESSAGE ================= */
 .message{
   font-size:16px;
-  line-height:2.2;
-  color:#ddd;
+  line-height:2.3;
+  color:#eee;
   white-space:pre-line;
 }
 
-/* ================== INFO ================== */
+/* ================= INFO ================= */
 .info p{
   font-size:15px;
   margin:14px 0;
@@ -124,21 +152,21 @@ section{
   margin-top:50px;
   display:inline-block;
   padding:16px 42px;
-  border:1px solid var(--gold2);
+  border:1px solid var(--gold);
   border-radius:50px;
   text-decoration:none;
-  color:var(--gold2);
+  color:var(--gold);
   font-size:14px;
   letter-spacing:2px;
   transition:.5s;
 }
 
 .btn:hover{
-  background:linear-gradient(120deg,var(--gold1),var(--gold3));
+  background:linear-gradient(120deg,var(--gold),var(--pink));
   color:#111;
 }
 
-/* ================== GALLERY ================== */
+/* ================= GALLERY ================= */
 .gallery{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -147,8 +175,8 @@ section{
 
 .gallery img{
   width:100%;
-  border-radius:14px;
-  filter:brightness(.9);
+  border-radius:16px;
+  filter:brightness(.92);
   transition:.8s cubic-bezier(.16,1,.3,1);
   cursor:pointer;
 }
@@ -158,11 +186,11 @@ section{
   filter:brightness(1.1);
 }
 
-/* ================== LIGHTBOX ================== */
+/* ================= LIGHTBOX ================= */
 .lightbox{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.92);
+  background:rgba(0,0,0,.95);
   display:none;
   align-items:center;
   justify-content:center;
@@ -175,15 +203,15 @@ section{
   border-radius:18px;
 }
 
-/* ================== ACCOUNT ================== */
+/* ================= ACCOUNT ================= */
 .account-box{
-  border:1px solid rgba(255,215,150,.3);
-  border-radius:22px;
-  padding:36px;
+  border:1px solid rgba(212,180,131,.3);
+  border-radius:24px;
+  padding:38px;
 }
 
 .account-btn{
-  color:var(--gold2);
+  color:var(--gold);
   letter-spacing:2px;
   cursor:pointer;
 }
@@ -196,77 +224,91 @@ section{
 .account{
   margin:18px 0;
   font-size:14px;
-  color:#ddd;
+  color:#eee;
 }
 
-/* ================== FOOTER ================== */
+/* ================= FOOTER ================= */
 footer{
   padding:60px 20px;
   font-size:12px;
-  color:#777;
+  color:#aaa;
   text-align:center;
 }
 </style>
 </head>
 
 <body>
+
 <div class="wrapper">
 
-<section class="hero">
-  <div class="hero-inner reveal">
-    <div>
-      <h1>MINJUN & SEYEON</h1>
-      <p>OCTOBER 24 · 2026</p>
-    </div>
-  </div>
-</section>
+  <!-- 벚꽃 입체 -->
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
 
-<section class="reveal">
-  <div class="title">INVITATION</div>
-  <div class="ornament"></div>
-  <div class="message">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner reveal">
+      <div>
+        <h1>MINJUN & SEYEON</h1>
+        <p>OCTOBER 24 · 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVITATION -->
+  <section class="reveal">
+    <div class="title">INVITATION</div>
+    <div class="ornament"></div>
+    <div class="message">
 서로의 시간을 담아  
 하나의 인생이 되려 합니다.
 
 그 깊고 찬란한 시작의 순간에  
 귀한 분을 초대합니다.
-  </div>
-</section>
-
-<section class="reveal info">
-  <div class="title">WEDDING DAY</div>
-  <div class="ornament"></div>
-  <p>2026년 10월 24일 토요일 오후 1시</p>
-  <p>더라움 웨딩홀 · 라움홀</p>
-  <a class="btn" href="#">LOCATION</a>
-</section>
-
-<section class="reveal">
-  <div class="title">GALLERY</div>
-  <div class="ornament"></div>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
-  </div>
-</section>
-
-<section class="reveal">
-  <div class="title">WITH LOVE</div>
-  <div class="ornament"></div>
-  <div class="account-box">
-    <div class="account-btn" onclick="toggleAcc()">마음 전하실 곳</div>
-    <div class="accounts" id="acc">
-      <div class="account">신랑 민준 · 국민은행 123-456-789012</div>
-      <div class="account">신부 서연 · 신한은행 987-654-321098</div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  © LUXURY WEDDING SIGNATURE
-</footer>
+  <!-- INFO -->
+  <section class="reveal info">
+    <div class="title">WEDDING DAY</div>
+    <div class="ornament"></div>
+    <p>2026년 10월 24일 토요일 오후 1시</p>
+    <p>더라움 웨딩홀 · 라움홀</p>
+    <a class="btn" href="#">LOCATION</a>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="reveal">
+    <div class="title">GALLERY</div>
+    <div class="ornament"></div>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+    </div>
+  </section>
+
+  <!-- ACCOUNT -->
+  <section class="reveal">
+    <div class="title">WITH LOVE</div>
+    <div class="ornament"></div>
+    <div class="account-box">
+      <div class="account-btn" onclick="toggleAcc()">마음 전하실 곳</div>
+      <div class="accounts" id="acc">
+        <div class="account">신랑 민준 · 국민은행 123-456-789012</div>
+        <div class="account">신부 서연 · 신한은행 987-654-321098</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © Cherry Blossom Luxury Wedding
+  </footer>
 
 </div>
 
@@ -291,6 +333,7 @@ document.querySelectorAll('.gallery img').forEach(img=>{
   }
 })
 
+/* account toggle */
 function toggleAcc(){
   const a=document.getElementById('acc');
   a.style.display=a.style.display==='block'?'none':'block';
