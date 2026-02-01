@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<title>모바일 청첩장</title>
+<title>Premium Wedding Invitation</title>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --main-color: #b89b7d;
-  --bg-color: #faf8f6;
-  --text-color: #333;
+  --primary: #c2a27c;
+  --dark: #1a1a1a;
+  --light: #f7f5f2;
+  --text: #333;
 }
 
 * {
@@ -23,111 +24,126 @@
 
 body {
   font-family: 'Noto Serif KR', serif;
-  background: var(--bg-color);
-  color: var(--text-color);
+  background: var(--light);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
-.container {
-  max-width: 420px;
+.wrapper {
+  max-width: 430px;
   margin: 0 auto;
   background: #fff;
   overflow: hidden;
 }
 
-/* ---------- 공통 ---------- */
+/* ================= 공통 ================= */
 section {
-  padding: 60px 24px;
+  padding: 80px 26px;
   text-align: center;
 }
 
-.title {
+.section-title {
   font-family: 'Playfair Display', serif;
   font-size: 22px;
-  letter-spacing: 2px;
-  margin-bottom: 30px;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
 }
 
-.fade {
+.reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
+  transform: translateY(50px);
+  transition: 1.2s cubic-bezier(.19,1,.22,1);
 }
 
-.fade.show {
+.reveal.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ---------- 메인 ---------- */
+/* ================= HERO ================= */
 .hero {
   height: 100vh;
-  background: url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e") center/cover fixed;
+  background: url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e") center/cover no-repeat;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+}
+
+.hero-content {
+  position: relative;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  text-align: center;
 }
 
-.hero-inner {
-  background: rgba(0,0,0,0.35);
-  padding: 40px 30px;
-}
-
-.hero h1 {
+.hero-content h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  margin-bottom: 10px;
+  font-size: 34px;
+  margin-bottom: 12px;
 }
 
-.hero p {
+.hero-content p {
   font-size: 14px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
-/* ---------- 인사말 ---------- */
-.message {
+/* ================= INTRO ================= */
+.intro {
   font-size: 15px;
-  line-height: 1.9;
+  line-height: 2;
   white-space: pre-line;
 }
 
-/* ---------- 정보 ---------- */
+/* ================= INFO ================= */
 .info p {
+  margin: 10px 0;
   font-size: 15px;
-  margin: 8px 0;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 24px;
-  padding: 12px 30px;
-  border: 1px solid var(--main-color);
-  color: var(--main-color);
-  border-radius: 30px;
+  margin-top: 30px;
+  padding: 14px 36px;
+  border: 1px solid var(--primary);
+  color: var(--primary);
   text-decoration: none;
+  border-radius: 40px;
   font-size: 14px;
-  transition: all .3s;
+  transition: .4s ease;
 }
 
 .btn:hover {
-  background: var(--main-color);
+  background: var(--primary);
   color: #fff;
 }
 
-/* ---------- 갤러리 ---------- */
+/* ================= GALLERY ================= */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 12px;
 }
 
 .gallery img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: transform .6s ease;
 }
 
-/* ---------- 라이트박스 ---------- */
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ================= LIGHTBOX ================= */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -141,14 +157,25 @@ section {
 .lightbox img {
   max-width: 90%;
   max-height: 90%;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
-/* ---------- 계좌 ---------- */
-.account-box {
+/* ================= ACCOUNT ================= */
+.account-wrap {
   border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 26px;
+}
+
+.account-btn {
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.accounts {
+  margin-top: 20px;
+  display: none;
 }
 
 .account {
@@ -156,57 +183,53 @@ section {
   font-size: 14px;
 }
 
-.toggle {
-  cursor: pointer;
-  color: var(--main-color);
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-/* ---------- 푸터 ---------- */
+/* ================= FOOTER ================= */
 footer {
-  padding: 30px;
+  padding: 40px;
   font-size: 12px;
   color: #aaa;
   text-align: center;
 }
 </style>
 </head>
+
 <body>
+<div class="wrapper">
 
-<div class="container">
-
-  <!-- 메인 -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner fade">
-      <h1>민준 & 서연</h1>
-      <p>2026.10.24 SAT PM 1:00</p>
+    <div class="hero-content reveal">
+      <div>
+        <h1>Minjun & Seoyeon</h1>
+        <p>OCTOBER 24, 2026</p>
+      </div>
     </div>
   </section>
 
-  <!-- 인사말 -->
-  <section class="fade">
-    <div class="title">INVITATION</div>
-    <div class="message">
+  <!-- INTRO -->
+  <section class="reveal">
+    <div class="section-title">INVITATION</div>
+    <div class="intro">
 서로의 하루가 되어  
-평생을 함께하려 합니다.
+같은 방향을 바라보며  
+평생을 함께 걷고자 합니다.
 
-귀한 걸음 하시어  
-저희의 시작을 축복해 주세요.
+소중한 분들을 모시고  
+그 첫걸음을 내딛습니다.
     </div>
   </section>
 
-  <!-- 예식정보 -->
-  <section class="fade info">
-    <div class="title">WEDDING DAY</div>
+  <!-- INFO -->
+  <section class="info reveal">
+    <div class="section-title">WEDDING DAY</div>
     <p>2026년 10월 24일 토요일 오후 1시</p>
     <p>더라움 웨딩홀 3층 라움홀</p>
-    <a href="#" class="btn">지도 보기</a>
+    <a href="#" class="btn">LOCATION</a>
   </section>
 
-  <!-- 갤러리 -->
-  <section class="fade">
-    <div class="title">GALLERY</div>
+  <!-- GALLERY -->
+  <section class="reveal">
+    <div class="section-title">GALLERY</div>
     <div class="gallery">
       <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
       <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
@@ -215,57 +238,54 @@ footer {
     </div>
   </section>
 
-  <!-- 계좌 -->
-  <section class="fade">
-    <div class="title">마음 전하실 곳</div>
-    <div class="account-box">
-      <div class="toggle" onclick="toggleAccount()">계좌번호 보기</div>
-      <div id="account" style="display:none">
-        <div class="account">신랑 민준 | 국민은행 123-456-789012</div>
-        <div class="account">신부 서연 | 신한은행 987-654-321098</div>
+  <!-- ACCOUNT -->
+  <section class="reveal">
+    <div class="section-title">WITH LOVE</div>
+    <div class="account-wrap">
+      <div class="account-btn" onclick="toggleAccount()">마음 전하실 곳</div>
+      <div class="accounts" id="accounts">
+        <div class="account">신랑 민준 · 국민은행 123-456-789012</div>
+        <div class="account">신부 서연 · 신한은행 987-654-321098</div>
       </div>
     </div>
   </section>
 
   <footer>
-    © Premium Mobile Wedding Invitation
+    © 2026 Premium Wedding Invitation
   </footer>
 
 </div>
 
-<!-- 라이트박스 -->
+<!-- LIGHTBOX -->
 <div class="lightbox" onclick="this.style.display='none'">
   <img />
 </div>
 
 <script>
-// 스크롤 애니메이션
-const fades = document.querySelectorAll('.fade');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
+/* Reveal Animation */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('show');
   });
-}, { threshold: 0.2 });
+}, { threshold: 0.25 });
+reveals.forEach(el => io.observe(el));
 
-fades.forEach(el => observer.observe(el));
-
-// 갤러리
+/* Gallery Lightbox */
 const lightbox = document.querySelector('.lightbox');
 const lightboxImg = lightbox.querySelector('img');
 
 document.querySelectorAll('.gallery img').forEach(img => {
-  img.addEventListener('click', () => {
+  img.onclick = () => {
     lightboxImg.src = img.src;
     lightbox.style.display = 'flex';
-  });
+  };
 });
 
-// 계좌 토글
+/* Account Toggle */
 function toggleAccount() {
-  const acc = document.getElementById('account');
-  acc.style.display = acc.style.display === 'none' ? 'block' : 'none';
+  const el = document.getElementById('accounts');
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
 }
 </script>
 
