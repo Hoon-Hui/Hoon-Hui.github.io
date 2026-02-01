@@ -8,9 +8,58 @@
 		<link rel="stylesheet" href="assets_4/css/main2.css" />
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
 		<style>
-        #thumbnails article {
-            width: 100%
-        }
+	        #thumbnails article {
+	            width: 100%
+	        }
+		  /* 메인 컨텐츠 */
+		  .content {
+		    position: relative;
+		    width: 100%;
+		    height: 100%;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    align-items: center;
+		    text-align: center;
+		    padding: 20px;
+		  }
+		
+		  /* 타이핑 효과 텍스트 */
+		  .typing-text {
+		    font-size: 2rem;
+		    font-weight: bold;
+		    margin-bottom: 40px;
+		    white-space: nowrap;
+		    border-right: 0.15em solid white;
+		    overflow: hidden;
+		    opacity: 0;
+		    position: absolute;
+		    top: 20%;
+		    animation: fadeInOut 3s forwards;
+		  }
+		
+		  /* 이름, 날짜 등 기본 정보 */
+		  .info {
+		    font-size: 1.3rem;
+		    line-height: 2rem;
+		    opacity: 0;
+		    animation: fadeIn 2s forwards;
+		    animation-delay: 3s;
+		  }
+		
+		  /* 페이드인 애니메이션 */
+		  @keyframes fadeIn {
+		    to {
+		      opacity: 1;
+		    }
+		  }
+		
+		  /* 타이핑 텍스트 fade in/out */
+		  @keyframes fadeInOut {
+		    0% { opacity: 0; transform: translateY(-20px); }
+		    10%, 80% { opacity: 1; transform: translateY(0); }
+		    100% { opacity: 0; transform: translateY(-20px); }
+		  }
     	</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
