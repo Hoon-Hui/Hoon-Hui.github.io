@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>훈 & 희 결혼식</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main2.css" />
+  <link rel="prefetch" href="assets/js/images.json" as="fetch">
+</head>
+<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="height: 100dvh;">
+  <!-- Background Video -->
+  <video class="bg-video" playsinline autoplay muted loop>
+    <source src="images/main.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Header -->
+  <header id="header">
+    <h1 class="title fade-in">함께하는 인생여정의 시작</h1>
+    <span class="divider fade-in delay-1"></span>
+    <p class="subtitle fade-in delay-2">
+      저희가 마침내 '하나'가 되었습니다<br>
+      인생이라는 여정을 함께 헤쳐 나가는<br>
+      저희의 새로운 시작을 따뜻하게 지켜봐 주세요
+    </p>
+  </header>
+
+  <!-- Button -->
+  <form id="signup-form" method="post" onsubmit="validateChk_kor();" class="subtitle fade-in delay-3">
+    <input type="submit" value="축 하 하 기" class="luxury-btn" />
+  </form>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="copyright">
+      <li>
+        <a href="index_eng.html" class="icon brands fa-gratipay">
+          <span class="label">Gratipay</span>
+        </a>
+      </li>
+      <li><a href="index_eng.html">Eng Language</a></li>
+    </ul>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('assets/js/images.json', { cache: 'force-cache' })
+        .then(res => res.json())
+        .then(images => {
+          images.forEach(src => {
+            const img = new Image();
+            img.loading = 'eager';
+            img.src = src;
+          });
+        });
+    });
+  </script>  
+</body>
+</html>
