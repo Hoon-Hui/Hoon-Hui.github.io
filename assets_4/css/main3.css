@@ -2873,6 +2873,44 @@ section#header p + p {
 .main {
 		padding: 6em 0 4em 0 ;
 	}
+		body.fullscreen #main {
+			visibility: hidden;
+			right: -22.5em;
+		}
+
+		body.is-preload-1 #main {
+			opacity: 0;
+			right: -2em;
+		}
+
+		@media screen and (max-width: 480px) {
+
+			#main {
+				-moz-transition: opacity 0.5s ease, visibility 0.5s;
+				-webkit-transition: opacity 0.5s ease, visibility 0.5s;
+				-ms-transition: opacity 0.5s ease, visibility 0.5s;
+				transition: opacity 0.5s ease, visibility 0.5s;
+				width: 100%;
+				background: #fff;
+				text-align: center;
+			}
+
+				body.is-preload-1 #main {
+					left: auto !important;
+					right: auto !important;
+				}
+
+				body.fullscreen #main {
+					left: auto !important;
+					right: auto !important;
+					opacity: 0;
+				}
+
+				#main .toggle {
+					display: none;
+				}
+
+		}
 
 		.main.style1 {
 			background: #FAF7F2;
