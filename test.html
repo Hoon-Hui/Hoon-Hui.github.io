@@ -6,14 +6,11 @@
 <title>모바일 청첩장</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  /* 공통 스타일 */
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: 'Noto Sans KR', sans-serif; overflow-x:hidden; }
-  section { width:100vw; min-height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; position:relative; scroll-snap-align:start; }
   html { scroll-behavior:smooth; }
-  
-  /* 스크롤 스냅 */
-  body { scroll-snap-type: y mandatory; }
+  body { font-family: 'Noto Sans KR', sans-serif; overflow-x:hidden; scroll-snap-type: y mandatory; }
+
+  section { width:100vw; min-height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; position:relative; scroll-snap-align:start; padding:2rem; }
 
   /* 첫 페이지 */
   #intro {
@@ -21,60 +18,61 @@
     color:white;
     font-family: 'Playfair Display', serif;
     font-size:2rem;
-    animation: fadeOutIntro 8s forwards;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
   }
-  @keyframes fadeOutIntro {
-    0% { opacity:1; }
-    70% { opacity:1; }
-    100% { opacity:0; }
+  #intro h1 { animation: slideFade 3s ease forwards; }
+  #intro p { animation: slideFade 3s ease 1s forwards; opacity:0; }
+
+  @keyframes slideFade {
+    0% { transform: translateY(50px); opacity:0; }
+    100% { transform: translateY(0); opacity:1; }
   }
 
   /* 인삿말 */
-  #greeting { background-color: #fff5f0; padding:2rem; color:#333; font-size:1.2rem; animation: fadeIn 1.5s ease forwards; opacity:0; }
-  @keyframes fadeIn { to { opacity:1; } }
+  #greeting { background-color: #fff5f0; color:#333; font-size:1.2rem; opacity:0; transform:translateY(50px); transition: all 1s ease; }
+  #greeting.active { opacity:1; transform:translateY(0); }
 
   /* 달력 & D-day */
   #dday {
     background: linear-gradient(135deg, #ffe5d9, #ffcad4);
     color:#333;
     font-family: 'Playfair Display', serif;
+    flex-direction:column;
   }
   #dday h2 { font-size:2rem; margin-bottom:1rem; }
   #dday .date { font-size:1.5rem; margin-bottom:0.5rem; }
   #dday .countdown { font-size:2rem; font-weight:bold; }
 
   /* 오시는 길 */
-  #location {
-    background-color:#fff0f5;
-    padding:2rem;
-  }
-  #location iframe {
-    width:90%; height:300px; border:none; border-radius:12px;
-  }
+  #location { background-color:#fff0f5; flex-direction:column; }
+  #location iframe { width:90%; height:300px; border:none; border-radius:12px; margin-top:1rem; }
 
   /* 갤러리 */
   #gallery {
     background-color:#fef9f4;
-    padding:2rem;
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
     gap:10px;
   }
   #gallery img {
-    width:100%; border-radius:12px; transition: transform 0.3s;
+    width:100%; border-radius:12px; transition: transform 0.3s, box-shadow 0.3s; cursor:pointer;
   }
-  #gallery img:hover { transform: scale(1.05); }
+  #gallery img:hover { transform: scale(1.05); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+
+  /* 모달 팝업 */
+  #modal {
+    display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8);
+    justify-content:center; align-items:center; z-index:1000;
+  }
+  #modal img { max-width:90%; max-height:80%; border-radius:12px; }
 
   /* 마음 보내기 (아코디언) */
-  #message {
-    background: linear-gradient(to top right, #ffe0f0, #fff5f5);
-    padding:2rem;
-  }
+  #message { background: linear-gradient(to top right, #ffe0f0, #fff5f5); flex-direction:column; }
   .accordion { background:#fff; border-radius:8px; margin-bottom:1rem; cursor:pointer; padding:1rem; transition: background 0.3s; }
   .accordion:hover { background:#fce4ec; }
   .panel { max-height:0; overflow:hidden; transition:max-height 0.3s ease; background:#fff0f5; padding:0 1rem; border-radius:0 0 8px 8px; }
 
-  /* 모바일 최적화 폰트 크기 */
+  /* 모바일 폰트 최적화 */
   @media (max-width: 500px) {
     #intro { font-size:1.5rem; }
     #greeting { font-size:1rem; }
@@ -87,10 +85,8 @@
 
 <!-- 첫 페이지 -->
 <section id="intro">
-  <div>
-    <h1>함께하는 봄날의 결혼식</h1>
-    <p>홍길동 & 김철수</p>
-  </div>
+  <h1>함께하는 봄날의 결혼식</h1>
+  <p>홍길동 & 김철수</p>
 </section>
 
 <!-- 인삿말 -->
@@ -101,11 +97,9 @@
 
 <!-- 달력 & D-day -->
 <section id="dday">
-  <div>
-    <h2>결혼식 날짜</h2>
-    <div class="date">2026년 5월 15일</div>
-    <div class="countdown" id="countdown"></div>
-  </div>
+  <h2>결혼식 날짜</h2>
+  <div class="date">2026년 5월 15일</div>
+  <div class="countdown" id="countdown"></div>
 </section>
 
 <!-- 오시는 길 -->
@@ -116,7 +110,7 @@
 
 <!-- 갤러리 -->
 <section id="gallery">
-  <!-- 예시 20장 -->
+  <!-- 20장 예시 -->
   <img src="https://source.unsplash.com/200x200/?flower,1" alt="">
   <img src="https://source.unsplash.com/200x200/?flower,2" alt="">
   <img src="https://source.unsplash.com/200x200/?flower,3" alt="">
@@ -139,6 +133,11 @@
   <img src="https://source.unsplash.com/200x200/?flower,20" alt="">
 </section>
 
+<!-- 모달 -->
+<div id="modal">
+  <img src="" alt="확대 이미지">
+</div>
+
 <!-- 마음 보내기 -->
 <section id="message">
   <h2>마음을 전해주세요</h2>
@@ -150,21 +149,24 @@
 </section>
 
 <script>
+  // 섹션 스크롤 애니메이션
+  const greeting = document.getElementById('greeting');
+  window.addEventListener('scroll', () => {
+    const rect = greeting.getBoundingClientRect();
+    if(rect.top < window.innerHeight*0.8) greeting.classList.add('active');
+  });
+
   // 아코디언
   const acc = document.querySelectorAll('.accordion');
   acc.forEach(a => {
     a.addEventListener('click', function() {
       this.classList.toggle('active');
       const panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
+      panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
     });
   });
 
-  // D-day 계산
+  // D-day
   const countdown = document.getElementById('countdown');
   const weddingDate = new Date('2026-05-15T00:00:00');
   function updateCountdown() {
@@ -175,6 +177,17 @@
   }
   setInterval(updateCountdown, 1000);
   updateCountdown();
+
+  // 갤러리 모달
+  const modal = document.getElementById('modal');
+  const modalImg = modal.querySelector('img');
+  document.querySelectorAll('#gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImg.src = img.src;
+    });
+  });
+  modal.addEventListener('click', () => { modal.style.display = 'none'; });
 </script>
 
 </body>
