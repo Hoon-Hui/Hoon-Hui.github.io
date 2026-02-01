@@ -1,364 +1,272 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>모바일 청첩장</title>
 
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* ===============================
-   VARIABLES (THEME CORE)
-================================ */
-:root{
-  --bg:#fbfaf8;
-  --text:#1e1e1e;
-  --sub:#7d746a;
-  --accent:#c6ab7c;
-  --line:#e8e5e0;
-
-  --serif:'Playfair Display', serif;
-  --sans:'Pretendard', -apple-system, BlinkMacSystemFont;
-
-  --ease:cubic-bezier(.22,.61,.36,1);
+:root {
+  --main-color: #b89b7d;
+  --bg-color: #faf8f6;
+  --text-color: #333;
 }
 
-/* ===============================
-   RESET
-================================ */
-*{margin:0;padding:0;box-sizing:border-box;}
-img{width:100%;display:block;}
-button{background:none;border:none;font-family:inherit;}
-a{text-decoration:none;color:inherit;}
-
-/* ===============================
-   BASE
-================================ */
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--sans);
-  -webkit-font-smoothing:antialiased;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.wrapper{
-  max-width:420px;
-  margin:0 auto;
+body {
+  font-family: 'Noto Serif KR', serif;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
-/* ===============================
-   COMMON
-================================ */
-.section{
-  padding:96px 24px;
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #fff;
+  overflow: hidden;
 }
 
-.center{text-align:center;}
-
-.divider{
-  width:40px;
-  height:1px;
-  background:var(--accent);
-  margin:40px auto;
+/* ---------- 공통 ---------- */
+section {
+  padding: 60px 24px;
+  text-align: center;
 }
 
-[data-animate]{
-  opacity:0;
-  transform:translateY(28px);
-  transition:
-    opacity 1.4s var(--ease),
-    transform 1.4s var(--ease);
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
 }
 
-[data-animate].show{
-  opacity:1;
-  transform:translateY(0);
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
 }
 
-/* ===============================
-   INTRO
-================================ */
-.intro{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.intro h1{
-  font-family:var(--serif);
-  font-size:38px;
-  letter-spacing:.18em;
+/* ---------- 메인 ---------- */
+.hero {
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1523438885200-e635ba2c371e") center/cover fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
 
-.intro p{
-  margin-top:24px;
-  color:var(--sub);
-  font-size:15px;
+.hero-inner {
+  background: rgba(0,0,0,0.35);
+  padding: 40px 30px;
 }
 
-/* ===============================
-   NAMES
-================================ */
-.names h2{
-  font-family:var(--serif);
-  font-size:28px;
-  letter-spacing:.08em;
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin-bottom: 10px;
 }
 
-.names p{
-  margin-top:12px;
-  color:var(--sub);
+.hero p {
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
-/* ===============================
-   GALLERY
-================================ */
-.gallery{
-  position:relative;
-  overflow:hidden;
-  border-radius:18px;
+/* ---------- 인사말 ---------- */
+.message {
+  font-size: 15px;
+  line-height: 1.9;
+  white-space: pre-line;
 }
 
-.gallery img{
-  position:absolute;
-  inset:0;
-  object-fit:cover;
-  opacity:0;
-  transition:opacity 1.6s var(--ease);
+/* ---------- 정보 ---------- */
+.info p {
+  font-size: 15px;
+  margin: 8px 0;
 }
 
-.gallery img.active{
-  opacity:1;
-  position:relative;
+.btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 30px;
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all .3s;
 }
 
-/* ===============================
-   INFO
-================================ */
-.info p{
-  font-size:15px;
-  line-height:1.8;
-  color:var(--sub);
+.btn:hover {
+  background: var(--main-color);
+  color: #fff;
 }
 
-/* ===============================
-   BUTTON
-================================ */
-.btn{
-  display:inline-block;
-  margin-top:32px;
-  padding:14px 36px;
-  border:1px solid var(--accent);
-  border-radius:40px;
-  font-size:14px;
-  color:var(--accent);
-  transition:all .4s var(--ease);
+/* ---------- 갤러리 ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
-.btn:active{
-  background:var(--accent);
-  color:#fff;
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* ===============================
-   ACCOUNT
-================================ */
-.account-list{
-  margin-top:40px;
+/* ---------- 라이트박스 ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
 }
 
-.account-item{
-  padding:16px;
-  border-bottom:1px solid var(--line);
-  font-size:15px;
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
 }
 
-/* ===============================
-   MODAL
-================================ */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.4);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:1000;
+/* ---------- 계좌 ---------- */
+.account-box {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
 }
 
-.modal.show{display:flex;}
-
-.modal-box{
-  background:#fff;
-  width:80%;
-  max-width:320px;
-  border-radius:16px;
-  padding:28px;
-  text-align:center;
+.account {
+  margin: 12px 0;
+  font-size: 14px;
 }
 
-.modal-box h4{
-  font-family:var(--serif);
-  margin-bottom:12px;
+.toggle {
+  cursor: pointer;
+  color: var(--main-color);
+  font-size: 14px;
+  margin-top: 10px;
 }
 
-.modal-box p{
-  font-size:14px;
-  color:var(--sub);
-}
-
-.modal-box .btn{
-  margin-top:20px;
-}
-
-/* ===============================
-   MUSIC
-================================ */
-.music-btn{
-  position:fixed;
-  top:20px;
-  right:20px;
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:1px solid var(--accent);
-  font-size:18px;
-  color:var(--accent);
-  background:#fff;
-  z-index:100;
-}
-
-/* ===============================
-   FOOTER
-================================ */
-footer{
-  padding:60px 0;
-  text-align:center;
-  font-size:13px;
-  color:var(--sub);
+/* ---------- 푸터 ---------- */
+footer {
+  padding: 30px;
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
 }
 </style>
 </head>
-
 <body>
-<audio id="bgm" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_8e67c95a42.mp3">
-</audio>
-<button class="music-btn" onclick="toggleMusic()">♪</button>
 
-<div class="wrapper">
+<div class="container">
 
-<!-- INTRO -->
-<section class="intro center">
-  <div data-animate>
-    <h1>WEDDING DAY</h1>
-    <p>저희 두 사람의 새로운 시작에<br>소중한 분들을 초대합니다</p>
-  </div>
-</section>
+  <!-- 메인 -->
+  <section class="hero">
+    <div class="hero-inner fade">
+      <h1>민준 & 서연</h1>
+      <p>2026.10.24 SAT PM 1:00</p>
+    </div>
+  </section>
 
-<!-- NAMES -->
-<section class="section center">
-  <div data-animate class="names">
-    <div class="divider"></div>
-    <h2>김민준 · 이서연</h2>
-    <p>2026년 5월 23일 토요일 오후 1시</p>
-  </div>
-</section>
+  <!-- 인사말 -->
+  <section class="fade">
+    <div class="title">INVITATION</div>
+    <div class="message">
+서로의 하루가 되어  
+평생을 함께하려 합니다.
 
-<!-- GALLERY -->
-<section class="section">
-  <div class="gallery" data-animate style="height:520px">
-    <img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9" class="active">
-    <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
-  </div>
-</section>
+귀한 걸음 하시어  
+저희의 시작을 축복해 주세요.
+    </div>
+  </section>
 
-<!-- LOCATION -->
-<section class="section center">
-  <div data-animate class="info">
-    <div class="divider"></div>
-    <p><strong>라움 아트센터</strong><br>서울 강남구 영동대로 564</p>
-    <a class="btn" href="https://map.kakao.com" target="_blank">카카오맵</a>
-    <a class="btn" href="https://map.naver.com" target="_blank">네이버지도</a>
-  </div>
-</section>
+  <!-- 예식정보 -->
+  <section class="fade info">
+    <div class="title">WEDDING DAY</div>
+    <p>2026년 10월 24일 토요일 오후 1시</p>
+    <p>더라움 웨딩홀 3층 라움홀</p>
+    <a href="#" class="btn">지도 보기</a>
+  </section>
 
-<!-- ACCOUNT -->
-<section class="section center">
-  <div data-animate>
-    <div class="divider"></div>
-    <h3 style="font-family:var(--serif)">마음 전하실 곳</h3>
-    <div class="account-list">
-      <div class="account-item" onclick="openAccount('신랑','국민 123-456-789 김민준')">
-        신랑측 계좌
-      </div>
-      <div class="account-item" onclick="openAccount('신부','신한 987-654-321 이서연')">
-        신부측 계좌
+  <!-- 갤러리 -->
+  <section class="fade">
+    <div class="title">GALLERY</div>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+    </div>
+  </section>
+
+  <!-- 계좌 -->
+  <section class="fade">
+    <div class="title">마음 전하실 곳</div>
+    <div class="account-box">
+      <div class="toggle" onclick="toggleAccount()">계좌번호 보기</div>
+      <div id="account" style="display:none">
+        <div class="account">신랑 민준 | 국민은행 123-456-789012</div>
+        <div class="account">신부 서연 | 신한은행 987-654-321098</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  Thank you for celebrating with us
-</footer>
+  <footer>
+    © Premium Mobile Wedding Invitation
+  </footer>
+
 </div>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <h4 id="modalTitle"></h4>
-    <p id="modalAccount"></p>
-    <button class="btn" onclick="copyAccount()">계좌 복사</button><br>
-    <button class="btn" onclick="closeModal()">닫기</button>
-  </div>
+<!-- 라이트박스 -->
+<div class="lightbox" onclick="this.style.display='none'">
+  <img />
 </div>
 
 <script>
-/* Scroll Animation */
-const io=new IntersectionObserver(e=>{
-  e.forEach(v=>v.isIntersecting&&v.target.classList.add('show'))
-},{threshold:.18});
-document.querySelectorAll('[data-animate]').forEach(el=>io.observe(el));
+// 스크롤 애니메이션
+const fades = document.querySelectorAll('.fade');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
 
-/* Gallery */
-let i=0;
-const imgs=document.querySelectorAll('.gallery img');
-setInterval(()=>{
-  imgs[i].classList.remove('active');
-  i=(i+1)%imgs.length;
-  imgs[i].classList.add('active');
-},4200);
+fades.forEach(el => observer.observe(el));
 
-/* Account Modal */
-let accText='';
-function openAccount(t,a){
-  accText=a;
-  modalTitle.innerText=t;
-  modalAccount.innerText=a;
-  modal.classList.add('show');
-}
-function closeModal(){modal.classList.remove('show');}
-function copyAccount(){
-  navigator.clipboard.writeText(accText);
-  alert('계좌가 복사되었습니다');
-}
+// 갤러리
+const lightbox = document.querySelector('.lightbox');
+const lightboxImg = lightbox.querySelector('img');
 
-/* Music */
-const bgm=document.getElementById('bgm');
-let play=false;
-function toggleMusic(){
-  play?bgm.pause():bgm.play();
-  play=!play;
+document.querySelectorAll('.gallery img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.style.display = 'flex';
+  });
+});
+
+// 계좌 토글
+function toggleAccount() {
+  const acc = document.getElementById('account');
+  acc.style.display = acc.style.display === 'none' ? 'block' : 'none';
 }
-document.body.addEventListener('click',()=>{
-  if(!play){bgm.play();play=true;}
-},{once:true});
 </script>
 
 </body>
