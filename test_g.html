@@ -1,93 +1,142 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
-    <!-- AOS 라이브러리 CSS 추가 -->
-    <link href="https://unpkg.com" rel="stylesheet">
-    <!-- Google Fonts (고급스러운 폰트 선택) -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <style>
-        :root { --bg-color: #fdfaf7; --text-color: #4a4a4a; --point-color: #c4a484; }
-        body { font-family: 'Nanum Myeongjo', serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; line-height: 1.8; }
-        .container { max-width: 480px; margin: 0 auto; background: #fff; overflow-x: hidden; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
 
-        /* 메인 오프닝 */
-        .hero { position: relative; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com') center/cover; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .hero h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 5px; margin-bottom: 10px; }
-        .hero h1 { font-size: 2.5rem; margin: 0; }
+  <!-- 기본 스타일 -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #fff;
+      color: #333;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
 
-        section { padding: 80px 30px; text-align: center; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 0.9rem; color: var(--point-color); letter-spacing: 3px; margin-bottom: 30px; display: block; }
+    header {
+      padding: 30px 0;
+      background: #fafafa;
+    }
+    header img {
+      width: 120px;
+      height: auto;
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 10px 0 5px;
+    }
+    p.subtitle {
+      font-size: 1rem;
+      color: #777;
+    }
 
-        /* 인사말 */
-        .greeting-text { font-size: 1.05rem; word-break: keep-all; }
-        .flower-icon { font-size: 20px; color: var(--point-color); margin-bottom: 20px; }
+    .cover {
+      position: relative;
+      width: 100%;
+      height: 60vw;
+      max-height: 400px;
+      background-size: cover;
+      background-position: center;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
 
-        /* 예식 정보 테이블 스타일 */
-        .info-box { background: #faf8f6; padding: 40px 20px; border-radius: 2px; }
-        .info-date { font-size: 1.4rem; font-weight: bold; margin-bottom: 10px; }
+    .section {
+      margin: 25px 0;
+    }
+    .section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
 
-        /* 버튼 */
-        .btn-group { margin-top: 30px; }
-        .btn { display: inline-block; padding: 12px 25px; margin: 5px; border: 1px solid var(--point-color); color: var(--point-color); text-decoration: none; font-size: 0.9rem; transition: all 0.3s; }
-        .btn:hover { background: var(--point-color); color: #fff; }
+    /* 버튼 스타일 */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
 
-        /* 하단 푸터 */
-        footer { padding: 40px; background: #f4f1ee; font-size: 0.8rem; color: #999; }
-    </style>
+    /* 갤러리 스타일 */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .gallery img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* 반응형 폰트 */
+    @media (max-width: 360px) {
+      h1 { font-size: 1.8rem; }
+      .section h2 { font-size: 1.2rem; }
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- 메인: 아래에서 위로 나타남 -->
-    <header class="hero" data-aos="fade-up" data-aos-duration="1500">
-        <h2 data-aos="fade-down" data-aos-delay="500">WE ARE GETTING MARRIED</h2>
-        <h1>철수 & 영희</h1>
-        <p style="margin-top:20px;">2026. 05. 23. SAT. PM 1:00</p>
-    </header>
 
-    <!-- 인사말: 줌인 효과 -->
-    <section data-aos="zoom-in" data-aos-duration="1000">
-        <span class="section-title">INVITATION</span>
-        <div class="flower-icon">✿</div>
-        <p class="greeting-text">
-            서로를 마주 보며 다져온 사랑을<br>
-            이제 함께 한곳을 바라보며 걸어가려 합니다.<br>
-            저희의 새 출발을 가까이서 축복해 주시면<br>
-            더없는 기쁨으로 간직하겠습니다.
-        </p>
-    </section>
+  <!-- 커버/인트로 -->
+  <header>
+    <img src="logo.png" alt="Our Wedding Logo">
+    <h1>우리 결혼합니다</h1>
+    <p class="subtitle">2026.09.18 / Seoul</p>
+  </header>
 
-    <!-- 예식 정보: 좌측에서 나타남 -->
-    <section class="info-box" data-aos="fade-right">
-        <span class="section-title">DATE & VENUE</span>
-        <div class="info-date">2026년 5월 23일</div>
-        <p>토요일 오후 1시</p>
-        <p>행복컨벤션 그랜드홀</p>
-        <div class="btn-group">
-            <a href="https://map.kakao.com" class="btn" target="_blank">오시는 길 지도보기</a>
-        </div>
-    </section>
+  <div class="cover" style="background-image: url('cover-photo.jpg');"></div>
 
-    <!-- 연락처: 우측에서 나타남 -->
-    <section data-aos="fade-left">
-        <span class="section-title">CONTACT</span>
-        <p>신랑에게 연락하기 <a href="tel:01000000000" style="color:inherit; margin-left:10px;">📞</a></p>
-        <p>신부에게 연락하기 <a href="tel:01000000000" style="color:inherit; margin-left:10px;">📞</a></p>
-    </section>
+  <!-- 예식 정보 -->
+  <div class="section" id="info">
+    <h2>📅 예식 일정</h2>
+    <p>날짜: <strong>2026년 9월 18일 (토)</strong></p>
+    <p>시간: <strong>오후 2시</strong></p>
+    <p>장소: <strong>모던웨딩홀, 서울</strong></p>
+    <a href="https://maplink.example.com" class="btn">📍 위치 보기</a>
+  </div>
 
-    <footer>
-        <p>© 2026 Chul-soo & Young-hee. All rights reserved.</p>
-    </footer>
+  <!-- 갤러리 -->
+  <div class="section" id="gallery">
+    <h2>📸 Gallery</h2>
+    <div class="gallery">
+      <img src="gallery1.jpg" alt="사진 1">
+      <img src="gallery2.jpg" alt="사진 2">
+      <img src="gallery3.jpg" alt="사진 3">
+      <img src="gallery4.jpg" alt="사진 4">
+      <img src="gallery5.jpg" alt="사진 5">
+      <img src="gallery6.jpg" alt="사진 6">
+    </div>
+  </div>
+
+  <!-- 참석 버튼 -->
+  <div class="section">
+    <h2>💌 참석 여부</h2>
+    <a href="rsvp.html" class="btn">참석 여부 알리기</a>
+  </div>
+
+  <!-- 메시지 -->
+  <div class="section">
+    <h2>❤️ 우리에게 보내는 말</h2>
+    <p>하객 여러분과 함께하는 날을 손꼽아 기다립니다.</p>
+  </div>
+
 </div>
-
-<!-- AOS 스크립트 실행 -->
-<script src="https://unpkg.com"></script>
-<script>
-    AOS.init(); // 애니메이션 초기화
-</script>
 
 </body>
 </html>
