@@ -2,129 +2,129 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg: #f8f8f6;
-  --black: #1f1f1f;
-  --gray: #777;
-  --gold: #c8b28a;
+:root{
+  --bg:#f4f4f2;
+  --ink:#111;
+  --muted:#8a8a8a;
 }
 
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Noto Serif KR', serif;
+  -webkit-font-smoothing:antialiased;
 }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--black);
-  font-family: 'Noto Serif KR', serif;
-  -webkit-font-smoothing: antialiased;
+.container{
+  max-width:430px;
+  margin:0 auto;
 }
 
-.wrap {
-  max-width: 430px;
-  margin: 0 auto;
+/* HERO */
+.hero{
+  padding:140px 28px 120px;
+  text-align:center;
 }
 
-.section {
-  padding: 120px 28px;
-  text-align: center;
+.hero .en{
+  font-family:'Libre Baskerville', serif;
+  font-size:11px;
+  letter-spacing:.28em;
+  color:var(--muted);
+  margin-bottom:40px;
 }
 
-.en {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  color: var(--gray);
-  margin-bottom: 32px;
+.hero .title{
+  font-size:32px;
+  font-weight:400;
+  margin-bottom:56px;
 }
 
-.title {
-  font-size: 34px;
-  font-weight: 400;
-  margin-bottom: 56px;
+.hero .names{
+  font-size:20px;
+  letter-spacing:.14em;
 }
 
-.names {
-  font-size: 22px;
-  letter-spacing: 0.12em;
+/* TEXT SECTION */
+.section{
+  padding:120px 32px;
+  text-align:center;
 }
 
-.line {
-  width: 40px;
-  height: 1px;
-  background: var(--gold);
-  margin: 48px auto;
+.section p{
+  font-size:15px;
+  line-height:2.2;
+  color:var(--muted);
 }
 
-.text {
-  font-size: 15px;
-  line-height: 2.1;
-  color: var(--gray);
+/* INFO */
+.info{
+  padding:120px 32px;
+  text-align:center;
 }
 
-.date {
-  font-size: 17px;
-  margin-bottom: 12px;
+.info .date{
+  font-size:17px;
+  margin-bottom:12px;
 }
 
-.place {
-  font-size: 14px;
-  color: var(--gray);
+.info .place{
+  font-size:14px;
+  color:var(--muted);
 }
 
-/* 갤러리 */
-.gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  padding: 0 16px 120px;
+/* GALLERY */
+.gallery{
+  position:relative;
+  width:100%;
+  overflow:hidden;
 }
 
-.gallery img {
-  width: 100%;
-  border-radius: 6px;
-  cursor: pointer;
+.track{
+  display:flex;
+  scroll-snap-type:x mandatory;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
 }
 
-/* 라이트박스 */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
+.track::-webkit-scrollbar{display:none;}
+
+.slide{
+  min-width:100%;
+  scroll-snap-align:start;
 }
 
-.lightbox img {
-  max-width: 92%;
-  max-height: 92%;
+.slide img{
+  width:100%;
+  display:block;
 }
 
-.footer {
-  padding: 80px 0;
-  font-size: 12px;
-  color: var(--gray);
-  text-align: center;
-  letter-spacing: 0.15em;
+/* FOOTER */
+.footer{
+  padding:100px 0;
+  text-align:center;
+  font-size:11px;
+  letter-spacing:.2em;
+  color:var(--muted);
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
+<div class="container">
 
   <!-- HERO -->
-  <section class="section">
+  <section class="hero">
     <div class="en">WEDDING INVITATION</div>
     <div class="title">결혼합니다</div>
     <div class="names">김 민 준 · 이 서 연</div>
@@ -132,77 +132,51 @@ body {
 
   <!-- MESSAGE -->
   <section class="section">
-    <div class="line"></div>
-    <div class="text">
-      서로의 가장 깊은 안식이 되어<br>
+    <p>
+      서로의 삶에 가장 깊이 스며들어<br>
       평생을 함께하기로 약속했습니다.<br><br>
       소중한 분들을 모시고<br>
-      그 첫걸음을 함께 나누고자 합니다.
-    </div>
+      그 시작의 자리에 초대합니다.
+    </p>
   </section>
 
   <!-- INFO -->
-  <section class="section">
-    <div class="en">THE DAY</div>
+  <section class="info">
     <div class="date">2026년 4월 18일 토요일 · 오후 2시</div>
     <div class="place">더그레이스켈리 웨딩홀 3층</div>
   </section>
 
   <!-- GALLERY -->
-  <section>
-    <div class="en" style="text-align:center;margin-bottom:40px;">OUR MOMENTS</div>
-    <div class="gallery">
-      <!-- 20 photos -->
-      <img src="img/01.jpg">
-      <img src="img/02.jpg">
-      <img src="img/03.jpg">
-      <img src="img/04.jpg">
-      <img src="img/05.jpg">
-      <img src="img/06.jpg">
-      <img src="img/07.jpg">
-      <img src="img/08.jpg">
-      <img src="img/09.jpg">
-      <img src="img/10.jpg">
-      <img src="img/11.jpg">
-      <img src="img/12.jpg">
-      <img src="img/13.jpg">
-      <img src="img/14.jpg">
-      <img src="img/15.jpg">
-      <img src="img/16.jpg">
-      <img src="img/17.jpg">
-      <img src="img/18.jpg">
-      <img src="img/19.jpg">
-      <img src="img/20.jpg">
+  <section class="gallery">
+    <div class="track">
+      <div class="slide"><img src="img/01.jpg"></div>
+      <div class="slide"><img src="img/02.jpg"></div>
+      <div class="slide"><img src="img/03.jpg"></div>
+      <div class="slide"><img src="img/04.jpg"></div>
+      <div class="slide"><img src="img/05.jpg"></div>
+      <div class="slide"><img src="img/06.jpg"></div>
+      <div class="slide"><img src="img/07.jpg"></div>
+      <div class="slide"><img src="img/08.jpg"></div>
+      <div class="slide"><img src="img/09.jpg"></div>
+      <div class="slide"><img src="img/10.jpg"></div>
+      <div class="slide"><img src="img/11.jpg"></div>
+      <div class="slide"><img src="img/12.jpg"></div>
+      <div class="slide"><img src="img/13.jpg"></div>
+      <div class="slide"><img src="img/14.jpg"></div>
+      <div class="slide"><img src="img/15.jpg"></div>
+      <div class="slide"><img src="img/16.jpg"></div>
+      <div class="slide"><img src="img/17.jpg"></div>
+      <div class="slide"><img src="img/18.jpg"></div>
+      <div class="slide"><img src="img/19.jpg"></div>
+      <div class="slide"><img src="img/20.jpg"></div>
     </div>
   </section>
 
   <div class="footer">
-    WITH LOVE & GRATITUDE
+    WITH LOVE
   </div>
 
 </div>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <img src="" id="lightbox-img">
-</div>
-
-<script>
-const images = document.querySelectorAll('.gallery img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-images.forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightbox.style.display = 'flex';
-  });
-});
-
-lightbox.addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
-</script>
 
 </body>
 </html>
