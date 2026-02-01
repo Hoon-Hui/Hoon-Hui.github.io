@@ -12,53 +12,58 @@
 	            width: 100%
 	        }
 			
-		  /* 메인 컨텐츠 */
-		  .content {
-		    position: relative;
-		    width: 100%;
-		    height: 100%;
-		    display: flex;
-		    flex-direction: column;
-		    justify-content: center;
-		    align-items: center;
-		    text-align: center;
-		    padding: 20px;
-		  }
-		  
-			/* 배경 블러 + 어둡게 */
-		  .content.blur {
-			filter: brightness(0.3) blur(4px);
-		  }
-		
-		  /* 타이핑 효과 텍스트 */
-		  .typing-text {
-		    font-size: 2rem;
-		    font-weight: bold;
-		    margin-bottom: 40px;
-		    white-space: nowrap;
-		    border-right: 0.15em solid white;
-		    overflow: hidden;
-		    opacity: 0;
-		    position: absolute;
-		    top: 20%;
-		    animation: fadeInOut 3s forwards;
-		  }
-		
-		  /* 이름, 날짜 등 기본 정보 */
-		  .info {
-		    font-size: 1.3rem;
-		    line-height: 2rem;
-		    opacity: 0;
-		    animation: fadeIn 2s forwards;
-		    animation-delay: 3s;
-		  }
-		
-		  /* 페이드인 애니메이션 */
-		  @keyframes fadeIn {
-		    to {
-		      opacity: 1;
-		    }
-		  }
+		  /* content 배경 + 블러/어둡게 */
+			.content {
+			  position: relative;
+			  width: 100%;
+			  height: 100vh; /* 화면 높이 전체 */
+			  display: flex;
+			  flex-direction: column;
+			  justify-content: center;
+			  align-items: center;
+			  text-align: center;
+			  padding: 20px;
+			  transition: filter 0.5s; /* 블러/밝기 애니메이션 */
+			}
+			
+			/* 블러 + 어둡게 효과 */
+			.content.blur {
+			  filter: brightness(0.3) blur(4px);
+			}
+			
+			/* 타이핑 텍스트 */
+			.typing-text {
+			  font-size: 3rem;
+			  font-weight: bold;
+			  white-space: nowrap;
+			  border-right: 0.15em solid white;
+			  overflow: hidden;
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  transform: translate(-50%, -50%);
+			  opacity: 0;
+			}
+			
+			/* 기본 정보 */
+			.info {
+			  font-size: 1.3rem;
+			  line-height: 2rem;
+			  opacity: 0;
+			  animation: fadeIn 2s forwards;
+			  animation-delay: 3.5s; /* 타이핑 끝난 뒤 나타나도록 */
+			}
+			
+			/* 페이드인 애니메이션 */
+			@keyframes fadeIn {
+			  to { opacity: 1; }
+			}
+			
+			/* 모바일 대응 */
+			@media (max-width: 480px) {
+			  .typing-text { font-size: 2rem; }
+			  .info { font-size: 1rem; line-height: 1.5rem; }
+			}
 		
 		  /* 타이핑 텍스트 fade in/out */
 		  @keyframes fadeInOut {
@@ -386,34 +391,34 @@
 		    </script>
 
 			<script>
-			  const text = "We are get married!";
-			  const typingElement = document.getElementById('typing');
-			  const bg = document.getElementById('bg');
-			  let index = 0;
-			
-			  // 배경 블러 + 어둡게 적용
-			  function startTypingEffect() {
-			    bg.classList.add('blur');
-			    typingElement.style.opacity = 1;
-			
-			    function type() {
-			      if (index < text.length) {
-			        typingElement.innerHTML += text.charAt(index);
-			        index++;
-			        setTimeout(type, 100); // 타이핑 속도
-			      } else {
-			        // 글자 다 쓰인 후 잠시 보여주고 사라짐
-			        setTimeout(() => {
-			          typingElement.style.opacity = 0;
-			          bg.classList.remove('blur');
-			        }, 1000);
-			      }
-			    }
-			
-			    type();
-			  }
-			
-			  window.onload = startTypingEffect;
+			    const text = "We are get married!";
+				const typingElement = document.getElementById('typing');
+				const content = document.getElementById('content');
+				let index = 0;
+				
+				function startTypingEffect() {
+				  // 배경 블러 + 어둡게
+				  content.classList.add('blur');
+				  typingElement.style.opacity = 1;
+				
+				  function type() {
+				    if (index < text.length) {
+				      typingElement.innerHTML += text.charAt(index);
+				      index++;
+				      setTimeout(type, 100); // 타이핑 속도
+				    } else {
+				      // 타이핑 끝나면 잠시 보여주고 사라짐
+				      setTimeout(() => {
+				        typingElement.style.opacity = 0;
+				        content.classList.remove('blur');
+				      }, 1000);
+				    }
+				  }
+				
+				  type();
+				}
+				
+				window.onload = startTypingEffect;
 			</script>
 	</body>
 </html>
