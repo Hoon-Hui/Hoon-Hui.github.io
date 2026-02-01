@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Wedding Invitation</title>
 
-<!-- Google Fonts -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -16,17 +16,12 @@
   --accent: #c2a679;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
   background: var(--bg);
   color: var(--main);
-  line-height: 1.6;
 }
 
 section {
@@ -34,132 +29,159 @@ section {
   text-align: center;
 }
 
-/* ===== Intro ===== */
+/* Intro */
 .intro {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
   animation: fadeIn 2s ease;
 }
 
 .intro h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 36px;
+  font-size: 38px;
   letter-spacing: 2px;
 }
 
-.intro p {
-  margin-top: 20px;
-  color: var(--sub);
-}
-
-/* ===== Divider ===== */
+/* Divider */
 .divider {
-  width: 40px;
-  height: 1px;
-  background: var(--accent);
-  margin: 40px auto;
+  width:40px;
+  height:1px;
+  background:var(--accent);
+  margin:40px auto;
 }
 
-/* ===== Fade Animation ===== */
+/* Fade */
 .fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1.2s ease;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1.2s;
 }
-
 .fade.show {
-  opacity: 1;
-  transform: translateY(0);
+  opacity:1;
+  transform:none;
 }
 
-/* ===== Names ===== */
-.names h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
+/* Gallery */
+.gallery {
+  position:relative;
+  overflow:hidden;
+}
+.gallery img {
+  width:100%;
+  border-radius:14px;
+  display:none;
+}
+.gallery img.active {
+  display:block;
+  animation: fadeIn 1.5s;
 }
 
-.names span {
-  display: block;
-  margin-top: 10px;
-  color: var(--sub);
-}
-
-/* ===== Photo ===== */
-.photo {
-  margin-top: 40px;
-}
-
-.photo img {
-  width: 100%;
-  border-radius: 12px;
-}
-
-/* ===== Info ===== */
-.info p {
-  margin-bottom: 12px;
-}
-
-/* ===== Button ===== */
+/* Button */
 .btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 14px 36px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  text-decoration: none;
-  border-radius: 40px;
-  transition: all .3s ease;
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 36px;
+  border:1px solid var(--accent);
+  border-radius:40px;
+  color:var(--accent);
+  text-decoration:none;
 }
 
-.btn:hover {
-  background: var(--accent);
-  color: #fff;
+/* Account */
+.account-box {
+  margin-top:30px;
+  text-align:left;
+}
+.account button {
+  width:100%;
+  padding:14px;
+  background:#fff;
+  border:1px solid var(--accent);
+  margin-bottom:10px;
+}
+.account-info {
+  display:none;
+  padding:12px;
+  background:#fff;
+  font-size:14px;
 }
 
-/* ===== Footer ===== */
+/* Music */
+.music-btn {
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:#fff;
+  border-radius:50%;
+  padding:10px;
+  border:1px solid var(--accent);
+  z-index:999;
+}
+
+/* Footer */
 footer {
-  padding: 60px 0;
-  font-size: 14px;
-  color: var(--sub);
+  padding:60px 0;
+  font-size:14px;
+  color:var(--sub);
 }
 
-/* ===== Keyframes ===== */
+/* Anim */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {opacity:0}
+  to {opacity:1}
 }
 </style>
 </head>
 <body>
 
-<!-- Intro -->
+<!-- BGM -->
+<audio id="bgm" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_8e67c95a42.mp3" type="audio/mp3">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">♪</button>
+
 <section class="intro">
   <h1>Wedding Day</h1>
-  <p>저희 두 사람의 새로운 시작에<br>소중한 분들을 초대합니다</p>
+  <p>저희의 시작에 함께해 주세요</p>
 </section>
 
-<!-- Names -->
 <section class="fade">
   <div class="divider"></div>
-  <div class="names">
-    <h2>김민준 & 이서연</h2>
-    <span>2026. 05. 23 SAT PM 1:00</span>
-  </div>
+  <h2>김민준 & 이서연</h2>
+  <p>2026.05.23 SAT PM 1:00</p>
 </section>
 
-<!-- Photo -->
-<section class="fade photo">
-  <img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9" alt="wedding">
+<!-- Gallery -->
+<section class="fade gallery">
+  <img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9" class="active">
+  <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+  <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
 </section>
 
-<!-- Info -->
-<section class="fade info">
+<!-- Location -->
+<section class="fade">
   <div class="divider"></div>
-  <p><strong>장소</strong><br>라움 아트센터</p>
-  <p>서울 강남구 영동대로 564</p>
-  <a href="#" class="btn">오시는 길</a>
+  <p><strong>라움 아트센터</strong><br>서울 강남구 영동대로 564</p>
+  <a class="btn" href="https://map.kakao.com" target="_blank">카카오맵</a>
+  <a class="btn" href="https://map.naver.com" target="_blank">네이버지도</a>
+</section>
+
+<!-- Account -->
+<section class="fade">
+  <div class="divider"></div>
+  <h3>마음 전하실 곳</h3>
+  <div class="account-box">
+    <div class="account">
+      <button onclick="toggleAcc(this)">신랑측 계좌</button>
+      <div class="account-info">국민 123-456-789 김민준</div>
+    </div>
+    <div class="account">
+      <button onclick="toggleAcc(this)">신부측 계좌</button>
+      <div class="account-info">신한 987-654-321 이서연</div>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -167,17 +189,35 @@ footer {
 </footer>
 
 <script>
-const fades = document.querySelectorAll('.fade');
+// Fade
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>e.isIntersecting && e.target.classList.add('show'));
+});
+document.querySelectorAll('.fade').forEach(f=>observer.observe(f));
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.2 });
+// Gallery
+let idx=0;
+const imgs=document.querySelectorAll('.gallery img');
+setInterval(()=>{
+  imgs[idx].classList.remove('active');
+  idx=(idx+1)%imgs.length;
+  imgs[idx].classList.add('active');
+},3500);
 
-fades.forEach(fade => observer.observe(fade));
+// Account
+function toggleAcc(btn){
+  const info=btn.nextElementSibling;
+  info.style.display=info.style.display==='block'?'none':'block';
+}
+
+// Music
+const bgm=document.getElementById('bgm');
+let playing=false;
+function toggleMusic(){
+  if(!playing){ bgm.play(); playing=true;}
+  else{ bgm.pause(); playing=false;}
+}
+document.body.addEventListener('click',()=>{ if(!playing){bgm.play();playing=true;}},{once:true});
 </script>
 
 </body>
