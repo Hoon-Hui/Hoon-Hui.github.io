@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wedding Invitation</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #faf9f7;
+  --main: #2f2f2f;
+  --sub: #8a7f73;
+  --accent: #c2a679;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--main);
+  line-height: 1.6;
+}
+
+section {
+  padding: 80px 24px;
+  text-align: center;
+}
+
+/* ===== Intro ===== */
+.intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 2s ease;
+}
+
+.intro h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+
+.intro p {
+  margin-top: 20px;
+  color: var(--sub);
+}
+
+/* ===== Divider ===== */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  margin: 40px auto;
+}
+
+/* ===== Fade Animation ===== */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Names ===== */
+.names h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+}
+
+.names span {
+  display: block;
+  margin-top: 10px;
+  color: var(--sub);
+}
+
+/* ===== Photo ===== */
+.photo {
+  margin-top: 40px;
+}
+
+.photo img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* ===== Info ===== */
+.info p {
+  margin-bottom: 12px;
+}
+
+/* ===== Button ===== */
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 36px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  border-radius: 40px;
+  transition: all .3s ease;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 60px 0;
+  font-size: 14px;
+  color: var(--sub);
+}
+
+/* ===== Keyframes ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- Intro -->
+<section class="intro">
+  <h1>Wedding Day</h1>
+  <p>저희 두 사람의 새로운 시작에<br>소중한 분들을 초대합니다</p>
+</section>
+
+<!-- Names -->
+<section class="fade">
+  <div class="divider"></div>
+  <div class="names">
+    <h2>김민준 & 이서연</h2>
+    <span>2026. 05. 23 SAT PM 1:00</span>
+  </div>
+</section>
+
+<!-- Photo -->
+<section class="fade photo">
+  <img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9" alt="wedding">
+</section>
+
+<!-- Info -->
+<section class="fade info">
+  <div class="divider"></div>
+  <p><strong>장소</strong><br>라움 아트센터</p>
+  <p>서울 강남구 영동대로 564</p>
+  <a href="#" class="btn">오시는 길</a>
+</section>
+
+<footer>
+  Thank you for celebrating with us
+</footer>
+
+<script>
+const fades = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+fades.forEach(fade => observer.observe(fade));
+</script>
+
+</body>
+</html>
