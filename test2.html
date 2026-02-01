@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #fafafa;
-  --text-main: #2f2f2f;
-  --text-sub: #7a7a7a;
-  --accent: #e6d6d6;
+  --bg: #f8f8f6;
+  --black: #1f1f1f;
+  --gray: #777;
+  --gold: #c8b28a;
 }
 
 * {
@@ -22,140 +22,137 @@
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--text-main);
+  color: var(--black);
   font-family: 'Noto Serif KR', serif;
   -webkit-font-smoothing: antialiased;
 }
 
-.wrapper {
+.wrap {
   max-width: 430px;
   margin: 0 auto;
-  padding: 96px 24px;
 }
 
 .section {
-  margin-bottom: 96px;
+  padding: 120px 28px;
   text-align: center;
 }
 
 .en {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 0.15em;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 12px;
-  color: var(--text-sub);
-  margin-bottom: 24px;
+  letter-spacing: 0.25em;
+  color: var(--gray);
+  margin-bottom: 32px;
 }
 
 .title {
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 56px;
 }
 
 .names {
-  font-size: 20px;
-  letter-spacing: 0.08em;
-  margin-bottom: 24px;
+  font-size: 22px;
+  letter-spacing: 0.12em;
 }
 
 .line {
-  width: 36px;
+  width: 40px;
   height: 1px;
-  background: var(--accent);
-  margin: 32px auto;
+  background: var(--gold);
+  margin: 48px auto;
 }
 
 .text {
-  font-size: 14px;
-  line-height: 2;
-  color: var(--text-sub);
+  font-size: 15px;
+  line-height: 2.1;
+  color: var(--gray);
 }
 
 .date {
-  font-size: 16px;
-  margin-top: 24px;
+  font-size: 17px;
+  margin-bottom: 12px;
 }
 
 .place {
   font-size: 14px;
-  color: var(--text-sub);
-  margin-top: 8px;
+  color: var(--gray);
 }
 
 /* 갤러리 */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0 16px 120px;
 }
 
 .gallery img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-/* 아주 은은한 벚꽃 */
-.sakura {
+/* 라이트박스 */
+.lightbox {
   position: fixed;
-  top: -10%;
-  width: 10px;
-  height: 10px;
-  background: rgba(230, 214, 214, 0.4);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(45deg);
-  animation: fall linear infinite;
-  pointer-events: none;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
 
-@keyframes fall {
-  100% {
-    transform: translateY(120vh) rotate(360deg);
-    opacity: 0;
-  }
+.lightbox img {
+  max-width: 92%;
+  max-height: 92%;
+}
+
+.footer {
+  padding: 80px 0;
+  font-size: 12px;
+  color: var(--gray);
+  text-align: center;
+  letter-spacing: 0.15em;
 }
 </style>
 </head>
 
 <body>
 
-<script>
-for(let i=0;i<12;i++){
-  const s=document.createElement('div');
-  s.className='sakura';
-  s.style.left=Math.random()*100+'vw';
-  s.style.animationDuration=15+Math.random()*10+'s';
-  s.style.opacity=Math.random()*0.5;
-  document.body.appendChild(s);
-}
-</script>
+<div class="wrap">
 
-<div class="wrapper">
-
-  <div class="section">
+  <!-- HERO -->
+  <section class="section">
     <div class="en">WEDDING INVITATION</div>
     <div class="title">결혼합니다</div>
-    <div class="names">김민준 · 이서연</div>
+    <div class="names">김 민 준 · 이 서 연</div>
+  </section>
+
+  <!-- MESSAGE -->
+  <section class="section">
     <div class="line"></div>
     <div class="text">
-      서로의 가장 잔잔한 하루가 되어<br>
-      평생을 함께 걸어가려 합니다.<br><br>
+      서로의 가장 깊은 안식이 되어<br>
+      평생을 함께하기로 약속했습니다.<br><br>
       소중한 분들을 모시고<br>
-      그 시작의 순간을 나누고자 합니다.
+      그 첫걸음을 함께 나누고자 합니다.
     </div>
-  </div>
+  </section>
 
-  <div class="section">
+  <!-- INFO -->
+  <section class="section">
     <div class="en">THE DAY</div>
-    <div class="date">2026년 4월 18일 토요일 오후 2시</div>
+    <div class="date">2026년 4월 18일 토요일 · 오후 2시</div>
     <div class="place">더그레이스켈리 웨딩홀 3층</div>
-  </div>
+  </section>
 
-  <div class="section">
-    <div class="en">OUR MOMENTS</div>
+  <!-- GALLERY -->
+  <section>
+    <div class="en" style="text-align:center;margin-bottom:40px;">OUR MOMENTS</div>
     <div class="gallery">
-      <!-- 사진 20장 -->
+      <!-- 20 photos -->
       <img src="img/01.jpg">
       <img src="img/02.jpg">
       <img src="img/03.jpg">
@@ -177,9 +174,35 @@ for(let i=0;i<12;i++){
       <img src="img/19.jpg">
       <img src="img/20.jpg">
     </div>
+  </section>
+
+  <div class="footer">
+    WITH LOVE & GRATITUDE
   </div>
 
 </div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img src="" id="lightbox-img">
+</div>
+
+<script>
+const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.style.display = 'flex';
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+</script>
 
 </body>
 </html>
