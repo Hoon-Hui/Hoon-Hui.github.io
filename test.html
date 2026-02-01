@@ -1,45 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Wedding Invitation</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --main:#2f2f2f;
-  --sub:#8b6f7d;
-  --bg:#fffafc;
+  --ink:#1f1f1f;
+  --soft:#7d6a73;
+  --bg:#fbf7f9;
+  --card:#ffffff;
 }
 
-*{
-  margin:0; padding:0;
-  box-sizing:border-box;
-  -webkit-tap-highlight-color: transparent;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
 
 body{
   font-family:'Noto Serif KR', serif;
   background:var(--bg);
-  color:var(--main);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 
-/* Canvas */
-canvas{
+/* Sakura Canvas */
+#sakura{
   position:fixed;
-  top:0; left:0;
-  width:100%;
-  height:100%;
+  inset:0;
   z-index:1;
   pointer-events:none;
 }
 
-/* Wrapper */
-.wrapper{
+/* Layout */
+.app{
   position:relative;
   z-index:2;
 }
@@ -52,78 +49,94 @@ canvas{
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:40px 20px;
+  padding:0 24px;
 }
 
 .hero h1{
   font-family:'Playfair Display', serif;
-  font-size:2.4rem;
+  font-size:2.6rem;
   letter-spacing:2px;
-  margin-bottom:16px;
 }
 
-.hero p{
-  font-size:1rem;
-  color:var(--sub);
+.hero .sub{
+  margin-top:16px;
+  color:var(--soft);
+  line-height:1.8;
 }
 
-/* Divider */
-.divider{
-  width:40px;
-  height:1px;
-  background:#ccc;
-  margin:60px auto;
+.names{
+  margin-top:32px;
+  font-size:1.4rem;
+  letter-spacing:3px;
 }
 
 /* Section */
 section{
-  padding:80px 24px;
+  padding:100px 24px;
+}
+
+.title{
   text-align:center;
-}
-
-section h2{
-  font-size:1.2rem;
-  margin-bottom:24px;
-  letter-spacing:1px;
-}
-
-section p{
-  font-size:0.95rem;
-  line-height:1.8;
-  color:#555;
-}
-
-/* Names */
-.names{
-  font-size:1.5rem;
-  margin-top:20px;
+  font-size:1.1rem;
   letter-spacing:2px;
+  margin-bottom:40px;
 }
 
-/* Info Card */
+/* Card */
 .card{
-  background:white;
-  border-radius:16px;
-  padding:32px 24px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.08);
-  margin-top:40px;
+  background:var(--card);
+  border-radius:20px;
+  padding:40px 28px;
+  box-shadow:0 30px 60px rgba(0,0,0,.08);
 }
 
-/* Fade Animation */
-.fade{
+/* Fade Motion */
+.reveal{
   opacity:0;
-  transform:translateY(30px);
-  transition:1.2s cubic-bezier(.2,.6,.2,1);
+  transform:translateY(40px);
+  transition:1.4s cubic-bezier(.2,.6,.2,1);
 }
-.fade.show{
+.reveal.show{
   opacity:1;
   transform:none;
 }
 
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.gallery img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:14px;
+  cursor:pointer;
+}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99;
+}
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
+}
+
 /* Footer */
 footer{
-  padding:60px 20px;
-  font-size:0.8rem;
+  text-align:center;
+  padding:80px 0 40px;
+  font-size:.75rem;
   color:#999;
 }
 </style>
@@ -133,108 +146,126 @@ footer{
 
 <canvas id="sakura"></canvas>
 
-<div class="wrapper">
+<div class="app">
 
-  <div class="hero fade">
+  <!-- HERO -->
+  <div class="hero reveal">
     <h1>Wedding Day</h1>
-    <p>벚꽃이 흩날리는 봄날,<br>저희의 새로운 시작에 초대합니다.</p>
-    <div class="names">민준 ♥ 서연</div>
+    <div class="sub">
+      벚꽃이 피고 지는 계절,<br>
+      저희의 이야기가 시작됩니다.
+    </div>
+    <div class="names">MINJUN & SEYEON</div>
   </div>
 
-  <div class="divider"></div>
-
-  <section class="fade">
-    <h2>INVITATION</h2>
-    <p>
-      서로의 계절이 되어<br>
-      같은 봄을 걸어가려 합니다.<br><br>
-      소중한 분들을 모시고<br>
-      사랑의 약속을 나누고자 합니다.
-    </p>
-  </section>
-
-  <section class="fade">
+  <!-- INVITATION -->
+  <section class="reveal">
+    <div class="title">INVITATION</div>
     <div class="card">
-      <h2>WEDDING DAY</h2>
-      <p>
-        2026년 4월 18일 토요일<br>
-        오후 2시<br><br>
-        라움 아트센터<br>
-        그랜드홀
+      <p style="line-height:2;text-align:center">
+        서로의 하루가 되어<br>
+        같은 계절을 걸어가려 합니다.<br><br>
+        소중한 분들을 모시고<br>
+        저희의 약속을 나누고자 합니다.
       </p>
     </div>
   </section>
 
+  <!-- GALLERY -->
+  <section class="reveal">
+    <div class="title">GALLERY</div>
+    <div class="gallery">
+      <!-- 20 Images -->
+      <img src="img/1.jpg"><img src="img/2.jpg">
+      <img src="img/3.jpg"><img src="img/4.jpg">
+      <img src="img/5.jpg"><img src="img/6.jpg">
+      <img src="img/7.jpg"><img src="img/8.jpg">
+      <img src="img/9.jpg"><img src="img/10.jpg">
+      <img src="img/11.jpg"><img src="img/12.jpg">
+      <img src="img/13.jpg"><img src="img/14.jpg">
+      <img src="img/15.jpg"><img src="img/16.jpg">
+      <img src="img/17.jpg"><img src="img/18.jpg">
+      <img src="img/19.jpg"><img src="img/20.jpg">
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="reveal">
+    <div class="title">WEDDING DAY</div>
+    <div class="card" style="text-align:center;line-height:2">
+      2026년 4월 18일 토요일 오후 2시<br><br>
+      라움 아트센터 그랜드홀
+    </div>
+  </section>
+
   <footer>
-    © Wedding Invitation
+    © Premium Wedding Invitation
   </footer>
 
 </div>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img src="">
+</div>
+
 <script>
-/* Fade In */
-const fades=document.querySelectorAll('.fade');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting) e.target.classList.add('show');
-  });
-},{threshold:0.2});
-fades.forEach(f=>observer.observe(f));
+/* Reveal */
+const io=new IntersectionObserver(e=>{
+  e.forEach(v=>v.isIntersecting&&v.target.classList.add('show'))
+},{threshold:.2});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-/* Sakura Canvas */
-const canvas=document.getElementById('sakura');
-const ctx=canvas.getContext('2d');
-let w,h;
-let petals=[];
+/* Gallery Lightbox */
+const box=document.getElementById('lightbox');
+const boxImg=box.querySelector('img');
+document.querySelectorAll('.gallery img').forEach(img=>{
+  img.onclick=()=>{
+    box.style.display='flex';
+    boxImg.src=img.src;
+  }
+});
+box.onclick=()=>box.style.display='none';
 
-function resize(){
-  w=canvas.width=window.innerWidth;
-  h=canvas.height=window.innerHeight;
-}
-window.addEventListener('resize',resize);
-resize();
+/* Sakura */
+const c=document.getElementById('sakura');
+const x=c.getContext('2d');
+let w,h,petals=[];
+function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
+addEventListener('resize',resize);resize();
 
 class Petal{
-  constructor(){
-    this.reset();
-  }
+  constructor(){this.reset()}
   reset(){
     this.x=Math.random()*w;
     this.y=Math.random()*-h;
-    this.size=8+Math.random()*6;
-    this.speed=1+Math.random()*1.5;
-    this.wind=Math.random()*1-0.5;
-    this.angle=Math.random()*Math.PI*2;
+    this.s=6+Math.random()*8;
+    this.v=0.6+Math.random()*1.2;
+    this.r=Math.random()*Math.PI;
   }
   draw(){
-    ctx.save();
-    ctx.translate(this.x,this.y);
-    ctx.rotate(this.angle);
-    ctx.fillStyle='rgba(255,182,193,0.8)';
-    ctx.beginPath();
-    ctx.ellipse(0,0,this.size,this.size*0.6,0,0,Math.PI*2);
-    ctx.fill();
-    ctx.restore();
+    x.save();
+    x.translate(this.x,this.y);
+    x.rotate(this.r);
+    x.fillStyle='rgba(255,190,200,.7)';
+    x.beginPath();
+    x.ellipse(0,0,this.s,this.s*.6,0,0,6.28);
+    x.fill();
+    x.restore();
   }
   update(){
-    this.y+=this.speed;
-    this.x+=this.wind;
-    this.angle+=0.01;
+    this.y+=this.v;
+    this.x+=Math.sin(this.y*.01);
+    this.r+=.01;
     if(this.y>h) this.reset();
   }
 }
-
-for(let i=0;i<40;i++) petals.push(new Petal());
-
-function animate(){
-  ctx.clearRect(0,0,w,h);
-  petals.forEach(p=>{
-    p.update();
-    p.draw();
-  });
-  requestAnimationFrame(animate);
-}
-animate();
+for(let i=0;i<50;i++)petals.push(new Petal());
+(function anim(){
+  x.clearRect(0,0,w,h);
+  petals.forEach(p=>{p.update();p.draw()});
+  requestAnimationFrame(anim);
+})();
 </script>
 
 </body>
