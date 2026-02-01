@@ -26,6 +26,56 @@
 						</ul>
 					</header>
 
+				<section id="header" style="height: 100dvh;">
+				<div class="inner" style="height: 100dvh; /* display: grid; place-items: center; align-content: end;*/ ">
+					<!-- 
+					<h3><b>2026.4.11.(토)<br>원주 지오컨벤션 11시 30분</b></h3>
+					<div><b>장권재 ∙ 서현화</b> 의 아들<b> 장용훈</b></div>
+					<div><b>윤석준 ∙ 김현주</b> 의&nbsp;&nbsp;딸&nbsp;&nbsp;<b> 윤소희</b></div>
+					<p>평생 서로를 귀하게 여기며<br>처음의 설렘과 순수함을<br>잃지 않고 존중하고 아껴 나가겠습니다</p>
+					<p>저희의 새로운 시작을<br>축복해 주시면 감사하겠습니다</p>
+					<ul class="actions special">
+						<li><a href="#one" class="button scrolly">상세사항 확인</a></li>
+					</ul>
+					-->
+					  <div class="left-col">
+						<h3><b>2026.4.11.(토)<br>원주 지오컨벤션 11시 30분</b></h3>
+						<div><b>장권재 ∙ 서현화</b> 의 아들 <b>장용훈</b></div>
+						<div><b>윤석준 ∙ 김현주</b> 의&nbsp;&nbsp;딸&nbsp;&nbsp;<b> 윤소희</b></div>
+					  </div>
+					
+					  <!-- 우측 컬럼 -->
+					  <div class="right-col">
+					    <p>언제나 서로를 존중하고 아끼며<br>세상에 하나뿐인 소중한 존재이자<br>가장 든든한 편이 되어주려 합니다</p>
+					    <p>함께하시어 따뜻한 미소로<br>저희 두 사람의 앞날을 지켜봐주세요</p>
+					    <ul class="actions special">
+					      <li><a href="#one" class="button scrolly">상세사항 확인</a></li>
+					    </ul>
+					  </div>
+				</div>
+			</section>
+			<div id="toast">복사 되었습니다!</div>
+			<div id="toastErr">복사에 실패하였습니다..</div>
+
+			<!-- One -->
+			<section id="one" class="main style1" style="font-family: 'Noto Serif KR', serif;">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium imp-medium" style="padding: 0 0 1.5em 3em;">
+							<header class="major">
+								<h2>오 시 는  길</h2>
+							</header>
+						</div>
+						<div class="col-6 col-12-medium">
+							<!-- * 카카오맵 - 지도퍼가기 -->
+							<!-- 1. 지도 노드 -->
+							<div id="daumRoughmapContainer1768478023932" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+				
 				<!-- Thumbnail -->
 					<section id="thumbnails" style="display: flex;flex-direction: column;align-items: center;">
 						<article>
@@ -90,15 +140,94 @@
 						</article>
 					</section>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<!--
-						<ul class="copyright">
-							<li><a href="/loveFrame/loveFrame_eng.html#navi=3" target="_top" class="icon brands fa-gratipay"><span class="label">Gratipay</span></a></li>
-							<li><a href="/loveFrame/loveFrame_eng.html#navi=3" target="_top">Eng Language</a></li>
-						</ul>
-						-->
-					</footer>
+				<!-- Two -->
+			<section id="two" class="main style2" style="font-family: 'Noto Serif KR', serif;">
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium imp-medium">
+							<header class="major">
+								<h2>마음 보내실 곳</h2>
+							</header>
+						</div>
+						<div class="col-6 col-12-medium">
+							<!-- 계좌 start -->
+							<div class="account-card">
+							    <div class="card-header" onclick="toggleAccounts()" style="padding: 1em 0 1em 0;">
+							        <span>신랑측 계좌</span>
+									<div class="arrow-wrap">
+				                        <span class="arrow-top"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-up"><span class="label">top</span></a></span>
+				                    	<span class="arrow-bottom"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-down"><span class="label">bottom</span></a></span>
+				                    </div>
+							    </div>
+							    
+							    <!-- 이 부분이 토글될 내용입니다 -->
+							    <div class="collapsible-content" id="accountList">
+							        <div class="account-details">
+							            <div class="account-item" style="letter-spacing: -0.5px;">
+							                <div class="name">아버지　장권재</div>
+							                <span class="bank">부산은행</span>
+							                <span class="number" data-copy-value="1122111081005" id="bankAccount1">112-2111-0810-05 </span>
+											<span><a href="javascript:bankAccountCopy(1)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+										<div class="account-item" style="letter-spacing: -0.5px;">
+							                <div class="name">신　랑　장용훈</div>
+							                <span class="bank">우리은행</span>
+							                <span class="number" data-copy-value="1002352699191" id="bankAccount3">1002-352-699191 </span>
+											<span><a href="javascript:bankAccountCopy(3)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+
+							<div class="account-card">
+							    <div class="card-header" onclick="toggleAccounts2()" style="padding: 1em 0 1em 0;">
+							        <span>신부측 계좌</span>
+									<div class="arrow-wrap">
+				                        <span class="arrow-top"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-up"><span class="label">top</span></a></span>
+				                    	<span class="arrow-bottom"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-down"><span class="label">bottom</span></a></span>
+				                    </div>
+							    </div>
+							    
+							    <!-- 이 부분이 토글될 내용입니다 -->
+							    <div class="collapsible-content" id="accountList2">
+							        <div class="account-details">
+							            <div class="account-item" style="letter-spacing: -0.5px;">
+							                <div class="name">아버지　윤석준</div>
+							                <span class="bank">농협은행</span>
+							                <span class="number" data-copy-value="60114456026752" id="bankAccount4">601144-56-026752 </span>
+											<span><a href="javascript:bankAccountCopy(4)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+							            <div class="account-item" style="letter-spacing: -0.5px;">
+							                <div class="name">어머니　김현주</div>
+							                <span class="bank">우 체 국</span>
+							                <span class="number" data-copy-value="50388802002794" id="bankAccount5">503888-02-002794 </span>
+											<span><a href="javascript:bankAccountCopy(5)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+										<div class="account-item" style="letter-spacing: -0.5px;">
+							                <div class="name">신　부　윤소희</div>
+							                <span class="bank">농협은행</span>
+							                <span class="number" data-copy-value="60110452116136" id="bankAccount6">601104-52-116136 </span>
+											<span><a href="javascript:bankAccountCopy(6)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+							            </div>
+							        </div>
+							    </div>
+							</div>
+							<!-- 계좌 end -->
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<section id="footer" style="font-family: 'Noto Serif KR', serif; padding: 0em 1.5em 2em 1.5em;">
+				<ul class="icons">
+					<div>모든 순간을 소중히 여기며 잘 살겠습니다</div>
+					<div>축복해 주셔서 감사합니다</div>
+				</ul>
+				<ul class="copyright">
+					<li><a href="javascript:void(0)" class="icon brands fa-gratipay"><span class="label">Gratipay</span></a></li>
+				</ul>
+			</section>
 			</div>
 
 		<!-- Scripts -->
