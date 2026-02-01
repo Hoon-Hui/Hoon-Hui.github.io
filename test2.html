@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Noto Serif KR', serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #fffafc 0%, #fff 100%);
+      color: #4a3b3b;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: #a78c8c;
+      margin-bottom: 60px;
+    }
+
+    .names {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: #d8b6b6;
+      margin: 24px auto;
+    }
+
+    .info {
+      font-size: 14px;
+      line-height: 1.9;
+      color: #6a5555;
+      margin-bottom: 60px;
+    }
+
+    .date {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .location {
+      font-size: 14px;
+      color: #7a6666;
+    }
+
+    footer {
+      font-size: 12px;
+      color: #9c8888;
+      margin-top: 80px;
+    }
+
+    /* 벚꽃 애니메이션 */
+    .sakura {
+      position: fixed;
+      top: -10%;
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 192, 203, 0.6);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(45deg);
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-50px) translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 벚꽃 -->
+  <script>
+    for (let i = 0; i < 25; i++) {
+      const sakura = document.createElement('div');
+      sakura.className = 'sakura';
+      sakura.style.left = Math.random() * 100 + 'vw';
+      sakura.style.animationDuration = 8 + Math.random() * 5 + 's';
+      sakura.style.animationDelay = Math.random() * 5 + 's';
+      sakura.style.opacity = Math.random();
+      document.body.appendChild(sakura);
+    }
+  </script>
+
+  <div class="container">
+    <div class="subtitle">WEDDING INVITATION</div>
+
+    <h1>결혼합니다</h1>
+
+    <div class="divider"></div>
+
+    <div class="names">
+      김민준 · 이서연
+    </div>
+
+    <div class="info">
+      서로의 봄이 되어<br/>
+      평생을 함께하려 합니다.<br/><br/>
+      소중한 분들을 모시고<br/>
+      그 시작의 순간을 함께하고자 합니다.
+    </div>
+
+    <div class="date">
+      2026년 4월 18일 토요일 오후 2시
+    </div>
+    <div class="location">
+      더그레이스켈리 웨딩홀 3층
+    </div>
+
+    <footer>
+      따뜻한 축복으로 함께해 주세요
+    </footer>
+  </div>
+
+</body>
+</html>
