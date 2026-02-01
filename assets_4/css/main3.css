@@ -4057,7 +4057,7 @@ section#header p + p {
 				top: 0;
 				width: 4em;
 				height: 4em;
-				background-image: url("images/close.svg");
+				background-image: url("/assets_3/css/images/close.svg");
 				background-repeat: no-repeat;
 				background-size: 64px 64px;
 				cursor: pointer;
@@ -4074,7 +4074,7 @@ section#header p + p {
 				width: 6em;
 				height: 6em;
 				margin-top: -3em;
-				background-image: url("images/arrow.svg");
+				background-image: url("/assets_3/css/images/arrow.svg");
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: contain;
@@ -4159,7 +4159,7 @@ section#header p + p {
 				left: 50%;
 				width: 3em;
 				height: 3em;
-				background-image: url("images/spinner.svg");
+				background-image: url("/assets_3/css/images/spinner.svg");
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: contain;
@@ -4181,7 +4181,7 @@ section#header p + p {
 		}
 
 			body.fullscreen #viewer .inner .toggle {
-				background-image: url("images/open.svg");
+				background-image: url("/assets_3/css/images/open.svg");
 			}
 
 		body.is-preload-1 #viewer {
@@ -4211,7 +4211,7 @@ section#header p + p {
 					-webkit-transition: opacity 0.75s ease;
 					-ms-transition: opacity 0.75s ease;
 					transition: opacity 0.75s ease;
-					background-image: url("images/open.svg");
+					background-image: url("/assets_3/css/images/open.svg");
 					opacity: 0;
 					right: 0;
 				}
@@ -4230,12 +4230,12 @@ section#header p + p {
 
 			#viewer .inner .nav-next,
 			#viewer .inner .nav-previous {
-				background-image: url("images/arrow-small.svg");
+				background-image: url("/assets_3/css/images/arrow-small.svg");
 				background-size: 32px 32px;
 			}
 
 			body.fullscreen #viewer .inner .toggle {
-				background-image: url("images/open-small.svg");
+				background-image: url("/assets_3/css/images/open-small.svg");
 			}
 
 		}
@@ -4261,7 +4261,7 @@ section#header p + p {
 			}
 
 				#viewer .inner .toggle {
-					background-image: url("images/close-small.svg") !important;
+					background-image: url("/assets_3/css/images/close-small.svg") !important;
 					background-size: 32px 32px;
 				}
 
