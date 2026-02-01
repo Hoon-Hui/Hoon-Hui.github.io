@@ -2,181 +2,179 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>모바일 청첩장</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Noto Serif KR', serif;
-  background:#fff;
-  color:#222;
-}
+  /* 공통 스타일 */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; overflow-x:hidden; }
+  section { width:100vw; min-height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; position:relative; scroll-snap-align:start; }
+  html { scroll-behavior:smooth; }
+  
+  /* 스크롤 스냅 */
+  body { scroll-snap-type: y mandatory; }
 
-/* Hero */
-.hero{
-  height:100vh;
-  background:url('img/hero.jpg') center/cover no-repeat;
-  display:flex;
-  align-items:flex-end;
-}
-.hero-inner{
-  width:100%;
-  background:linear-gradient(to top,rgba(0,0,0,.55),transparent);
-  color:#fff;
-  padding:32px 20px;
-  text-align:center;
-}
-.hero-inner h1{
-  font-size:1.6rem;
-  letter-spacing:2px;
-}
-.hero-inner p{
-  margin-top:8px;
-  font-size:.9rem;
-}
+  /* 첫 페이지 */
+  #intro {
+    background: url('https://source.unsplash.com/800x1200/?spring,flowers') center/cover no-repeat;
+    color:white;
+    font-family: 'Playfair Display', serif;
+    font-size:2rem;
+    animation: fadeOutIntro 8s forwards;
+  }
+  @keyframes fadeOutIntro {
+    0% { opacity:1; }
+    70% { opacity:1; }
+    100% { opacity:0; }
+  }
 
-/* Section */
-section{
-  padding:60px 20px;
-  text-align:center;
-}
-section h2{
-  font-size:1.1rem;
-  margin-bottom:24px;
-}
-section p{
-  font-size:.95rem;
-  line-height:1.9;
-  color:#444;
-}
+  /* 인삿말 */
+  #greeting { background-color: #fff5f0; padding:2rem; color:#333; font-size:1.2rem; animation: fadeIn 1.5s ease forwards; opacity:0; }
+  @keyframes fadeIn { to { opacity:1; } }
 
-/* Info Box */
-.info-box{
-  border-top:1px solid #eee;
-  border-bottom:1px solid #eee;
-  padding:24px 0;
-  margin:40px 0;
-}
+  /* 달력 & D-day */
+  #dday {
+    background: linear-gradient(135deg, #ffe5d9, #ffcad4);
+    color:#333;
+    font-family: 'Playfair Display', serif;
+  }
+  #dday h2 { font-size:2rem; margin-bottom:1rem; }
+  #dday .date { font-size:1.5rem; margin-bottom:0.5rem; }
+  #dday .countdown { font-size:2rem; font-weight:bold; }
 
-/* Gallery */
-.gallery{
-  overflow:hidden;
-}
-.gallery-track{
-  display:flex;
-  transition:.4s;
-}
-.gallery img{
-  width:100%;
-  flex-shrink:0;
-}
+  /* 오시는 길 */
+  #location {
+    background-color:#fff0f5;
+    padding:2rem;
+  }
+  #location iframe {
+    width:90%; height:300px; border:none; border-radius:12px;
+  }
 
-/* Buttons */
-.btn{
-  display:block;
-  margin:12px auto;
-  width:90%;
-  padding:14px 0;
-  border:1px solid #ddd;
-  border-radius:6px;
-  font-size:.9rem;
-  background:#fff;
-}
+  /* 갤러리 */
+  #gallery {
+    background-color:#fef9f4;
+    padding:2rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
+    gap:10px;
+  }
+  #gallery img {
+    width:100%; border-radius:12px; transition: transform 0.3s;
+  }
+  #gallery img:hover { transform: scale(1.05); }
 
-/* Footer Fixed */
-.fixed-bar{
-  position:fixed;
-  bottom:0;left:0;
-  width:100%;
-  background:#fff;
-  border-top:1px solid #eee;
-  display:flex;
-}
-.fixed-bar button{
-  flex:1;
-  padding:14px 0;
-  font-size:.85rem;
-  border:none;
-  background:#fff;
-}
+  /* 마음 보내기 (아코디언) */
+  #message {
+    background: linear-gradient(to top right, #ffe0f0, #fff5f5);
+    padding:2rem;
+  }
+  .accordion { background:#fff; border-radius:8px; margin-bottom:1rem; cursor:pointer; padding:1rem; transition: background 0.3s; }
+  .accordion:hover { background:#fce4ec; }
+  .panel { max-height:0; overflow:hidden; transition:max-height 0.3s ease; background:#fff0f5; padding:0 1rem; border-radius:0 0 8px 8px; }
+
+  /* 모바일 최적화 폰트 크기 */
+  @media (max-width: 500px) {
+    #intro { font-size:1.5rem; }
+    #greeting { font-size:1rem; }
+    #dday h2 { font-size:1.5rem; }
+    #dday .date, #dday .countdown { font-size:1.2rem; }
+  }
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-inner">
-    <h1>민준 & 서연</h1>
-    <p>2026.04.18 SAT PM 2:00</p>
-  </div>
-</div>
-
-<!-- INVITATION -->
-<section>
-  <h2>초대합니다</h2>
-  <p>
-    서로의 하루가 되어<br>
-    평생을 함께하고자 합니다.<br><br>
-    소중한 분들을 모시고<br>
-    저희의 시작을 알립니다.
-  </p>
-</section>
-
-<!-- INFO -->
-<section class="info-box">
-  <p>
-    2026년 4월 18일 토요일 오후 2시<br>
-    라움 아트센터 그랜드홀
-  </p>
-</section>
-
-<!-- GALLERY -->
-<section>
-  <h2>갤러리</h2>
-  <div class="gallery">
-    <div class="gallery-track" id="track">
-      <img src="img/1.jpg"><img src="img/2.jpg"><img src="img/3.jpg">
-      <img src="img/4.jpg"><img src="img/5.jpg"><img src="img/6.jpg">
-      <img src="img/7.jpg"><img src="img/8.jpg"><img src="img/9.jpg">
-      <img src="img/10.jpg"><img src="img/11.jpg"><img src="img/12.jpg">
-      <img src="img/13.jpg"><img src="img/14.jpg"><img src="img/15.jpg">
-      <img src="img/16.jpg"><img src="img/17.jpg"><img src="img/18.jpg">
-      <img src="img/19.jpg"><img src="img/20.jpg">
-    </div>
+<!-- 첫 페이지 -->
+<section id="intro">
+  <div>
+    <h1>함께하는 봄날의 결혼식</h1>
+    <p>홍길동 & 김철수</p>
   </div>
 </section>
 
-<!-- MAP -->
-<section>
+<!-- 인삿말 -->
+<section id="greeting">
+  <h2>안녕하세요!</h2>
+  <p>저희 두 사람의 결혼식에 초대합니다. 봄바람처럼 따뜻한 마음으로 함께해 주세요.</p>
+</section>
+
+<!-- 달력 & D-day -->
+<section id="dday">
+  <div>
+    <h2>결혼식 날짜</h2>
+    <div class="date">2026년 5월 15일</div>
+    <div class="countdown" id="countdown"></div>
+  </div>
+</section>
+
+<!-- 오시는 길 -->
+<section id="location">
   <h2>오시는 길</h2>
-  <button class="btn">카카오맵 보기</button>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>
 </section>
 
-<!-- ACCOUNT -->
-<section>
-  <h2>마음 전하실 곳</h2>
-  <button class="btn">신랑측 계좌</button>
-  <button class="btn">신부측 계좌</button>
+<!-- 갤러리 -->
+<section id="gallery">
+  <!-- 예시 20장 -->
+  <img src="https://source.unsplash.com/200x200/?flower,1" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,2" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,3" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,4" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,5" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,6" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,7" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,8" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,9" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,10" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,11" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,12" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,13" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,14" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,15" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,16" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,17" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,18" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,19" alt="">
+  <img src="https://source.unsplash.com/200x200/?flower,20" alt="">
 </section>
 
-<!-- FIXED BAR -->
-<div class="fixed-bar">
-  <button>전화</button>
-  <button>문자</button>
-  <button>지도</button>
-</div>
+<!-- 마음 보내기 -->
+<section id="message">
+  <h2>마음을 전해주세요</h2>
+  <div class="accordion">축하 메시지 작성하기</div>
+  <div class="panel">
+    <textarea rows="5" style="width:100%; border:none; border-radius:8px; padding:1rem;" placeholder="축하 메시지를 남겨주세요"></textarea>
+    <button style="margin-top:1rem; padding:0.5rem 1rem; border:none; border-radius:8px; background:#ff85a2; color:white;">보내기</button>
+  </div>
+</section>
 
 <script>
-let idx=0;
-const track=document.getElementById('track');
-track.addEventListener('click',()=>{
-  idx=(idx+1)%20;
-  track.style.transform=`translateX(-${idx*100}%)`;
-});
+  // 아코디언
+  const acc = document.querySelectorAll('.accordion');
+  acc.forEach(a => {
+    a.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  });
+
+  // D-day 계산
+  const countdown = document.getElementById('countdown');
+  const weddingDate = new Date('2026-05-15T00:00:00');
+  function updateCountdown() {
+    const now = new Date();
+    const diff = weddingDate - now;
+    const days = Math.floor(diff / (1000*60*60*24));
+    countdown.textContent = `D-${days}`;
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
 </script>
 
 </body>
