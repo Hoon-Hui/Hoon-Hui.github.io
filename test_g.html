@@ -1,191 +1,153 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wedding Invitation</title>
 
-<!-- Google Fonts -->
+<!-- 구글 폰트 -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg: #f7f6f3;
-  --text-main: #1c1c1c;
-  --text-sub: #6f6f6f;
-  --line: rgba(0,0,0,0.08);
-}
+/* ---------- Reset ---------- */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Noto Sans KR', sans-serif; background: #fff; color: #333; line-height:1.6; }
+img { max-width:100%; display:block; }
 
-* {
-  box-sizing: border-box;
-}
+/* ---------- Container ---------- */
+.container { max-width: 480px; margin:0 auto; }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text-main);
-  font-family: 'Noto Sans KR', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-.wrapper {
-  max-width: 430px;
-  margin: 0 auto;
-  padding: 0 22px 80px;
-}
-
-/* ---------- COVER ---------- */
+/* ---------- Cover ---------- */
 .cover {
-  margin-top: 30px;
+  position: relative;
+  height: 100vh;
+  background: url('cover-photo.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-}
-
-.cover-image {
-  width: 100%;
-  height: 520px;
-  background: url('cover.jpg') center/cover no-repeat;
-  border-radius: 14px;
-}
-
-.cover h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  letter-spacing: 0.04em;
-  margin: 28px 0 8px;
-}
-
-.cover .date {
-  font-size: 0.95rem;
-  color: var(--text-sub);
-}
-
-/* ---------- COMMON SECTION ---------- */
-.section {
-  margin-top: 80px;
-  text-align: center;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-}
-
-.divider {
-  width: 28px;
-  height: 1px;
-  background: var(--line);
-  margin: 0 auto 28px;
-}
-
-/* ---------- TEXT ---------- */
-.section p {
-  font-size: 0.95rem;
-  line-height: 1.9;
-  color: var(--text-sub);
-  margin: 6px 0;
-}
-
-/* ---------- INFO ---------- */
-.info strong {
-  color: var(--text-main);
-  font-weight: 400;
-}
-
-/* ---------- GALLERY ---------- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* ---------- BUTTON ---------- */
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 14px 34px;
-  border: 1px solid var(--text-main);
-  color: var(--text-main);
-  text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background: var(--text-main);
   color: #fff;
 }
-
-/* ---------- FOOTER ---------- */
-.footer {
-  margin-top: 90px;
-  font-size: 0.75rem;
-  color: var(--text-sub);
+.cover::after {
+  content:'';
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.35); /* 어둡게 해서 텍스트 돋보이게 */
 }
+.cover-content {
+  position: relative;
+  z-index: 1;
+}
+.cover h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  letter-spacing:0.05em;
+}
+.cover p { margin-top:10px; font-size:1.1rem; }
+
+/* ---------- Sections ---------- */
+.section { padding: 60px 20px; text-align:center; }
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size:1.6rem; margin-bottom:20px;
+}
+.divider { width:40px; height:2px; background:#ccc; margin:0 auto 30px; border-radius:1px; }
+
+/* ---------- Info ---------- */
+.info p { margin:6px 0; font-size:1rem; color:#555; }
+.info strong { color:#222; }
+
+/* ---------- Gallery ---------- */
+.gallery { display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; }
+.gallery img { border-radius:10px; }
+
+/* ---------- RSVP Button ---------- */
+.btn {
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 36px;
+  border:2px solid #333;
+  color:#333;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+  transition:0.3s;
+}
+.btn:hover { background:#333; color:#fff; }
+
+/* ---------- Footer ---------- */
+.footer { font-size:0.75rem; color:#888; margin-top:60px; text-align:center; }
+
+/* ---------- Fade-in Animation ---------- */
+.fade-in { opacity:0; transform: translateY(20px); animation:fadeIn 1s forwards; }
+@keyframes fadeIn { to { opacity:1; transform: translateY(0); } }
+
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<div class="container">
 
-  <!-- COVER -->
+  <!-- Cover -->
   <section class="cover">
-    <div class="cover-image"></div>
-    <h1>J & S</h1>
-    <div class="date">September 18, 2026 · Seoul</div>
+    <div class="cover-content fade-in">
+      <h1>J & S</h1>
+      <p>September 18, 2026 · Seoul</p>
+    </div>
   </section>
 
-  <!-- INVITATION MESSAGE -->
-  <section class="section">
-    <div class="section-title">Invitation</div>
+  <!-- Invitation Message -->
+  <section class="section fade-in">
+    <h2>Invitation</h2>
     <div class="divider"></div>
-    <p>
-      서로의 가장 편안한 사람이 되기로 했습니다.<br>
-      그 시작의 자리에 소중한 분들을 초대합니다.
-    </p>
+    <p>서로의 가장 편안한 사람이 되기로 했습니다.<br>
+       그 시작의 자리에 소중한 분들을 초대합니다.</p>
   </section>
 
-  <!-- INFO -->
-  <section class="section info">
-    <div class="section-title">Wedding Day</div>
+  <!-- Wedding Info -->
+  <section class="section info fade-in">
+    <h2>Wedding Day</h2>
     <div class="divider"></div>
-    <p><strong>2026년 9월 18일 토요일</strong></p>
+    <p><strong>2026년 9월 18일 (토)</strong></p>
     <p><strong>오후 2시</strong></p>
     <p>모던 웨딩홀 · 서울</p>
-    <a class="btn" href="#">LOCATION</a>
+    <a href="#" class="btn">LOCATION</a>
   </section>
 
-  <!-- GALLERY -->
-  <section class="section">
-    <div class="section-title">Gallery</div>
+  <!-- Gallery -->
+  <section class="section fade-in">
+    <h2>Gallery</h2>
     <div class="divider"></div>
     <div class="gallery">
-      <img src="g1.jpg">
-      <img src="g2.jpg">
-      <img src="g3.jpg">
-      <img src="g4.jpg">
+      <img src="g1.jpg" alt="photo1">
+      <img src="g2.jpg" alt="photo2">
+      <img src="g3.jpg" alt="photo3">
+      <img src="g4.jpg" alt="photo4">
     </div>
   </section>
 
   <!-- RSVP -->
-  <section class="section">
-    <div class="section-title">Attendance</div>
+  <section class="section fade-in">
+    <h2>Attendance</h2>
     <div class="divider"></div>
-    <a class="btn" href="#">RSVP</a>
+    <a href="#" class="btn">RSVP</a>
   </section>
 
-  <div class="footer">
+  <!-- Footer -->
+  <div class="footer fade-in">
     With love, J & S
   </div>
 
 </div>
+
+<!-- 간단한 JS로 fade-in stagger -->
+<script>
+const faders = document.querySelectorAll('.fade-in');
+faders.forEach((el,i) => {
+  el.style.animationDelay = (i*0.3)+'s';
+});
+</script>
 
 </body>
 </html>
