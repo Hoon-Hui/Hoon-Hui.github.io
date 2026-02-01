@@ -27,6 +27,15 @@
 					</ul>
 				</header>
 				-->
+
+				<div class="content">
+				  <div class="typing-text" id="typing"></div>
+				  <div class="info">
+				    <div>홍길동 & 이순신</div>
+				    <div>2026년 5월 20일</div>
+				    <div>서울 그랜드 호텔</div>
+				  </div>
+				</div>
 				
 				<section id="header" style="height: 100dvh;">
 					<div class="inner" style="height: 100dvh; /* display: grid; place-items: center; align-content: end;*/ ">
@@ -320,6 +329,26 @@
 					}
 		        }
 		    </script>
+
+			<script>
+			  // 타이핑 효과
+			  const text = "We are get married!";
+			  const typingElement = document.getElementById('typing');
+			  let index = 0;
+			
+			  function type() {
+			    if (index < text.length) {
+			      typingElement.innerHTML += text.charAt(index);
+			      index++;
+			      setTimeout(type, 150); // 타이핑 속도
+			    } else {
+			      // 타이핑 끝나면 커서 깜빡임 유지
+			      typingElement.style.borderRight = '0.15em solid white';
+			    }
+			  }
+			
+			  window.onload = type;
+			</script>
 	</body>
 </html>
 
