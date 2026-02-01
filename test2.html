@@ -11,6 +11,7 @@
 	        #thumbnails article {
 	            width: 100%
 	        }
+			
 		  /* 메인 컨텐츠 */
 		  .content {
 		    position: relative;
@@ -22,6 +23,11 @@
 		    align-items: center;
 		    text-align: center;
 		    padding: 20px;
+		  }
+		  
+			/* 배경 블러 + 어둡게 */
+		  .content.blur {
+			filter: brightness(0.3) blur(4px);
 		  }
 		
 		  /* 타이핑 효과 텍스트 */
@@ -77,7 +83,7 @@
 				</header>
 				-->
 
-				<div class="content" style="background-image: url(images_3/fulls/1_Studio/10.webp); background-size: cover;">
+				<div id="bg" class="content" style="background-image: url(images_3/fulls/1_Studio/10.webp); background-size: cover;">
 				  <div class="typing-text" id="typing"></div>
 				  <div class="info">
 				    <div>장 용 훈  &  윤 소 희</div>
@@ -380,23 +386,34 @@
 		    </script>
 
 			<script>
-			  // 타이핑 효과
 			  const text = "We are get married!";
 			  const typingElement = document.getElementById('typing');
+			  const bg = document.getElementById('bg');
 			  let index = 0;
 			
-			  function type() {
-			    if (index < text.length) {
-			      typingElement.innerHTML += text.charAt(index);
-			      index++;
-			      setTimeout(type, 150); // 타이핑 속도
-			    } else {
-			      // 타이핑 끝나면 커서 깜빡임 유지
-			      typingElement.style.borderRight = '0.15em solid white';
+			  // 배경 블러 + 어둡게 적용
+			  function startTypingEffect() {
+			    bg.classList.add('blur');
+			    typingElement.style.opacity = 1;
+			
+			    function type() {
+			      if (index < text.length) {
+			        typingElement.innerHTML += text.charAt(index);
+			        index++;
+			        setTimeout(type, 100); // 타이핑 속도
+			      } else {
+			        // 글자 다 쓰인 후 잠시 보여주고 사라짐
+			        setTimeout(() => {
+			          typingElement.style.opacity = 0;
+			          bg.classList.remove('blur');
+			        }, 1000);
+			      }
 			    }
+			
+			    type();
 			  }
 			
-			  window.onload = type;
+			  window.onload = startTypingEffect;
 			</script>
 	</body>
 </html>
