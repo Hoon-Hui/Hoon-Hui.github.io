@@ -48,6 +48,16 @@
 			  transform: translate(-50%, -50%);
 			  opacity: 0;
 			  z-index: 1000;
+			  transition: 
+			    opacity 1.8s ease,
+			    filter 2.2s ease,
+			    transform 2.2s ease;
+			}
+
+			.typing-text.fade-out {
+			  opacity: 0;
+			  filter: blur(6px);
+			  transform: translate(-50%, -65%);
 			}
 			
 			/* 기본 정보 */ 
@@ -466,7 +476,7 @@
 				    typeLine();
 				  } else {
 				    setTimeout(() => {
-				      typingEl.style.opacity = 0;
+				      typingEl.classList.add("fade-out");
 				      content.classList.remove("blur");
 				    }, 100);
 				  }
