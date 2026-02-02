@@ -91,7 +91,6 @@
 			@keyframes fadeIn {
 			  to { opacity: 1; }
 			}
-			
 			/* 모바일 대응 */
 			@media (max-width: 480px) {
 			  .typing-text { font-size: 2rem; }
@@ -441,8 +440,8 @@
 			        setTimeout(type, 100);
 			      } else {
 			        setTimeout(() => {
-			          typingElement.style.opacity = 0;
-			          content.classList.remove('blur');
+			          //typingElement.style.opacity = 0;
+			          //content.classList.remove('blur');
 			        }, 1000);
 			      }
 			    }
