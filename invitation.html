@@ -130,6 +130,19 @@
 			  font-size: 0.7em;
 			  transition: all 0.4s ease;
 			}
+
+			/* 스크롤 시 나타나는 기본 상태 */
+			.scroll-reveal {
+			  opacity: 0;
+			  transform: translateY(30px); /* 아래에서 올라오는 느낌 */
+			  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+			}
+			
+			/* 화면에 들어오면 활성화 */
+			.scroll-reveal.active {
+			  opacity: 1;
+			  transform: translateY(0);
+			}
 		</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
@@ -150,7 +163,7 @@
 				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
 				
 				<section id="header" style="height: 100dvh;">
-					<div class="inner" style="height: 100dvh;">
+					<div class="inner scroll-reveal" style="height: 100dvh;">
 						  <div class="left-col">
 							<h3><b>2026.4.11.(토)<br>원주 지오컨벤션 11시 30분</b></h3>
 							<div><b>장권재 ∙ 서현화</b> 의 아들 <b>장용훈</b></div>
@@ -169,7 +182,7 @@
 	
 				<!-- One -->
 				<section id="one" class="main style1" style="font-family: 'Noto Serif KR', serif;">
-					<div class="container">
+					<div class="container scroll-reveal">
 						<div class="row gtr-150">
 							<div class="col-6 col-12-medium imp-medium" style="padding: 0 0 1.5em 3em;">
 								<header class="major">
@@ -187,7 +200,7 @@
 
 
 				<section id="thumbnails_one" class="main style3" style="font-family: 'Noto Serif KR', serif; padding: 2em 1.5em 0.5em 1.5em;">
-					<div class="container">
+					<div class="container scroll-reveal">
 						<div class="row gtr-150">
 							<div class="col-6 col-12-medium imp-medium" style="padding: 0 0 1.5em 3em;">
 								<header class="major">
@@ -198,7 +211,7 @@
 					</div>
 				</section>
 				<!-- Thumbnail -->
-				<section id="thumbnails" style="display: flex;flex-direction: row;">
+				<section id="thumbnails" class="scroll-reveal" style="display: flex;flex-direction: row;">
 					<article>
 						<a class="thumbnail" href="images_3/fulls/1_Studio/1.webp"><img src="images_3/fulls/1_Studio/1.webp" alt="" /></a>
 					</article>
@@ -261,13 +274,13 @@
 					</article>
 				</section>
 				
-				<div style="padding: 1em;">
+				<div style="padding: 1em;" class="scroll-reveal">
 					<a href="/loveFrame/loveFrame.html" class="button next scrolly" target="_blank" style="padding: 0 3em;">View More > </a>
 				</div>
 		
 				<!-- Two -->
-				<section id="two" class="main style2" style="font-family: 'Noto Serif KR', serif;">
-					<div class="container">
+				<section id="two" class="main style2 " style="font-family: 'Noto Serif KR', serif;">
+					<div class="container scroll-reveal">
 						<div class="row gtr-150">
 							<div class="col-6 col-12-medium imp-medium">
 								<header class="major">
@@ -345,7 +358,7 @@
 		
 			<!-- Footer -->
 				<section id="footer" style="font-family: 'Noto Serif KR', serif; padding: 0em 1.5em 2em 1.5em;">
-					<ul class="icons">
+					<ul class="icons scroll-reveal">
 						<div>모든 순간을 소중히 여기며 잘 살겠습니다</div>
 						<div>축복해 주셔서 감사합니다</div>
 					</ul>
@@ -587,6 +600,25 @@
 				
 				    animate();
 				}
+
+				//스크롤
+				document.addEventListener("DOMContentLoaded", function() {
+				  const scrollElements = document.querySelectorAll(".scroll-reveal");
+				
+				  const observer = new IntersectionObserver((entries) => {
+				    entries.forEach(entry => {
+				      if (entry.isIntersecting) {
+				        entry.target.classList.add("active");
+				        // 옵션: 한번 나타나면 계속 활성화
+				        observer.unobserve(entry.target);
+				      }
+				    });
+				  }, {
+				    threshold: 0.2 // 화면에 20% 보일 때 활성화
+				  });
+				
+				  scrollElements.forEach(el => observer.observe(el));
+				});
 			</script>
 	</body>
 </html>
