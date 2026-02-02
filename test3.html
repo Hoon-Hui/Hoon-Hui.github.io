@@ -1,0 +1,488 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>갤러리 - 스튜디오</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets_3/css/main.css" />
+		<link rel="stylesheet" href="assets_4/css/main2.css" />
+		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
+		<style>
+	        #thumbnails article {
+	            width: 100%
+	        }
+		       /* ---------- CONTENT 배경 + 블러/봄 햇살 ---------- */
+          #content {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: filter 0.5s;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+          }
+          
+          /* 오버레이: 봄 햇살 느낌 */
+          #content::before {
+            content: "";
+            position: absolute;
+            top:0; left:0;
+            width:100%; height:100%;
+            background: linear-gradient(135deg, rgba(255,240,230,0.2), rgba(255,245,255,0.1));
+            z-index: 1;
+            pointer-events: none;
+          }
+          
+          /* 소프트 패럴랙스 입체감 */
+          #content.blur {
+            filter: brightness(0.35) blur(4px);
+          }
+          
+          /* ---------- 타이핑 텍스트 ---------- */
+          .typing-text {
+            font-size: 3rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.95);
+            letter-spacing: -0.01em;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.25), 0 8px 30px rgba(0,0,0,0.35);
+            white-space: nowrap;
+            border-right: 2px solid rgba(255,255,255,0.6);
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            z-index: 1000;
+            font-family: 'Playfair Display', serif;
+          }
+          
+          /* 타이핑 하이라이트 */
+          .typing-text span.highlight {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 2.6rem;
+            color: #fff8f0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.18);
+          }
+          
+          /* ---------- 정보 카드 ---------- */
+          .info {
+            font-size: 1.15rem;
+            line-height: 2.2rem;
+            font-weight: 400;
+            font-family: 'Noto Serif KR', serif;
+            color: rgba(255,255,255,0.92);
+            max-width: 520px;
+            background: rgba(255,255,255,0.12);
+            padding: 32px 36px;
+            border-radius: 28px;
+            backdrop-filter: blur(8px) saturate(120%);
+            -webkit-backdrop-filter: blur(8px) saturate(120%);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.15), 0 18px 40px rgba(0,0,0,0.18);
+            border: 1px solid rgba(255,255,255,0.2);
+            opacity: 0;
+            animation: fadeIn 2.4s ease forwards;
+            animation-delay: 3.2s;
+            z-index: 900;
+          }
+          
+          /* ---------- 페이드인 애니메이션 ---------- */
+          @keyframes fadeIn {
+            to { opacity: 1; }
+          }
+          
+          /* ---------- 모바일 대응 ---------- */
+          @media (max-width: 480px) {
+            .typing-text { font-size: 2rem; }
+            .info { font-size: 1rem; line-height: 1.5rem; padding: 24px 28px; border-radius: 20px; }
+          }
+          
+          /* ---------- 소프트 햇살/파티클 ---------- */
+          #content::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top:0; left:0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            background-repeat: repeat;
+            animation: floatParticle 12s linear infinite;
+            z-index: 2;
+            pointer-events: none;
+          }
+          
+          @keyframes floatParticle {
+            0% {background-position: 0 0;}
+            100% {background-position: 500px 1000px;}
+          }
+
+    	</style>
+	</head>
+	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
+
+		<!-- Main -->
+			<div id="main">
+				<!-- Header -->
+				<!--
+				<header id="header_one" style="height:100dvh";>
+					<h1>스튜디오에서</h1>
+					<p>언제나 변함없이 지금처럼</p>
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-gratipay"><span class="label">Gratipay</span></a></li>
+					</ul>
+				</header>
+				-->
+				
+				<div id="content" class="content" style="background-image: url(images_3/fulls/1_Studio/10.webp); background-size: cover;">
+				  <div class="info">
+				    <div>장 용 훈  &  윤 소 희</div>
+				    <div>2026년 4월 11일 11시 30분</div>
+				    <div>원주 지오컨벤션</div>
+				  </div>
+				</div>
+				<div class="typing-text" id="typing"></div>
+				
+				<section id="header" style="height: 100dvh;">
+					<div class="inner" style="height: 100dvh; /* display: grid; place-items: center; align-content: end;*/ ">
+						  <div class="left-col">
+							<h3><b>2026.4.11.(토)<br>원주 지오컨벤션 11시 30분</b></h3>
+							<div><b>장권재 ∙ 서현화</b> 의 아들 <b>장용훈</b></div>
+							<div><b>윤석준 ∙ 김현주</b> 의&nbsp;&nbsp;딸&nbsp;&nbsp;<b> 윤소희</b></div>
+						  </div>
+						
+						  <!-- 우측 컬럼 -->
+						  <div class="right-col">
+							<p>언제나 서로를 존중하고 아끼며<br>세상에 하나뿐인 소중한 존재이자<br>가장 든든한 편이 되어주려 합니다</p>
+							<p>함께하시어 따뜻한 미소로<br>저희 두 사람의 앞날을 지켜봐주세요</p>
+						  </div>
+					</div>
+				</section>
+				<div id="toast">복사 되었습니다!</div>
+				<div id="toastErr">복사에 실패하였습니다..</div>
+	
+				<!-- One -->
+				<section id="one" class="main style1" style="font-family: 'Noto Serif KR', serif;">
+					<div class="container">
+						<div class="row gtr-150">
+							<div class="col-6 col-12-medium imp-medium" style="padding: 0 0 1.5em 3em;">
+								<header class="major">
+									<h2>오 시 는  길</h2>
+								</header>
+							</div>
+							<div class="col-6 col-12-medium">
+								<!-- * 카카오맵 - 지도퍼가기 -->
+								<!-- 1. 지도 노드 -->
+								<div id="daumRoughmapContainer1768478023932" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				
+				<!-- Thumbnail -->
+				<section id="thumbnails" style="display: flex;flex-direction: column;align-items: center;">
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/1.webp"><img src="images_3/fulls/1_Studio/1.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/2.webp"><img src="images_3/fulls/1_Studio/2.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/3.webp"><img src="images_3/fulls/1_Studio/3.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/4.webp"><img src="images_3/fulls/1_Studio/4.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/5.webp"><img src="images_3/fulls/1_Studio/5.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/6.webp"><img src="images_3/fulls/1_Studio/6.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/BandiView_7.webp"><img src="images_3/fulls/1_Studio/7.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/8.webp"><img src="images_3/fulls/1_Studio/8.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/9.webp"><img src="images_3/fulls/1_Studio/9.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/10.webp"><img src="images_3/fulls/1_Studio/10.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/11.webp"><img src="images_3/fulls/1_Studio/11.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/12.webp"><img src="images_3/fulls/1_Studio/12.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/13.webp"><img src="images_3/fulls/1_Studio/13.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/14.webp"><img src="images_3/fulls/1_Studio/14.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/15.webp"><img src="images_3/fulls/1_Studio/15.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/16.webp"><img src="images_3/fulls/1_Studio/16.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/17.webp"><img src="images_3/fulls/1_Studio/17.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/18.webp"><img src="images_3/fulls/1_Studio/18.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/19.webp"><img src="images_3/fulls/1_Studio/19.webp" alt="" /></a>
+					</article>
+					<article>
+						<a class="thumbnail" href="images_3/fulls/1_Studio/20.webp"><img src="images_3/fulls/1_Studio/20.webp" alt="" /></a>
+					</article>
+				</section>
+		
+				<!-- Two -->
+				<section id="two" class="main style2" style="font-family: 'Noto Serif KR', serif;">
+					<div class="container">
+						<div class="row gtr-150">
+							<div class="col-6 col-12-medium imp-medium">
+								<header class="major">
+									<h2>마음 보내실 곳</h2>
+								</header>
+							</div>
+							<div class="col-6 col-12-medium">
+								<!-- 계좌 start -->
+								<div class="account-card">
+									<div class="card-header" onclick="toggleAccounts()" style="padding: 1em 0 1em 0;">
+										<span>신랑측 계좌</span>
+										<div class="arrow-wrap">
+											<span class="arrow-top"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-up"><span class="label">top</span></a></span>
+											<span class="arrow-bottom"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-down"><span class="label">bottom</span></a></span>
+										</div>
+									</div>
+									
+									<!-- 이 부분이 토글될 내용입니다 -->
+									<div class="collapsible-content" id="accountList">
+										<div class="account-details">
+											<div class="account-item" style="letter-spacing: -0.5px;">
+												<div class="name">아버지　장권재</div>
+												<span class="bank">부산은행</span>
+												<span class="number" data-copy-value="1122111081005" id="bankAccount1">112-2111-0810-05 </span>
+												<span><a href="javascript:bankAccountCopy(1)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+											</div>
+											<div class="account-item" style="letter-spacing: -0.5px;">
+												<div class="name">신　랑　장용훈</div>
+												<span class="bank">우리은행</span>
+												<span class="number" data-copy-value="1002352699191" id="bankAccount3">1002-352-699191 </span>
+												<span><a href="javascript:bankAccountCopy(3)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+											</div>
+										</div>
+									</div>
+								</div>
+		
+								<div class="account-card">
+									<div class="card-header" onclick="toggleAccounts2()" style="padding: 1em 0 1em 0;">
+										<span>신부측 계좌</span>
+										<div class="arrow-wrap">
+											<span class="arrow-top"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-up"><span class="label">top</span></a></span>
+											<span class="arrow-bottom"><a href="javascript:void(0)" class="icon solid alt fa-chevron-circle-down"><span class="label">bottom</span></a></span>
+										</div>
+									</div>
+									
+									<!-- 이 부분이 토글될 내용입니다 -->
+									<div class="collapsible-content" id="accountList2">
+										<div class="account-details">
+											<div class="account-item" style="letter-spacing: -0.5px;">
+												<div class="name">아버지　윤석준</div>
+												<span class="bank">농협은행</span>
+												<span class="number" data-copy-value="60114456026752" id="bankAccount4">601144-56-026752 </span>
+												<span><a href="javascript:bankAccountCopy(4)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+											</div>
+											<div class="account-item" style="letter-spacing: -0.5px;">
+												<div class="name">어머니　김현주</div>
+												<span class="bank">우 체 국</span>
+												<span class="number" data-copy-value="50388802002794" id="bankAccount5">503888-02-002794 </span>
+												<span><a href="javascript:bankAccountCopy(5)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+											</div>
+											<div class="account-item" style="letter-spacing: -0.5px;">
+												<div class="name">신　부　윤소희</div>
+												<span class="bank">농협은행</span>
+												<span class="number" data-copy-value="60110452116136" id="bankAccount6">601104-52-116136 </span>
+												<span><a href="javascript:bankAccountCopy(6)" class="icon solid alt fa-copy"><span class="label">copy</span></a></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 계좌 end -->
+							</div>
+						</div>
+					</div>
+				</section>
+		
+			<!-- Footer -->
+				<section id="footer" style="font-family: 'Noto Serif KR', serif; padding: 0em 1.5em 2em 1.5em;">
+					<ul class="icons">
+						<div>모든 순간을 소중히 여기며 잘 살겠습니다</div>
+						<div>축복해 주셔서 감사합니다</div>
+					</ul>
+					<ul class="copyright">
+						<li><a href="javascript:void(0)" class="icon brands fa-gratipay"><span class="label">Gratipay</span></a></li>
+					</ul>
+				</section>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets_3/js/jquery.min.js"></script>
+			<script src="assets_3/js/browser.min.js"></script>
+			<script src="assets_3/js/breakpoints.min.js"></script>
+			<script src="assets_3/js/main.js"></script>
+
+			<script src="assets_4/js/util.js"></script>
+			<script src="assets_4/js/main.js"></script>
+
+			<!--
+				2. 설치 스크립트
+				* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+			-->
+			<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+			
+			<!-- 3. 실행 스크립트 -->
+			<script charset="UTF-8">
+				new daum.roughmap.Lander({
+					"timestamp" : "1768478023932",
+					"key" : "foi5r6g7msk",
+					"mapHeight" : "360"
+				}).render();
+			</script>
+
+			<script>
+			function toggleAccounts() {
+			    var content = document.getElementById("accountList");
+			    var header = content.previousElementSibling; // card-header를 선택
+			
+			    // active 클래스 토글 (있으면 제거, 없으면 추가)
+			    content.classList.toggle("active");
+			    header.classList.toggle("active");
+			}
+			</script>
+
+			<script>
+			function toggleAccounts2() {
+			    var content = document.getElementById("accountList2");
+			    var header = content.previousElementSibling; // card-header를 선택
+			
+			    // active 클래스 토글 (있으면 제거, 없으면 추가)
+			    content.classList.toggle("active");
+			    header.classList.toggle("active");
+			}
+			</script>
+
+			<script>
+		        function bankAccountCopy(chk) {
+					var span_txt = "";
+					if(chk=='1') {
+						span_txt = document.getElementById("bankAccount1");
+					} else if (chk=='2') {
+						span_txt = document.getElementById("bankAccount2");
+					} else if (chk=='3') {
+						span_txt = document.getElementById("bankAccount3");
+					} else if (chk=='4') {
+						span_txt = document.getElementById("bankAccount4");
+					} else if (chk=='5') {
+						span_txt = document.getElementById("bankAccount5");
+					} else if (chk=='6') {
+						span_txt = document.getElementById("bankAccount6");
+					} else {
+						span_txt = "000000000000";
+					}
+				    // 2. data-copy-value 속성의 값 읽기
+				    const valueToCopy = span_txt.getAttribute("data-copy-value");
+				
+				    // 3. 클립보드로 복사
+				    navigator.clipboard.writeText(valueToCopy).then(() => {
+						copyAndShowToast(valueToCopy);
+				    }).catch(err => {
+				        copyAndShowToast("error");
+				    });
+				}
+
+				function copyAndShowToast(chk) {   
+					showToast(chk);
+				}
+		
+		        // 3. 토스트 알림 제어 함수
+		        function showToast(chk) {
+					var toast="";
+					if(chk=="error"){
+						toast = document.getElementById("toastErr");
+					} else {
+						toast = document.getElementById("toast");
+					}		     
+
+					const isAndroid = /Android/i.test(navigator.userAgent);
+
+					if (!isAndroid) {
+			            // 클래스 추가하여 나타나게 함
+			            toast.classList.add("show");
+			
+			            // 2초 뒤에 다시 사라지게 함 (2000ms)
+			            setTimeout(() => {
+			                toast.classList.remove("show");
+			            }, 2000);
+					}
+		        }
+		    </script>
+
+			<script>
+			  const text = "장용훈 <span class='highlight'>그리고 윤소희</span>\n우리 결혼합니다!";
+        const typingElement = document.getElementById('typing');
+        const content = document.getElementById('content');
+        const infoCard = document.querySelector('.info');
+        
+        function startTypingEffect() {
+            content.classList.add('blur');
+            typingElement.style.opacity = 1;
+        
+            let index = 0;
+            const typingSpeed = 120;
+        
+            function type() {
+                if (index < text.length) {
+                    const char = text.charAt(index);
+                    if (char === "\n") {
+                        typingElement.innerHTML += "<br>";
+                    } else {
+                        typingElement.innerHTML += char;
+                    }
+                    index++;
+                    setTimeout(type, typingSpeed);
+                } else {
+                    setTimeout(() => {
+                        typingElement.style.opacity = 0;
+                        content.classList.remove('blur');
+        
+                        // info 카드 등장 애니메이션
+                        infoCard.style.transform = "translateY(-10px)";
+                        infoCard.style.opacity = 1;
+                        infoCard.style.transition = "transform 1s ease, opacity 1s ease";
+                    }, 800);
+                }
+            }
+            type();
+        }
+        
+        window.onload = startTypingEffect;
+
+		</script>
+	</body>
+</html>
