@@ -49,12 +49,6 @@
 			    filter 2.2s ease,
 			    transform 2.2s ease;
 			}
-
-			.typing-text.fade-out {
-			  opacity: 0;
-			  filter: blur(6px);
-			  transform: translate(-50%, -65%);
-			}
 			
 			/* 기본 정보 */ 
 			.info { 
@@ -494,7 +488,7 @@
 				    typeLine();
 				  } else {
 					setTimeout(() => {
-				      typingEl.classList.add("fade-out");
+				      typingEl.style.opacity = 0;
 				      content.classList.remove("blur");
 				    }, 100);
 				  }
