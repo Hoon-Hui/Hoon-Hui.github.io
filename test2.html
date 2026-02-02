@@ -133,13 +133,11 @@
 				    <div>원주 지오컨벤션 11시 30분</div>
 				  </div>
 				</div>
-				
-				<div style="position: relative; display: inline-block;">
-				    <div class="typing-text" id="typing" style="width:100%; font-size: 1.5rem;">
-				        <span id="text"></span><span class="cursor"></span>
-				    </div>
-				    <canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
+			
+				<div class="typing-text" id="typing" style="width:100%; font-size: 1.5rem;">
+					<span id="text"></span><span class="cursor"></span>
 				</div>
+				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
 				
 				<section id="header" style="height: 100dvh;">
 					<div class="inner" style="height: 100dvh;">
@@ -566,38 +564,34 @@
 				function sandFlyEffect() {
 				    const canvas = document.getElementById('textCanvas');
 				    const ctx = canvas.getContext('2d');
+				    canvas.width = window.innerWidth;
+				    canvas.height = window.innerHeight;
 				
 				    const rect = typingEl.getBoundingClientRect();
-				
-				    // 캔버스 크기를 텍스트 영역으로 맞춤
-				    canvas.width = rect.width;
-				    canvas.height = rect.height;
-				    canvas.style.width = rect.width + "px";
-				    canvas.style.height = rect.height + "px";
-				
 				    const color = window.getComputedStyle(typingEl).color || "#fff";
 				
-				    // 텍스트 캔버스에 그리기
+				    // 글자 캔버스에 그리기
 				    ctx.font = window.getComputedStyle(typingEl).font;
 				    ctx.fillStyle = color;
-				    ctx.textAlign = "left";
-				    ctx.textBaseline = "top";
-				    ctx.fillText(textEl.innerText, 0, 0);
+				    ctx.textAlign = "center";
+				    ctx.textBaseline = "middle";
+				    ctx.fillText(textEl.innerText, rect.left + rect.width/2, rect.top + rect.height/2);
 				
 				    // 픽셀 데이터 추출
 				    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 				    const particles = [];
 				
-				    for (let y = 0; y < canvas.height; y += 2) {
+				    for (let y = 0; y < canvas.height; y += 2) {   // 2px 간격으로 픽셀 추출
 				        for (let x = 0; x < canvas.width; x += 2) {
 				            const index = (y * canvas.width + x) * 4;
-				            if (imageData.data[index + 3] > 0) {
+				            const alpha = imageData.data[index + 3];
+				            if (alpha > 0) {
 				                particles.push({
 				                    x: x,
 				                    y: y,
-				                    size: Math.random() * 1 + 0.5,
-				                    vx: Math.random() * 0.5 + 0.3,   // 우측으로 서서히
-				                    vy: -Math.random() * 0.5 - 0.3,  // 위쪽으로 서서히
+				                    size: Math.random() * 1 + 0.5, // 0.5~1.5 px
+				                    vx: Math.random() * 0.5 + 0.5, // 오른쪽으로 서서히
+				                    vy: -Math.random() * 0.5 - 0.5, // 위쪽으로 서서히
 				                    alpha: 1
 				                });
 				            }
@@ -609,15 +603,16 @@
 				    function animate() {
 				        ctx.clearRect(0, 0, canvas.width, canvas.height);
 				
-				        for (let p of particles) {
-				            p.x += p.vx;
-				            p.y += p.vy;
-				            p.alpha -= 0.005;
+				        for (let i = 0; i < particles.length; i++) {
+				            let p = particles[i];
+				            p.x += p.vx;       // 오른쪽 이동
+				            p.y += p.vy;       // 위쪽 이동
+				            p.alpha -= 0.005;  // 서서히 사라짐
 				
-				            if (p.alpha > 0) {
-				                ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
-				                ctx.fillRect(p.x, p.y, p.size, p.size);
-				            }
+				            if (p.alpha <= 0) continue;
+				
+				            ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+				            ctx.fillRect(p.x, p.y, p.size, p.size);
 				        }
 				
 				        if (particles.some(p => p.alpha > 0)) {
@@ -627,6 +622,7 @@
 				
 				    animate();
 				}
+
 
 			</script>
 	</body>
