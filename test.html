@@ -540,6 +540,7 @@
 				function startTypingEffect() {
 				  document.body.style.overflow = "hidden";
 				  document.documentElement.style.overflow = "hidden";
+				  document.getElementById("main").style.overflow = "hidden";
 					
 				  content.classList.add("blur");
 				  typingEl.style.opacity = 1;
@@ -570,7 +571,8 @@
 				  } else {
 				    // 타이핑 종료 시
 				    document.body.style.overflow = "auto";
-					document.documentElement.style.overflow = "auto";
+				    document.documentElement.style.overflow = "auto";
+				    document.getElementById("main").style.overflow = "auto";
 					  
 				    typingEl.style.transition = "opacity 1.5s ease";
 				    typingEl.style.opacity = 0;
