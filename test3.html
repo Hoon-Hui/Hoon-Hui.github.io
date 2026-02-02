@@ -12,10 +12,8 @@
 	            width: 100%
 	        }
 			#typing {
-		      white-space: pre-wrap; /* 줄바꿈 유지 */
-		      font-size: 20px;
-		      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-		    }
+      			white-space: pre-wrap; /* 줄바꿈 유지 */
+			}
 		  /* content 배경 + 블러/어둡게 */
 			.content {
 			  position: relative;
@@ -126,7 +124,7 @@
 				</header>
 				-->
 				
-				<div id="content" class="content" style="background-image: url(https://media.istockphoto.com/id/2163819070/ko/%EC%82%AC%EC%A7%84/%EB%AC%B4%EC%84%B1%ED%95%9C-%EA%B3%84%EA%B3%A1%EC%9D%84-%ED%86%B5%ED%95%B4-%EA%B0%95%EC%9D%B4-%ED%9D%90%EB%A6%85%EB%8B%88%EB%8B%A4.jpg?s=2048x2048&w=is&k=20&c=DtwZab2OU6qmOmUZ20B96jL-T4j08kZTU0qJ8yNRZ0s=); background-size: cover;">
+				<div id="content" class="content" style="background-image: url(images_3/fulls/1_Studio/10.webp); background-size: cover;">
 				  <div class="info">
 				    <div>장 용 훈  &  윤 소 희</div>
 				    <div>2026년 4월 11일 11시 30분</div>
@@ -429,21 +427,33 @@
 		    </script>
 
 			<script>
-			  const text = `테스트 그리고 테스트
-				우리 테스트 합니다`;
-				
-				  const speed = 80; // 타이핑 속도(ms)
-				  let index = 0;
-				
-				  function type() {
-				    if (index < text.length) {
-				      document.getElementById("typing").textContent += text[index];
-				      index++;
-				      setTimeout(type, speed);
-				    }
-				  }
-				
-				  type();
+			  const text = "테스트 그리고 테스트 우리 테스트 합니다!";
+			  const typingElement = document.getElementById('typing');
+			  const content = document.getElementById('content');
+			  let index = 0;
+			
+			  function startTypingEffect() {
+			    content.classList.add('blur');
+			    typingElement.style.opacity = 1;
+			
+			    function type() {
+			      if (index < text.length) {
+			        const char = text.charAt(index);			
+			        index++;
+			        setTimeout(type, 100);
+			      } else {
+			        setTimeout(() => {
+			          typingElement.style.opacity = 0;
+			          content.classList.remove('blur');
+			        }, 1000);
+			      }
+			    }
+			
+			    type();
+			  }
+			
+			  window.onload = startTypingEffect;
 		</script>
 	</body>
 </html>
+
