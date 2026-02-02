@@ -122,65 +122,35 @@
 			}
 			
 			/* 버튼 */
-			.champagne-gold {
-			  display: inline-block;
-			  padding: 18px 52px;
-			
-			  font-family: 'Didot', 'Playfair Display', 'Noto Serif KR', serif;
-			  font-size: 15px;
-			  letter-spacing: 0.28em;
-			  text-transform: uppercase;
-			
-			  color: #3b2f1c;
-			
-			  background: linear-gradient(
-			    135deg,
-			    #fbf6ee 0%,
-			    #f2e6cf 35%,
-			    #e6d3a3 55%,
-			    #f7efd9 75%,
-			    #fffaf1 100%
-			  );
-			
-			  border-radius: 999px;
-			  border: 1px solid rgba(180, 150, 90, 0.35);
-			
-			  text-decoration: none;
-			
-			  box-shadow:
-			    0 1px 0 rgba(255, 255, 255, 0.85) inset,
-			    0 14px 34px rgba(90, 70, 30, 0.18);
-			
-			  cursor: pointer;
-			  position: relative;
-			  overflow: hidden; /* 반사광이 버튼 밖으로 나가지 않게 */
-			}
-			
-			/* 반사광 효과 */
-			.champagne-gold::after {
-			  content: "";
-			  position: absolute;
-			  top: 0;
-			  left: -75%; /* 시작 위치: 왼쪽 밖 */
-			  width: 50%; /* 광선 폭 */
-			  height: 100%;
-			  background: linear-gradient(
-			    120deg,
-			    rgba(255,255,255,0) 0%,
-			    rgba(255,255,255,0.5) 50%,
-			    rgba(255,255,255,0) 100%
-			  );
-			  transform: skewX(-25deg); /* 살짝 기울여 반사광 느낌 */
-			  opacity: 0.6;
-			  pointer-events: none;
-			  animation: shine 7s infinite;
-			}
-			
-			@keyframes shine {
-			  0% { left: -75%; }
-			  50% { left: 125%; }
-			  100% { left: -75%; }
-			}
+			.luxury-static {
+  display: inline-block;
+  padding: 18px 48px;
+
+  font-family: 'Didot', 'Playfair Display', 'Noto Serif KR', serif;
+  font-size: 15px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: #1a1a1a;
+  background: linear-gradient(
+    135deg,
+    #faf9f7 0%,
+    #f0ede8 50%,
+    #e8e3dc 100%
+  );
+
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+
+  text-decoration: none;
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 12px 30px rgba(0, 0, 0, 0.12);
+
+  cursor: pointer;
+}
+
 
 		</style>
 	</head>
@@ -314,7 +284,7 @@
 				</section>
 
 				<div>
-					<a href="https://example.com" target="_blank" rel="noopener noreferrer" class="champagne-gold">
+					<a href="https://example.com" target="_blank" rel="noopener noreferrer" class="luxury-static">
 					  PRIVATE ACCESS
 					</a>
 				</div>		
