@@ -11,9 +11,6 @@
 	        #thumbnails article {
 	            width: 100%
 	        }
-			#typing {
-			  white-space: pre-line;
-			}
 		  /* content 배경 + 블러/어둡게 */
 			.content {
 			  position: relative;
@@ -427,33 +424,40 @@
 		    </script>
 
 			<script>
-			    const text = "장용훈 그리고 윤소희\n우리 결혼합니다!";
-				const typingElement = document.getElementById('typing');
-				const content = document.getElementById('content');
-				let index = 0;
-				
-				function startTypingEffect() {
-				  content.classList.add('blur'); // 배경만 블러 적용
-				  typingElement.style.opacity = 1; // 글자는 또렷하게
-				
-				  function type() {
-				    if (index < text.length) {
-				      typingElement.innerHTML += text.charAt(index);
-				      index++;
-				      setTimeout(type, 100);
-				    } else {
-				      setTimeout(() => {
-				        typingElement.style.opacity = 0;
-				        content.classList.remove('blur');
-				      }, 1000);
-				    }
-				  }
-				
-				  type();
-				}
-				
-				window.onload = startTypingEffect;
-			</script>
+			  const text = "장용훈 그리고 윤소희\n우리 결혼합니다!";
+			  const typingElement = document.getElementById('typing');
+			  const content = document.getElementById('content');
+			  let index = 0;
+			
+			  function startTypingEffect() {
+			    content.classList.add('blur');
+			    typingElement.style.opacity = 1;
+			
+			    function type() {
+			      if (index < text.length) {
+			        const char = text.charAt(index);
+			
+			        if (char === "\n") {
+			          typingElement.innerHTML += "<br>";
+			        } else {
+			          typingElement.innerHTML += char;
+			        }
+			
+			        index++;
+			        setTimeout(type, 100);
+			      } else {
+			        setTimeout(() => {
+			          typingElement.style.opacity = 0;
+			          content.classList.remove('blur');
+			        }, 1000);
+			      }
+			    }
+			
+			    type();
+			  }
+			
+			  window.onload = startTypingEffect;
+		</script>
 	</body>
 </html>
 
