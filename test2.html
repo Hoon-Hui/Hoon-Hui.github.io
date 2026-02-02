@@ -120,95 +120,66 @@
 			  animation: blink 1s infinite;
 			  vertical-align: baseline; /* 글자 기준 정렬 */
 			}
-
-			/* 전체다시보기 버튼 */
-			.lux-btn-wrap {
-			  display: flex;
-			  justify-content: center;
-			  margin: 4em 0 4.5em;
-			}
 			
-			/* 버튼 본체 */
-			.lux-btn {
-			  position: relative;
-			  padding: 18px 36px;
-			  border-radius: 14px;
-			  border: none;
-			  cursor: pointer;
+			/* 버튼 */
+			.champagne-gold {
+			  display: inline-block;
+			  padding: 18px 52px;
 			
-			  /* 🔑 안 보일 수 없는 배경 */
-			  background: rgba(20, 20, 20, 0.55);
-			  backdrop-filter: blur(8px);
-			  -webkit-backdrop-filter: blur(8px);
+			  font-family: 'Didot', 'Playfair Display', 'Noto Serif KR', serif;
+			  font-size: 15px;
+			  letter-spacing: 0.28em;
+			  text-transform: uppercase;
+			
+			  color: #3b2f1c;
+			
+			  background: linear-gradient(
+			    135deg,
+			    #fbf6ee 0%,
+			    #f2e6cf 35%,
+			    #e6d3a3 55%,
+			    #f7efd9 75%,
+			    #fffaf1 100%
+			  );
+			
+			  border-radius: 999px;
+			  border: 1px solid rgba(180, 150, 90, 0.35);
+			
+			  text-decoration: none;
 			
 			  box-shadow:
-			    0 12px 30px rgba(0,0,0,0.35),
-			    inset 0 1px 0 rgba(255,255,255,0.08);
+			    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+			    0 14px 34px rgba(90, 70, 30, 0.18);
 			
-			  transition: transform 0.35s ease, box-shadow 0.35s ease;
-			}
-			
-			/* 영문 */
-			.lux-btn .en {
-			  display: block;
-			  font-size: 0.75rem;
-			  letter-spacing: 0.32em;
-			  color: rgba(255,255,255,0.6);
-			  margin-bottom: 6px;
-			}
-			
-			/* 한글 */
-			.lux-btn .ko {
-			  display: inline-block;
-			  font-family: 'Noto Serif KR', serif;
-			  font-size: 1.25rem;
-			  font-weight: 500;
-			  color: #ffffff; /* ← 완전 흰색 */
-			  letter-spacing: -0.01em;
+			  cursor: pointer;
 			  position: relative;
+			  overflow: hidden; /* 반사광이 버튼 밖으로 나가지 않게 */
 			}
 			
-			/* 아주 얇은 핑크 라인 */
-			.lux-btn .ko::after {
+			/* 반사광 효과 */
+			.champagne-gold::after {
 			  content: "";
 			  position: absolute;
-			  left: 0;
-			  bottom: -6px;
-			  width: 100%;
-			  height: 1px;
-			  background: rgba(255, 180, 200, 0.65);
-			  transform: scaleX(0);
-			  transform-origin: left;
-			  transition: transform 0.35s ease;
-			}
-			
-			/* hover */
-			.lux-btn:hover {
-			  transform: translateY(-3px);
-			  box-shadow:
-			    0 18px 40px rgba(0,0,0,0.45);
-			}
-			
-			.lux-btn:hover .ko::after {
-			  transform: scaleX(1);
-			}
-			
-			/* 모바일 */
-			@media (max-width: 480px) {
-			  .lux-btn {
-			    padding: 16px 28px;
-			  }
-			  .lux-btn .ko {
-			    font-size: 1.1rem;
-			  }
-			}
-			
-			/* FX 캔버스 */
-			#luxFx {
-			  position: fixed;
-			  inset: 0;
+			  top: 0;
+			  left: -75%; /* 시작 위치: 왼쪽 밖 */
+			  width: 50%; /* 광선 폭 */
+			  height: 100%;
+			  background: linear-gradient(
+			    120deg,
+			    rgba(255,255,255,0) 0%,
+			    rgba(255,255,255,0.5) 50%,
+			    rgba(255,255,255,0) 100%
+			  );
+			  transform: skewX(-25deg); /* 살짝 기울여 반사광 느낌 */
+			  opacity: 0.6;
 			  pointer-events: none;
-			  z-index: 9999;
+			  animation: shine 7s infinite;
+			}
+			
+			@keyframes shine {
+			  0% { left: -75%; }
+			  50% { left: 125%; }
+			  100% { left: -75%; }
 			}
 
 		</style>
@@ -341,13 +312,10 @@
 						<a class="thumbnail" href="images_3/fulls/1_Studio/20.webp"><img src="images_3/fulls/1_Studio/20.webp" alt="" /></a>
 					</article>
 				</section>
-				<div class="lux-btn-wrap">
-				  <button class="lux-btn" id="galleryBtn">
-				    <span class="en">GALLERY</span>
-				    <span class="ko">갤러리 전체보기</span>
-				  </button>
-				</div>				
-				<canvas id="luxFx"></canvas>
+				
+				<a href="https://example.com" target="_blank" rel="noopener noreferrer" class="champagne-gold">
+				  PRIVATE ACCESS
+				</a>		
 		
 				<!-- Two -->
 				<section id="two" class="main style2" style="font-family: 'Noto Serif KR', serif;">
