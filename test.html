@@ -8,10 +8,6 @@
 		<link rel="stylesheet" href="assets_4/css/main2.css" />
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
 		<style> 
-			#thumbnails article { 
-				width: 100% 
-			} 
-			
 			/* content 배경 + 블러/어둡게 */ 
 			.content { 
 				position: relative; width: 100%; height: 100dvh; /* 화면 높이 전체 */ 
@@ -140,32 +136,6 @@
 			  100% {
 			    opacity: 0;
 			    transform: translate(120px, -120px) rotate(12deg);
-			    filter: blur(6px);
-			  }
-			}
-
-			.char {
-			  display: inline-block;
-			  opacity: 0;
-			  filter: blur(2px);
-			  animation: sandBirth 0.4s ease-out forwards;
-			}
-			
-			@keyframes sandBirth {
-			  from {
-			    opacity: 0;
-			    transform: translate(-6px, 6px);
-			  }
-			  to {
-			    opacity: 1;
-			    transform: translate(0, 0);
-			  }
-			}
-			
-			@keyframes sandFly {
-			  to {
-			    opacity: 0;
-			    transform: translate(140px, -140px) rotate(15deg);
 			    filter: blur(6px);
 			  }
 			}
@@ -505,27 +475,7 @@
 				  const currentLine = lines[lineIndex];
 				
 				  if (charIndex < currentLine.text.length) {
-				    const char = currentLine.text.charAt(charIndex);
-
-					if (char === "\n") {
-					  textEl.appendChild(document.createElement("br"));
-					} else {
-					  const span = document.createElement("span");
-					  span.className = "char";
-					  span.textContent = char;
-					  textEl.appendChild(span);
-					
-					  // ⛅ 찍히자마자 바람에 흩어짐
-					  setTimeout(() => {
-					    const x = 80 + Math.random() * 120;
-					    const y = -80 - Math.random() * 120;
-					    const duration = 1.4 + Math.random();
-					
-					    span.style.animation = `sandFly ${duration}s ease-out forwards`;
-					    span.style.transform = `translate(${x}px, ${y}px)`;
-					  }, 400);
-					}
-
+				    textEl.innerHTML += currentLine.text.charAt(charIndex);
 				    charIndex++;
 				    setTimeout(typeLine, currentLine.speed);
 				  } else {
@@ -543,62 +493,14 @@
 				    textEl.innerHTML += "<br>";
 				    typeLine();
 				  } else {
-					// 1. 글자를 모래알로 쪼개고
-					  breakTextIntoChars();
-					
-					  // 2. 살짝 쉰 뒤
-					  setTimeout(() => {
-					    scatterChars();
-					  }, 300);
-					
-					  // 3. 배경 블러는 조금 늦게 해제
-					  setTimeout(() => {
-					    content.classList.remove("blur");
-					  }, 1200);
-				    /*
 					setTimeout(() => {
 				      typingEl.classList.add("fade-out");
 				      content.classList.remove("blur");
 				    }, 100);
-					*/
 				  }
 				}
 				
 				window.onload = startTypingEffect;
-
-				function breakTextIntoChars() {
-				  const text = textEl.innerText;
-				  textEl.innerHTML = "";
-				
-				  [...text].forEach(char => {
-				    if (char === "\n") {
-				      textEl.appendChild(document.createElement("br"));
-				    } else {
-				      const span = document.createElement("span");
-				      span.className = "char";
-				      span.textContent = char;
-				      textEl.appendChild(span);
-				    }
-				  });
-				}
-
-				function scatterChars() {
-				  const chars = document.querySelectorAll(".char");
-				
-				  chars.forEach((char, index) => {
-				    const delay = Math.random() * 800; // 각자 다른 타이밍
-				    const x = 80 + Math.random() * 120;   // 오른쪽
-				    const y = -80 - Math.random() * 120;  // 위쪽
-				    const duration = 1.8 + Math.random(); // 속도 차이
-				
-				    setTimeout(() => {
-				      char.style.animation = `
-				        sandFly ${duration}s ease-out forwards
-				      `;
-				      char.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random()*20}deg)`;
-				    }, delay);
-				  });
-				}
 			</script>
 	</body>
 </html>
