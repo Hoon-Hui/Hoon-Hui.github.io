@@ -30,31 +30,39 @@
 			  filter: brightness(0.3) blur(4px);
 			}
 			
-			/* 타이핑 텍스트 - 배경보다 위에, 밝게 */
+			/* 타이핑 텍스트 - 고급 fade-in/커서 효과 */
 			.typing-text {
-			  font-size: 3rem;
-			  font-weight: 600;
-			  color: rgba(255,255,255,0.95);
-			
-			  letter-spacing: -0.01em;
-			
-			  /* 디자이너식 미세 쉐도우 */
-			  text-shadow:
-			    0 1px 1px rgba(0,0,0,0.25),
-			    0 8px 30px rgba(0,0,0,0.35);
-			
-			  white-space: nowrap;
-			  border-right: 2px solid rgba(255,255,255,0.6);
-			  overflow: hidden;
-			
-			  position: absolute;
-			  top: 50%;
-			  left: 50%;
-			  transform: translate(-50%, -50%);
-			  opacity: 0;
-			  z-index: 1000;
+			    font-size: 3rem;
+			    font-weight: 600;
+			    color: rgba(255,255,255,0.95);
+			    letter-spacing: -0.01em;
+			    text-shadow: 0 1px 1px rgba(0,0,0,0.25), 0 8px 30px rgba(0,0,0,0.35);
+			    white-space: pre-wrap;
+			    overflow: hidden;
+			    position: absolute;
+			    top: 50%;
+			    left: 50%;
+			    transform: translate(-50%, -50%);
+			    opacity: 0;
+			    z-index: 1000;
+			    border-right: 2px solid rgba(255,255,255,0.6);
+			    animation: blinkCursor 0.7s steps(1) infinite;
 			}
-
+			
+			/* 글자 fade-in 효과 */
+			.fade-char {
+			    display:inline-block;
+			    opacity:0;
+			    transform: translateY(-10px);
+			    animation: fadeChar 0.3s forwards;
+			}
+			@keyframes fadeChar { to { opacity:1; transform:translateY(0); } }
+			
+			/* 커서 깜박임 */
+			@keyframes blinkCursor { 
+			    0%,50%,100% { border-color: rgba(255,255,255,0.6); }
+			    25%,75% { border-color: transparent; }
+			}
 			
 			/* 기본 정보 */
 			.info {
@@ -425,38 +433,43 @@
 
 			<script>
 			  const text = "장용훈 그리고 윤소희\n\n우리 결혼합니다!";
-			  const typingElement = document.getElementById('typing');
-			  const content = document.getElementById('content');
-			  let index = 0;
-			
-			  function startTypingEffect() {
-			    content.classList.add('blur');
-			    typingElement.style.opacity = 1;
-			
-			    function type() {
-			      if (index < text.length) {
-			        const char = text.charAt(index);
-			
-			        if (char === "\n") {
-			          typingElement.innerHTML += "<br>";
-			        } else {
-			          typingElement.innerHTML += char;
-			        }
-			
-			        index++;
-			        setTimeout(type, 100);
-			      } else {
-			        setTimeout(() => {
-			          typingElement.style.opacity = 0;
-			          content.classList.remove('blur');
-			        }, 1000);
-			      }
-			    }
-			
-			    type();
-			  }
-			
-			  window.onload = startTypingEffect;
+const typingElement = document.getElementById('typing');
+const content = document.getElementById('content');
+let index = 0;
+
+function startTypingEffect() {
+    content.classList.add('blur');
+    typingElement.style.opacity = 1;
+
+    function type() {
+        if (index < text.length) {
+            const char = text.charAt(index);
+
+            if(char === "\n"){
+                typingElement.innerHTML += "<br>";
+            } else {
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.classList.add('fade-char');
+                span.style.animationDelay = (index * 0.05) + 's'; // 순차적으로 나타나게
+                typingElement.appendChild(span);
+            }
+
+            index++;
+            setTimeout(type, 80); // 타이핑 속도 조절
+        } else {
+            // 끝나고 1초 후 fade-out
+            setTimeout(()=>{
+                typingElement.style.opacity = 0;
+                content.classList.remove('blur');
+            }, 1000);
+        }
+    }
+
+    type();
+}
+
+window.onload = startTypingEffect;
 		</script>
 	</body>
 </html>
