@@ -134,12 +134,10 @@
 				  </div>
 				</div>
 
-				<div class="typing-text" id="typing" style="width:100%; font-size:1.5rem; position:relative;">
-				    <canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:0;"></canvas>
-				    <span id="text" style="position:relative; z-index:1;"></span>
-				    <span class="cursor" style="position:relative; z-index:1;"></span>
-				</div>
-
+				<div class="typing-text" id="typing" style="width:100%; font-size:1.5rem; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:10;">
+				    <span id="text"></span><span class="cursor"></span>
+				</div>				
+				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
 				
 				<section id="header" style="height: 100dvh;">
 					<div class="inner" style="height: 100dvh;">
@@ -631,17 +629,21 @@
 				    const typingEl = document.getElementById('typing');
 				    const textEl = document.getElementById('text');
 				
-				    canvas.width = typingEl.offsetWidth;
-				    canvas.height = typingEl.offsetHeight;
+				    // 화면 전체로 canvas 크기
+				    canvas.width = window.innerWidth;
+				    canvas.height = window.innerHeight;
 				
 				    ctx.clearRect(0, 0, canvas.width, canvas.height);
 				
-				    // 글자는 숨기지 말고 particle용만 그림
+				    // typing-text 위치 가져오기
+				    const rect = typingEl.getBoundingClientRect();
+				
+				    // 글자 particle용으로 canvas에 그림
 				    ctx.font = window.getComputedStyle(textEl).font;
 				    ctx.fillStyle = window.getComputedStyle(textEl).color || "#fff";
 				    ctx.textAlign = "center";
 				    ctx.textBaseline = "middle";
-				    ctx.fillText(textEl.innerText, canvas.width/2, canvas.height/2);
+				    ctx.fillText(textEl.innerText, rect.left + rect.width/2, rect.top + rect.height/2);
 				
 				    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 				    const particles = [];
@@ -665,8 +667,7 @@
 				
 				    function animate() {
 				        ctx.clearRect(0, 0, canvas.width, canvas.height);
-				        for (let i = 0; i < particles.length; i++) {
-				            let p = particles[i];
+				        for (let p of particles) {
 				            p.x += p.vx;
 				            p.y += p.vy;
 				            p.alpha -= 0.005;
