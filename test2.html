@@ -134,9 +134,9 @@
 				  </div>
 				</div>
 
-				<canvas id="textCanvas" style="position:absolute; pointer-events:none;"></canvas>
-				<div class="typing-text" id="typing" style="width:100%; font-size: 1.5rem;">
-					<span id="text"></span><span class="cursor"></span>
+				<div class="typing-text" id="typing" style="width:100%; font-size: 1.5rem; position: relative;">
+				    <span id="text"></span><span class="cursor"></span>
+				    <canvas id="textCanvas" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;"></canvas>
 				</div>
 				
 				<section id="header" style="height: 100dvh;">
@@ -628,24 +628,23 @@
 				    const ctx = canvas.getContext('2d');
 				    const typingEl = document.getElementById('typing');
 				
-				    // typing-text 위치와 크기 가져오기
-				    const rect = typingEl.getBoundingClientRect();
-				    canvas.style.position = 'absolute';
-				    canvas.style.left = rect.left + 'px';
-				    canvas.style.top = rect.top + 'px';
-				    canvas.width = rect.width;
-				    canvas.height = rect.height;
+				    // canvas 내부에서 100% 크기 사용
+				    canvas.width = typingEl.offsetWidth;
+				    canvas.height = typingEl.offsetHeight;
 				
-				    const color = window.getComputedStyle(typingEl).color || "#fff";
+				    const textEl = document.getElementById('text');
+				    const color = window.getComputedStyle(textEl).color || "#fff";
 				
-				    // 글자 캔버스에 그리기
-				    ctx.font = window.getComputedStyle(typingEl).font;
+				    ctx.clearRect(0, 0, canvas.width, canvas.height);
+				
+				    // 글자 그리기 (canvas 좌표 기준 중앙)
+				    ctx.font = window.getComputedStyle(textEl).font;
 				    ctx.fillStyle = color;
 				    ctx.textAlign = "center";
 				    ctx.textBaseline = "middle";
-				    ctx.fillText(document.getElementById('text').innerText, rect.width / 2, rect.height / 2);
+				    ctx.fillText(textEl.innerText, canvas.width / 2, canvas.height / 2);
 				
-				    // 픽셀 데이터 추출
+				    // 픽셀 추출 및 파티클 생성
 				    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 				    const particles = [];
 				
