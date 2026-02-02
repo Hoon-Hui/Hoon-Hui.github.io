@@ -6,8 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets_3/css/main.css" />
 		<link rel="stylesheet" href="assets_4/css/main2.css" />
+		 <!-- Flatpickr CSS -->
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+		
+		  <!-- optional 테마 -->
+		  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
+
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
 		<style>
+			.calendar-container { width: 300px; }
+		    .flatpickr-day.selected { background: #f5a9b8; color: white; border-radius: 50%; }
+			
 			@font-face {
 			    font-family: 'Baby_love';
 			    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/naverfont_01@1.0/Baby_love.woff') format('woff');
@@ -120,24 +129,49 @@
 			  animation: blink 1s infinite;
 			  vertical-align: baseline; /* 글자 기준 정렬 */
 			}
+
+			/* 버튼 */
+			.button {
+			  background: transparent;
+			  border: 1px solid rgba(201, 179, 126, 0.9);
+			  color: #3a352f;
+			  padding: 0.9em 3.5em;
+			  font-size: 0.7em;
+			  transition: all 0.4s ease;
+			}
+
+			/* 스크롤 시 나타나는 기본 상태 */
+			.scroll-reveal {
+			  opacity: 0;
+			  transform: translateY(30px); /* 아래에서 올라오는 느낌 */
+			  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+			}
+			
+			/* 화면에 들어오면 활성화 */
+			.scroll-reveal.active {
+			  opacity: 1;
+			  transform: translateY(0);
+			}
 		</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 
 		<!-- Main -->
 			<div id="main">	
-				<div id="content" class="content" style="background-image: url(https://cdn.imweb.me/upload/S201802145a83a6028d5cf/c79e3ada943bc.png); background-size: cover;">
+				<div id="content" class="content" style="background-image: url(/images_3/fulls/1_Studio/10.webp); background-size: cover;">
 				  <div class="info">
 				    <div>장 용 훈  &  윤 소 희</div>
 				    <div>2026년 4월 11일(토)</div>
 				    <div>원주 지오컨벤션 11시 30분</div>
 				  </div>
 				</div>
-				<div class="typing-text" id="typing" style="width:100%; font-size: 1.5rem;">
-				  <span id="text"></span><span class="cursor"></span>
-				</div>
+
+				<div class="typing-text" id="typing" style="width:100%; font-size:1.5rem; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:10;">
+				    <span id="text"></span><span class="cursor"></span>
+				</div>				
+				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
 				
-				<section id="header" style="height: 100dvh;">
+				<section id="header" class="scroll-reveal" style="height: 100dvh;">
 					<div class="inner" style="height: 100dvh;">
 						  <div class="left-col">
 							<h3><b>2026.4.11.(토)<br>원주 지오컨벤션 11시 30분</b></h3>
@@ -157,7 +191,7 @@
 	
 				<!-- One -->
 				<section id="one" class="main style1" style="font-family: 'Noto Serif KR', serif;">
-					<div class="container">
+					<div class="container scroll-reveal">
 						<div class="row gtr-150">
 							<div class="col-6 col-12-medium imp-medium" style="padding: 0 0 1.5em 3em;">
 								<header class="major">
@@ -173,9 +207,13 @@
 					</div>
 				</section>
 
+				<div class="calendar-container">
+				  <input type="text" id="weddingCalendar" placeholder="날짜 선택">
+				</div>
+
 
 				<section id="thumbnails_one" class="main style3" style="font-family: 'Noto Serif KR', serif; padding: 2em 1.5em 0.5em 1.5em;">
-					<div class="container">
+					<div class="container scroll-reveal">
 						<div class="row gtr-150">
 							<div class="col-6 col-12-medium imp-medium" style="padding: 0 0 1.5em 3em;">
 								<header class="major">
@@ -248,15 +286,14 @@
 						<a class="thumbnail" href="images_3/fulls/1_Studio/20.webp"><img src="images_3/fulls/1_Studio/20.webp" alt="" /></a>
 					</article>
 				</section>
-				<div class="col-6 col-12-medium imp-medium" style="padding: 0 0 1.5em 3em;">
-					<ul class="icons">
-						<div>더 많은 모습이 궁금하다면 여길 눌러주세요</div>
-					</ul>
+				
+				<div style="padding: 1em;">
+					<a href="/loveFrame/loveFrame.html" class="button next scrolly" target="_blank" style="padding: 0 3em;">View More > </a>
 				</div>
 		
 				<!-- Two -->
-				<section id="two" class="main style2" style="font-family: 'Noto Serif KR', serif;">
-					<div class="container">
+				<section id="two" class="main style2 " style="font-family: 'Noto Serif KR', serif;">
+					<div class="container scroll-reveal">
 						<div class="row gtr-150">
 							<div class="col-6 col-12-medium imp-medium">
 								<header class="major">
@@ -334,7 +371,7 @@
 		
 			<!-- Footer -->
 				<section id="footer" style="font-family: 'Noto Serif KR', serif; padding: 0em 1.5em 2em 1.5em;">
-					<ul class="icons">
+					<ul class="icons scroll-reveal">
 						<div>모든 순간을 소중히 여기며 잘 살겠습니다</div>
 						<div>축복해 주셔서 감사합니다</div>
 					</ul>
@@ -447,63 +484,10 @@
 		    </script>
 
 			<script>
-			/*
-			  const lines = [
-				  { text: "테스트 그리고 테스트", speed: 130 },
-				  { text: "", speed: 10 },
-				  { text: "우리 테스트 합니다!", speed: 130 }
-				];
-				
-				const textEl = document.getElementById("text");
-				const content = document.getElementById("content");
-				const typingEl = document.getElementById("typing");
-				
-				let lineIndex = 0;
-				let charIndex = 0;
-				
-				function startTypingEffect() {
-				  document.body.style.overflow = "hidden";
-				  content.classList.add("blur");
-				  document.getElementById("typing").style.opacity = 1;
-				  typeLine();
-				}
-				
-				function typeLine() {
-				  const currentLine = lines[lineIndex];
-				
-				  if (charIndex < currentLine.text.length) {
-				    textEl.innerHTML += currentLine.text.charAt(charIndex);
-				    charIndex++;
-				    setTimeout(typeLine, currentLine.speed);
-				  } else {
-				    setTimeout(() => {
-				      moveToNextLine();
-				    }, 600);
-				  }
-				}
-				
-				function moveToNextLine() {
-				  lineIndex++;
-				  charIndex = 0;
-				
-				  if (lineIndex < lines.length) {
-				    textEl.innerHTML += "<br>";
-				    typeLine();
-				  } else {
-					setTimeout(() => {
-					  document.body.style.overflow = "auto";
-				      typingEl.style.opacity = 0;
-				      content.classList.remove("blur");
-				    }, 100);
-				  }
-				}
-				
-				window.onload = startTypingEffect;
-				*/
 				const lines = [
-				  { text: "테스트 그리고 테스트", speed: 130 },
+				  { text: "장용훈 그리고 윤소희", speed: 130 },
 				  { text: "", speed: 10 },
-				  { text: "우리 테스트 합니다!", speed: 130 }
+				  { text: "우리 드디어 결혼합니다!", speed: 130 }
 				];
 				
 				const textEl = document.getElementById("text");
@@ -553,11 +537,114 @@
 				    typingEl.style.transition = "opacity 1.5s ease";
 				    typingEl.style.opacity = 0;
 				    content.classList.remove("blur");
+					sandFlyEffect();
 				  }
 				}
 				
 				window.onload = startTypingEffect;
+			
+				function sandFlyEffect() {
+				    const canvas = document.getElementById('textCanvas');
+				    const ctx = canvas.getContext('2d');
+				    const typingEl = document.getElementById('typing');
+				    const textEl = document.getElementById('text');
+				
+				    canvas.width = window.innerWidth;
+				    canvas.height = window.innerHeight;
+				    ctx.clearRect(0, 0, canvas.width, canvas.height);
+				
+				    // typing-text의 위치 가져오기
+				    const rect = typingEl.getBoundingClientRect();
+				
+				    // 글자 스타일
+				    ctx.font = window.getComputedStyle(textEl).font;
+				    ctx.fillStyle = window.getComputedStyle(textEl).color || "#fff";
+				    ctx.textAlign = "center";
+				    ctx.textBaseline = "middle";
+				
+				    // 각 줄의 y 좌표 계산
+				    const linesArray = textEl.innerText.split("\n");
+				    const lineHeight = parseFloat(window.getComputedStyle(textEl).lineHeight) || 30;
+				    const centerX = rect.left + rect.width / 2;
+				    const startY = rect.top + rect.height / 2 - lineHeight; // 첫 줄 Y 위치
+				    const lineYs = [
+				        startY,                  // 1번째 줄
+				        startY + lineHeight,     // 2번째 줄
+				        startY + lineHeight * 2  // 3번째 줄
+				    ];
+				
+				    const particles = [];
+				
+				    // 1번째와 3번째 줄에서만 입자 만들기
+				    [0, 2].forEach(i => {
+				        ctx.fillText(linesArray[i], centerX, lineYs[i]);
+				        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+				
+				        for (let y = 0; y < canvas.height; y += 2) {
+				            for (let x = 0; x < canvas.width; x += 2) {
+				                const index = (y * canvas.width + x) * 4;
+				                if (imageData.data[index + 3] > 0) {
+				                    particles.push({
+				                        x, y,
+				                        size: Math.random() * 1 + 0.5,
+				                        vx: Math.random() * 0.5 + 0.5,
+				                        vy: -Math.random() * 0.5 - 0.5,
+				                        alpha: 1
+				                    });
+				                }
+				            }
+				        }
+				    });
+				
+				    ctx.clearRect(0, 0, canvas.width, canvas.height);
+				
+				    function animate() {
+				        ctx.clearRect(0, 0, canvas.width, canvas.height);
+				        for (let p of particles) {
+				            p.x += p.vx;
+				            p.y += p.vy;
+				            p.alpha -= 0.005;
+				            if (p.alpha <= 0) continue;
+				            ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+				            ctx.fillRect(p.x, p.y, p.size, p.size);
+				        }
+				        if (particles.some(p => p.alpha > 0)) requestAnimationFrame(animate);
+				    }
+				
+				    animate();
+				}
 
+				//스크롤
+				document.addEventListener("DOMContentLoaded", function() {
+				  const scrollElements = document.querySelectorAll(".scroll-reveal");
+				
+				  const observer = new IntersectionObserver((entries) => {
+				    entries.forEach(entry => {
+				      if (entry.isIntersecting) {
+				        entry.target.classList.add("active");
+				        // 옵션: 한번 나타나면 계속 활성화
+				        observer.unobserve(entry.target);
+				      }
+				    });
+				  }, {
+				    threshold: 0.2 // 화면에 20% 보일 때 활성화
+				  });
+				
+				  scrollElements.forEach(el => observer.observe(el));
+				});
 			</script>
+
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  flatpickr("#weddingCalendar", {
+    inline: true,           // 페이지에 바로 달력 표시
+    enable: [
+      "2026-06-12",         // 하이라이트 날짜
+      "2026-06-13",
+      "2026-06-15"
+    ],
+    dateFormat: "Y-m-d",
+  });
+</script>
 	</body>
 </html>
