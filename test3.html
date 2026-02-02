@@ -46,64 +46,90 @@
           }
           
           /* ---------- 타이핑 텍스트 ---------- */
-          .typing-text {
-            font-size: 3rem;
-            font-weight: 600;
-            color: rgba(255,255,255,0.95);
-            letter-spacing: -0.01em;
-            text-shadow: 0 1px 1px rgba(0,0,0,0.25), 0 8px 30px rgba(0,0,0,0.35);
-            white-space: nowrap;
-            border-right: 2px solid rgba(255,255,255,0.6);
-            overflow: hidden;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            z-index: 1000;
-            font-family: 'Playfair Display', serif;
-          }
-          
-          /* 타이핑 하이라이트 */
-          .typing-text span.highlight {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            font-size: 2.6rem;
-            color: #fff8f0;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.18);
-          }
-          
-          /* ---------- 정보 카드 ---------- */
-          .info {
-            font-size: 1.15rem;
-            line-height: 2.2rem;
-            font-weight: 400;
-            font-family: 'Noto Serif KR', serif;
-            color: rgba(255,255,255,0.92);
-            max-width: 520px;
-            background: rgba(255,255,255,0.12);
-            padding: 32px 36px;
-            border-radius: 28px;
-            backdrop-filter: blur(8px) saturate(120%);
-            -webkit-backdrop-filter: blur(8px) saturate(120%);
-            box-shadow: 0 10px 30px rgba(255,255,255,0.15), 0 18px 40px rgba(0,0,0,0.18);
-            border: 1px solid rgba(255,255,255,0.2);
-            opacity: 0;
-            animation: fadeIn 2.4s ease forwards;
-            animation-delay: 3.2s;
-            z-index: 900;
-          }
-          
-          /* ---------- 페이드인 애니메이션 ---------- */
-          @keyframes fadeIn {
-            to { opacity: 1; }
-          }
-          
-          /* ---------- 모바일 대응 ---------- */
-          @media (max-width: 480px) {
-            .typing-text { font-size: 2rem; }
-            .info { font-size: 1rem; line-height: 1.5rem; padding: 24px 28px; border-radius: 20px; }
-          }
+          /* ================== 타이핑 텍스트 ================== */
+.typing-text {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+
+  /* 글자 선명 + 입체감 */
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.25),
+    0 4px 10px rgba(0,0,0,0.35),
+    0 0 15px rgba(255,255,255,0.2);
+
+  letter-spacing: 0.02em;
+  line-height: 1.4em;
+  white-space: pre-wrap; /* \n 줄바꿈 유지 */
+  border-right: 2px solid rgba(255,255,255,0.6);
+  padding-right: 2px;
+  overflow: hidden;
+
+  /* 중앙 배치 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 1000;
+
+  /* 애니메이션 */
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* 살짝 반짝이는 효과 */
+@keyframes glow {
+  0% { text-shadow: 0 1px 2px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.35), 0 0 15px rgba(255,255,255,0.2); }
+  50% { text-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 6px 18px rgba(0,0,0,0.45), 0 0 20px rgba(255,255,255,0.35); }
+  100% { text-shadow: 0 1px 2px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.35), 0 0 15px rgba(255,255,255,0.2); }
+}
+
+/* ================== 배경 정보 카드 ================== */
+.info {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.95);
+
+  max-width: 520px;
+
+  /* 봄 느낌 유리창 블러 */
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(15px) saturate(120%);
+  -webkit-backdrop-filter: blur(15px) saturate(120%);
+
+  padding: 28px 34px;
+  border-radius: 20px;
+
+  /* 그림자 입체감 */
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.25),
+    0 0 15px rgba(255,255,255,0.15) inset;
+
+  text-align: center;
+
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 3.5s;
+}
+
+/* info 카드 등장 애니메이션 */
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================== 모바일 대응 ================== */
+@media (max-width: 480px) {
+  .typing-text { font-size: 2rem; line-height: 1.3em; }
+  .info { font-size: 1rem; line-height: 1.6rem; padding: 20px 24px; border-radius: 16px; }
+}
+
           
           /* ---------- 소프트 햇살/파티클 ---------- */
           #content::after {
