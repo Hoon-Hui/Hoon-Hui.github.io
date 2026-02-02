@@ -2976,6 +2976,19 @@ section#header p + p {
 				color: #ffffff;
 			}
 
+			.main.style3 {
+			background: #ffffff;
+			}
+	
+			.main.style3 header.major:after {
+					content: '';
+				    display: block;
+				    width: 80%;
+				    height: 1px;
+				    margin: 0.5em auto 0.1em;
+				    background: linear-gradient(to right, rgba(201, 179, 126, 0), #c9b37e, rgba(201, 179, 126, 0));
+			}
+
 /* Header */
 
 	#header {
