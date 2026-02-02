@@ -449,59 +449,6 @@
 		    </script>
 
 			<script>
-			/*
-			  const lines = [
-				  { text: "테스트 그리고 테스트", speed: 130 },
-				  { text: "", speed: 10 },
-				  { text: "우리 테스트 합니다!", speed: 130 }
-				];
-				
-				const textEl = document.getElementById("text");
-				const content = document.getElementById("content");
-				const typingEl = document.getElementById("typing");
-				
-				let lineIndex = 0;
-				let charIndex = 0;
-				
-				function startTypingEffect() {
-				  document.body.style.overflow = "hidden";
-				  content.classList.add("blur");
-				  document.getElementById("typing").style.opacity = 1;
-				  typeLine();
-				}
-				
-				function typeLine() {
-				  const currentLine = lines[lineIndex];
-				
-				  if (charIndex < currentLine.text.length) {
-				    textEl.innerHTML += currentLine.text.charAt(charIndex);
-				    charIndex++;
-				    setTimeout(typeLine, currentLine.speed);
-				  } else {
-				    setTimeout(() => {
-				      moveToNextLine();
-				    }, 600);
-				  }
-				}
-				
-				function moveToNextLine() {
-				  lineIndex++;
-				  charIndex = 0;
-				
-				  if (lineIndex < lines.length) {
-				    textEl.innerHTML += "<br>";
-				    typeLine();
-				  } else {
-					setTimeout(() => {
-					  document.body.style.overflow = "auto";
-				      typingEl.style.opacity = 0;
-				      content.classList.remove("blur");
-				    }, 100);
-				  }
-				}
-				
-				window.onload = startTypingEffect;
-				*/
 				const lines = [
 				  { text: "장용훈 그리고 윤소희", speed: 130 },
 				  { text: "", speed: 10 },
@@ -560,69 +507,7 @@
 				}
 				
 				window.onload = startTypingEffect;
-				/*
-				function sandFlyEffect() {
-				    const canvas = document.getElementById('textCanvas');
-				    const ctx = canvas.getContext('2d');
-				    canvas.width = window.innerWidth;
-				    canvas.height = window.innerHeight;
-				
-				    const rect = typingEl.getBoundingClientRect();
-				    const color = window.getComputedStyle(typingEl).color || "#fff";
-				
-				    // 글자 캔버스에 그리기
-				    ctx.font = window.getComputedStyle(typingEl).font;
-				    ctx.fillStyle = color;
-				    ctx.textAlign = "center";
-				    ctx.textBaseline = "middle";
-				    ctx.fillText(textEl.innerText, rect.left + rect.width/2, rect.top + rect.height/2);
-				
-				    // 픽셀 데이터 추출
-				    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-				    const particles = [];
-				
-				    for (let y = 0; y < canvas.height; y += 2) {   // 2px 간격으로 픽셀 추출
-				        for (let x = 0; x < canvas.width; x += 2) {
-				            const index = (y * canvas.width + x) * 4;
-				            const alpha = imageData.data[index + 3];
-				            if (alpha > 0) {
-				                particles.push({
-				                    x: x,
-				                    y: y,
-				                    size: Math.random() * 1 + 0.5, // 0.5~1.5 px
-				                    vx: Math.random() * 0.5 + 0.5, // 오른쪽으로 서서히
-				                    vy: -Math.random() * 0.5 - 0.5, // 위쪽으로 서서히
-				                    alpha: 1
-				                });
-				            }
-				        }
-				    }
-				
-				    ctx.clearRect(0, 0, canvas.width, canvas.height);
-				
-				    function animate() {
-				        ctx.clearRect(0, 0, canvas.width, canvas.height);
-				
-				        for (let i = 0; i < particles.length; i++) {
-				            let p = particles[i];
-				            p.x += p.vx;       // 오른쪽 이동
-				            p.y += p.vy;       // 위쪽 이동
-				            p.alpha -= 0.005;  // 서서히 사라짐
-				
-				            if (p.alpha <= 0) continue;
-				
-				            ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
-				            ctx.fillRect(p.x, p.y, p.size, p.size);
-				        }
-				
-				        if (particles.some(p => p.alpha > 0)) {
-				            requestAnimationFrame(animate);
-				        }
-				    }
-				
-				    animate();
-				}
-				*/
+			
 				function sandFlyEffect() {
 				    const canvas = document.getElementById('textCanvas');
 				    const ctx = canvas.getContext('2d');
@@ -693,7 +578,6 @@
 				
 				    animate();
 				}
-
 			</script>
 	</body>
 </html>
