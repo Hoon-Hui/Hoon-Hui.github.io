@@ -122,73 +122,14 @@
 			}
 			
 			/* 버튼 */
-			.luxury-static {
-			  display: inline-block;
-			  padding: 0.7em 1em;
-			
-			  font-family: 'Didot', 'Playfair Display', 'Noto Serif KR', serif;
-			  font-size: 15px;
+			.button {
+			  background: transparent;
+			  border: 1px solid rgba(201, 179, 126, 0.9);
+			  color: #3a352f;
+			  padding: 0.9em 3.5em;
 			  letter-spacing: 0.25em;
-			  text-transform: uppercase;
-			
-			  color: #1a1a1a;
-			
-			  /* 은빛 보석 느낌 배경 */
-			  background: linear-gradient(
-			    135deg,
-			    #f5f6f7 0%,
-			    #e6e8eb 25%,
-			    #ffffff 50%,
-			    #d8dade 75%,
-			    #f5f6f7 100%
-			  );
-			
-			  border-radius: 999px;
-			  border: 1px solid rgba(200, 200, 200, 0.5);
-			
-			  text-decoration: none;
-			
-			  box-shadow:
-			    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-			    0 12px 30px rgba(0, 0, 0, 0.12);
-			
-			  position: relative;
-			  overflow: hidden; /* 반사광 애니메이션을 위한 필수 */
-			  cursor: pointer;
-			}
-			
-			/* 은빛 반사광 */
-			.luxury-static::before {
-			  content: '';
-			  position: absolute;
-			  top: -50%;
-			  left: -50%;
-			  width: 200%;
-			  height: 200%;
-			  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), transparent 60%);
-			  transform: rotate(-25deg);
-			  pointer-events: none;
-			
-			  /* 반사광 이동 애니메이션 */
-			  animation: shimmer 3s infinite linear;
-			}
-			
-			/* 반짝임 애니메이션 */
-			@keyframes shimmer {
-			  0% {
-			    transform: rotate(-25deg) translateX(-50%) translateY(-50%);
-			  }
-			  50% {
-			    transform: rotate(-25deg) translateX(50%) translateY(50%);
-			  }
-			  100% {
-			    transform: rotate(-25deg) translateX(-50%) translateY(-50%);
-			  }
-			}
-			
-			/* 마우스 호버 시 살짝 빛 강화 */
-			.luxury-static:hover::before {
-			  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), transparent 60%);
+			  font-size: 0.9em;
+			  transition: all 0.4s ease;
 			}
 		</style>
 	</head>
@@ -322,9 +263,7 @@
 				</section>
 
 				<div style="padding: 1em;">
-					<a href="https://example.com" target="_blank" rel="noopener noreferrer" class="luxury-static">
-					  [View More]
-					</a>
+					<a href="javascript:void(0);" class="button next scrolly" onclick="scrollToOne(2)" style="padding: 0 3em;">View More > </a>
 				</div>		
 		
 				<!-- Two -->
