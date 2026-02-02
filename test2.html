@@ -7,10 +7,13 @@
 		<link rel="stylesheet" href="assets_3/css/main.css" />
 		<link rel="stylesheet" href="assets_4/css/main2.css" />
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
-		<style> 
-			#thumbnails article { 
-				width: 100% 
-			} 
+		<style>
+			@font-face {
+			    font-family: 'Baby_love';
+			    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/naverfont_01@1.0/Baby_love.woff') format('woff');
+			    font-weight: normal;
+			    font-style: normal;
+			}
 			
 			/* content 배경 + 블러/어둡게 */ 
 			.content { 
@@ -35,6 +38,7 @@
 			  line-height: 1.6;
 			  font-size: 3rem;
 			  font-weight: 600;
+			  font-family: 'Baby_love', cursive;
 			  color: rgba(255,255,255,0.95);
 			  letter-spacing: -0.01em;
 			  text-shadow:
@@ -49,22 +53,17 @@
 			  opacity: 0;
 			  z-index: 1000;
 			  transition: 
-			    opacity 1.8s ease,
-			    filter 2.2s ease,
-			    transform 2.2s ease;
-			}
-
-			.typing-text.fade-out {
-			  opacity: 0;
-			  filter: blur(6px);
-			  transform: translate(-50%, -65%);
+			    opacity 1.3s ease,
+			    filter 1.7s ease,
+			    transform 1.7s ease;
 			}
 			
 			/* 기본 정보 */ 
 			.info { 
-				font-size: 1.25rem; 
+				font-size: 1.5rem; 
 				line-height: 2.1rem; 
-				font-weight: 400; 
+				font-weight: 500; 
+				font-family: 'Baby_love', cursive;
 				color: rgba(255,255,255,0.9); 
 				max-width: 520px; 
 				/* 봄 느낌 핵심 */ 
@@ -76,7 +75,12 @@
 				box-shadow: 0 20px 50px rgba(0,0,0,0.25); 
 				opacity: 0; 
 				animation: fadeIn 2s ease forwards; 
-				animation-delay: 3.5s; 
+				animation-delay: 5.0s; 
+				position: absolute;
+				bottom: 40px;   /* 하단 여백 */
+				left: 50%;   /* 하단 여백 */
+				transform: translateX(-50%);
+				width: 70%;
 			} 
 			
 			/* 페이드인 애니메이션 */ 
@@ -90,7 +94,7 @@
 					font-size: 2rem; 
 				} 
 				.info { 
-					font-size: 1rem; 
+					font-size: 1.5rem; 
 					line-height: 1.5rem; 
 				} 
 			} 
@@ -116,49 +120,115 @@
 			  animation: blink 1s infinite;
 			  vertical-align: baseline; /* 글자 기준 정렬 */
 			}
+
+			/* 전체다시보기 버튼 */
+			.lux-btn-wrap {
+			  display: flex;
+			  justify-content: center;
+			  margin: 4em 0 4.5em;
+			}
 			
-			@keyframes blink {
-			  0%, 50% { opacity: 1; }
-			  50.01%, 100% { opacity: 0; }
+			/* 버튼 본체 */
+			.lux-btn {
+			  position: relative;
+			  padding: 18px 36px;
+			  border-radius: 14px;
+			  border: none;
+			  cursor: pointer;
+			
+			  /* 🔑 안 보일 수 없는 배경 */
+			  background: rgba(20, 20, 20, 0.55);
+			  backdrop-filter: blur(8px);
+			  -webkit-backdrop-filter: blur(8px);
+			
+			  box-shadow:
+			    0 12px 30px rgba(0,0,0,0.35),
+			    inset 0 1px 0 rgba(255,255,255,0.08);
+			
+			  transition: transform 0.35s ease, box-shadow 0.35s ease;
+			}
+			
+			/* 영문 */
+			.lux-btn .en {
+			  display: block;
+			  font-size: 0.75rem;
+			  letter-spacing: 0.32em;
+			  color: rgba(255,255,255,0.6);
+			  margin-bottom: 6px;
+			}
+			
+			/* 한글 */
+			.lux-btn .ko {
+			  display: inline-block;
+			  font-family: 'Noto Serif KR', serif;
+			  font-size: 1.25rem;
+			  font-weight: 500;
+			  color: #ffffff; /* ← 완전 흰색 */
+			  letter-spacing: -0.01em;
+			  position: relative;
+			}
+			
+			/* 아주 얇은 핑크 라인 */
+			.lux-btn .ko::after {
+			  content: "";
+			  position: absolute;
+			  left: 0;
+			  bottom: -6px;
+			  width: 100%;
+			  height: 1px;
+			  background: rgba(255, 180, 200, 0.65);
+			  transform: scaleX(0);
+			  transform-origin: left;
+			  transition: transform 0.35s ease;
+			}
+			
+			/* hover */
+			.lux-btn:hover {
+			  transform: translateY(-3px);
+			  box-shadow:
+			    0 18px 40px rgba(0,0,0,0.45);
+			}
+			
+			.lux-btn:hover .ko::after {
+			  transform: scaleX(1);
+			}
+			
+			/* 모바일 */
+			@media (max-width: 480px) {
+			  .lux-btn {
+			    padding: 16px 28px;
+			  }
+			  .lux-btn .ko {
+			    font-size: 1.1rem;
+			  }
+			}
+			
+			/* FX 캔버스 */
+			#luxFx {
+			  position: fixed;
+			  inset: 0;
+			  pointer-events: none;
+			  z-index: 9999;
 			}
 
-			/* 글자 하나(모래알) */
-			.char {
-			  display: inline-block;
-			  opacity: 1;
-			  transform: translate(0, 0);
-			  filter: blur(0);
-			}
-			
-			/* 바람에 흩날리는 애니메이션 */
-			@keyframes sandFly {
-			  0% {
-			    opacity: 1;
-			    transform: translate(0, 0);
-			    filter: blur(0);
-			  }
-			  100% {
-			    opacity: 0;
-			    transform: translate(120px, -120px) rotate(12deg);
-			    filter: blur(6px);
-			  }
-			}
 		</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 
 		<!-- Main -->
 			<div id="main">	
-				<div id="content" class="content" style="background-image: url(https://cdn.imweb.me/upload/S201802145a83a6028d5cf/c79e3ada943bc.png); background-size: cover;">
+				<div id="content" class="content" style="background-image: url(/images_3/fulls/1_Studio/10.webp); background-size: cover;">
 				  <div class="info">
 				    <div>장 용 훈  &  윤 소 희</div>
-				    <div>2026년 4월 11일 11시 30분</div>
-				    <div>원주 지오컨벤션</div>
+				    <div>2026년 4월 11일(토)</div>
+				    <div>원주 지오컨벤션 11시 30분</div>
 				  </div>
 				</div>
-				<div class="typing-text" id="typing" style="width:100%; font-family: 'Noto Serif KR', serif; font-size: 1.5rem;">
-				  <span id="text"></span><span class="cursor"></span>
-				</div>
+
+				<div class="typing-text" id="typing" style="width:100%; font-size:1.5rem; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:10;">
+				    <span id="text"></span><span class="cursor"></span>
+				</div>				
+				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
 				
 				<section id="header" style="height: 100dvh;">
 					<div class="inner" style="height: 100dvh;">
@@ -196,9 +266,20 @@
 					</div>
 				</section>
 
-				
+
+				<section id="thumbnails_one" class="main style3" style="font-family: 'Noto Serif KR', serif; padding: 2em 1.5em 0.5em 1.5em;">
+					<div class="container">
+						<div class="row gtr-150">
+							<div class="col-6 col-12-medium imp-medium" style="padding: 0 0 1.5em 3em;">
+								<header class="major">
+									<h2>우리들의 갤러리</h2>
+								</header>
+							</div>
+						</div>
+					</div>
+				</section>
 				<!-- Thumbnail -->
-				<section id="thumbnails" style="display: flex;flex-direction: column;align-items: center;">
+				<section id="thumbnails" style="display: flex;flex-direction: row;">
 					<article>
 						<a class="thumbnail" href="images_3/fulls/1_Studio/1.webp"><img src="images_3/fulls/1_Studio/1.webp" alt="" /></a>
 					</article>
@@ -260,6 +341,13 @@
 						<a class="thumbnail" href="images_3/fulls/1_Studio/20.webp"><img src="images_3/fulls/1_Studio/20.webp" alt="" /></a>
 					</article>
 				</section>
+				<div class="lux-btn-wrap">
+				  <button class="lux-btn" id="galleryBtn">
+				    <span class="en">GALLERY</span>
+				    <span class="ko">갤러리 전체보기</span>
+				  </button>
+				</div>				
+				<canvas id="luxFx"></canvas>
 		
 				<!-- Two -->
 				<section id="two" class="main style2" style="font-family: 'Noto Serif KR', serif;">
@@ -454,12 +542,10 @@
 		    </script>
 
 			<script>
-			  const lines = [
-				  { text: "테스트 💌 테스트", speed: 90 },
-				  { text: "우리 테스트 합니다!", speed: 150 },
-				  { text: "", speed: 300 },
-				  { text: "2026년 4월 11일 11시 30분", speed: 150 },
-				  { text: "원주 지오컨벤션", speed: 150 }
+				const lines = [
+				  { text: "장용훈 그리고 윤소희", speed: 130 },
+				  { text: "", speed: 10 },
+				  { text: "우리 드디어 결혼합니다!", speed: 130 }
 				];
 				
 				const textEl = document.getElementById("text");
@@ -470,8 +556,12 @@
 				let charIndex = 0;
 				
 				function startTypingEffect() {
+				  document.body.style.overflow = "hidden";
+				  document.documentElement.style.overflow = "hidden";
+				  document.getElementById("main").style.overflow = "hidden";
+					
 				  content.classList.add("blur");
-				  document.getElementById("typing").style.opacity = 1;
+				  typingEl.style.opacity = 1;
 				  typeLine();
 				}
 				
@@ -497,62 +587,140 @@
 				    textEl.innerHTML += "<br>";
 				    typeLine();
 				  } else {
-					// 1. 글자를 모래알로 쪼개고
-					  breakTextIntoChars();
-					
-					  // 2. 살짝 쉰 뒤
-					  setTimeout(() => {
-					    scatterChars();
-					  }, 300);
-					
-					  // 3. 배경 블러는 조금 늦게 해제
-					  setTimeout(() => {
-					    content.classList.remove("blur");
-					  }, 1200);
-				    /*
-					setTimeout(() => {
-				      typingEl.classList.add("fade-out");
-				      content.classList.remove("blur");
-				    }, 100);
-					*/
+				    // 타이핑 종료 시
+				    document.body.style.overflow = "auto";
+				    document.documentElement.style.overflow = "auto";
+				    document.getElementById("main").style.overflow = "auto";
+					  
+				    typingEl.style.transition = "opacity 1.5s ease";
+				    typingEl.style.opacity = 0;
+				    content.classList.remove("blur");
+					sandFlyEffect();
 				  }
 				}
 				
 				window.onload = startTypingEffect;
-
-				function breakTextIntoChars() {
-				  const text = textEl.innerText;
-				  textEl.innerHTML = "";
+			
+				function sandFlyEffect() {
+				    const canvas = document.getElementById('textCanvas');
+				    const ctx = canvas.getContext('2d');
+				    const typingEl = document.getElementById('typing');
+				    const textEl = document.getElementById('text');
 				
-				  [...text].forEach(char => {
-				    if (char === "\n") {
-				      textEl.appendChild(document.createElement("br"));
-				    } else {
-				      const span = document.createElement("span");
-				      span.className = "char";
-				      span.textContent = char;
-				      textEl.appendChild(span);
+				    canvas.width = window.innerWidth;
+				    canvas.height = window.innerHeight;
+				    ctx.clearRect(0, 0, canvas.width, canvas.height);
+				
+				    // typing-text의 위치 가져오기
+				    const rect = typingEl.getBoundingClientRect();
+				
+				    // 글자 스타일
+				    ctx.font = window.getComputedStyle(textEl).font;
+				    ctx.fillStyle = window.getComputedStyle(textEl).color || "#fff";
+				    ctx.textAlign = "center";
+				    ctx.textBaseline = "middle";
+				
+				    // 각 줄의 y 좌표 계산
+				    const linesArray = textEl.innerText.split("\n");
+				    const lineHeight = parseFloat(window.getComputedStyle(textEl).lineHeight) || 30;
+				    const centerX = rect.left + rect.width / 2;
+				    const startY = rect.top + rect.height / 2 - lineHeight; // 첫 줄 Y 위치
+				    const lineYs = [
+				        startY,                  // 1번째 줄
+				        startY + lineHeight,     // 2번째 줄
+				        startY + lineHeight * 2  // 3번째 줄
+				    ];
+				
+				    const particles = [];
+				
+				    // 1번째와 3번째 줄에서만 입자 만들기
+				    [0, 2].forEach(i => {
+				        ctx.fillText(linesArray[i], centerX, lineYs[i]);
+				        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+				
+				        for (let y = 0; y < canvas.height; y += 2) {
+				            for (let x = 0; x < canvas.width; x += 2) {
+				                const index = (y * canvas.width + x) * 4;
+				                if (imageData.data[index + 3] > 0) {
+				                    particles.push({
+				                        x, y,
+				                        size: Math.random() * 1 + 0.5,
+				                        vx: Math.random() * 0.5 + 0.5,
+				                        vy: -Math.random() * 0.5 - 0.5,
+				                        alpha: 1
+				                    });
+				                }
+				            }
+				        }
+				    });
+				
+				    ctx.clearRect(0, 0, canvas.width, canvas.height);
+				
+				    function animate() {
+				        ctx.clearRect(0, 0, canvas.width, canvas.height);
+				        for (let p of particles) {
+				            p.x += p.vx;
+				            p.y += p.vy;
+				            p.alpha -= 0.005;
+				            if (p.alpha <= 0) continue;
+				            ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+				            ctx.fillRect(p.x, p.y, p.size, p.size);
+				        }
+				        if (particles.some(p => p.alpha > 0)) requestAnimationFrame(animate);
 				    }
-				  });
+				
+				    animate();
 				}
+			</script>
 
-				function scatterChars() {
-				  const chars = document.querySelectorAll(".char");
+			<script>
+				const canvas = document.getElementById("luxFx");
+				const ctx = canvas.getContext("2d");
 				
-				  chars.forEach((char, index) => {
-				    const delay = Math.random() * 800; // 각자 다른 타이밍
-				    const x = 80 + Math.random() * 120;   // 오른쪽
-				    const y = -80 - Math.random() * 120;  // 위쪽
-				    const duration = 1.8 + Math.random(); // 속도 차이
-				
-				    setTimeout(() => {
-				      char.style.animation = `
-				        sandFly ${duration}s ease-out forwards
-				      `;
-				      char.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random()*20}deg)`;
-				    }, delay);
-				  });
+				function resize() {
+				  canvas.width = window.innerWidth;
+				  canvas.height = window.innerHeight;
 				}
+				resize();
+				window.addEventListener("resize", resize);
+				
+				let dots = [];
+				
+				document.getElementById("galleryBtn").addEventListener("click", e => {
+				  const r = e.currentTarget.getBoundingClientRect();
+				  const x = r.left + r.width / 2;
+				  const y = r.top + r.height / 2;
+				
+				  for (let i = 0; i < 14; i++) {
+				    dots.push({
+				      x,
+				      y,
+				      vx: (Math.random() - 0.5) * 0.6,
+				      vy: -Math.random() * 0.8,
+				      a: 1,
+				      s: Math.random() * 1.2 + 0.4
+				    });
+				  }
+				
+				  document.getElementById("thumbnails")
+				    ?.scrollIntoView({ behavior: "smooth" });
+				});
+				
+				function loop() {
+				  ctx.clearRect(0,0,canvas.width,canvas.height);
+				  dots.forEach((d,i)=>{
+				    d.x += d.vx;
+				    d.y += d.vy;
+				    d.a -= 0.02;
+				    ctx.fillStyle = `rgba(255,230,235,${d.a})`;
+				    ctx.beginPath();
+				    ctx.arc(d.x,d.y,d.s,0,Math.PI*2);
+				    ctx.fill();
+				    if(d.a<=0) dots.splice(i,1);
+				  });
+				  requestAnimationFrame(loop);
+				}
+				loop();
 			</script>
 	</body>
 </html>
