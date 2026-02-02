@@ -444,48 +444,39 @@
 		    </script>
 
 			<script>
-			  const textBlocks = [
-  "<span class='highlight'>장용훈 ",
-  "그리고 윤소희</span>",
-  "<br>",
-  "우리 결혼합니다!"
-];
-
-const typingElement = document.getElementById('typing');
-const content = document.getElementById('content');
-const infoCard = document.querySelector('.info');
-
-function startTypingEffect() {
-  content.classList.add('blur');
-  typingElement.style.opacity = 1;
-
-  let index = 0;
-
-  function typeBlock() {
-    if (index < textBlocks.length) {
-      // 블록 단위로 innerHTML 추가
-      typingElement.innerHTML += textBlocks[index];
-      index++;
-      setTimeout(typeBlock, 300); // 블록 단위 딜레이
-    } else {
-      setTimeout(() => {
-        typingElement.style.opacity = 0;
-        content.classList.remove('blur');
-
-        // info 카드 등장
-        infoCard.style.transform = "translateY(-10px)";
-        infoCard.style.opacity = 1;
-        infoCard.style.transition = "transform 1s ease, opacity 1s ease";
-      }, 800);
-    }
-  }
-
-  typeBlock();
-}
-
-window.onload = startTypingEffect;
-
-
+			  const text = "장용훈 그리고 윤소희\n우리 결혼합니다!";
+			  const typingElement = document.getElementById('typing');
+			  const content = document.getElementById('content');
+			  let index = 0;
+			
+			  function startTypingEffect() {
+			    content.classList.add('blur');
+			    typingElement.style.opacity = 1;
+			
+			    function type() {
+			      if (index < text.length) {
+			        const char = text.charAt(index);
+			
+			        if (char === "\n") {
+			          typingElement.innerHTML += "<br>";
+			        } else {
+			          typingElement.innerHTML += char;
+			        }
+			
+			        index++;
+			        setTimeout(type, 100);
+			      } else {
+			        setTimeout(() => {
+			          typingElement.style.opacity = 0;
+			          content.classList.remove('blur');
+			        }, 1000);
+			      }
+			    }
+			
+			    type();
+			  }
+			
+			  window.onload = startTypingEffect;
 		</script>
 	</body>
 </html>
