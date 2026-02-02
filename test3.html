@@ -11,6 +11,11 @@
 	        #thumbnails article {
 	            width: 100%
 	        }
+			#typing {
+		      white-space: pre-wrap; /* 줄바꿈 유지 */
+		      font-size: 20px;
+		      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+		    }
 		  /* content 배경 + 블러/어둡게 */
 			.content {
 			  position: relative;
@@ -424,39 +429,21 @@
 		    </script>
 
 			<script>
-			  const text = "테스트 그리고 테스트\n우리 테스트 합니다!";
-			  const typingElement = document.getElementById('typing');
-			  const content = document.getElementById('content');
-			  let index = 0;
-			
-			  function startTypingEffect() {
-			    content.classList.add('blur');
-			    typingElement.style.opacity = 1;
-			
-			    function type() {
-			      if (index < text.length) {
-			        const char = text.charAt(index);
-			
-			        if (char === "\n") {
-			          typingElement.innerHTML += "<br>";
-			        } else {
-			          typingElement.innerHTML += char;
-			        }
-			
-			        index++;
-			        setTimeout(type, 100);
-			      } else {
-			        setTimeout(() => {
-			          typingElement.style.opacity = 0;
-			          content.classList.remove('blur');
-			        }, 1000);
-			      }
-			    }
-			
-			    type();
-			  }
-			
-			  window.onload = startTypingEffect;
+			  const text = `테스트 그리고 테스트
+				우리 테스트 합니다`;
+				
+				  const speed = 80; // 타이핑 속도(ms)
+				  let index = 0;
+				
+				  function type() {
+				    if (index < text.length) {
+				      document.getElementById("typing").textContent += text[index];
+				      index++;
+				      setTimeout(type, speed);
+				    }
+				  }
+				
+				  type();
 		</script>
 	</body>
 </html>
