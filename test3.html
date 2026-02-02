@@ -31,6 +31,7 @@
 			
 			/* 타이핑 텍스트 - 배경보다 위에, 밝게 */ 
 			.typing-text {
+			  transition: opacity 0.8s ease;
 			  line-height: 1.6;
 			  font-size: 3rem;
 			  font-weight: 600;
@@ -123,7 +124,7 @@
 				    <div>원주 지오컨벤션</div>
 				  </div>
 				</div>
-				<div class="typing-text" id="typing" style="width:100%; font-family: 'Noto Serif KR', serif; font-size: 1.3rem;">
+				<div class="typing-text" id="typing" style="width:100%; font-family: 'Noto Serif KR', serif; font-size: 1.5rem;">
 				  <span id="text"></span><span class="cursor"></span>
 				</div>
 				
@@ -423,13 +424,15 @@
 			<script>
 			  const lines = [
 				  { text: "테스트 💌 테스트", speed: 90 },
-				  { text: "우리 테스트 합니다!", speed: 140 },
-				  { text: "2026년 4월 11일 11시 30분", speed: 140 },
-				  { text: "원주 지오컨벤션", speed: 140 }
+				  { text: "우리 테스트 합니다!", speed: 150 },
+				  { text: "", speed: 300 },
+				  { text: "2026년 4월 11일 11시 30분", speed: 150 },
+				  { text: "원주 지오컨벤션", speed: 150 }
 				];
 				
 				const textEl = document.getElementById("text");
 				const content = document.getElementById("content");
+				const typingEl = document.getElementById("typing");
 				
 				let lineIndex = 0;
 				let charIndex = 0;
@@ -461,6 +464,11 @@
 				  if (lineIndex < lines.length) {
 				    textEl.innerHTML += "<br>";
 				    typeLine();
+				  } else {
+				    setTimeout(() => {
+				      typingEl.style.opacity = 0;
+				      content.classList.remove("blur");
+				    }, 100);
 				  }
 				}
 				
