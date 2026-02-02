@@ -629,39 +629,52 @@
 				    const typingEl = document.getElementById('typing');
 				    const textEl = document.getElementById('text');
 				
-				    // 화면 전체로 canvas 크기
 				    canvas.width = window.innerWidth;
 				    canvas.height = window.innerHeight;
-				
 				    ctx.clearRect(0, 0, canvas.width, canvas.height);
 				
-				    // typing-text 위치 가져오기
+				    // typing-text의 위치 가져오기
 				    const rect = typingEl.getBoundingClientRect();
 				
-				    // 글자 particle용으로 canvas에 그림
+				    // 글자 스타일
 				    ctx.font = window.getComputedStyle(textEl).font;
 				    ctx.fillStyle = window.getComputedStyle(textEl).color || "#fff";
 				    ctx.textAlign = "center";
 				    ctx.textBaseline = "middle";
-				    ctx.fillText(textEl.innerText, rect.left + rect.width/2, rect.top + rect.height/2);
 				
-				    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+				    // 각 줄의 y 좌표 계산
+				    const linesArray = textEl.innerText.split("\n");
+				    const lineHeight = parseFloat(window.getComputedStyle(textEl).lineHeight) || 30;
+				    const centerX = rect.left + rect.width / 2;
+				    const startY = rect.top + rect.height / 2 - lineHeight; // 첫 줄 Y 위치
+				    const lineYs = [
+				        startY,                  // 1번째 줄
+				        startY + lineHeight,     // 2번째 줄
+				        startY + lineHeight * 2  // 3번째 줄
+				    ];
+				
 				    const particles = [];
 				
-				    for (let y = 0; y < canvas.height; y += 2) {
-				        for (let x = 0; x < canvas.width; x += 2) {
-				            const index = (y * canvas.width + x) * 4;
-				            if (imageData.data[index + 3] > 0) {
-				                particles.push({
-				                    x, y,
-				                    size: Math.random() * 1 + 0.5,
-				                    vx: Math.random() * 0.5 + 0.5,
-				                    vy: -Math.random() * 0.5 - 0.5,
-				                    alpha: 1
-				                });
+				    // 1번째와 3번째 줄에서만 입자 만들기
+				    [0, 2].forEach(i => {
+				        ctx.fillText(linesArray[i], centerX, lineYs[i]);
+				        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+				
+				        for (let y = 0; y < canvas.height; y += 2) {
+				            for (let x = 0; x < canvas.width; x += 2) {
+				                const index = (y * canvas.width + x) * 4;
+				                if (imageData.data[index + 3] > 0) {
+				                    particles.push({
+				                        x, y,
+				                        size: Math.random() * 1 + 0.5,
+				                        vx: Math.random() * 0.5 + 0.5,
+				                        vy: -Math.random() * 0.5 - 0.5,
+				                        alpha: 1
+				                    });
+				                }
 				            }
 				        }
-				    }
+				    });
 				
 				    ctx.clearRect(0, 0, canvas.width, canvas.height);
 				
