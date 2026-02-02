@@ -628,8 +628,9 @@
 				    const ctx = canvas.getContext('2d');
 				    const typingEl = document.getElementById('typing');
 				
-				    // typing-text의 위치와 크기 가져오기
+				    // typing-text 위치와 크기 가져오기
 				    const rect = typingEl.getBoundingClientRect();
+				    canvas.style.position = 'absolute';
 				    canvas.style.left = rect.left + 'px';
 				    canvas.style.top = rect.top + 'px';
 				    canvas.width = rect.width;
@@ -642,11 +643,7 @@
 				    ctx.fillStyle = color;
 				    ctx.textAlign = "center";
 				    ctx.textBaseline = "middle";
-				    ctx.fillText(
-				        document.getElementById('text').innerText,
-				        rect.width / 2,
-				        rect.height / 2
-				    );
+				    ctx.fillText(document.getElementById('text').innerText, rect.width / 2, rect.height / 2);
 				
 				    // 픽셀 데이터 추출
 				    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -693,8 +690,6 @@
 				
 				    animate();
 				}
-
-
 
 			</script>
 	</body>
