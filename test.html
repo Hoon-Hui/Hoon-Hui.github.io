@@ -487,6 +487,7 @@
 				let charIndex = 0;
 				
 				function startTypingEffect() {
+				  document.body.style.overflow = "hidden";
 				  content.classList.add("blur");
 				  document.getElementById("typing").style.opacity = 1;
 				  typeLine();
@@ -515,6 +516,7 @@
 				    typeLine();
 				  } else {
 					setTimeout(() => {
+					  document.body.style.overflow = "auto";
 				      typingEl.style.opacity = 0;
 				      content.classList.remove("blur");
 				    }, 100);
