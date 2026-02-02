@@ -200,7 +200,7 @@
 				</section>
 
 
-				<section id="thumbnails_one" class="main style2" style="font-family: 'Noto Serif KR', serif;">
+				<section id="thumbnails_one" class="main style3" style="font-family: 'Noto Serif KR', serif;">
 					<div class="container">
 						<div class="row gtr-150">
 							<div class="col-6 col-12-medium imp-medium" style="padding: 0 0 1.5em 3em;">
@@ -527,56 +527,56 @@
 				window.onload = startTypingEffect;
 				*/
 				const lines = [
-  { text: "테스트 그리고 테스트", speed: 130 },
-  { text: "", speed: 10 },
-  { text: "우리 테스트 합니다!", speed: 130 }
-];
-
-const textEl = document.getElementById("text");
-const content = document.getElementById("content");
-const typingEl = document.getElementById("typing");
-
-let lineIndex = 0;
-let charIndex = 0;
-
-function startTypingEffect() {
-  document.body.style.overflow = "hidden"; // 스크롤 막기
-  content.classList.add("blur");
-  typingEl.style.opacity = 1;
-  typeLine();
-}
-
-function typeLine() {
-  const currentLine = lines[lineIndex];
-
-  if (charIndex < currentLine.text.length) {
-    textEl.innerHTML += currentLine.text.charAt(charIndex);
-    charIndex++;
-    setTimeout(typeLine, currentLine.speed);
-  } else {
-    setTimeout(() => {
-      moveToNextLine();
-    }, 600);
-  }
-}
-
-function moveToNextLine() {
-  lineIndex++;
-  charIndex = 0;
-
-  if (lineIndex < lines.length) {
-    textEl.innerHTML += "<br>";
-    typeLine();
-  } else {
-    // 타이핑 종료 시
-    document.body.style.overflow = "auto"; // 스크롤 풀기
-    typingEl.style.transition = "opacity 1.5s ease"; // fade out
-    typingEl.style.opacity = 0;
-    content.classList.remove("blur");
-  }
-}
-
-window.onload = startTypingEffect;
+				  { text: "테스트 그리고 테스트", speed: 130 },
+				  { text: "", speed: 10 },
+				  { text: "우리 테스트 합니다!", speed: 130 }
+				];
+				
+				const textEl = document.getElementById("text");
+				const content = document.getElementById("content");
+				const typingEl = document.getElementById("typing");
+				
+				let lineIndex = 0;
+				let charIndex = 0;
+				
+				function startTypingEffect() {
+				  document.body.style.overflow = "hidden"; // 스크롤 막기
+				  content.classList.add("blur");
+				  typingEl.style.opacity = 1;
+				  typeLine();
+				}
+				
+				function typeLine() {
+				  const currentLine = lines[lineIndex];
+				
+				  if (charIndex < currentLine.text.length) {
+				    textEl.innerHTML += currentLine.text.charAt(charIndex);
+				    charIndex++;
+				    setTimeout(typeLine, currentLine.speed);
+				  } else {
+				    setTimeout(() => {
+				      moveToNextLine();
+				    }, 600);
+				  }
+				}
+				
+				function moveToNextLine() {
+				  lineIndex++;
+				  charIndex = 0;
+				
+				  if (lineIndex < lines.length) {
+				    textEl.innerHTML += "<br>";
+				    typeLine();
+				  } else {
+				    // 타이핑 종료 시
+				    document.body.style.overflow = "auto"; // 스크롤 풀기
+				    typingEl.style.transition = "opacity 1.5s ease"; // fade out
+				    typingEl.style.opacity = 0;
+				    content.classList.remove("blur");
+				  }
+				}
+				
+				window.onload = startTypingEffect;
 
 			</script>
 	</body>
