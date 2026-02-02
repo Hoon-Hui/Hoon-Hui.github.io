@@ -151,11 +151,12 @@ input, select, textarea {
 		color: inherit;
 		text-decoration: none;
 	}
-
+		/*
 		a:hover {
 			border-bottom-color: transparent;
 			color: #00D3B7;
 		}
+		*/
 
 	strong, b {
 		font-weight: 400;
@@ -1359,6 +1360,7 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
+
 
 
 
