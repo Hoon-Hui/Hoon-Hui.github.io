@@ -423,33 +423,50 @@
 		    </script>
 
 			<script>
-			  const text = "테스트 그리고 테스트 우리 테스트 합니다!";
-			  const typingElement = document.getElementById('typing');
-			  const content = document.getElementById('content');
-			  let index = 0;
+			  const lines = [
+			    { text: "테스트 그리고 테스트", speed: 90 },
+			    { text: "우리 테스트 합니다!", speed: 140 }
+			  ];
+			
+			  const typingElement = document.getElementById("typing");
+			  const content = document.getElementById("content");
+			
+			  let lineIndex = 0;
+			  let charIndex = 0;
 			
 			  function startTypingEffect() {
-			    content.classList.add('blur');
+			    content.classList.add("blur");
 			    typingElement.style.opacity = 1;
+			    typeLine();
+			  }
 			
-			    function type() {
-			      if (index < text.length) {
-			        const char = text.charAt(index);
-					typingElement.innerHTML += char;
-			        index++;
-			        setTimeout(type, 100);
-			      } else {
-			        setTimeout(() => {
-			          //typingElement.style.opacity = 0;
-			          //content.classList.remove('blur');
-			        }, 1000);
-			      }
+			  function typeLine() {
+			    const currentLine = lines[lineIndex];
+			
+			    if (charIndex < currentLine.text.length) {
+			      typingElement.innerHTML += currentLine.text.charAt(charIndex);
+			      charIndex++;
+			      setTimeout(typeLine, currentLine.speed);
+			    } else {
+			      // 한 줄 끝 → 잠깐 멈춤
+			      setTimeout(() => {
+			        moveCursorToNextLine();
+			      }, 600);
 			    }
+			  }
 			
-			    type();
+			  function moveCursorToNextLine() {
+			    lineIndex++;
+			    charIndex = 0;
+			
+			    if (lineIndex < lines.length) {
+			      typingElement.innerHTML += "<br>";
+			      typeLine();
+			    }
 			  }
 			
 			  window.onload = startTypingEffect;
-		</script>
+			</script>
+
 	</body>
 </html>
