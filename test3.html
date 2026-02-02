@@ -7,67 +7,92 @@
 		<link rel="stylesheet" href="assets_3/css/main.css" />
 		<link rel="stylesheet" href="assets_4/css/main2.css" />
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
-		<style>
-	        #thumbnails article {
-	            width: 100%
-	        }
-		  .typing-text {
-			  font-size: 3rem;
-			  font-weight: 600;
-			  color: rgba(255,255,255,0.95);
-			  line-height: 1.65;
-			  text-align: center;
-			  white-space: pre-wrap;
+		<style> 
+			#thumbnails article { 
+				width: 100% 
+			} 
 			
-			  text-shadow:
-			    0 1px 1px rgba(0,0,0,0.25),
-			    0 8px 30px rgba(0,0,0,0.35);
+			/* content 배경 + 블러/어둡게 */ 
+			.content { 
+				position: relative; width: 100%; height: 100dvh; /* 화면 높이 전체 */ 
+				display: flex; 
+				flex-direction: column; 
+				justify-content: center; 
+				align-items: center; 
+				text-align: center; 
+				padding: 20px; 
+				transition: filter 0.5s; /* 블러/밝기 애니메이션 */ 
+			} 
 			
-			  position: absolute;
-			  top: 50%;
-			  left: 50%;
-			  transform: translate(-50%, -50%);
-			  opacity: 0;
-			  z-index: 1000;
-			}
+			/* 블러 + 어둡게 효과 */ 
+			.content.blur { 
+				filter: brightness(0.3) blur(4px); 
+			} 
 			
-			/* 커서 */
-			.cursor {
-			  display: inline-block;
-			  width: 2px;
-			  height: 1em;
-			  background: rgba(255,255,255,0.7);
-			  margin-left: 4px;
-			  animation: blink 1s infinite;
-			  vertical-align: baseline;
-			}
+			/* 타이핑 텍스트 - 배경보다 위에, 밝게 */ 
+			.typing-text { 
+				font-size: 3rem; 
+				font-weight: 600; 
+				color: rgba(255,255,255,0.95); 
+				letter-spacing: -0.01em; /* 디자이너식 미세 쉐도우 */ 
+				text-shadow: 0 1px 1px rgba(0,0,0,0.25), 0 8px 30px rgba(0,0,0,0.35); 
+				white-space: nowrap; 
+				border-right: 2px solid rgba(255,255,255,0.6); 
+				overflow: hidden; 
+				position: absolute; 
+				top: 50%; left: 50%; 
+				transform: translate(-50%, -50%); 
+				opacity: 0; 
+				z-index: 1000; 
+			} 
 			
-			@keyframes blink {
-			  0%, 50% { opacity: 1; }
-			  50.01%, 100% { opacity: 0; }
-			}
+			/* 기본 정보 */ 
+			.info { 
+				font-size: 1.25rem; 
+				line-height: 2.1rem; 
+				font-weight: 400; 
+				color: rgba(255,255,255,0.9); 
+				max-width: 520px; 
+				/* 봄 느낌 핵심 */ 
+				background: linear-gradient( 180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05) ); 
+				padding: 28px 34px; 
+				border-radius: 18px; 
+				backdrop-filter: blur(10px) saturate(120%); 
+				-webkit-backdrop-filter: blur(10px) saturate(120%); 
+				box-shadow: 0 20px 50px rgba(0,0,0,0.25); 
+				opacity: 0; 
+				animation: fadeIn 2s ease forwards; 
+				animation-delay: 3.5s; 
+			} 
 			
-			/* 강조 단어 */
-			.highlight {
-			  opacity: 0;
-			  animation: highlightFade 1.2s ease forwards;
-			}
+			/* 페이드인 애니메이션 */ 
+			@keyframes fadeIn { 
+				to { opacity: 1; } 
+			} 
 			
-			@keyframes highlightFade {
-			  from { opacity: 0; }
-			  to   { opacity: 1; }
-			}
+			/* 모바일 대응 */ 
+			@media (max-width: 480px) { 
+				.typing-text { 
+					font-size: 2rem; 
+				} 
+				.info { 
+					font-size: 1rem; 
+					line-height: 1.5rem; 
+				} 
+			} 
 			
-			/* blur 해제용 */
-			.content {
-			  transition: filter 1.5s ease;
-			}
-			
-			.content.blur {
-			  filter: brightness(0.3) blur(4px);
-			}
-
-    	</style>
+			/* 타이핑 텍스트 fade in/out */ 
+			@keyframes fadeInOut { 
+				0% { 
+					opacity: 0; transform: translateY(-20px); 
+				} 
+				10%, 80% { 
+					opacity: 1; transform: translateY(0); 
+				} 
+				100% { opacity: 0; transform: translateY(-20px); 
+				} 
+			} 
+		</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 
@@ -390,88 +415,48 @@
 
 			<script>
 			  const lines = [
-			    {
-			      text: "테스트 그리고 <span class='highlight'>테스트</span>",
-			      speed: 80,
-			      sound: true
-			    },
-			    {
-			      text: "우리 <span class='highlight'>테스트 합니다!</span>",
-			      speed: 130,
-			      sound: true
-			    }
+			    { text: "테스트 그리고 테스트", speed: 90 },
+			    { text: "우리 테스트 합니다!", speed: 140 }
 			  ];
 			
-			  const typing = document.getElementById("typing");
-			  const textEl = document.getElementById("text");
-			  const cursor = document.querySelector(".cursor");
+			  const typingElement = document.getElementById("typing");
 			  const content = document.getElementById("content");
-			  const sound = document.getElementById("typeSound");
 			
 			  let lineIndex = 0;
 			  let charIndex = 0;
-			  let currentText = "";
-			  let plainText = "";
 			
-			  function startTyping() {
+			  function startTypingEffect() {
 			    content.classList.add("blur");
-			    typing.style.opacity = 1;
-			    prepareLine();
-			    typeChar();
+			    typingElement.style.opacity = 1;
+			    typeLine();
 			  }
 			
-			  function prepareLine() {
-			    currentText = lines[lineIndex].text;
-			    plainText = currentText.replace(/<[^>]*>/g, "");
-			    charIndex = 0;
-			  }
+			  function typeLine() {
+			    const currentLine = lines[lineIndex];
 			
-			  function typeChar() {
-			    if (charIndex < plainText.length) {
-			      const nextChar = plainText.charAt(charIndex);
-			      textEl.innerHTML += nextChar;
-			
-			      if (lines[lineIndex].sound) {
-			        sound.currentTime = 0;
-			        sound.volume = 0.05;
-			        sound.play().catch(()=>{});
-			      }
-			
+			    if (charIndex < currentLine.text.length) {
+			      typingElement.innerHTML += currentLine.text.charAt(charIndex);
 			      charIndex++;
-			      setTimeout(typeChar, lines[lineIndex].speed);
+			      setTimeout(typeLine, currentLine.speed);
 			    } else {
-			      // 한 줄 끝 → 실제 HTML 다시 렌더 (강조 애니메이션)
-			      textEl.innerHTML = textEl.innerHTML.replace(
-			        plainText,
-			        currentText
-			      );
-			
-			      setTimeout(nextLine, 700);
+			      // 한 줄 끝 → 잠깐 멈춤
+			      setTimeout(() => {
+			        moveCursorToNextLine();
+			      }, 600);
 			    }
 			  }
 			
-			  function nextLine() {
+			  function moveCursorToNextLine() {
 			    lineIndex++;
+			    charIndex = 0;
 			
 			    if (lineIndex < lines.length) {
-			      textEl.innerHTML += "<br>";
-			      prepareLine();
-			      typeChar();
-			    } else {
-			      finishTyping();
+			      typingElement.innerHTML += "<br>";
+			      typeLine();
 			    }
 			  }
 			
-			  function finishTyping() {
-			    // 커서는 계속 깜빡임 유지
-			    setTimeout(() => {
-			      content.classList.remove("blur");
-			    }, 500);
-			  }
-			
-			  window.onload = startTyping;
+			  window.onload = startTypingEffect;
 			</script>
-
-
 	</body>
 </html>
