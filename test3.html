@@ -435,7 +435,8 @@
 			
 			    function type() {
 			      if (index < text.length) {
-			        const char = text.charAt(index);			
+			        const char = text.charAt(index);
+					typingElement.innerHTML += char;
 			        index++;
 			        setTimeout(type, 100);
 			      } else {
