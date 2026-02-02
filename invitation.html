@@ -17,6 +17,9 @@
 			
 			/* content 배경 + 블러/어둡게 */ 
 			.content { 
+				height: calc(var(--vh) * 100);
+				background-size: cover;
+				background-position: center;
 				position: relative;
 				display: flex; 
 				flex-direction: column; 
@@ -149,7 +152,7 @@
 
 		<!-- Main -->
 			<div id="main">	
-				<div id="content" class="content" style="height: 100dvh; background-image: url(/images_3/fulls/1_Studio/10.webp); background-size: cover;">
+				<div id="content" class="content" style="background-image: url(/images_3/fulls/1_Studio/10.webp);">
 				  <div class="info">
 				    <div>장 용 훈  &  윤 소 희</div>
 				    <div>2026년 4월 11일(토)</div>
@@ -619,6 +622,17 @@
 				
 				  scrollElements.forEach(el => observer.observe(el));
 				});
+			</script>
+
+			<script>
+			  function setScreenHeight() {
+			    const vh = window.innerHeight * 0.01;
+			    document.documentElement.style.setProperty('--vh', `${vh}px`);
+			  }
+			
+			  window.addEventListener('resize', setScreenHeight);
+			  window.addEventListener('orientationchange', setScreenHeight);
+			  setScreenHeight();
 			</script>
 	</body>
 </html>
