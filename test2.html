@@ -11,7 +11,9 @@
 	        #thumbnails article {
 	            width: 100%
 	        }
-			
+			#typing {
+			  white-space: pre-line;
+			}
 		  /* content 배경 + 블러/어둡게 */
 			.content {
 			  position: relative;
@@ -34,18 +36,18 @@
 			/* 타이핑 텍스트 - 배경보다 위에, 밝게 */
 			.typing-text {
 			  font-size: 3rem;
-			  font-weight: 800;
-			  color: #ffffff;
+			  font-weight: 600;
+			  color: rgba(255,255,255,0.95);
 			
-			  /* 텍스트 선명도 핵심 */
+			  letter-spacing: -0.01em;
+			
+			  /* 디자이너식 미세 쉐도우 */
 			  text-shadow:
-			    0 2px 4px rgba(0,0,0,0.6),
-			    0 0 15px rgba(0,0,0,0.8);
-			
-			  letter-spacing: 0.05em;
+			    0 1px 1px rgba(0,0,0,0.25),
+			    0 8px 30px rgba(0,0,0,0.35);
 			
 			  white-space: nowrap;
-			  border-right: 0.15em solid rgba(255,255,255,0.8);
+			  border-right: 2px solid rgba(255,255,255,0.6);
 			  overflow: hidden;
 			
 			  position: absolute;
@@ -55,28 +57,38 @@
 			  opacity: 0;
 			  z-index: 1000;
 			}
+
 			
 			/* 기본 정보 */
 			.info {
-			  font-size: 1.3rem;
-			  line-height: 2rem;
-			  color: #ffffff;
+			  font-size: 1.25rem;
+			  line-height: 2.1rem;
+			  font-weight: 400;
+			  color: rgba(255,255,255,0.9);
 			
-			  /* 자연 배경 대응 핵심 */
-			  background: rgba(0, 0, 0, 0.45);
-			  padding: 20px 30px;
-			  border-radius: 12px;
+			  max-width: 520px;
 			
-			  backdrop-filter: blur(6px);
-			  -webkit-backdrop-filter: blur(6px);
+			  /* 봄 느낌 핵심 */
+			  background: linear-gradient(
+			    180deg,
+			    rgba(255,255,255,0.18),
+			    rgba(255,255,255,0.05)
+			  );
 			
-			  /* 텍스트 또렷 */
-			  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+			  padding: 28px 34px;
+			  border-radius: 18px;
+			
+			  backdrop-filter: blur(10px) saturate(120%);
+			  -webkit-backdrop-filter: blur(10px) saturate(120%);
+			
+			  box-shadow:
+			    0 20px 50px rgba(0,0,0,0.25);
 			
 			  opacity: 0;
-			  animation: fadeIn 2s forwards;
+			  animation: fadeIn 2s ease forwards;
 			  animation-delay: 3.5s;
 			}
+
 			
 			/* 페이드인 애니메이션 */
 			@keyframes fadeIn {
