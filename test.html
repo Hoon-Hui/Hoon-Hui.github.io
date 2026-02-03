@@ -393,9 +393,7 @@
 			<script src="/assets_2/js/sakura.min.js"></script>
 			<script>
 			  //적용할 부분을 넣고 실행
-			  var sakura = new Sakura('#main', {
-  fallSpeed: 1
-});
+			  var sakura = new Sakura('#main');
 			</script>
 
 			<!--
@@ -655,14 +653,5 @@
 			  }
 			  window.addEventListener('load', setScreenHeightOnce);
 			</script>
-		<script>
-  window.__SAKURA_H = window.innerHeight;
-  window.addEventListener("resize", () => {
-    clearTimeout(window.__SAKURA_T);
-    window.__SAKURA_T = setTimeout(() => {
-      window.__SAKURA_H = window.innerHeight;
-    }, 300);
-  });
-</script>
 	</body>
 </html>
