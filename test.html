@@ -653,5 +653,14 @@
 			  }
 			  window.addEventListener('load', setScreenHeightOnce);
 			</script>
+		<script>
+  window.__SAKURA_H = window.innerHeight;
+  window.addEventListener("resize", () => {
+    clearTimeout(window.__SAKURA_T);
+    window.__SAKURA_T = setTimeout(() => {
+      window.__SAKURA_H = window.innerHeight;
+    }, 300);
+  });
+</script>
 	</body>
 </html>
