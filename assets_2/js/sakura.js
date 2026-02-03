@@ -203,7 +203,7 @@ Sakura.prototype.start = function () {
     throw new Error('Sakura is already running.');
   }
 };
-
+/*
 Sakura.prototype.stop = function () {
   var _this2 = this;
 
@@ -228,3 +228,4 @@ Sakura.prototype.stop = function () {
     }, this.settings.delay + 50);
   }
 };
+*/
