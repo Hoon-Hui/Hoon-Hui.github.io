@@ -395,6 +395,20 @@
 			  //적용할 부분을 넣고 실행
 			  var sakura = new Sakura('body');
 			</script>
+		<script>
+  let sakuraTimer = null;
+
+  window.addEventListener("resize", () => {
+    // 주소창 움직이는 동안 사쿠라 정지 (기존 잎 유지)
+    sakura.stop(true);
+
+    clearTimeout(sakuraTimer);
+    sakuraTimer = setTimeout(() => {
+      // 주소창 움직임 끝나면 다시 시작
+      sakura.start();
+    }, 400);
+  });
+</script>
 
 			<!--
 				2. 설치 스크립트
