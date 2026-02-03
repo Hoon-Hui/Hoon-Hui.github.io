@@ -295,6 +295,7 @@ input, select, textarea {
 		white-space: nowrap;
 	}
 
+		/*
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
@@ -303,6 +304,7 @@ input, select, textarea {
 			border-color: #00D3B7;
 			color: #00D3B7;
 		}
+		*/
 
 			input[type="submit"]:hover:active,
 			input[type="reset"]:hover:active,
@@ -1360,6 +1362,7 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
+
 
 
 
