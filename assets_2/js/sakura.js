@@ -173,7 +173,6 @@ var Sakura = function Sakura(selector, options) {
     petal.style.marginTop = "".concat(-(Math.floor(Math.random() * 20) + 15), "px");
     petal.style.width = "".concat(width, "px"); // Remove petals of which the animation ended.
 
-    /*
     PrefixedEvent(petal, 'AnimationEnd', function () {
       if (!elementInViewport(petal)) {
         petal.remove();
@@ -185,7 +184,6 @@ var Sakura = function Sakura(selector, options) {
         petal.remove();
       }
     }); // Added petals in weakMap by stamp
-  */
     
     _this.petalsWeak.set(Date.now(), petal); // Add the petal to the target element.
 
@@ -205,7 +203,7 @@ Sakura.prototype.start = function () {
     throw new Error('Sakura is already running.');
   }
 };
-/*
+
 Sakura.prototype.stop = function () {
   var _this2 = this;
 
@@ -230,4 +228,3 @@ Sakura.prototype.stop = function () {
     }, this.settings.delay + 50);
   }
 };
-*/
