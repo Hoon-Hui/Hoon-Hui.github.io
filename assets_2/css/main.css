@@ -3261,7 +3261,7 @@ input, select, textarea {
 			-webkit-animation: none;
 			-ms-animation: none;
 			animation: none;
-			background-color: transparent;
+			/* background-color: transparent; */
 			box-shadow: none;
 			position: absolute;
 		}
@@ -3989,6 +3989,7 @@ input, select, textarea {
 	opacity: 1;
 	top: 7px;
 }
+
 
 
 
