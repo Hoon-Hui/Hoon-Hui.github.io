@@ -395,14 +395,18 @@
 			  let sakuraInstance = null;
 			
 			  function initSakuraOnce() {
-			    if (sakuraInstance) return; // 이미 생성됐으면 끝
+			    if (sakuraInstance) return;
 			
 			    sakuraInstance = new Sakura('body');
+			
+			    // resize / orientationchange 완전 차단
+			    window.onresize = null;
+			    window.onorientationchange = null;
 			  }
 			
-			  // 최초 로드 시 한 번만 실행
 			  window.addEventListener('load', initSakuraOnce);
 			</script>
+
 
 			<!--
 				2. 설치 스크립트
