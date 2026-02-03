@@ -654,8 +654,17 @@
 			  window.addEventListener('load', setScreenHeightOnce);
 			</script>
 		<script>
-  const FIXED_VIEWPORT_HEIGHT = window.innerHeight;
-  const FIXED_VIEWPORT_WIDTH  = window.innerWidth;
+(function () {
+  const originalRemove = Element.prototype.remove;
+
+  Element.prototype.remove = function () {
+    if (this.classList && this.classList.contains('sakura')) {
+      return; // sakura는 viewport 판별로 제거 금지
+    }
+    return originalRemove.call(this);
+  };
+})();
 </script>
+
 	</body>
 </html>
