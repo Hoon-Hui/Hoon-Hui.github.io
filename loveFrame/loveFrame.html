@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="/assets_2/css/main.css" />
 		<noscript><link rel="stylesheet" href="/assets_2/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="/assets_2/css/sakura.min.css">
+		<link rel="prefetch" href="assets/js/images.json" as="fetch">
 	</head>
 	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 		<!-- Wrapper -->
@@ -134,5 +135,18 @@
 			  audio.pause();
 			});
 		</script>
+		<script>
+		    document.addEventListener('DOMContentLoaded', () => {
+		      fetch('assets/js/images.json', { cache: 'force-cache' })
+		        .then(res => res.json())
+		        .then(images => {
+		          images.forEach(src => {
+		            const img = new Image();
+		            img.loading = 'eager';
+		            img.src = src;
+		          });
+		        });
+		    });
+		  </script>  
 	</body>
 </html>
