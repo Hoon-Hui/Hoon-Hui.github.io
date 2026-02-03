@@ -3762,7 +3762,7 @@ input, select, textarea {
 		-webkit-transition: -webkit-filter 0.05s ease, -webkit-filter 0.05s ease, opacity 0.075s ease-out;
 		-ms-transition: -ms-filter 0.05s ease, -webkit-filter 0.05s ease, opacity 0.075s ease-out;
 		transition: filter 0.05s ease, -webkit-filter 0.05s ease, opacity 0.075s ease-out;
-		padding-top: 3.25em;
+		/* padding-top: 3.25em; */
 	}
 
 		#wrapper.is-transitioning {
@@ -3784,7 +3784,7 @@ input, select, textarea {
 				}
 
 			}
-
+		/*
 		@media screen and (max-width: 736px) {
 
 			#wrapper {
@@ -3792,6 +3792,7 @@ input, select, textarea {
 			}
 
 		}
+		*/
 
 /* Menu */
 
@@ -3988,6 +3989,7 @@ input, select, textarea {
 	opacity: 1;
 	top: 7px;
 }
+
 
 
 
