@@ -273,4 +273,4 @@
 
 .sakura {
   pointer-events: none;
-  position: absolute; }
+  position: fixed; }
