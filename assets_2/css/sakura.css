@@ -13,23 +13,23 @@
   0% {
     opacity: 0.9;
     /* top: 0; */
-    transform: translateY(0);
+    margin-top: 0;
   }
   100% {
     opacity: 0.2;
     /* top: 100%; */
-transform: translateY(110vh);} }
+margin-top: 110vh;} }
 
 @keyframes fall {
   0% {
     opacity: 0.9;
     /* top: 0; */ 
-    transform: translateY(0);
+    margin-top: 0;
   }
   100% {
     opacity: 0.2;
     /* top: 100%; */
-  transform: translateY(110vh);} }
+  margin-top: 110vh;} }
 
 @-webkit-keyframes blow-soft-left {
   0% {
