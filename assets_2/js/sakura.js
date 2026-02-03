@@ -173,6 +173,7 @@ var Sakura = function Sakura(selector, options) {
     petal.style.marginTop = "".concat(-(Math.floor(Math.random() * 20) + 15), "px");
     petal.style.width = "".concat(width, "px"); // Remove petals of which the animation ended.
 
+    /*
     PrefixedEvent(petal, 'AnimationEnd', function () {
       if (!elementInViewport(petal)) {
         petal.remove();
@@ -184,7 +185,8 @@ var Sakura = function Sakura(selector, options) {
         petal.remove();
       }
     }); // Added petals in weakMap by stamp
-
+  */
+    
     _this.petalsWeak.set(Date.now(), petal); // Add the petal to the target element.
 
 
