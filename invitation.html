@@ -29,16 +29,6 @@
 				padding: 20px; 
 				transition: filter 0.5s; /* 블러/밝기 애니메이션 */ 
 			}
-			.bg-img {
-			  position: fixed;        /* ← 핵심 */
-			  top: 0;
-			  left: 0;
-			  width: 100vw;
-			  height: calc(var(--vh) * 100);
-			  object-fit: cover;
-			  z-index: -1;
-			  will-change: transform;
-			}
 			
 			/* 블러 + 어둡게 효과 */ 
 			.content.blur { 
@@ -162,8 +152,7 @@
 
 		<!-- Main -->
 			<div id="main">	
-				<div id="content" class="content">
-				  <img src="/images_3/fulls/1_Studio/10.webp" class="bg-img" />
+				<div id="content" class="content" style="background-image: url(/images_3/fulls/1_Studio/10.webp);">
 				  <div class="info">
 				    <div>장 용 훈  &  윤 소 희</div>
 				    <div>2026년 4월 11일(토)</div>
@@ -636,14 +625,11 @@
 			</script>
 
 			<script>
-			  function setScreenHeight() {
+			  function setScreenHeightOnce() {
 			    const vh = window.innerHeight * 0.01;
 			    document.documentElement.style.setProperty('--vh', `${vh}px`);
 			  }
-			
-			  window.addEventListener('resize', setScreenHeight);
-			  window.addEventListener('orientationchange', setScreenHeight);
-			  setScreenHeight();
+			  window.addEventListener('load', setScreenHeightOnce);
 			</script>
 	</body>
 </html>
