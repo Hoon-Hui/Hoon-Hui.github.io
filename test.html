@@ -161,6 +161,8 @@
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 
 		<!-- Main -->
+			<div id="sakura-layer"></div>
+
 			<div id="main">	
 				<div id="content" class="content" style="background-image: url(/images_3/fulls/1_Studio/10.webp);">
 				  <div class="info" style="letter-spacing: 0.07rem;">
@@ -392,22 +394,27 @@
 
 			<script src="/assets_2/js/sakura.min.js"></script>
 			<script>
-			  //적용할 부분을 넣고 실행
-			  var sakura = new Sakura('body');
-			</script>
-		<script>
-  let sakuraTimer = null;
+  const sakuraLayer = document.getElementById('sakura-layer');
 
-  window.addEventListener("resize", () => {
-    // 주소창 움직이는 동안 사쿠라 정지 (기존 잎 유지)
-    sakura.stop(true);
+  function updateSakuraLayer() {
+    sakuraLayer.style.position = 'absolute';
+    sakuraLayer.style.top = window.scrollY + 'px'; // 스크롤 위치 맞춤
+    sakuraLayer.style.left = '0';
+    sakuraLayer.style.width = '100%';
+    sakuraLayer.style.height = window.innerHeight + 'px';
+    sakuraLayer.style.pointerEvents = 'none';
+    sakuraLayer.style.zIndex = '9999';
+  }
 
-    clearTimeout(sakuraTimer);
-    sakuraTimer = setTimeout(() => {
-      // 주소창 움직임 끝나면 다시 시작
-      sakura.start();
-    }, 400);
-  });
+  // 처음 적용
+  updateSakuraLayer();
+
+  // 사쿠라 실행
+  const sakura = new Sakura(sakuraLayer);
+
+  // 스크롤마다 레이어 위치 업데이트
+  window.addEventListener('scroll', updateSakuraLayer);
+  window.addEventListener('resize', updateSakuraLayer);
 </script>
 
 			<!--
