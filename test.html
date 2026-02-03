@@ -393,7 +393,7 @@
 			<script src="/assets_2/js/sakura.min.js"></script>
 			<script>
 			  //적용할 부분을 넣고 실행
-			  var sakura = new Sakura('body');
+			  var sakura = new Sakura('#main');
 			</script>
 
 			<!--
@@ -653,18 +653,5 @@
 			  }
 			  window.addEventListener('load', setScreenHeightOnce);
 			</script>
-		<script>
-(function () {
-  const originalRemove = Element.prototype.remove;
-
-  Element.prototype.remove = function () {
-    if (this.classList && this.classList.contains('sakura')) {
-      return; // sakura는 viewport 판별로 제거 금지
-    }
-    return originalRemove.call(this);
-  };
-})();
-</script>
-
 	</body>
 </html>
