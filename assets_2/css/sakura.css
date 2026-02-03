@@ -12,7 +12,9 @@
 @-webkit-keyframes fall {
   0% {
     opacity: 0.9;
-    /* top: 0; */ }
+    /* top: 0; */
+    transform: translateY(0);
+  }
   100% {
     opacity: 0.2;
     top: 100%; } }
@@ -20,7 +22,9 @@
 @keyframes fall {
   0% {
     opacity: 0.9;
-    /* top: 0; */ }
+    /* top: 0; */ 
+    transform: translateY(0);
+  }
   100% {
     opacity: 0.2;
     top: 100%; } }
