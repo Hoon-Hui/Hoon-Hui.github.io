@@ -137,7 +137,7 @@
 		</script>
 		<script>
 		    document.addEventListener('DOMContentLoaded', () => {
-		      fetch('assets/js/images.json', { cache: 'force-cache' })
+		      fetch('/assets/js/images.json', { cache: 'force-cache' })
 		        .then(res => res.json())
 		        .then(images => {
 		          images.forEach(src => {
