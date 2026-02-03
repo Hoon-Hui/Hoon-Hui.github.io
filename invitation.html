@@ -392,21 +392,36 @@
 
 			<script src="/assets_2/js/sakura.min.js"></script>
 			<script>
-			  let sakuraInstance = null;
+			  (function lockViewportSizeForSakura() {
+			    const fixedWidth = document.documentElement.clientWidth;
+			    const fixedHeight = document.documentElement.clientHeight;
 			
-			  function initSakuraOnce() {
-			    if (sakuraInstance) return;
+			    // documentElement.clientWidth / clientHeight 고정
+			    Object.defineProperty(document.documentElement, 'clientWidth', {
+			      get() {
+			        return fixedWidth;
+			      }
+			    });
 			
-			    sakuraInstance = new Sakura('body');
+			    Object.defineProperty(document.documentElement, 'clientHeight', {
+			      get() {
+			        return fixedHeight;
+			      }
+			    });
 			
-			    // resize / orientationchange 완전 차단
-			    window.onresize = null;
-			    window.onorientationchange = null;
-			  }
-			
-			  window.addEventListener('load', initSakuraOnce);
+			    // window.innerHeight도 같이 고정 (fallSpeed 계산용)
+			    Object.defineProperty(window, 'innerHeight', {
+			      get() {
+			        return fixedHeight;
+			      }
+			    });
+			  })();
 			</script>
 
+			<script>
+			  //적용할 부분을 넣고 실행
+			  var sakura = new Sakura('body');
+			</script>
 
 			<!--
 				2. 설치 스크립트
