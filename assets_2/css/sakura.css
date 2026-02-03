@@ -277,6 +277,7 @@
 
 .sakura {
   pointer-events: none;
-  position: absolute; 
+  /* position: absolute; */
+  position: fixed;
   z-index: 99999;
 }
