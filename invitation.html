@@ -392,8 +392,18 @@
 
 			<script src="/assets_2/js/sakura.min.js"></script>
 			<script>
-				var sakura = new Sakura('body');
+			  let sakuraInstance = null;
+			
+			  function initSakuraOnce() {
+			    if (sakuraInstance) return; // 이미 생성됐으면 끝
+			
+			    sakuraInstance = new Sakura('body');
+			  }
+			
+			  // 최초 로드 시 한 번만 실행
+			  window.addEventListener('load', initSakuraOnce);
 			</script>
+
 			<!--
 				2. 설치 스크립트
 				* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
