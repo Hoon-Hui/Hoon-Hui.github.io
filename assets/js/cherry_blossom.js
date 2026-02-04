@@ -61,10 +61,32 @@ const petalGen = () => {
     }).appendTo($wrap);
 
     // 위치 업데이트 함수
+    /*
     const updatePos = () => {
         petal.css('left', `+=${horizontalOffset}`);
         requestAnimationFrame(updatePos);
     };
+    */
+    const updatePos = () => {
+    if (!document.body.contains(petal[0])) return;
+
+    const rect = petal[0].getBoundingClientRect();
+
+    // 아래로 벗어나면 제거
+    if (rect.top > window.innerHeight + 50) {
+        petal.remove();
+        return;
+    }
+
+    // 좌우 범위 clamp
+    let newLeft = rect.left + horizontalOffset;
+    if (newLeft < 0) newLeft = 0;
+    if (newLeft + size > window.innerWidth) newLeft = window.innerWidth - size;
+
+    petal.css('left', newLeft + 'px');
+
+    requestAnimationFrame(updatePos);
+};
 
     updatePos();
     applySwayAnim(petal);
