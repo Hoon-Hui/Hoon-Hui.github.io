@@ -62,7 +62,27 @@ const petalGen = () => {
     }).appendTo($wrap);
 
     // 위치 업데이트 함수
+    /*
     const updatePos = () => {
+        petal.css('left', `+=${horizontalOffset}`);
+        requestAnimationFrame(updatePos);
+    };*/
+    const updatePos = () => {
+        // 이미 제거된 요소면 중단
+        if (!document.body.contains(petal[0])) return;
+
+        const rect = petal[0].getBoundingClientRect();
+
+        // 화면 밖으로 나가기 직전이면 제거
+        if (
+            rect.top > window.innerHeight + 50 ||   // 아래로 벗어남
+            rect.left < -50 ||                      // 왼쪽 벗어남
+            rect.right > window.innerWidth + 50     // 오른쪽 벗어남
+        ) {
+            petal.remove();
+            return;
+        }
+
         petal.css('left', `+=${horizontalOffset}`);
         requestAnimationFrame(updatePos);
     };
