@@ -2,7 +2,7 @@
     overflow: hidden;
     position: fixed;
     width: 100vw;
-    height: 100dvh;
+    height: 800px;
     perspective: 1000px;
     z-index: 100000;
     pointer-events: none;
