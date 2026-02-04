@@ -77,8 +77,6 @@ $(window).resize(() => {
 });
 
 // 로딩 완료 후 벚꽃 잎 생성 시작
-/*
 $(window).on('load', () => {
     requestAnimationFrame(petalGen);
 });
-*/
