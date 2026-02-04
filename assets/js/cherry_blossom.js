@@ -1,16 +1,15 @@
 // 기본 값 설정
 const defaults = {
-    speed: 1,
+    speed: 5,
     maxSize: 15,
     minSize: 10,
-    newOn: 300
+    newOn: 400
 };
 
 // 벚꽃 영역 크기를 저장할 변수
-var $wrap = $('body');
-
-let wrapH = window.innerHeight;
-let wrapW = window.innerWidth;
+var $wrap = $('.cherry_blossom');
+let wrapH = $wrap.height();
+let wrapW = $wrap.width();
 
 // 벚꽃 잎 생성
 const $petal = $('<span class="petal"></span>');
@@ -44,7 +43,8 @@ const petalGen = () => {
 
     const petal = $petal.clone();
     const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
-    const startPosLeft = Math.random() * (wrapW - size);
+    const startPosLeft = Math.random() * wrapW;
+    /* const fallTime = (wrapH * 0.1 + Math.random() * 5) / defaults.speed; */
     const fallTime = 5 + Math.random() * 5;
     const horizontalOffset = Math.random() * 2 - 1;
 
@@ -54,29 +54,14 @@ const petalGen = () => {
     }).css({
         width: size,
         height: size,
-        left: `${startPosLeft}px`,
+        left: startPosLeft,
         position: 'absolute',
         animation: `fall ${fallTime}s linear`
     }).appendTo($wrap);
 
     // 위치 업데이트 함수
     const updatePos = () => {
-        if (!document.body.contains(petal[0])) return;
-
-        const currentLeft = parseFloat(petal.css('left')) || 0;
-        petal.css('left', `${currentLeft + horizontalOffset}px`);
-
-        const rect = petal[0].getBoundingClientRect();
-
-        if (
-            rect.top > window.innerHeight + 50 ||
-            rect.left < -50 ||
-            rect.right > window.innerWidth + 50
-        ) {
-            petal.remove();
-            return;
-        }
-
+        petal.css('left', `+=${horizontalOffset}`);
         requestAnimationFrame(updatePos);
     };
 
@@ -86,8 +71,8 @@ const petalGen = () => {
 
 // 창 크기가 변경될 때 영역 크기 업데이트
 $(window).resize(() => {
-    wrapH = window.innerHeight;
-    wrapW = window.innerWidth;
+    wrapH = $wrap.height();
+    wrapW = $wrap.width();
 });
 
 // 로딩 완료 후 벚꽃 잎 생성 시작
