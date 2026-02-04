@@ -11,7 +11,7 @@ const defaults = {
 var $wrap = $('body');
 let wrapH = $wrap.height();
 /* let wrapW = $wrap.width(); */
-let wrapW = 100%;
+let wrapW = window.innerWidth;
 
 // 벚꽃 잎 생성
 const $petal = $('<span class="petal"></span>');
