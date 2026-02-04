@@ -8,13 +8,9 @@ const defaults = {
 
 // 벚꽃 영역 크기를 저장할 변수
 var $wrap = $('.cherry_blossom');
-const wrapRect = $wrap[0].getBoundingClientRect();
-const wrapW = wrapRect.width;
-//const wrapH = wrapRect.height;
-/*
 let wrapH = $wrap.height();
 let wrapW = $wrap.width();
-*/
+
 // 벚꽃 잎 생성
 const $petal = $('<span class="petal"></span>');
 
@@ -48,8 +44,8 @@ const petalGen = () => {
     const petal = $petal.clone();
     const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
     const startPosLeft = Math.random() * wrapW;
-    /* const fallTime = (wrapH * 0.1 + Math.random() * 5) / defaults.speed; */
-    const fallTime = 5 + Math.random() * 5;
+    const fallTime = (wrapH * 0.1 + Math.random() * 5) / defaults.speed;
+    /* const fallTime = 5 + Math.random() * 5; */
     const horizontalOffset = Math.random() * 2 - 1;
 
     // 애니메이션 끝나면 제거
@@ -59,8 +55,7 @@ const petalGen = () => {
         width: size,
         height: size,
         left: startPosLeft,
-        top: 0,
-        //position: 'absolute',
+        position: 'absolute',
         animation: `fall ${fallTime}s linear`
     }).appendTo($wrap);
 
@@ -75,12 +70,11 @@ const petalGen = () => {
 };
 
 // 창 크기가 변경될 때 영역 크기 업데이트
-/*
 $(window).resize(() => {
     wrapH = $wrap.height();
     wrapW = $wrap.width();
 });
-*/
+
 // 로딩 완료 후 벚꽃 잎 생성 시작
 $(window).on('load', () => {
     requestAnimationFrame(petalGen);
