@@ -1,15 +1,24 @@
+/*
 .cherry_blossom {
     overflow-x: hidden;
     position: absolute;
     width: 100vw;
     height: 100%;
-    /*
-    background: url('sakura.png') center center no-repeat;
-    background-size: cover;
-    */
     perspective: 1000px;
     z-index: 100000;
     pointer-events: none;
+}
+*/
+
+.cherry_blossom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow-x: hidden;
+  z-index: 100000;
 }
 
 .cherry_blossom .petal {
