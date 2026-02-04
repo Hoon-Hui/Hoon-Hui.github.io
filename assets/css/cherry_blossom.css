@@ -16,7 +16,6 @@
     position: absolute;
     background: linear-gradient(-45deg, #ffb6c1 0%, #ffc5d0 40%, #ffdfe6 80%);
     border-radius: 10% 50% 40% 50%;
-    z-index: 100000;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
     pointer-events: none;
     transform-style: preserve-3d;
