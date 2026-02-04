@@ -826,7 +826,7 @@ button,
   #signup-form > * {
     margin: 0 0 0 1em; }
   #signup-form > :first-child {
-    margin: 0 0 0 0; padding: 0.5em }
+    margin: 0 0 0 0; padding: 1em }
   @media screen and (max-width: 480px) {
     #signup-form {
       -moz-flex-direction: column;
