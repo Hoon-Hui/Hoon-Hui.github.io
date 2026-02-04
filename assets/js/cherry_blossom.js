@@ -3,7 +3,7 @@ const defaults = {
     speed: 5,
     maxSize: 15,
     minSize: 10,
-    newOn: 40000
+    newOn: 150
 };
 
 // 벚꽃 영역 크기를 저장할 변수
