@@ -70,11 +70,12 @@ const petalGen = () => {
 };
 
 // 창 크기가 변경될 때 영역 크기 업데이트
+/*
 $(window).resize(() => {
     wrapH = $wrap.height();
     wrapW = $wrap.width();
 });
-
+*/
 // 로딩 완료 후 벚꽃 잎 생성 시작
 $(window).on('load', () => {
     requestAnimationFrame(petalGen);
