@@ -194,18 +194,22 @@ $(window).on('load', () => {
 });
 
 const spinXOnce = (element) => {
-    element.css('animation', 'spinXOnce 1s linear');
-    element.one('animationend', () => {
-        element.css('animation', '');
+    element.css({
+        transition: 'transform 1s linear',
+        transform: 'rotateX(360deg)'
     });
+
+    setTimeout(() => {
+        element.css('transform', 'rotateX(0deg)');
+    }, 1000);
 };
 
 const startXSpinLoop = (element) => {
     const loop = () => {
         spinXOnce(element);
-        const delay = 1000 + Math.random() * 500; // 1~1.5초
+        const delay = 1000 + Math.random() * 500;
         setTimeout(loop, delay);
     };
 
-    setTimeout(loop, 1000); // 첫 회전은 1초 후
+    setTimeout(loop, 1000);
 };
