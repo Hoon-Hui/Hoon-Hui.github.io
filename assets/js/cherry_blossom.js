@@ -10,7 +10,7 @@ const defaults = {
 var $wrap = $('.cherry_blossom');
 const wrapRect = $wrap[0].getBoundingClientRect();
 const wrapW = wrapRect.width;
-const wrapH = wrapRect.height;
+//const wrapH = wrapRect.height;
 /*
 let wrapH = $wrap.height();
 let wrapW = $wrap.width();
@@ -59,8 +59,8 @@ const petalGen = () => {
         width: size,
         height: size,
         left: startPosLeft,
-        top: -size,
-        position: 'absolute',
+        top: 0,
+        //position: 'absolute',
         animation: `fall ${fallTime}s linear`
     }).appendTo($wrap);
 
@@ -84,14 +84,4 @@ $(window).resize(() => {
 // 로딩 완료 후 벚꽃 잎 생성 시작
 $(window).on('load', () => {
     requestAnimationFrame(petalGen);
-});
-let lastScrollY = 0;
-
-window.addEventListener('scroll', () => {
-  lastScrollY = window.scrollY;
-
-  $('.cherry_blossom').css(
-    'transform',
-    `translateY(${lastScrollY}px)`
-  );
 });
