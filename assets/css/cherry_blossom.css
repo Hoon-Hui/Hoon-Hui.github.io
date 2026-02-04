@@ -1,7 +1,7 @@
 .cherry_blossom {
-    overflow-x: hidden;
-    position: absolute;
-    /* width: 100vw; */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
     height: 100%;
     perspective: 1000px;
     z-index: 100000;
