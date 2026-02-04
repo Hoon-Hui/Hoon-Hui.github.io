@@ -48,7 +48,8 @@ const petalGen = () => {
 
     const petal = $petal.clone();
     const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
-    const startPosLeft = Math.random() * wrapW;
+    /*const startPosLeft = Math.random() * wrapW;*/
+    const startPosLeft = Math.random() * (wrapW - size);
     /* const fallTime = (wrapH * 1000 + Math.random() * 0.1) / defaults.speed; */
     const fallTime = 5 + Math.random() * 5;
     const horizontalOffset = Math.random() * 2 - 1;
@@ -71,24 +72,28 @@ const petalGen = () => {
         requestAnimationFrame(updatePos);
     };
     */
-    const updatePos = () => {
-    if (!document.body.contains(petal[0])) return;
-
-    petal.css('left', `+=${horizontalOffset}`);
-
-    const rect = petal[0].getBoundingClientRect();
-
-    if (
-        rect.top > window.innerHeight + 50 ||
-        rect.left < -50 ||
-        rect.right > window.innerWidth + 50
-    ) {
-        petal.remove();
-        return;
-    }
-
-    requestAnimationFrame(updatePos);
-};
+    cconst updatePos = () => {
+        if (!document.body.contains(petal[0])) return;
+    
+        // 현재 left 값 가져오기 (px)
+        const currentLeft = parseFloat(petal.css('left')) || 0;
+    
+        // left 업데이트 (px 단위)
+        petal.css('left', `${currentLeft + horizontalOffset}px`);
+    
+        const rect = petal[0].getBoundingClientRect();
+    
+        if (
+            rect.top > window.innerHeight + 50 ||
+            rect.left < -50 ||
+            rect.right > window.innerWidth + 50
+        ) {
+            petal.remove();
+            return;
+        }
+    
+        requestAnimationFrame(updatePos);
+    };    
 
     updatePos();
     applySwayAnim(petal);
