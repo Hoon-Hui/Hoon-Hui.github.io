@@ -7,20 +7,9 @@
 		<link rel="stylesheet" href="assets_3/css/main.css" />
 		<link rel="stylesheet" href="assets_4/css/main2.css" />
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
-		<link rel="stylesheet" href="/assets_2/css/sakura.min.css">
 		<style>
 			#viewer .slide .image {
 				background-size: auto 85% !important; 
-			}
-			.sakura {
-			  pointer-events: none;
-			  position: fixed;
-			  z-index: 99999999;
-			}
-			#sakura-layer {
-			  pointer-events: none;
-			  position: fixed;
-			  z-index: 99999999;
 			}
 			@font-face {
 			    font-family: 'Baby_love';
@@ -166,8 +155,6 @@
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 
 		<!-- Main -->
-			<div id="sakura-layer"></div>
-
 			<div id="main">	
 				<div id="content" class="content" style="background-image: url(/images_3/fulls/1_Studio/10.webp);">
 				  <div class="info" style="letter-spacing: 0.07rem;">
@@ -396,34 +383,6 @@
 			<script src="assets_4/js/jquery.scrolly.min.js"></script>
 			<script src="assets_4/js/util.js"></script>
 			<script src="assets_4/js/main.js"></script>
-
-			<script src="/assets_2/js/sakura.min.js"></script>
-			<script>
-  const sakuraLayer = document.getElementById('sakura-layer');
-
-  function updateSakuraLayer() {
-    sakuraLayer.style.position = 'absolute';
-    sakuraLayer.style.top = window.scrollY + 'px'; // 스크롤 위치 맞춤
-    sakuraLayer.style.left = '0';
-    sakuraLayer.style.width = '100%';
-    sakuraLayer.style.height = window.innerHeight + 'px';
-    sakuraLayer.style.pointerEvents = 'none';
-    sakuraLayer.style.zIndex = '9999';
-  }
-
-  // 처음 적용
-  updateSakuraLayer();
-
-  // 사쿠라 실행
-  const sakura = new Sakura(sakuraLayer);
-
-  // 스크롤마다 레이어 위치 업데이트
-  window.addEventListener('scroll', updateSakuraLayer);
-  window.addEventListener('resize', updateSakuraLayer);
-</script>
-		<script>
-  new Sakura('#sakura-layer'); // 직접 만든 div에 꽃잎
-</script>
 
 			<!--
 				2. 설치 스크립트
