@@ -68,23 +68,21 @@ const petalGen = () => {
     };
     */
     const updatePos = () => {
+    // 이미 제거된 요소면 중단
     if (!document.body.contains(petal[0])) return;
-
+    // 좌표 업데이트
+    petal.css('left', `+=${horizontalOffset}`);
+    // 현재 위치 확인
     const rect = petal[0].getBoundingClientRect();
-
-    // 아래로 벗어나면 제거
-    if (rect.top > window.innerHeight + 50) {
+    // 화면 밖으로 나가면 삭제
+    if (
+        rect.top > window.innerHeight + 50 ||   // 아래로 벗어남
+        rect.left < -50 ||                      // 왼쪽 벗어남
+        rect.right > window.innerWidth + 50     // 오른쪽 벗어남
+    ) {
         petal.remove();
         return;
     }
-
-    // 좌우 범위 clamp
-    let newLeft = rect.left + horizontalOffset;
-    if (newLeft < 0) newLeft = 0;
-    if (newLeft + size > window.innerWidth) newLeft = window.innerWidth - size;
-
-    petal.css('left', newLeft + 'px');
-
     requestAnimationFrame(updatePos);
 };
 
