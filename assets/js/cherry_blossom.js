@@ -10,7 +10,8 @@ const defaults = {
 /* var $wrap = $('.cherry_blossom'); */
 var $wrap = $('body');
 let wrapH = $wrap.height();
-let wrapW = $wrap.width();
+/* let wrapW = $wrap.width(); */
+let wrapW = 100%;
 
 // 벚꽃 잎 생성
 const $petal = $('<span class="petal"></span>');
