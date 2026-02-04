@@ -46,7 +46,7 @@ const petalGen = () => {
     const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
     const startPosLeft = Math.random() * wrapW;
     /* const fallTime = (wrapH * 1000 + Math.random() * 0.1) / defaults.speed; */
-    const fallTime = 10 + Math.random();
+    const fallTime = 5 + Math.random() * 5;
     const horizontalOffset = Math.random() * 2 - 1;
 
     // 애니메이션 끝나면 제거
