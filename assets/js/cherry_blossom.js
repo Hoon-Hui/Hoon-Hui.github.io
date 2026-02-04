@@ -1,6 +1,6 @@
 // 기본 값 설정
 const defaults = {
-    speed: 0.07,
+    speed: 3,
     maxSize: 15,
     minSize: 10,
     newOn: 300
@@ -45,7 +45,7 @@ const petalGen = () => {
     const petal = $petal.clone();
     const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
     const startPosLeft = Math.random() * wrapW;
-    const fallTime = (wrapH * 0.01 + Math.random()) / defaults.speed;
+    const fallTime = (wrapH * 0.01 + Math.random() * 30) / defaults.speed;
     const horizontalOffset = Math.random() * 2 - 1;
 
     // 애니메이션 끝나면 제거
