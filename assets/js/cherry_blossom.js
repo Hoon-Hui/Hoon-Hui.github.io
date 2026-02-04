@@ -7,12 +7,8 @@ const defaults = {
 };
 
 // 벚꽃 영역 크기를 저장할 변수
-/* var $wrap = $('.cherry_blossom'); */
 var $wrap = $('body');
-/*
-let wrapH = $wrap.height();
-let wrapW = $wrap.width();
-*/
+
 let wrapH = window.innerHeight;
 let wrapW = window.innerWidth;
 
@@ -48,9 +44,7 @@ const petalGen = () => {
 
     const petal = $petal.clone();
     const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
-    /*const startPosLeft = Math.random() * wrapW;*/
     const startPosLeft = Math.random() * (wrapW - size);
-    /* const fallTime = (wrapH * 1000 + Math.random() * 0.1) / defaults.speed; */
     const fallTime = 5 + Math.random() * 5;
     const horizontalOffset = Math.random() * 2 - 1;
 
@@ -60,29 +54,20 @@ const petalGen = () => {
     }).css({
         width: size,
         height: size,
-        left: startPosLeft,
+        left: `${startPosLeft}px`,
         position: 'absolute',
         animation: `fall ${fallTime}s linear`
     }).appendTo($wrap);
 
     // 위치 업데이트 함수
-    /*
     const updatePos = () => {
-        petal.css('left', `+=${horizontalOffset}`);
-        requestAnimationFrame(updatePos);
-    };
-    */
-    cconst updatePos = () => {
         if (!document.body.contains(petal[0])) return;
-    
-        // 현재 left 값 가져오기 (px)
+
         const currentLeft = parseFloat(petal.css('left')) || 0;
-    
-        // left 업데이트 (px 단위)
         petal.css('left', `${currentLeft + horizontalOffset}px`);
-    
+
         const rect = petal[0].getBoundingClientRect();
-    
+
         if (
             rect.top > window.innerHeight + 50 ||
             rect.left < -50 ||
@@ -91,22 +76,20 @@ const petalGen = () => {
             petal.remove();
             return;
         }
-    
+
         requestAnimationFrame(updatePos);
-    };    
+    };
 
     updatePos();
     applySwayAnim(petal);
 };
 
 // 창 크기가 변경될 때 영역 크기 업데이트
-/*
 $(window).resize(() => {
-    wrapH = $wrap.height();
-    wrapW = $wrap.width();
+    wrapH = window.innerHeight;
+    wrapW = window.innerWidth;
 });
 
-*/
 // 로딩 완료 후 벚꽃 잎 생성 시작
 $(window).on('load', () => {
     requestAnimationFrame(petalGen);
