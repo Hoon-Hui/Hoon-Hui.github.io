@@ -1,6 +1,6 @@
 // 기본 값 설정
 const defaults = {
-    speed: 0.3,
+    speed: 0.07,
     maxSize: 15,
     minSize: 10,
     newOn: 300
