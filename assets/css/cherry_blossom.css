@@ -6,6 +6,7 @@
     background: url('sakura.png') center center no-repeat;
     background-size: cover;
     perspective: 1000px;
+    z-index: 99999;
 }
 
 .cherry_blossom .petal {
