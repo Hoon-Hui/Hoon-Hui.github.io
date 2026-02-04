@@ -7,7 +7,8 @@ const defaults = {
 };
 
 // 벚꽃 영역 크기를 저장할 변수
-var $wrap = $('.cherry_blossom');
+/* var $wrap = $('.cherry_blossom'); */
+var $wrap = $('body');
 let wrapH = $wrap.height();
 let wrapW = $wrap.width();
 
@@ -75,6 +76,8 @@ $(window).resize(() => {
 });
 
 // 로딩 완료 후 벚꽃 잎 생성 시작
+/*
 $(window).on('load', () => {
     requestAnimationFrame(petalGen);
 });
+*/
