@@ -8,7 +8,7 @@ const defaults = {
 
 // 벚꽃 영역 크기를 저장할 변수
 /* var $wrap = $('.cherry_blossom'); */
-var $wrap = $('body');
+var $wrap = $('#main');
 let wrapH = $wrap.height();
 let wrapW = $wrap.width();
 
