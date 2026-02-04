@@ -1,16 +1,18 @@
+/*
 .cherry_blossom {
-    /* overflow: hidden; */
-    /* position: relative; */
-    position: pixed;
+    overflow: hidden;
+    position: relative;
     width: 100%;
     height: 100%;
-    /* background: url('sakura.png') center center no-repeat; */
-    /* background-size: cover; */
+    background: url('sakura.png') center center no-repeat;
+    background-size: cover;
     perspective: 1000px;
     z-index: 99999;
 }
+*/
 
-.cherry_blossom .petal {
+/* .cherry_blossom .petal { */
+.petal {
     position: absolute;
     background: linear-gradient(-45deg, #ffb6c1 0%, #ffc5d0 40%, #ffdfe6 80%);
     border-radius: 10% 50% 40% 50%;
@@ -19,6 +21,7 @@
     pointer-events: none;
     transform-style: preserve-3d;
     transition: transform 1000ms linear;
+    z-index: 99999;
 }
 
 @keyframes fall {
