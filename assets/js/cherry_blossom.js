@@ -116,12 +116,13 @@ const $petal = $('<span class="petal"></span>');
 
 // 랜덤 회전 값을 생성하는 함수
 const getRandomRotate = () => {
+    const rotateX = 360;
     const rotateY = Math.random() * 70 - 30;
     const rotateZ = Math.random() * 120 - 30;
     const translateX = Math.random() * 10 - 5;
     const translateY = Math.random() * 10 - 10;
     const translateZ = Math.random() * 15;
-    return `rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`;
+    return `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`;
 };
 
 // 무작위 흔들림 애니메이션 배열 생성
