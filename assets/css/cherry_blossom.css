@@ -1,8 +1,8 @@
 .cherry_blossom {
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
-    width: 600px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     background: url('sakura.png') center center no-repeat;
     background-size: cover;
     perspective: 1000px;
