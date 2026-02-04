@@ -1,7 +1,7 @@
 // 기본 값 설정
 const defaults = {
     speed: 5,
-    maxSize: 11,
+    maxSize: 12,
     minSize: 8,
     newOn: 300
 };
@@ -20,7 +20,7 @@ const getRandomRotate = () => {
     const rotateY = Math.random() * 60 - 30;
     const rotateZ = Math.random() * 120 - 30;
     const translateX = Math.random() * 10 - 5;
-    const translateY = Math.random() * 10 - 10;
+    const translateY = Math.random() * 100 - 10;
     const translateZ = Math.random() * 15;
     return `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`;
 };
