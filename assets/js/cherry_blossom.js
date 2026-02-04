@@ -1,9 +1,9 @@
 // 기본 값 설정
 const defaults = {
     speed: 5,
-    maxSize: 13,
-    minSize: 7,
-    newOn: 150
+    maxSize: 11,
+    minSize: 8,
+    newOn: 300
 };
 
 // 벚꽃 영역 크기를 저장할 변수
