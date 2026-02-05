@@ -2,7 +2,7 @@
 const defaults = {
     speed: 5,
     maxSize: 12,
-    minSize: 10,
+    minSize: 9,
     newOn: 300
 };
 
