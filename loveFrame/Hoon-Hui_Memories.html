@@ -10,51 +10,12 @@
 	</head>
 	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0;">
 		<!-- Wrapper -->
-			<div id="wrapper" style="height: 100dvh;">
-				
+			<div id="wrapper" style="height: 100dvh;">		
 				<!-- Banner -->
-				<!--
-					<section id="banner" class="major" style="font-family: 'Noto Serif KR', serif;">
-						<div class="inner">
-							<header class="major">
-								<h1>여러분을 초대합니다</h1>
-								<span>2026.4.11.(토)<br>원주 지오컨벤션 11시 30분</span>
-								<br>
-								<div><b>장권재 ∙ 서현화</b> 의 아들<b> 장용훈</b><br><b>윤석준 ∙ 김현주</b> 의&nbsp;&nbsp;딸&nbsp;&nbsp;<b> 윤소희</b></div>
-							</header>
-							<div class="content">
-								<p>평생 서로를 귀하게 여기며<br>처음의 설렘과 순수함을 잃지 않고<br>존중하고 아껴 나가겠습니다</p><p>저희의 새로운 시작을<br>축복해 주시면 감사하겠습니다</p>
-								<ul class="actions">
-									<li><a href="javascript:void(0);" class="button next scrolly" onclick="scrollToOne(1)" style="padding: 0 3.5em;">시작하기</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
-				-->
 				<!-- Main -->
 					<div id="main" style="font-family: 'Noto Serif KR', serif;">
 						<!-- One -->
 							<section id="one" class="tiles">
-								<!--
-								<article>
-									<span class="image">
-										<img src="/images_2/pic00.webp" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="/loveFrame/navi.html?navi=0" class="link">안 내 사 항</a></h3>
-										<p>예식 정보, 오시는 길 안내</p>
-									</header>
-								</article>								
-								<article>
-									<span class="image">
-										<img src="/images_3/fulls/1_Studio/1.webp" alt="" />
-									</span>
-									<header class="major">
-										<h3><a href="/loveFrame/navi.html?navi=1" class="link">스튜디오에서</a></h3>
-										<p>언제나 변함없이 지금처럼</p>
-									</header>
-								</article>
-								-->
 								<article>
 									<span class="image">
 										<img src="/images_3/fulls/2_Palace/1.webp" alt="" />
@@ -97,14 +58,8 @@
 							<section id="two" style="background-color: #ffffff";">
 								<div class="inner" style="display: flex; flex-direction: column; align-items: center; padding: 1.3em 0 0 0;"> 
 								    <ul class="actions" style="justify-content: center;"> 
-										<li><a href="javascript:void(0);" class="button next scrolly" onclick="scrollToOne(2)" style="padding: 0 3em;">두 사람의 시작, 다시 보기</a></li> 
+										<li><a href="javascript:void(0);" class="button next scrolly" onclick="scrollToOne()" style="padding: 0 3em;">두 사람의 시작, 다시 보기</a></li> 
 								    </ul>
-									<!--
-								    <ul class="actions" style="justify-content: center;"> 
-								        <li><a href="/loveFrame/loveFrame_eng.html" target="_top" class="icon brands fa-gratipay"><span class="label">Gratipay</span></a></li>
-								        <li><a href="/loveFrame/loveFrame_eng.html" target="_top">Eng Language</a></li> 
-								    </ul>
-									-->
 								</div>
 							</section>
 					</div>
@@ -113,26 +68,14 @@
 		<!-- Scripts -->
 			<script src="/assets_2/js/jquery.min.js"></script>
 			<script src="/assets_2/js/jquery.scrolly.min.js"></script>
-			<!-- <script src="/assets_2/js/jquery.scrollex.min.js"></script> -->
 			<script src="/assets_2/js/browser.min.js"></script>
 			<script src="/assets_2/js/breakpoints.min.js"></script>
 			<script src="/assets_2/js/util.js"></script>
 			<script src="/assets_2/js/main.js"></script>
 
 			<script>
-			function scrollToOne(chk) {
-			  /*
-			  var target = "";
-			  if(chk==1){
-				target = document.getElementById('one');
-			  } else {
-			  	target = document.getElementById('banner');
-			  };
-			  
-			  smoothScrollTo(target, 1300); // ← 숫자 커질수록 더 천천히
-			  */
-				window.open("/invitation.html");
-				//location.href="/invitation.html";
+			function scrollToOne() {
+				window.open("/index.html");
 			}
 			
 			function smoothScrollTo(target, duration) {
