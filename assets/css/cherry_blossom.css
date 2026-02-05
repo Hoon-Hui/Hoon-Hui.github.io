@@ -38,6 +38,4 @@
 
 .petal {
   will-change: transform;
-  position: absolute;
-  top: 0;
 }
