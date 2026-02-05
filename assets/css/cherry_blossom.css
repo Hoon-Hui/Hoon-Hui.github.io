@@ -1,8 +1,8 @@
 .cherry_blossom {
     overflow: hidden;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: var(--cb-w);
+    height: var(--cb-h);
     perspective: 1000px;
     z-index: 100000;
     pointer-events: none;
