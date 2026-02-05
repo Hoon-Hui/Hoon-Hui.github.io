@@ -9,6 +9,19 @@
 		<link rel="stylesheet" href="assets/css/cherry_blossom.css" />
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
 		<style>
+			#portrait-only {
+		      position: fixed;
+		      inset: 0;
+		      background: rgba(0, 0, 0, 0.9);
+		      color: #fff;
+		      display: none;
+		      align-items: center;
+		      justify-content: center;
+		      text-align: center;
+		      font-size: 20px;
+		      z-index: 9999999;
+		    }
+		  </style>
 			#viewer .slide .image {
 				background-size: auto 85% !important; 
 			}
@@ -155,6 +168,11 @@
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 		<div class="cherry_blossom"></div>
+		<div id="portrait-only">
+		    📱<br />
+		    이 화면은 세로 모드에 최적화 되어있습니다<br />
+		    세로 모드 화면으로 이용부탁드립니다.
+		</div>
 		<!-- Main -->
 			<div id="main">	
 				<div id="content" class="content" style="background-image: url(/images_3/fulls/1_Studio/10.webp);">
@@ -644,5 +662,23 @@
 			  }
 			  window.addEventListener('load', setScreenHeightOnce);
 			</script>
+
+			<script>
+			const portraitOnly = document.getElementById("portrait-only");
+		
+			function checkOrientation() {
+			  if (window.innerWidth > window.innerHeight) {
+				// 가로모드
+				portraitOnly.style.display = "flex";
+			  } else {
+				// 세로모드
+				portraitOnly.style.display = "none";
+			  }
+			}
+		
+			window.addEventListener("load", checkOrientation);
+			window.addEventListener("resize", checkOrientation);
+		  </script>
+		
 	</body>
 </html>
