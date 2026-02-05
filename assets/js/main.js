@@ -108,22 +108,20 @@ function validateChk_kor() {
 };
 
 function validateChk_invitation() {
-  const msg = document.getElementById('orientation-msg');
-
   if (window.innerWidth > window.innerHeight) {
-    msg.style.display = 'block';
+    openAlert();
     return false;
   }
   location.href = "/invitation.html";
 }
 
-// 화면 방향 바뀌면 메시지 숨김
-window.addEventListener('resize', () => {
-  const msg = document.getElementById('orientation-msg');
-  if (window.innerWidth <= window.innerHeight) {
-    msg.style.display = 'none';
-  }
-});
+function openAlert() {
+  document.getElementById('simple-alert').style.display = 'flex';
+}
+
+function closeAlert() {
+  document.getElementById('simple-alert').style.display = 'none';
+}
 
 function blockPC() {
     // 1. User Agent 체크
@@ -153,6 +151,7 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단.
     }
 };
+
 
 
 
