@@ -104,3 +104,13 @@ const startXSpinLoop = (element) => {
 
     setTimeout(loop, 1000);
 };
+
+function setFallDistance() {
+  const h = $wrap[0].getBoundingClientRect().height;
+  document.documentElement.style.setProperty('--fall-distance', `${h}px`);
+}
+
+$(window).on('load', () => {
+  setFallDistance();
+  requestAnimationFrame(petalGen);
+});
