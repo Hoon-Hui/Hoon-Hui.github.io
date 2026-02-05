@@ -81,7 +81,6 @@ $(window).resize(() => {
 
 // 로딩 완료 후 벚꽃 잎 생성 시작
 $(window).on('load', () => {
-    setFallDistance();
     requestAnimationFrame(petalGen);
 });
 
@@ -105,8 +104,3 @@ const startXSpinLoop = (element) => {
 
     setTimeout(loop, 1000);
 };
-
-function setFallDistance() {
-  const h = $wrap[0].getBoundingClientRect().height;
-  document.documentElement.style.setProperty('--fall-distance', `${h}px`);
-}
