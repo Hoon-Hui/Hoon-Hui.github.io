@@ -1,6 +1,10 @@
+body {
+  position: relative;
+}
+
 .cherry_blossom {
     overflow: hidden;
-    position: fixed;
+    position: absolute;
     width: var(--cb-w);
     height: var(--cb-h);
     perspective: 1000px;
