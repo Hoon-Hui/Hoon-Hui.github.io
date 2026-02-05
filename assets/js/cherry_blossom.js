@@ -8,13 +8,8 @@ const defaults = {
 
 // 벚꽃 영역 크기를 저장할 변수
 var $wrap = $('.cherry_blossom');
-const wrapRect = document.querySelector('.cherry_blossom').getBoundingClientRect();
-let wrapH = wrapRect.height;
-let wrapW = wrapRect.width;
-/*
 let wrapH = $wrap.height();
 let wrapW = $wrap.width();
-*/
 
 // 벚꽃 잎 생성
 const $petal = $('<span class="petal"></span>');
