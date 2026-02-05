@@ -108,10 +108,11 @@ function validateChk_kor() {
 };
 
 function validateChk_invitation() {
-	//if(document.getElementById('wedding').value==""){
-		//location.href = "Hoon-Hui_Memories.html";
-		location.href = "/invitation.html";
-	//}
+	if (window.innerWidth > window.innerHeight) {
+	    alert("세로 모드 전환 후 축하해주세요!");
+	    return;
+	}
+	location.href = "/invitation.html";
 };
 
 function blockPC() {
@@ -142,6 +143,7 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단.
     }
 };
+
 
 
 
