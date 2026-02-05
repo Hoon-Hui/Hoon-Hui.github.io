@@ -1,17 +1,12 @@
-body {
-  position: relative;
-}
-
 .cherry_blossom {
     overflow: hidden;
-    position: absolute;
-    width: var(--cb-w);
-    height: var(--cb-h);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
     perspective: 1000px;
     z-index: 100000;
     pointer-events: none;
-    top: 0;
-    left: 0;
+    inset: 0;
 }
 
 .cherry_blossom .petal {
