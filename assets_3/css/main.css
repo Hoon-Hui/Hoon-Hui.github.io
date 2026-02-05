@@ -1108,7 +1108,7 @@ input, select, textarea {
 		top: 0;
 		width: calc(100% - 22.5em);
 		/* height: 100dvh; */
-		height: 100dvh;
+		height: 100%;
 		left: 0;
 	}
 
@@ -1362,6 +1362,7 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
+
 
 
 
