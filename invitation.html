@@ -638,27 +638,11 @@
 			</script>
 
 			<script>
-			(function () {
-			  const vh = window.innerHeight * 0.01;
-			  document.documentElement.style.setProperty('--vh', `${vh}px`);
-			})();
+			  function setScreenHeightOnce() {
+			    const vh = window.innerHeight * 0.01;
+			    document.documentElement.style.setProperty('--vh', `${vh}px`);
+			  }
+			  window.addEventListener('load', setScreenHeightOnce);
 			</script>
-
-
-			<script>
-			(function () {
-			  const wrap = document.querySelector('.cherry_blossom');
-			
-			  // visual viewport (주소창 제외한 실제 화면)
-			  const vv = window.visualViewport;
-			
-			  const width = vv ? vv.width : window.innerWidth;
-			  const height = vv ? vv.height : window.innerHeight;
-			
-			  wrap.style.width = width + 'px';
-			  wrap.style.height = height + 'px';
-			})();
-			</script>
-
 	</body>
 </html>
