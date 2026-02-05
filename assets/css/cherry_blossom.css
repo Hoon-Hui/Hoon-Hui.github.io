@@ -6,7 +6,8 @@
     perspective: 1000px;
     z-index: 100000;
     pointer-events: none;
-    inset: 0;
+    top: 0;
+    left: 0;
 }
 
 .cherry_blossom .petal {
