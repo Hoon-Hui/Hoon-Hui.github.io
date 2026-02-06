@@ -717,31 +717,43 @@
 			});
 			*/
 				const container = document.querySelector('.loading-container');
-				const bgm = document.getElementById('bgm');
+const bgm = document.getElementById('bgm');
 
-				let isPlaying = false;
+let isPlaying = false;
+let isInitialized = false;
 
-			document.addEventListener('touchstart', () => {
-			  container.classList.add('is-running');
-				bgm.muted = false;     // 음소거 해제
-  bgm.play().then(() => {
-    isPlaying = true;
-  }).catch(err => {
-    console.log('Autoplay blocked:', err);
-  });
-			}, { once: true });
-			
-			container.addEventListener('click', () => {
-			  container.classList.toggle('is-running');
+// ✅ 첫 사용자 제스처 (모바일 / PC 둘 다)
+const initAudio = () => {
+  if (isInitialized) return;
+  isInitialized = true;
 
-				if (isPlaying) {
+  container.classList.add('is-running');
+
+  bgm.play();          // 🔥 먼저 재생
+  bgm.muted = false;   // 🔥 그 다음 음소거 해제
+
+  isPlaying = true;
+};
+
+// iOS 대응: touchstart + pointerdown
+document.addEventListener('touchstart', initAudio, { once: true });
+document.addEventListener('pointerdown', initAudio, { once: true });
+
+// ✅ 이후 클릭으로 ON / OFF 토글
+container.addEventListener('click', () => {
+  if (!isInitialized) return;
+
+  container.classList.toggle('is-running');
+
+  if (isPlaying) {
     bgm.pause();
   } else {
     bgm.play();
   }
 
   isPlaying = !isPlaying;
-			});
+});
+
 		</script>		
 	</body>
 </html>
