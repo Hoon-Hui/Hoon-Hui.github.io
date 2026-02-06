@@ -1,38 +1,86 @@
 .btn-motion {
     position: fixed;
-    bottom: 100%;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* 스크롤 시 숨김 */
+.btn-motion.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* 마우스 모양 */
+.btn-motion1,
+.btn-motion1:before {
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
-.btn-motion1,
-.btn-motion1:before {position: absolute;left: 50%;}
-.btn-motion1 {width: 25px;height: 40px;margin-left: -20px;top: 35%;margin-top: -35px;box-shadow: inset 0 0 0 1px #000;border-radius: 25px;}
-.btn-motion1:before {content: ''; width: 8px; height: 8px; background: #000; margin-left: -4px;top: 8px; border-radius: 4px; animation: btn-motion1 1.5s ease-in-out infinite;}
+.btn-motion1 {
+    width: 6vw;
+    max-width: 25px;
+    min-width: 18px;
 
- @keyframes btn-motion1 {
-     0% {
-         opacity: 1;
-    }
-     100% {
-         opacity: 0;
-         transform: translateY(24px);
-    }
+    height: 10vw;
+    max-height: 40px;
+    min-height: 30px;
+
+    box-shadow: inset 0 0 0 1px #000;
+    border-radius: 999px;
 }
 
-.btn-motion2 span {position: absolute;top: 0;left: 50%;width: 24px;height: 24px;margin-left: -12px;border-left: 1px solid #000;border-bottom: 1px solid #000; transform: rotate(-45deg); animation: btn-motion2 2s infinite;opacity: 0;box-sizing: border-box;}
-.btn-motion2 span:nth-of-type(1) {animation-delay: 0s;}
-.btn-motion2 span:nth-of-type(2) {top: 16px;animation-delay: .15s;}
-.btn-motion2 span:nth-of-type(3) {top: 32px; animation-delay: .3s;}
+.btn-motion1:before {
+    content: '';
+    width: 2vw;
+    height: 2vw;
+    max-width: 8px;
+    max-height: 8px;
+    background: #000;
+    top: 20%;
+    border-radius: 50%;
+    animation: btn-motion1 1.5s ease-in-out infinite;
+}
+
+/* 화살표 */
+.btn-motion2 {
+    position: relative;
+    margin-top: 2vh;
+}
+
+.btn-motion2 span {
+    position: absolute;
+    left: 50%;
+    width: 5vw;
+    height: 5vw;
+    max-width: 24px;
+    max-height: 24px;
+
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    transform: translateX(-50%) rotate(-45deg);
+    animation: btn-motion2 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+.btn-motion2 span:nth-of-type(1) { top: 0; animation-delay: 0s; }
+.btn-motion2 span:nth-of-type(2) { top: 2.5vh; animation-delay: .15s; }
+.btn-motion2 span:nth-of-type(3) { top: 5vh; animation-delay: .3s; }
+
+/* 애니메이션 */
+@keyframes btn-motion1 {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 24px); }
+}
 
 @keyframes btn-motion2 {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
 }
