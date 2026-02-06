@@ -693,13 +693,12 @@
 		  </script>
 
 		<script>
-			const indicator = document.getElementById('scrollIndicator');
-
-			window.addEventListener('scroll', () => {
-			  if (window.scrollY > 30) {
-				indicator.classList.add('hide');
-			  } else {
-				indicator.classList.remove('hide');
+			window.addEventListener('scroll', function () {
+			  var indicator = document.getElementById('scrollIndicator');
+			  if (!indicator) return;
+			
+			  if (window.scrollY > 10) {
+			    indicator.classList.add('hide');
 			  }
 			});
 		 </script>
