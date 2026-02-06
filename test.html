@@ -693,15 +693,14 @@
 		  </script>
 
 		<script>
-			window.addEventListener('scroll', function () {
-			  var indicator = document.getElementById('scrollIndicator');
-			  if (!indicator) return;
+			const indicator = document.getElementById('scrollIndicator');
+			const main = document.getElementById('main');
 			
-			  if (window.scrollY > 10) {
+			main.addEventListener('scroll', function () {
+			  if (main.scrollTop > 10) {
 			    indicator.classList.add('hide');
 			  }
 			});
-		 </script>
-		
+		</script>		
 	</body>
 </html>
