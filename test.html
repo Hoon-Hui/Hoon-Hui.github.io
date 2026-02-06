@@ -566,6 +566,13 @@
 				    content.classList.remove("blur");
 					sandFlyEffect();
 
+					const indicator = document.getElementById('scrollIndicator');
+					if (indicator) {
+					  document.addEventListener('touchmove', () => {
+					    indicator.classList.add('hide');
+					  }, { once: true, passive: true });
+					}
+
 					const infoEl = document.querySelector(".info");
 					if (infoEl) {
 					  infoEl.classList.add("show");
@@ -690,16 +697,6 @@
 		
 			window.addEventListener("load", checkOrientation);
 			window.addEventListener("resize", checkOrientation);
-		  </script>
-
-		<script>
-			const indicator = document.getElementById('scrollIndicator');
-
-			if (indicator) {
-			  document.addEventListener('touchmove', () => {
-			    indicator.classList.add('hide');
-			  }, { once: true, passive: true });
-			}
-		</script>		
+		  </script>		
 	</body>
 </html>
