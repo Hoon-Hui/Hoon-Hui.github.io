@@ -1,0 +1,120 @@
+.btn-motion {
+    position: fixed;
+    top: 2.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* 스크롤 시 숨김 */
+.btn-motion.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* 마우스 모양 */
+.btn-motion1,
+.btn-motion1:before {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn-motion1 {
+    width: 15px;
+    height: 25px;
+
+    box-shadow: inset 0 0 0 2px #fff;
+    border-radius: 999px;
+}
+
+.btn-motion1:before {
+    content: '';
+    width: 2vw;
+    height: 2vw;
+    background: #fff;
+    top: 20%;
+    border-radius: 50%;
+    animation: btn-motion1 1.5s ease-in-out infinite;
+}
+
+/* 화살표 */
+.btn-motion2 {
+    position: relative;
+    margin-top: 20px;
+}
+
+.btn-motion2 span {
+    position: absolute;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: translateX(-50%) rotate(-45deg);
+    animation: btn-motion2 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+.btn-motion2 span:nth-of-type(1) { top: 0; animation-delay: 0s; }
+.btn-motion2 span:nth-of-type(2) { top: 3px; animation-delay: .15s; }
+.btn-motion2 span:nth-of-type(3) { top: 6px; animation-delay: .3s; }
+
+/* 애니메이션 */
+@keyframes btn-motion1 {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 10px); }
+}
+
+@keyframes btn-motion2 {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.loading-container,
+.loading {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.loading-container { 
+    //margin: 40px auto;
+}
+
+.loading {
+    border: 5px solid transparent;
+    border-color: transparent #fff transparent #fff;
+    animation: rotate-loading 1.5s linear infinite;
+    transform-origin: 50% 50%;
+}
+
+#loading-text {
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 45px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100px;
+    opacity: 1; /* 항상 보이게 */
+}
+
+/* 클릭하면 스피닝 멈춤 */
+.loading-container.stop .loading {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+/* 회전 애니메이션 */
+@keyframes rotate-loading {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
