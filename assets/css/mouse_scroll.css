@@ -127,7 +127,8 @@
 #music {
   animation-play-state: paused;
 }
-/* .loading-container.is-running .loading, */
+
+.loading-container.is-running .loading,
 .loading-container.is-running #music {
   animation-play-state: running;
 }
