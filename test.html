@@ -694,13 +694,12 @@
 
 		<script>
 			const indicator = document.getElementById('scrollIndicator');
-			const main = document.getElementById('main');
-			
-			main.addEventListener('scroll', function () {
-			  if (main.scrollTop > 10) {
+
+			if (indicator) {
+			  document.addEventListener('touchmove', () => {
 			    indicator.classList.add('hide');
-			  }
-			});
+			  }, { once: true, passive: true });
+			}
 		</script>		
 	</body>
 </html>
