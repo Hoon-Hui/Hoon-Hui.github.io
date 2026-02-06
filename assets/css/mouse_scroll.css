@@ -96,7 +96,7 @@
 
 
         .loading-container {
-            position: fixed;
+            position: absolute;
             top: 3vh; /* scrollIndicator와 동일한 Y축 */
             left: 20px; /* 좌측 위치, 원하는 만큼 조정 가능 */
             z-index: 1000;
