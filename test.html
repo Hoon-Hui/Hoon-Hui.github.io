@@ -191,7 +191,7 @@
 				</div>				
 				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
 
-				<audio id="bgm" src="/images/bgm.mp3" loop muted playsinline></audio>
+				<audio id="bgm" src="/images/bgm.mp3" loop muted></audio>
 				<div class="loading-container">
 					<div class="loading" style="display: flex; justify-content: center; align-items: center;">
 						<img id="music" src="/images/music.webp" style="width:70%">
@@ -716,29 +716,32 @@
 			  container.classList.toggle('is-running');
 			});
 			*/
-			const audio = document.getElementById('bgm');
-const container = document.querySelector('.loading-container');
+				const container = document.querySelector('.loading-container');
+				const bgm = document.getElementById('bgm');
 
-let isRunning = false;
+				let isPlaying = false;
 
-/* 1️⃣ 첫 touchstart → mute 해제 + 재생 */
-document.addEventListener('touchstart', () => {
-  audio.muted = false;
-  audio.play().catch(() => {});
-}, { once: true });
+			document.addEventListener('touchstart', () => {
+			  container.classList.add('is-running');
+				bgm.muted = false;     // 음소거 해제
+  bgm.play().then(() => {
+    isPlaying = true;
+  }).catch(err => {
+    console.log('Autoplay blocked:', err);
+  });
+			}, { once: true });
+			
+			container.addEventListener('click', () => {
+			  container.classList.toggle('is-running');
 
-/* 2️⃣ 클릭 토글 */
-container.addEventListener('click', () => {
-  isRunning = !isRunning;
-  container.classList.toggle('is-running', isRunning);
-
-  if (isRunning) {
-    audio.play().catch(() => {});
+				if (isPlaying) {
+    bgm.pause();
   } else {
-    audio.pause();
+    bgm.play();
   }
-});
 
-		  </script>		
+  isPlaying = !isPlaying;
+			});
+		</script>		
 	</body>
 </html>
