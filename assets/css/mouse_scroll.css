@@ -151,7 +151,12 @@
         }
 
 
-        .loading-container { margin: 40px auto }
+        .loading-container {
+            position: fixed;
+            top: 2.5vh; /* scrollIndicator와 동일한 Y축 */
+            left: 20px; /* 좌측 위치, 원하는 만큼 조정 가능 */
+            z-index: 1000;
+        }
 
         .loading {
             border: 2px solid transparent;
