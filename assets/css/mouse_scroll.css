@@ -178,7 +178,7 @@
             transition: all 0.5s ease-in-out;
         }
 
-        #loading-text img{
+        #loading img{
             -moz-animation: loading-text-opacity 2s linear 0s infinite normal;
             -o-animation: loading-text-opacity 2s linear 0s infinite normal;
             -webkit-animation: loading-text-opacity 2s linear 0s infinite normal;
