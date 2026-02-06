@@ -701,6 +701,12 @@
 		
 			window.addEventListener("load", checkOrientation);
 			window.addEventListener("resize", checkOrientation);
+
+			//음악재생
+			const container = document.querySelector('.loading-container');
+			container.addEventListener('click', () => {
+			  container.classList.toggle('stop'); // 클릭할 때마다 회전 멈춤/재생
+			});
 		  </script>		
 	</body>
 </html>
