@@ -191,7 +191,7 @@
 				</div>				
 				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
 
-				<audio id="bgm" src="/images/bgm.mp3" loop preload="auto"></audio>
+				<audio id="bgm" src="/images/bgm.mp3" loop muted playsinline></audio>
 				<div class="loading-container">
 					<div class="loading" style="display: flex; justify-content: center; align-items: center;">
 						<img id="music" src="/images/music.webp" style="width:70%">
@@ -720,33 +720,17 @@
 const container = document.querySelector('.loading-container');
 
 let isRunning = false;
-let audioUnlocked = false;
 
-/* 1️⃣ document touchstart: 오디오 언락 전용 */
+/* 1️⃣ 첫 touchstart → mute 해제 + 재생 */
 document.addEventListener('touchstart', () => {
-  if (audioUnlocked) return;
-
-  audio.load();
-
-  const playPromise = audio.play();
-  if (playPromise !== undefined) {
-    playPromise
-      .then(() => {
-        audio.pause();       // ❗ 바로 멈춤 (mute 트릭 아님)
-        audioUnlocked = true;
-      })
-      .catch(() => {
-        // 실패해도 다음 제스처에서 다시 시도 가능
-      });
-  }
+  audio.muted = false;
+  audio.play().catch(() => {});
 }, { once: true });
 
-/* 2️⃣ loading-container: 실제 토글 */
+/* 2️⃣ 클릭 토글 */
 container.addEventListener('click', () => {
   isRunning = !isRunning;
   container.classList.toggle('is-running', isRunning);
-
-  if (!audioUnlocked) return;
 
   if (isRunning) {
     audio.play().catch(() => {});
