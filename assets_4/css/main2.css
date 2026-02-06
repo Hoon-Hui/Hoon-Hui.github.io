@@ -3759,17 +3759,26 @@ section#header p + p {
 */
 
 .collapsible-content {
-  transform: scaleY(0);
-  transform-origin: top;
+  max-height: 0;
+  overflow: hidden;
+  background: #f7f4ee;
+
   opacity: 0;
-  overflow: hidden; /* 내용 튀어나오는 것 방지 */
-  transition: transform 0.35s ease, opacity 0.2s ease;
+  transform: translateY(-12px);
+  transform-origin: top;
+
+  transition:
+    max-height 0.6s ease,
+    opacity 0.25s ease,
+    transform 0.6s ease;
 }
 
 .account-card.open .collapsible-content {
-  transform: scaleY(1);
+  max-height: 600px;
   opacity: 1;
+  transform: translateY(0);
 }
+
 
 
 /* -------------------------------
