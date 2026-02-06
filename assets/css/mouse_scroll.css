@@ -89,15 +89,15 @@
         
         .loading-container,
         .loading {
-            height: 15px;
-            width: 15px;
+            height: 25px;
+            width: 25px;
             border-radius: 100%;
         }
 
 
         .loading-container {
             position: fixed;
-            top: 2.5vh; /* scrollIndicator와 동일한 Y축 */
+            top: 3vh; /* scrollIndicator와 동일한 Y축 */
             left: 20px; /* 좌측 위치, 원하는 만큼 조정 가능 */
             z-index: 1000;
         }
@@ -124,9 +124,9 @@
             position: absolute;
             opacity: 1;
               filter:
-                contrast(130%)
-                saturate(120%)
-                drop-shadow(0 0 6px rgba(0,0,0,0.35));
+                contrast(230%)
+                saturate(150%)
+                drop-shadow(0 0 6px rgba(0,0,0));
         }
 @keyframes counter-rotate {
   0%   { transform: rotate(0deg); }
