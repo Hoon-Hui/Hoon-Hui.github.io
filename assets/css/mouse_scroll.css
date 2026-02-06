@@ -1,3 +1,9 @@
+.btn-motion {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 .btn-motion1,
 .btn-motion1:before {position: absolute;left: 50%;}
