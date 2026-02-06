@@ -1,0 +1,82 @@
+/* 마우스 스크롤 유도 전체 컨테이너 */
+.mouse_scroll {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 마우스 외형 */
+.mouse {
+    display: block;
+    width: 23px;
+    height: 36px;
+    border: 2px solid #ffffff;
+    border-radius: 23px;
+}
+
+/* 마우스 내부 점 (휠 느낌) */
+.mouse::after {
+    content: '';
+    display: block;
+    position: relative;
+    width: 2px;
+    height: 6px;
+    margin: 5px auto;
+    background: #ffffff;
+    animation: mouse-pulse 1.2s ease infinite;
+}
+
+/* 아래쪽 화살표 묶음 영역 */
+.down_arrow {
+    margin-top: 6px;
+}
+
+/* 각 화살표 스타일 */
+.down_arrow span {
+    display: block;
+    position: relative;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    margin-bottom: 2px;
+    margin-left: -2px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg) translateX(-50%);
+    animation: fade-arrow 1s infinite;
+}
+
+/* 두 번째 화살표 애니메이션 설정 */
+.down_arrow2:nth-of-type(2) {
+    animation-delay: 0.2s;
+    animation-direction: alternate;
+}
+
+/* 세 번째 화살표 애니메이션 설정 */
+.down_arrow3:nth-of-type(3) {
+    animation-delay: 0.3s;
+    animation-direction: alternate;
+}
+
+/* 마우스 휠 점 애니메이션 */
+@keyframes mouse-pulse {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
+
+/* 화살표 깜빡이는 애니메이션 */
+@keyframes fade-arrow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
