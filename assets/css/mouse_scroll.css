@@ -1,82 +1,32 @@
-/* 마우스 스크롤 유도 전체 컨테이너 */
-.mouse_scroll {
-    position: fixed;
-    bottom: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-}
 
-/* 마우스 외형 */
-.mouse {
-    display: block;
-    width: 23px;
-    height: 36px;
-    border: 2px solid #ffffff;
-    border-radius: 23px;
-}
+.btn-motion1,
+.btn-motion1:before {position: absolute;left: 50%;}
+.btn-motion1 {width: 40px;height: 70px;margin-left: -20px;top: 50%;margin-top: -35px;box-shadow: inset 0 0 0 1px #000;border-radius: 25px;}
+.btn-motion1:before {content: ''; width: 8px; height: 8px; background: #000; margin-left: -4px;top: 8px; border-radius: 4px; animation: btn-motion4 1.5s ease-in-out infinite;}
 
-/* 마우스 내부 점 (휠 느낌) */
-.mouse::after {
-    content: '';
-    display: block;
-    position: relative;
-    width: 2px;
-    height: 6px;
-    margin: 5px auto;
-    background: #ffffff;
-    animation: mouse-pulse 1.2s ease infinite;
-}
-
-/* 아래쪽 화살표 묶음 영역 */
-.down_arrow {
-    margin-top: 6px;
-}
-
-/* 각 화살표 스타일 */
-.down_arrow span {
-    display: block;
-    position: relative;
-    left: 50%;
-    width: 8px;
-    height: 8px;
-    margin-bottom: 2px;
-    margin-left: -2px;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-    transform: rotate(45deg) translateX(-50%);
-    animation: fade-arrow 1s infinite;
-}
-
-/* 두 번째 화살표 애니메이션 설정 */
-.down_arrow2:nth-of-type(2) {
-    animation-delay: 0.2s;
-    animation-direction: alternate;
-}
-
-/* 세 번째 화살표 애니메이션 설정 */
-.down_arrow3:nth-of-type(3) {
-    animation-delay: 0.3s;
-    animation-direction: alternate;
-}
-
-/* 마우스 휠 점 애니메이션 */
-@keyframes mouse-pulse {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
+ @keyframes btn-motion1 {
+     0% {
+         opacity: 1;
     }
-    100% {
-        opacity: 0;
-        transform: translateY(6px);
+     100% {
+         opacity: 0;
+         transform: translateY(46px);
     }
 }
 
-/* 화살표 깜빡이는 애니메이션 */
-@keyframes fade-arrow {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+.btn-motion2 span {position: absolute;top: 0;left: 50%;width: 24px;height: 24px;margin-left: -12px;border-left: 1px solid #000;border-bottom: 1px solid #000; transform: rotate(-45deg); animation: btn-motion6 2s infinite;opacity: 0;box-sizing: border-box;}
+.btn-motion2 span:nth-of-type(1) {animation-delay: 0s;}
+.btn-motion2 span:nth-of-type(2) {top: 16px;animation-delay: .15s;}
+.btn-motion2 span:nth-of-type(3) {top: 32px; animation-delay: .3s;}
+
+@keyframes btn-motion2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
