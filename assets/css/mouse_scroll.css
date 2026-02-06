@@ -77,18 +77,18 @@
 
 .loading-container,
 .loading {
-    height: 100px;
-    width: 100px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     position: relative;
 }
 
 .loading-container { 
-    margin: 40px auto;
+    //margin: 40px auto;
 }
 
 .loading {
-    border: 2px solid transparent;
+    border: 5px solid transparent;
     border-color: transparent #fff transparent #fff;
     animation: rotate-loading 1.5s linear infinite;
     transform-origin: 50% 50%;
