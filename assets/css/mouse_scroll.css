@@ -107,10 +107,10 @@
             border: 3.5px solid transparent;
             border-color: transparent #fff transparent #FFF;
             */
-            box-shadow: 3px -3px 0 #F3A3B3,
-                    3px 3px 0 #E75480,
-                    -3px 3px 0 #D87093,
-                    -3px -3px 0 #F08080;
+            box-shadow: 3px -3px 0 #FFB7C5,
+                    3px 3px 0 #F7CFE1,
+                    -3px 3px 0 #FFF8ED,
+                    -3px -3px 0 #FBC9E4;
             animation: rotate-loading 1.5s linear 0s infinite normal;
             transform-origin: 50% 50%;
         }
