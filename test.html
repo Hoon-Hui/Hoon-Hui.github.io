@@ -7,8 +7,21 @@
 		<link rel="stylesheet" href="assets_3/css/main.css" />
 		<link rel="stylesheet" href="assets_4/css/main2.css" />
 		<link rel="stylesheet" href="assets/css/cherry_blossom.css" />
+		<link rel="stylesheet" href="assets/css/mouse_scroll.css" />
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
 		<style>
+			#portrait-only {
+		      position: fixed;
+		      inset: 0;
+		      background: rgba(0, 0, 0);
+		      color: #fff;
+		      display: none;
+		      align-items: center;
+		      justify-content: center;
+		      text-align: center;
+		      font-size: 20px;
+		      z-index: 100001;
+		    }
 			#viewer .slide .image {
 				background-size: auto 85% !important; 
 			}
@@ -153,9 +166,13 @@
 			}
 		</style>
 	</head>
-	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="overflow-x: hidden;">
-
+	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 		<div class="cherry_blossom"></div>
+		<div id="portrait-only">
+		    💗<br />
+		    이 화면은 세로 모드에 최적화 되어있습니다<br />
+		    세로 모드 화면으로 이용부탁드립니다.
+		</div>
 		<!-- Main -->
 			<div id="main">	
 				<div id="content" class="content" style="background-image: url(/images_3/fulls/1_Studio/10.webp);">
@@ -166,10 +183,22 @@
 				  </div>
 				</div>
 
+				<!-- typing action -->
 				<div class="typing-text" id="typing" style="width:100%; font-size:1.5rem; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:10;">
 				    <span id="text"></span><span class="cursor"></span>
 				</div>				
 				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
+
+				<!-- mouse scroll -->
+				<div class="mouse_scroll">
+				    <span class="mouse"></span>
+				    <div class="dowm_arrow">
+				        <span class="dowm_arrow1"></span>
+				        <span class="dowm_arrow2"></span>
+				        <span class="dowm_arrow3"></span>
+				    </div>
+				</div>
+
 				
 				<section id="header" style="height: calc(var(--vh) * 100);">
 					<div class="inner" style="height: calc(var(--vh) * 100);">
@@ -283,8 +312,8 @@
 					</article>
 				</section>
 				
-				<div style="padding: 1em;">
-					<a href="/loveFrame/loveFrame.html" class="button next scrolly" style="padding: 0 3em;">View More > </a>
+				<div style="padding: 1.5em;">
+					<a href="/loveFrame/loveFrame.html" class="button next scrolly" style="padding: 0 5em;">View More > </a>
 				</div>
 		
 				<!-- Two -->
@@ -542,7 +571,6 @@
 					  infoEl.classList.add("show");
 					  infoEl.style.opacity = "1";
 					}
-					//requestAnimationFrame(petalGen);
 				  }
 				}
 				
@@ -646,5 +674,23 @@
 			  }
 			  window.addEventListener('load', setScreenHeightOnce);
 			</script>
+
+			<script>
+			const portraitOnly = document.getElementById("portrait-only");
+		
+			function checkOrientation() {
+			  if (window.innerWidth > window.innerHeight) {
+				// 가로모드
+				portraitOnly.style.display = "flex";
+			  } else {
+				// 세로모드
+				portraitOnly.style.display = "none";
+			  }
+			}
+		
+			window.addEventListener("load", checkOrientation);
+			window.addEventListener("resize", checkOrientation);
+		  </script>
+		
 	</body>
 </html>
