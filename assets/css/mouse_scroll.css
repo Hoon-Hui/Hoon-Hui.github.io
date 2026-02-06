@@ -74,3 +74,47 @@
     50% { opacity: 1; }
     100% { opacity: 0; }
 }
+
+.loading-container,
+.loading {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.loading-container { 
+    margin: 40px auto;
+}
+
+.loading {
+    border: 2px solid transparent;
+    border-color: transparent #fff transparent #fff;
+    animation: rotate-loading 1.5s linear infinite;
+    transform-origin: 50% 50%;
+}
+
+#loading-text {
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 45px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100px;
+    opacity: 1; /* 항상 보이게 */
+}
+
+/* 클릭하면 스피닝 멈춤 */
+.loading-container.stop .loading {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+}
+
+/* 회전 애니메이션 */
+@keyframes rotate-loading {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
