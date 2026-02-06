@@ -691,6 +691,18 @@
 			window.addEventListener("load", checkOrientation);
 			window.addEventListener("resize", checkOrientation);
 		  </script>
+
+		<script>
+			const indicator = document.getElementById('scrollIndicator');
+
+			window.addEventListener('scroll', () => {
+			  if (window.scrollY > 30) {
+				indicator.classList.add('hide');
+			  } else {
+				indicator.classList.remove('hide');
+			  }
+			});
+		 </script>
 		
 	</body>
 </html>
