@@ -43,17 +43,14 @@
 /* 화살표 */
 .btn-motion2 {
     position: relative;
-    margin-top: 22px;
+    margin-top: 20px;
 }
 
 .btn-motion2 span {
     position: absolute;
     left: 50%;
-    width: 5vw;
-    height: 5vw;
-    max-width: 24px;
-    max-height: 24px;
-
+    width: 10px;
+    height: 10px;
     border-left: 2px solid #fff;
     border-bottom: 2px solid #fff;
     transform: translateX(-50%) rotate(-45deg);
