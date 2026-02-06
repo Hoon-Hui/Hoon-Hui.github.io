@@ -191,6 +191,7 @@
 				</div>				
 				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
 
+				<audio id="bgm" src="/images/bgm.mp3" loop></audio>
 				<div class="loading-container">
 					<div class="loading" style="display: flex; justify-content: center; align-items: center;">
 						<img id="music" src="/images/music.webp" style="width:70%">
@@ -704,6 +705,7 @@
 			window.addEventListener("load", checkOrientation);
 			window.addEventListener("resize", checkOrientation);
 
+			/*
 			const container = document.querySelector('.loading-container');
 
 			document.addEventListener('touchstart', () => {
@@ -713,6 +715,33 @@
 			container.addEventListener('click', () => {
 			  container.classList.toggle('is-running');
 			});
+			*/
+			const container = document.querySelector('.loading-container');
+			  const audio = document.getElementById('bgm');
+			
+			  let isRunning = false;
+			
+			  // 첫 터치 → 무조건 ON
+			  document.addEventListener('touchstart', () => {
+			    if (!isRunning) {
+			      isRunning = true;
+			      container.classList.add('is-running');
+			      audio.play().catch(() => {});
+			    }
+			  }, { once: true });
+			
+			  // 클릭 / 터치로 토글
+			  container.addEventListener('click', () => {
+			    isRunning = !isRunning;
+			
+			    container.classList.toggle('is-running', isRunning);
+			
+			    if (isRunning) {
+			      audio.play().catch(() => {});
+			    } else {
+			      audio.pause();
+			    }
+			  });
 		  </script>		
 	</body>
 </html>
