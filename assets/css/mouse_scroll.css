@@ -1,11 +1,8 @@
 .btn-motion {
     position: fixed;
     top: 2.5vh;
-    left: 0; /* 전체 컨테이너 왼쪽으로 이동 */
-    width: 100%;
-    display: flex;
-    justify-content: center; /* 중앙 정렬용 */
-    align-items: flex-start; /* 상단 정렬 */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
 
     transition: opacity 0.4s ease, visibility 0.4s ease;
@@ -20,7 +17,7 @@
 /* 마우스 모양 */
 .btn-motion1,
 .btn-motion1:before {
-    position: relative;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -87,9 +84,7 @@
 }
 
 .loading-container { 
-    position: absolute; /* 부모는 .btn-motion */
-    top: 0;
-    left: 0;
+    //margin: 40px auto;
 }
 
 .loading {
