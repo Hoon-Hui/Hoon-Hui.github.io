@@ -190,6 +190,12 @@
 				</div>				
 				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
 
+				<audio id="bgm" src="/images/bgm.mp3" loop muted></audio>
+				<div class="loading-container">
+					<div class="loading" style="display: flex; justify-content: center; align-items: center;">
+						<img id="music" src="/images/music.webp" style="width:70%">
+					</div>
+				</div>
 				<!-- mouse scroll -->
 				<div class="btn-motion" id="scrollIndicator">
 					<div class="btn-motion1"></div>
@@ -674,13 +680,13 @@
 				});
 			</script>
 
-			<script>
+			<!-- <script>
 			  function setScreenHeightOnce() {
 			    const vh = window.innerHeight * 0.01;
 			    document.documentElement.style.setProperty('--vh', `${vh}px`);
 			  }
 			  window.addEventListener('load', setScreenHeightOnce);
-			</script>
+			</script> -->
 
 			<script>
 			const portraitOnly = document.getElementById("portrait-only");
@@ -697,6 +703,56 @@
 		
 			window.addEventListener("load", checkOrientation);
 			window.addEventListener("resize", checkOrientation);
-		  </script>		
+
+			/*
+			const container = document.querySelector('.loading-container');
+
+			document.addEventListener('touchstart', () => {
+			  container.classList.add('is-running');
+			}, { once: true });
+			
+			container.addEventListener('click', () => {
+			  container.classList.toggle('is-running');
+			});
+			*/
+				const container = document.querySelector('.loading-container');
+const bgm = document.getElementById('bgm');
+
+let isPlaying = false;
+let isInitialized = false;
+
+// ✅ 첫 사용자 제스처 (모바일 / PC 둘 다)
+const initAudio = () => {
+  if (isInitialized) return;
+  isInitialized = true;
+
+  container.classList.add('is-running');
+
+  bgm.play();          // 🔥 먼저 재생
+  bgm.muted = false;   // 🔥 그 다음 음소거 해제
+
+  isPlaying = true;
+};
+
+// iOS 대응: touchstart + pointerdown
+document.addEventListener('touchstart', initAudio, { once: true });
+document.addEventListener('pointerdown', initAudio, { once: true });
+
+// ✅ 이후 클릭으로 ON / OFF 토글
+container.addEventListener('click', () => {
+  if (!isInitialized) return;
+
+  container.classList.toggle('is-running');
+
+  if (isPlaying) {
+    bgm.pause();
+  } else {
+    bgm.play();
+  }
+
+  isPlaying = !isPlaying;
+});
+
+		</script>		
 	</body>
 </html>
