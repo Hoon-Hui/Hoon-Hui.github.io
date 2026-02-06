@@ -3745,7 +3745,7 @@ section#header p + p {
 /* -------------------------------
    Collapsible Content
 -------------------------------- */
-
+/*
 .collapsible-content {
   max-height: 0;
   overflow: hidden;
@@ -3756,6 +3756,21 @@ section#header p + p {
 .account-card.open .collapsible-content {
   max-height: 600px;
 }
+*/
+
+.collapsible-content {
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  overflow: hidden; /* 내용 튀어나오는 것 방지 */
+  transition: transform 0.35s ease, opacity 0.2s ease;
+}
+
+.account-card.open .collapsible-content {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
 
 /* -------------------------------
    Account List
