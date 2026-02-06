@@ -716,29 +716,37 @@
 			  container.classList.toggle('is-running');
 			});
 			*/
-			const container = document.querySelector('.loading-container');
-const audio = document.getElementById('bgm');
+			const audio = document.getElementById('bgm');
+const container = document.querySelector('.loading-container');
 
 let isRunning = false;
+let audioUnlocked = false;
 
-// 최초 사용자 터치 (음악 unlock)
-const startAudio = () => {
-  if (!isRunning) {
-    isRunning = true;
-    container.classList.add('is-running');
+/* 1️⃣ document touchstart: 오디오 언락 전용 */
+document.addEventListener('touchstart', () => {
+  if (audioUnlocked) return;
 
-    audio.load(); // ⭐ 중요
-    audio.play().catch(() => {});
+  audio.load();
+
+  const playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        audio.pause();       // ❗ 바로 멈춤 (mute 트릭 아님)
+        audioUnlocked = true;
+      })
+      .catch(() => {
+        // 실패해도 다음 제스처에서 다시 시도 가능
+      });
   }
-};
+}, { once: true });
 
-container.addEventListener('touchend', startAudio, { once: true });
-container.addEventListener('click', startAudio, { once: true });
-
-// 이후 토글
+/* 2️⃣ loading-container: 실제 토글 */
 container.addEventListener('click', () => {
   isRunning = !isRunning;
   container.classList.toggle('is-running', isRunning);
+
+  if (!audioUnlocked) return;
 
   if (isRunning) {
     audio.play().catch(() => {});
