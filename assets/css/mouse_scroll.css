@@ -1,6 +1,6 @@
 .btn-motion {
     position: fixed;
-    top: 5vh;
+    top: 2.5vh;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -23,15 +23,10 @@
 }
 
 .btn-motion1 {
-    width: 6vw;
-    max-width: 25px;
-    min-width: 18px;
+    width: 15px;
+    height: 25px;
 
-    height: 10vw;
-    max-height: 40px;
-    min-height: 30px;
-
-    box-shadow: inset 0 0 0 1px #000;
+    box-shadow: inset 0 0 0 2px #fff;
     border-radius: 999px;
 }
 
@@ -39,9 +34,7 @@
     content: '';
     width: 2vw;
     height: 2vw;
-    max-width: 8px;
-    max-height: 8px;
-    background: #000;
+    background: #fff;
     top: 20%;
     border-radius: 50%;
     animation: btn-motion1 1.5s ease-in-out infinite;
@@ -50,7 +43,7 @@
 /* 화살표 */
 .btn-motion2 {
     position: relative;
-    margin-top: 2vh;
+    margin-top: 22px;
 }
 
 .btn-motion2 span {
@@ -61,8 +54,8 @@
     max-width: 24px;
     max-height: 24px;
 
-    border-left: 1px solid #000;
-    border-bottom: 1px solid #000;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
     transform: translateX(-50%) rotate(-45deg);
     animation: btn-motion2 2s infinite;
     opacity: 0;
@@ -70,13 +63,13 @@
 }
 
 .btn-motion2 span:nth-of-type(1) { top: 0; animation-delay: 0s; }
-.btn-motion2 span:nth-of-type(2) { top: 2.5vh; animation-delay: .15s; }
-.btn-motion2 span:nth-of-type(3) { top: 5vh; animation-delay: .3s; }
+.btn-motion2 span:nth-of-type(2) { top: 3px; animation-delay: .15s; }
+.btn-motion2 span:nth-of-type(3) { top: 6px; animation-delay: .3s; }
 
 /* 애니메이션 */
 @keyframes btn-motion1 {
     0% { opacity: 1; transform: translate(-50%, 0); }
-    100% { opacity: 0; transform: translate(-50%, 24px); }
+    100% { opacity: 0; transform: translate(-50%, 10px); }
 }
 
 @keyframes btn-motion2 {
