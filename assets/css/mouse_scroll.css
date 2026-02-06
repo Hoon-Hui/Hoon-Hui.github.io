@@ -76,8 +76,8 @@
 }
 
 @keyframes rotate-loading {
-            0%  {transform: rotate(0deg);-ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); -o-transform: rotate(0deg); -moz-transform: rotate(0deg);}
-            100% {transform: rotate(360deg);-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); -moz-transform: rotate(360deg);}
+            0%  {transform: rotate(0deg);}
+            100% {transform: rotate(1800deg);;}
         }
 
         @keyframes loading-text-opacity {
@@ -103,8 +103,14 @@
         }
 
         .loading {
+            /*
             border: 3.5px solid transparent;
             border-color: transparent #fff transparent #FFF;
+            */
+            box-shadow: 3px -3px 0 #F3A3B3,
+                    3px 3px 0 #E75480,
+                    -3px 3px 0 #D87093,
+                    -3px -3px 0 #F08080;
             animation: rotate-loading 1.5s linear 0s infinite normal;
             transform-origin: 50% 50%;
         }
@@ -120,7 +126,7 @@
         }
 @keyframes counter-rotate {
   0%   { transform: rotate(0deg); }
-  100% { transform: rotate(-360deg); }
+  100% { transform: rotate(-1800deg); }
 }
 
 .loading,
