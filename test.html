@@ -703,6 +703,15 @@
 		
 			window.addEventListener("load", checkOrientation);
 			window.addEventListener("resize", checkOrientation);
+
+			document.addEventListener('touchstart', () => {
+			  document.querySelector('.loading').style.animationPlayState = 'running';
+			  document.querySelector('#music').style.animationPlayState = 'running';
+			}, { once: true });
+			
+			container.addEventListener('click', () => {
+			  container.classList.toggle('is-running');
+			});
 		  </script>		
 	</body>
 </html>
