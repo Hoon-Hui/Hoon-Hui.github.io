@@ -684,35 +684,31 @@
 			window.addEventListener("resize", checkOrientation);
 			</script>
 		<script>
-		  const scroller = document.querySelector('#main'); // 🔥 실제 스크롤 div
-		
-		  if (!scroller) {
-		    console.error('스크롤 요소 못 찾음');
-		  }
-		
-		  function notify() {
-		    parent.postMessage(
-		      {
-		        type: 'IFRAME_SCROLL',
-		        top: scroller.scrollTop
-		      },
-		      '*'
-		    );
-		  }
-		
-		  notify();
-		  scroller.addEventListener('scroll', notify, { passive: true });
-		</script>
-		<script>
-  function unlockFromIframe() {
-    window.parent.postMessage({ type: 'UNLOCK_AUDIO' }, '*');
+		  const scroller = document.querySelector('#main');
 
-    document.removeEventListener('touchstart', unlockFromIframe);
-    document.removeEventListener('pointerdown', unlockFromIframe);
-  }
+function notifyScroll() {
+    window.top.postMessage({
+        type: 'IFRAME_SCROLL',
+        top: scroller.scrollTop
+    }, '*');
+}
 
-  document.addEventListener('touchstart', unlockFromIframe, { passive: true });
-  document.addEventListener('pointerdown', unlockFromIframe);
+// 초기 상태 알림
+notifyScroll();
+
+// 스크롤 이벤트
+scroller.addEventListener('scroll', notifyScroll, { passive: true });
+
+// 터치/클릭 시 오디오 언락
+function unlockAudio() {
+    window.top.postMessage({ type: 'UNLOCK_AUDIO' }, '*');
+    document.removeEventListener('touchstart', unlockAudio);
+    document.removeEventListener('pointerdown', unlockAudio);
+}
+
+document.addEventListener('touchstart', unlockAudio, { passive: true });
+document.addEventListener('pointerdown', unlockAudio);
+
 </script>
 		<script>
 			function musicOff(){
