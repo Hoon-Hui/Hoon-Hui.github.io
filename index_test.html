@@ -19,6 +19,19 @@
   visibility: hidden;
   pointer-events: none;
 }
+			
+			html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* 🔥 핵심 */
+}
+
+iframe#invitation {
+  width: 100%;
+  height: 100dvh;
+  border: none;
+}
+
 
 			
 		</style>
@@ -82,13 +95,14 @@
 				});
 
 		</script>		
-		<script>
-  const iframe = document.getElementById('invitation');
+		<script>iframe.addEventListener('load', () => {
+  const win = iframe.contentWindow;
   const loadingUI = document.querySelector('.loading-container');
   const scrollUI = document.getElementById('scrollIndicator');
 
-  function checkIframeScroll() {
-    if (iframe.scrollTop === 0) {
+  function check() {
+    const y = win.scrollY || win.document.documentElement.scrollTop;
+    if (y === 0) {
       loadingUI.classList.remove('hidden-ui');
       scrollUI.classList.remove('hidden-ui');
     } else {
@@ -97,11 +111,10 @@
     }
   }
 
-  // 최초 체크
-  checkIframeScroll();
+  check();
+  win.addEventListener('scroll', check);
+});
 
-  // ✅ 핵심: iframe 자체 스크롤 감지
-  iframe.addEventListener('scroll', checkIframeScroll);
 </script>
 
 
