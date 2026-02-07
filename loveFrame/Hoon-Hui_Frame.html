@@ -123,8 +123,7 @@
 				  checkHeaders(); // 로딩 시 한번 체크
 				});
 			</script>
-		<script>
-const scroller = document.querySelector('#main');
+		<script>const scroller = document.querySelector('#main');
 
 function notifyScroll() {
     window.top.postMessage({
@@ -148,6 +147,7 @@ function unlockAudio() {
 
 document.addEventListener('touchstart', unlockAudio, { passive: true });
 document.addEventListener('pointerdown', unlockAudio);
+
 </script>
 
 	</body>
