@@ -190,6 +190,7 @@
 				</div>				
 				<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
 
+				<div id="audio-gate"></div>
 				<audio id="bgm" src="/images/bgm.mp3" loop muted></audio>
 				<div class="loading-container">
 					<div class="loading" style="display: flex; justify-content: center; align-items: center;">
@@ -741,39 +742,50 @@
 				  container.classList.remove('is-running');
 				});
 			*/
-				const container = document.querySelector('.loading-container');
+				const gate = document.getElementById('audio-gate');
 const bgm = document.getElementById('bgm');
+const music = document.getElementById('music');
 
-function togglePlay() {
+let started = false;
+
+/* 첫 터치 → 음악 시작 */
+function firstTouch() {
+  if (started) return;
+
+  started = true;
+
+  bgm.play().then(() => {
+    gate.classList.add('disabled'); // 스크롤 & UI 터치 허용
+  }).catch(() => {
+    started = false;
+  });
+}
+
+/* iOS는 touchend 필수 */
+gate.addEventListener('touchend', firstTouch);
+gate.addEventListener('click', firstTouch);
+
+/* 이미지 클릭 → 토글 유지 */
+music.addEventListener('click', (e) => {
+  e.stopPropagation(); // gate로 이벤트 안 올라가게
+
   if (bgm.paused) {
-    bgm.muted = false;
     bgm.play();
   } else {
     bgm.pause();
   }
-}
-
-/* 모바일 + 데스크탑 통합 */
-container.addEventListener('touchend', (e) => {
-  e.preventDefault(); // iOS 중요
-  togglePlay();
-}, { passive: false });
-
-container.addEventListener('click', togglePlay);
+});
 
 /* 상태 기반 애니메이션 */
 bgm.addEventListener('play', () => {
-  container.classList.add('is-running');
+  document.querySelector('.loading-container')
+    .classList.add('is-running');
 });
 
 bgm.addEventListener('pause', () => {
-  container.classList.remove('is-running');
+  document.querySelector('.loading-container')
+    .classList.remove('is-running');
 });
-
-bgm.addEventListener('ended', () => {
-  container.classList.remove('is-running');
-});
-
 		</script>		
 	</body>
 </html>
