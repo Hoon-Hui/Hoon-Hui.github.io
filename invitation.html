@@ -82,18 +82,22 @@
 				bgm.pause();
 			  }
 			});
-			
-			bgm.addEventListener('play', () => {
-			  container.classList.add('is-running');
-			});
-			
-			bgm.addEventListener('pause', () => {
-			  container.classList.remove('is-running');
-			});
-			
-			bgm.addEventListener('ended', () => {
-			  container.classList.remove('is-running');
-			});
+
+			bgmstat();
+
+			function bgmStat(){
+				bgm.addEventListener('play', () => {
+				  container.classList.add('is-running');
+				});
+				
+				bgm.addEventListener('pause', () => {
+				  container.classList.remove('is-running');
+				});
+				
+				bgm.addEventListener('ended', () => {
+				  container.classList.remove('is-running');
+				});
+			}
 
 			document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
