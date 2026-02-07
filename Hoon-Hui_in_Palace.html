@@ -80,7 +80,7 @@
 			function notify() {
   const top =
     document.documentElement.scrollTop || document.body.scrollTop;
-console.log('palace scroll');
+console.log('palace scroll', top);
   window.top.postMessage(
     {
       type: 'IFRAME_SCROLL',
@@ -99,6 +99,7 @@ window.addEventListener('scroll', notify, { passive: true });
 		</script>
 	</body>
 </html>
+
 
 
 
