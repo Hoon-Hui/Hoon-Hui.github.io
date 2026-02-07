@@ -74,12 +74,13 @@ function unlockAudio() {
   if (isUnlocked) return;
   isUnlocked = true;
 
+  bgm.muted = false; // iOS 정책 대비
   bgm.play().catch(() => {});
   firstLayer.remove();
 }
 
 // 모바일
-firstLayer.addEventListener('touchstart', unlockAudio, { passive: true });
+firstLayer.addEventListener('touchstart', unlockAudio);
 
 // 데스크톱
 firstLayer.addEventListener('pointerdown', unlockAudio, { once: true });
@@ -93,7 +94,6 @@ container.addEventListener('click', () => {
 bgm.addEventListener('play', () => {
   container.classList.add('is-running');
 });
-
 bgm.addEventListener('pause', () => {
   container.classList.remove('is-running');
 });
