@@ -83,10 +83,6 @@
 			  }
 			});
 
-			bgmStat();
-
-			function bgmStat(){
-				alert('1');
 				bgm.addEventListener('play', () => {
 				  container.classList.add('is-running');
 				});
@@ -98,7 +94,7 @@
 				bgm.addEventListener('ended', () => {
 				  container.classList.remove('is-running');
 				});
-			}
+			
 
 			document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
@@ -139,11 +135,6 @@ iframe.addEventListener('load', () => {
 	  scrollUI.style.display = 'none';
 	} 
 });
-
-	window.addEventListener("load", () => {
-			alert('0');
-			  bgmStat();
-			});
 		</script>
 	</body>
 </html>
