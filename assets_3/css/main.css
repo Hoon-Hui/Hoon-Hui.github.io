@@ -926,7 +926,7 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 5.5em 2.25em 1.75em 2.25em ;
+		padding: 2.75em 2.25em 1.75em 2.25em ;
 		text-align: center;
 	}
 
@@ -1362,6 +1362,7 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
+
 
 
 
