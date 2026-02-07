@@ -3781,7 +3781,6 @@ input, select, textarea {
 		-webkit-transition: -webkit-filter 0.05s ease, -webkit-filter 0.05s ease, opacity 0.075s ease-out;
 		-ms-transition: -ms-filter 0.05s ease, -webkit-filter 0.05s ease, opacity 0.075s ease-out;
 		transition: filter 0.05s ease, -webkit-filter 0.05s ease, opacity 0.075s ease-out;
-		padding-top: 3.25em;
 	}
 
 		#wrapper.is-transitioning {
@@ -3803,14 +3802,6 @@ input, select, textarea {
 				}
 
 			}
-
-		@media screen and (max-width: 736px) {
-
-			#wrapper {
-				padding-top: 2.75em;
-			}
-
-		}
 
 		/* 모바일 가로 모드에서만 적용 */
 		@media screen and (max-height: 500px) {
