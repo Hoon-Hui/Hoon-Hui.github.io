@@ -131,7 +131,7 @@
 		  }
 		
 		  function notify() {
-		    top.postMessage(
+		    parent.parent.postMessage(
 		      {
 		        type: 'IFRAME_SCROLL',
 		        top: scroller.scrollTop
