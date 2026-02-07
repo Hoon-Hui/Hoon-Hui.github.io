@@ -84,7 +84,8 @@ bgm.addEventListener('pause', () => {
 
 </script>
 <script>
-			const loadingUI = document.querySelector('.loading-container');
+/*
+const loadingUI = document.querySelector('.loading-container');
 			const scrollUI = document.getElementById('scrollIndicator');
 		
 			window.addEventListener('message', (e) => {
@@ -98,6 +99,59 @@ bgm.addEventListener('pause', () => {
 			      scrollUI.style.display = 'none';
 			    }
 			});
+			*/
+const bgm = document.getElementById('bgm');
+const container = document.querySelector('.loading-container');
+const scrollUI = document.getElementById('scrollIndicator');
+
+let isUnlocked = false;
+
+// 첫 터치로 음악 재생
+function unlockAudio() {
+  if (isUnlocked) return;
+  isUnlocked = true;
+
+  bgm.muted = false; // iOS 정책 대비
+  bgm.play().catch(() => {});
+}
+
+// UI 토글
+container.addEventListener('click', () => {
+  if (!isUnlocked) return;
+  bgm.paused ? bgm.play() : bgm.pause();
+});
+
+bgm.addEventListener('play', () => container.classList.add('is-running'));
+bgm.addEventListener('pause', () => container.classList.remove('is-running'));
+
+// 메시지 수신
+window.addEventListener('message', (e) => {
+    if (!e.data) return;
+
+    switch(e.data.type) {
+        case 'IFRAME_SCROLL':
+            // B에서 보낸 메시지만 UI 토글
+            if(e.data.from === 'B') {
+                if(e.data.top === 0) {
+                    container.style.display = 'block';
+                    scrollUI.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
+                    scrollUI.style.display = 'none';
+                }
+            }
+            break;
+
+        case 'UNLOCK_AUDIO':
+            unlockAudio();
+            break;
+
+        case 'SHOW_AUDIO_UI':
+            container.style.display = 'block';
+            scrollUI.style.display = 'block';
+            break;
+    }
+});
 		</script>
 	</body>
 </html>
