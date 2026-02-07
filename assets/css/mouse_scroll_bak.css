@@ -75,46 +75,70 @@
     100% { opacity: 0; }
 }
 
-.loading-container,
-.loading {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    position: relative;
-}
-
-.loading-container { 
-    //margin: 40px auto;
-}
-
-.loading {
-    border: 5px solid transparent;
-    border-color: transparent #fff transparent #fff;
-    animation: rotate-loading 1.5s linear infinite;
-    transform-origin: 50% 50%;
-}
-
-#loading-text {
-    color: #ffffff;
-    font-family: "Helvetica Neue", Helvetica, Arial;
-    font-size: 10px;
-    font-weight: bold;
-    margin-top: 45px;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 100px;
-    opacity: 1; /* 항상 보이게 */
-}
-
-/* 클릭하면 스피닝 멈춤 */
-.loading-container.stop .loading {
-    animation-play-state: paused;
-    -webkit-animation-play-state: paused;
-}
-
-/* 회전 애니메이션 */
 @keyframes rotate-loading {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+            0%  {transform: rotate(0deg);}
+            100% {transform: rotate(1800deg);;}
+        }
+
+        @keyframes loading-text-opacity {
+            0%  {opacity: 1}
+            20% {opacity: 1}
+            50% {opacity: 0.5}
+            100%{opacity: 1}
+        }
+        
+        .loading-container,
+        .loading {
+            height: 25px;
+            width: 25px;
+            border-radius: 100%;
+        }
+
+
+        .loading-container {
+            position: absolute;
+            top: 3vh; /* scrollIndicator와 동일한 Y축 */
+            left: 20px; /* 좌측 위치, 원하는 만큼 조정 가능 */
+            z-index: 1000;
+        }
+
+        .loading {
+            /*
+            border: 3.5px solid transparent;
+            border-color: transparent #fff transparent #FFF;
+            */
+            box-shadow: 3px -3px 0 #FFB7C5,
+                    3px 3px 0 #F7CFE1,
+                    -3px 3px 0 #FFF8ED,
+                    -3px -3px 0 #FBC9E4;
+            animation: rotate-loading 1.5s linear 0s infinite normal;
+            transform-origin: 50% 50%;
+        }
+
+        .loading-container .loading {
+            transition: all 0.5s ease-in-out;
+        }
+
+        #music{
+            animation: loading-text-opacity 2s linear 0s infinite normal, counter-rotate 1.5s linear infinite;
+            position: absolute;
+            opacity: 1;
+              filter:
+                contrast(230%)
+                saturate(150%)
+                drop-shadow(0 0 6px rgba(0,0,0));
+        }
+@keyframes counter-rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(-1800deg); }
+}
+
+.loading,
+#music {
+  animation-play-state: paused;
+}
+
+.loading-container.is-running .loading,
+.loading-container.is-running #music {
+  animation-play-state: running;
 }
