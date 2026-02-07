@@ -59,31 +59,37 @@
 				
 		<!-- Scripts -->
 		<script>
-const bgm = document.getElementById('bgm');
-const container = document.querySelector('.loading-container');
-let isUnlocked = false;
-
-function unlockAudio() {
-  if (isUnlocked) return;
-  isUnlocked = true;
-
-  bgm.muted = false; // iOS 정책 대비
-  bgm.play().catch(() => {});
-}
-
-// 이후 UI 토글
-container.addEventListener('click', () => {
-	alert('click');
-  if (!isUnlocked) return;
-  bgm.paused ? bgm.play() : bgm.pause();
-});
-
-bgm.addEventListener('play', () => {
-  container.classList.add('is-running');
-});
-bgm.addEventListener('pause', () => {
-  container.classList.remove('is-running');
-});
+			const container = document.querySelector('.loading-container');
+			const bgm = document.getElementById('bgm');
+			
+			['touchstart', 'touchend', 'pointerdown'].forEach(evt => {
+			  document.addEventListener(evt, unlockAudio, { once: true });
+			});
+			
+			function unlockAudio() {
+			  bgm.muted = false;
+			  bgm.play().catch(() => {});
+			}
+			
+			container.addEventListener('click', () => {
+			  if (bgm.paused) {
+				bgm.play();
+			  } else {
+				bgm.pause();
+			  }
+			});
+			
+			bgm.addEventListener('play', () => {
+			  container.classList.add('is-running');
+			});
+			
+			bgm.addEventListener('pause', () => {
+			  container.classList.remove('is-running');
+			});
+			
+			bgm.addEventListener('ended', () => {
+			  container.classList.remove('is-running');
+			});
 
 </script>
 <script>
