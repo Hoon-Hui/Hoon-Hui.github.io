@@ -61,11 +61,10 @@
 		<script>
 			const container = document.querySelector('.loading-container');
 				const bgm = document.getElementById('bgm');
-				
-				let isPlaying = false;
-				
+								
 				// ✅ 첫 터치 시 음악 시작 (한 번만)
 				document.addEventListener('touchstart', () => {
+					alert('test');
 				  container.classList.add('is-running');
 				
 				  bgm.muted = false;     // 음소거 해제
