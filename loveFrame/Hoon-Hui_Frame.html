@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>용훈 & 소희 청첩장</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets_2/css/main2.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Noto+Serif+KR:wght@300;400;500&display=swap" rel="stylesheet">
+		<noscript><link rel="stylesheet" href="/assets_2/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0;">
+		<!-- Wrapper -->
+			<div id="wrapper" style="height: 100dvh;">		
+				<!-- Banner -->
+				<!-- Main -->
+					<div id="main" style="font-family: 'Noto Serif KR', serif;">
+						<!-- One -->
+							<section id="one" class="tiles">
+								<article>
+									<span class="image">
+										<img src="/images_3/fulls/2_Palace/1.webp" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="/loveFrame/navi.html?navi=2" class="link">고궁에서</a></h3>
+										<p>우리가 바로 조선 제일의 커플</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="/images_3/fulls/3_Beach/1.webp" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="/loveFrame/navi.html?navi=3" class="link">바다에서</a></h3>
+										<p>한결같이 깊고 짙은 사랑</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="/images_3/fulls/4_Park/1.webp" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="/loveFrame/navi.html?navi=4" class="link">공원에서</a></h3>
+										<p>따스한 햇살과 싱그러운 숲, 그리고 우리</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="/images_3/fulls/5_OtherPlace/1.webp" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="/loveFrame/navi.html?navi=5" class="link">또 다른 어딘가</a></h3>
+										<p>함께라서 더 좋은</p>
+									</header>
+								</article>								
+							</section>
+
+						<!-- Two -->
+							<section id="two" style="background-color: #ffffff";">
+								<div class="inner" style="display: flex; flex-direction: column; align-items: center; padding: 1.3em 0 0 0;"> 
+								    <ul class="actions" style="justify-content: center;"> 
+										<li><a href="javascript:void(0);" class="button next scrolly" onclick="scrollToOne()" style="padding: 0 3em;">두 사람의 시작, 다시 보기</a></li> 
+								    </ul>
+								</div>
+							</section>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="/assets_2/js/jquery.min.js"></script>
+			<script src="/assets_2/js/jquery.scrolly.min.js"></script>
+			<script src="/assets_2/js/browser.min.js"></script>
+			<script src="/assets_2/js/breakpoints.min.js"></script>
+			<script src="/assets_2/js/util.js"></script>
+			<script src="/assets_2/js/main.js"></script>
+
+			<script>
+			function scrollToOne() {
+				location.href="index.html";
+			}
+			
+			function smoothScrollTo(target, duration) {
+			  const startY = window.pageYOffset;
+			  const targetY = target.getBoundingClientRect().top + startY;
+			  const distance = targetY - startY;
+			  const startTime = performance.now();
+			
+			  function easeInOutCubic(t) {
+			    return t < 0.5
+			      ? 4 * t * t * t
+			      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+			  }
+			
+			  function animate(currentTime) {
+			    const elapsed = currentTime - startTime;
+			    const progress = Math.min(elapsed / duration, 1);
+			    const eased = easeInOutCubic(progress);
+			
+			    window.scrollTo(0, startY + distance * eased);
+			
+			    if (progress < 1) {
+			      requestAnimationFrame(animate);
+			    }
+			  }
+			
+			  requestAnimationFrame(animate);
+			}
+			</script>
+
+			<script>
+				document.addEventListener("DOMContentLoaded", function() {
+				  const headers = document.querySelectorAll(".tiles article header.major");
+				
+				  function checkHeaders() {
+				    headers.forEach(header => {
+				      const rect = header.getBoundingClientRect();
+				      if (rect.top < window.innerHeight * 0.85) { // 화면 85% 지점
+				        header.classList.add("visible");
+				      }
+				    });
+				  }
+				
+				  window.addEventListener("scroll", checkHeaders);
+				  checkHeaders(); // 로딩 시 한번 체크
+				});
+			</script>
+	</body>
+</html>
