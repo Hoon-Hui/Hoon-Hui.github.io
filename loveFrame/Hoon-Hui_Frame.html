@@ -128,8 +128,6 @@
   const top =
     document.documentElement.scrollTop || document.body.scrollTop;
 
-  console.log('notify fired', top);
-
   window.top.postMessage(
     {
       type: 'IFRAME_SCROLL',
