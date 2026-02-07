@@ -109,8 +109,9 @@ const iframe = document.getElementById('invitation');
 iframe.addEventListener('load', () => {
   console.log('iframe loaded');
 
+	console.log('iframe current location:', iframe.contentWindow.location.href);
   // 특정 URL일 경우에만 scrollIndicator 숨기기
-  if (iframe.src.includes('/loveFrame/Hoon-Hui_Frame.html')) {
+  if (iframe.src.includes('Hoon-Hui_Frame.html')) {
 	  console.log('iframe111');
     const scrollUI = document.getElementById('scrollIndicator');
     if (scrollUI) {
