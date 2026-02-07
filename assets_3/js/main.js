@@ -769,3 +769,21 @@ function blockPC() {
     }
 };
 
+function notify() {
+  const top =
+    document.documentElement.scrollTop || document.body.scrollTop;
+
+  window.top.postMessage(
+    {
+      type: 'IFRAME_SCROLL',
+      top
+    },
+    '*'
+  );
+}
+
+// 최초 1회
+notify();
+
+// 실제 스크롤 이벤트
+window.addEventListener('scroll', notify, { passive: true });
