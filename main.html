@@ -7,7 +7,6 @@
 		<link rel="stylesheet" href="/assets_3/css/main.css" />
 		<link rel="stylesheet" href="/assets_4/css/main2.css" />
 		<link rel="stylesheet" href="/assets/css/cherry_blossom.css" />
-		<link rel="stylesheet" href="/assets/css/mouse_scroll.css" />
 		<noscript><link rel="stylesheet" href="/assets_3/css/noscript.css" /></noscript>
 		<style>
 			#portrait-only {
@@ -664,15 +663,7 @@
 				  scrollElements.forEach(el => observer.observe(el));
 				});
 			</script>
-
-			<!-- <script>
-			  function setScreenHeightOnce() {
-			    const vh = window.innerHeight * 0.01;
-			    document.documentElement.style.setProperty('--vh', `${vh}px`);
-			  }
-			  window.addEventListener('load', setScreenHeightOnce);
-			</script> -->
-
+		
 			<script>
 			const portraitOnly = document.getElementById("portrait-only");
 		
@@ -688,86 +679,27 @@
 		
 			window.addEventListener("load", checkOrientation);
 			window.addEventListener("resize", checkOrientation);
-
-			/*
-			const container = document.querySelector('.loading-container');
-
-			document.addEventListener('touchstart', () => {
-			  container.classList.add('is-running');
-			}, { once: true });
-			
-			container.addEventListener('click', () => {
-			  container.classList.toggle('is-running');
-			});
-			*/
-				const container = document.querySelector('.loading-container');
-				const bgm = document.getElementById('bgm');
-				
-				// ✅ 모바일 최초 터치 – 재생 권한 확보
-				/*document.addEventListener(
-				  'touchstart',
-				  () => {
-				    bgm.muted = false;
-				    bgm.play().catch(err => {
-				      console.log('Autoplay blocked:', err);
-				    });
-				  },
-				  { once: true }
-				);*/
-
-				['touchstart', 'touchend', 'pointerdown'].forEach(evt => {
-				  document.addEventListener(evt, unlockAudio, { once: true });
-				});
-				
-				function unlockAudio() {
-				  bgm.muted = false;
-				  bgm.play().catch(() => {});
-				}
-
-				
-				// ✅ 클릭 / 터치 → 재생 토글
-				container.addEventListener('click', () => {
-				  if (bgm.paused) {
-				    bgm.play();
-				  } else {
-				    bgm.pause();
-				  }
-				});
-				
-				// 🔥 실제 audio 상태 기준으로 애니메이션 제어
-				bgm.addEventListener('play', () => {
-				  container.classList.add('is-running');
-				});
-				
-				bgm.addEventListener('pause', () => {
-				  container.classList.remove('is-running');
-				});
-				
-				bgm.addEventListener('ended', () => {
-				  container.classList.remove('is-running');
-				});
-
-		</script>		
+			</script>
 		<script>
-  const scroller = document.querySelector('#main'); // 🔥 실제 스크롤 div
-
-  if (!scroller) {
-    console.error('스크롤 요소 못 찾음');
-  }
-
-  function notify() {
-    parent.postMessage(
-      {
-        type: 'IFRAME_SCROLL',
-        top: scroller.scrollTop
-      },
-      '*'
-    );
-  }
-
-  notify();
-  scroller.addEventListener('scroll', notify, { passive: true });
-</script>
+		  const scroller = document.querySelector('#main'); // 🔥 실제 스크롤 div
+		
+		  if (!scroller) {
+		    console.error('스크롤 요소 못 찾음');
+		  }
+		
+		  function notify() {
+		    parent.postMessage(
+		      {
+		        type: 'IFRAME_SCROLL',
+		        top: scroller.scrollTop
+		      },
+		      '*'
+		    );
+		  }
+		
+		  notify();
+		  scroller.addEventListener('scroll', notify, { passive: true });
+		</script>
 
 
 	</body>
