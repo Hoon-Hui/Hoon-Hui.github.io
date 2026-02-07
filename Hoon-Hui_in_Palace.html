@@ -81,11 +81,14 @@
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>	
 		<script>
-			function notify() {
-				console.log('palace scroll111111');
-  const top =
-    document.documentElement.scrollTop || document.body.scrollTop;
-console.log('palace scroll', top);
+		function notify() {
+  console.log('palace scroll111111');
+  
+  // 안정적인 스크롤 위치 계산
+  const top = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+  console.log('palace scroll', top);
+  
+  // 부모 페이지에 스크롤 위치 전달
   window.top.postMessage(
     {
       type: 'IFRAME_SCROLL',
@@ -95,23 +98,19 @@ console.log('palace scroll', top);
   );
 }
 
-// 최초 1회
+// 최초 1회 호출 (초기 스크롤 위치 전달)
 notify();
 
-// 실제 스크롤 이벤트
-//window.addEventListener('scroll', notify, { passive: true });
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM fully loaded and parsed');
-  notify(); // notify 함수 호출
-  window.addEventListener('scroll', function() {
+// 스크롤 이벤트 리스너
+window.addEventListener('scroll', function() {
   console.log('스크롤 이벤트 발생');
   notify();
 });
-}
 
 		</script>
 	</body>
 </html>
+
 
 
 
