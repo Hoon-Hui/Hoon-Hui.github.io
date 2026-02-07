@@ -131,7 +131,8 @@
 		  }
 		
 		  function notify() {
-		    window.top.postMessage(
+			  console.log('notify fired', scroller.scrollTop);
+		    window.parent.parent.postMessage(
 		      {
 		        type: 'IFRAME_SCROLL',
 		        top: scroller.scrollTop
