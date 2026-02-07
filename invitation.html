@@ -86,10 +86,12 @@ bgm.addEventListener('pause', () => {
 <script>
 
 const loadingUI = document.querySelector('.loading-container');
+			console.log('iframe current location:', iframe.contentWindow.location.href);
 			const scrollUI = document.getElementById('scrollIndicator');
 			window.addEventListener('message', (e) => {
 			    if (!e.data || e.data.type !== 'IFRAME_SCROLL') return;
 			    if (e.data.top === 0) {
+					console.log('111111111');
 			      loadingUI.style.display = 'block';
 			      if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/loveFrame/Hoon-Hui_Frame.html')) {	
 					scrollUI.style.display = 'block';
@@ -104,6 +106,7 @@ const loadingUI = document.querySelector('.loading-container');
 // iframe이 새로 로드될 때 UI 보이게
 const iframe = document.getElementById('invitation');
 iframe.addEventListener('load', () => {
+	console.log('222222');
   // 특정 URL일 경우에만 scrollIndicator 숨기기
   if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/loveFrame/Hoon-Hui_Frame.html')) {
 	loadingUI.style.display = 'block';	
