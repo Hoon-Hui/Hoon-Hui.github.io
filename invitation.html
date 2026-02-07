@@ -95,6 +95,16 @@
 			  container.classList.remove('is-running');
 			});
 
+			document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      // 탭이 백그라운드로 가면 정지
+      bgm.pause();
+    } else {
+      // 다시 돌아오면 재생 (원하면 주석 처리 가능)
+      bgm.play();
+    }
+  });
+
 </script>
 <script>
 const loadingUI = document.querySelector('.loading-container');
