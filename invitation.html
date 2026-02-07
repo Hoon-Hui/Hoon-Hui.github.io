@@ -73,6 +73,7 @@ function unlockAudio() {
 
 // 이후 UI 토글
 container.addEventListener('click', () => {
+	alert('click');
   if (!isUnlocked) return;
   bgm.paused ? bgm.play() : bgm.pause();
 });
