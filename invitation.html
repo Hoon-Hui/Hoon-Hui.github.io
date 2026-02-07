@@ -94,7 +94,6 @@ const loadingUI = document.querySelector('.loading-container');
 	
 			window.addEventListener('message', (e) => {
 			    if (!e.data || e.data.type !== 'IFRAME_SCROLL') return;
-			console.log("sssccccrroollllling");
 			    if (e.data.top === 0) {
 			      loadingUI.style.display = 'block';
 			      scrollUI.style.display = 'block';
@@ -112,12 +111,14 @@ iframe.addEventListener('load', () => {
 
   // 특정 URL일 경우에만 scrollIndicator 숨기기
   if (iframe.src.includes('/loveFrame/Hoon-hui_Frame.html')) {
+	  console.log('iframe111');
     const scrollUI = document.getElementById('scrollIndicator');
     if (scrollUI) {
+		console.log('iframe222');
       scrollUI.style.display = 'none';  // 첫 로드 시에만 숨기기
     }
   }
-
+	console.log('iframe333');
   container.style.display = 'block';
 });
 		</script>
