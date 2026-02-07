@@ -202,7 +202,7 @@ var main = (function($) { var _ = {
 				});
 
 		// Viewer.
-
+			/*
 			// Hide main wrapper on tap (<= medium only).
 				_.$viewer.on('touchend', function() {
 
@@ -220,7 +220,7 @@ var main = (function($) { var _ = {
 							_.$viewer.touchPosY = event.originalEvent.touches[0].pageY;
 
 					})
-					/*
+					
 					.on('touchmove', function(event) {
 
 						// No start position recorded? Bail.
@@ -255,7 +255,7 @@ var main = (function($) { var _ = {
 							}
 
 					});
-					*/
+					
 
 		// Main.
 
@@ -322,6 +322,7 @@ var main = (function($) { var _ = {
 							}
 
 					});
+					*/
 		// Toggle.
 			_.$toggle.on('click', function() {
 				_.toggle();
@@ -770,4 +771,5 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 };
+
 
