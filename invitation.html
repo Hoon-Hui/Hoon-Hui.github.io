@@ -111,15 +111,16 @@ iframe.addEventListener('load', () => {
 
 	console.log('iframe current location:', iframe.contentWindow.location.href);
   // 특정 URL일 경우에만 scrollIndicator 숨기기
-  if (iframe.src.includes('Hoon-Hui_Frame.html')) {
+  if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/loveFrame/Hoon-Hui_Frame.html')) {
 	  console.log('iframe111');
-    const scrollUI = document.getElementById('scrollIndicator');
-    if (scrollUI) {
-		console.log('iframe222');
       scrollUI.style.display = 'none';  // 첫 로드 시에만 숨기기
-    }
+	} else if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/loveFrame/navi.html')) {
+	  console.log('iframe222');
+      scrollUI.style.display = 'none';  // 첫 로드 시에만 숨기기
+	} else {
+	  scrollUI.style.display = 'block';
   }
-	console.log('iframe333');
+  
   loadingUI.style.display = 'block';
 });
 		</script>
