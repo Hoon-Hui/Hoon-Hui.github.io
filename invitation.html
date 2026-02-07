@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Invitation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/mouse_scroll.css" />
+		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
+		<style>
+			.loading-container,
+			.btn-motion {
+			  position: fixed;
+			  z-index: 9999;
+			  transition: opacity 0.4s ease, visibility 0.4s ease;
+			}
+			
+			.hidden-ui {
+			  opacity: 0;
+			  visibility: hidden;
+			  pointer-events: none;
+			}			
+			html, body {
+			  height: 100%;
+			  margin: 0;
+			  overflow: hidden;
+			}
+
+			iframe#invitation {
+			  width: 100%;
+			  height: 100dvh;
+			  border: none;
+			}
+		</style>
+	</head>
+	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
+		<audio id="bgm" src="/images/bgm.mp3" loop muted></audio>
+		<div class="loading-container">
+			<div class="loading" style="display: flex; justify-content: center; align-items: center;">
+				<img id="music" src="/images/music.webp" style="width:70%">
+			</div>
+		</div>
+		<!-- mouse scroll -->
+		<div class="btn-motion" id="scrollIndicator">
+			<div class="btn-motion1"></div>
+			<div class="btn-motion2">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+
+	    <div style="height: 100dvh">
+			<iframe id="invitation" style="height: 100%; width:100%; border: none;" src="/test2.html" scrolling="auto"></iframe>
+		</div>
+				
+		<!-- Scripts -->
+		<script>
+			const container = document.querySelector('.loading-container');
+			const bgm = document.getElementById('bgm');
+			
+			['touchstart', 'touchend', 'pointerdown'].forEach(evt => {
+			  document.addEventListener(evt, unlockAudio, { once: true });
+			});
+			
+			function unlockAudio() {
+			  bgm.muted = false;
+			  bgm.play().catch(() => {});
+			}
+			
+			container.addEventListener('click', () => {
+			  if (bgm.paused) {
+				bgm.play();
+			  } else {
+				bgm.pause();
+			  }
+			});
+			
+			bgm.addEventListener('play', () => {
+			  container.classList.add('is-running');
+			});
+			
+			bgm.addEventListener('pause', () => {
+			  container.classList.remove('is-running');
+			});
+			
+			bgm.addEventListener('ended', () => {
+			  container.classList.remove('is-running');
+			});
+
+		</script>		
+		<script>
+			const loadingUI = document.querySelector('.loading-container');
+			const scrollUI = document.getElementById('scrollIndicator');
+		
+			window.addEventListener('message', (e) => {
+			    if (!e.data || e.data.type !== 'IFRAME_SCROLL') return;
+			
+			    if (e.data.top === 0) {
+			      loadingUI.style.display = 'block';
+			      scrollUI.style.display = 'block';
+			    } else {
+			      loadingUI.style.display = 'none';
+			      scrollUI.style.display = 'none';
+			    }
+			});
+		</script>
+	</body>
+</html>
