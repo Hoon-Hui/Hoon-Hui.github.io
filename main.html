@@ -303,7 +303,7 @@
 				</section>
 				
 				<div style="padding: 1.5em;">
-					<a href="/loveFrame/Hoon-Hui_Frame.html" class="button next scrolly" style="padding: 0 5em;">View More > </a>
+					<a href="/loveFrame/loveFrame.html" class="button next scrolly" style="padding: 0 5em;">View More > </a>
 				</div>
 		
 				<!-- Two -->
@@ -681,40 +681,26 @@
 			window.addEventListener("resize", checkOrientation);
 			</script>
 		<script>
-const scroller = document.querySelector('#main');
-
-function notifyScroll() {
-    window.top.postMessage({
-        type: 'IFRAME_SCROLL',
-        top: scroller.scrollTop
-    }, '*');
-}
-
-// 초기 상태 알림
-notifyScroll();
-
-// 스크롤 이벤트
-scroller.addEventListener('scroll', notifyScroll, { passive: true });
-
-// 터치/클릭 시 오디오 언락
-function unlockAudio() {
-    window.top.postMessage({ type: 'UNLOCK_AUDIO' }, '*');
-    document.removeEventListener('touchstart', unlockAudio);
-    document.removeEventListener('pointerdown', unlockAudio);
-}
-
-document.addEventListener('touchstart', unlockAudio, { passive: true });
-document.addEventListener('pointerdown', unlockAudio);
-
-</script>
-		<script>
-			function musicOff(){
-			    // 부모창의 bgm을 멈춤
-			    if (window.parent && window.parent.bgm) {
-			        window.parent.bgm.pause();
-			    }
-			    // 링크는 그대로 이동하게 놔둠
-			}
+		  const scroller = document.querySelector('#main'); // 🔥 실제 스크롤 div
+		
+		  if (!scroller) {
+		    console.error('스크롤 요소 못 찾음');
+		  }
+		
+		  function notify() {
+		    parent.postMessage(
+		      {
+		        type: 'IFRAME_SCROLL',
+		        top: scroller.scrollTop
+		      },
+		      '*'
+		    );
+		  }
+		
+		  notify();
+		  scroller.addEventListener('scroll', notify, { passive: true });
 		</script>
+
+
 	</body>
 </html>
