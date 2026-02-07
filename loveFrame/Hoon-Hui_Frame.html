@@ -124,10 +124,10 @@
 				});
 			</script>
 		<script>
-// C 진입 시 UI 강제 표시
+// C 진입 시 A에게 직접 메시지
 window.addEventListener('DOMContentLoaded', () => {
-    if(window.parent) {
-        window.parent.postMessage({ type: 'SHOW_AUDIO_UI' }, '*');
+    if (window.top) {
+        window.top.postMessage({ type: 'SHOW_AUDIO_UI' }, '*');
     }
 });
 </script>
