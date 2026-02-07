@@ -768,23 +768,3 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 };
-
-function notify() {
-  const top =
-    document.documentElement.scrollTop || document.body.scrollTop;
-
-  window.top.postMessage(
-    {
-      type: 'IFRAME_SCROLL',
-      top
-    },
-    '*'
-  );
-}
-
-// 최초 1회
-notify();
-
-// 실제 스크롤 이벤트
-window.addEventListener('scroll', notify, { passive: true });
-
