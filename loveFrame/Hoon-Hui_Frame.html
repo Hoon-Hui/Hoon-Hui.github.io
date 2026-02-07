@@ -124,25 +124,27 @@
 				});
 			</script>
 		<script>
-			const scroller = document.querySelector('#main'); // 🔥 실제 스크롤 div
-		
-		  if (!scroller) {
-		    console.error('스크롤 요소 못 찾음');
-		  }
-		
-		  function notify() {
-			  console.log('notify fired', scroller.scrollTop);
-		    window.parent.parent.postMessage(
-		      {
-		        type: 'IFRAME_SCROLL',
-		        top: scroller.scrollTop
-		      },
-		      '*'
-		    );
-		  }
-		
-		  notify();
-		  scroller.addEventListener('scroll', notify, { passive: true });
+			function notify() {
+  const top =
+    document.documentElement.scrollTop || document.body.scrollTop;
+
+  console.log('notify fired', top);
+
+  window.top.postMessage(
+    {
+      type: 'IFRAME_SCROLL',
+      top
+    },
+    '*'
+  );
+}
+
+// 최초 1회
+notify();
+
+// 실제 스크롤 이벤트
+window.addEventListener('scroll', notify, { passive: true });
+
 		</script>
 
 	</body>
