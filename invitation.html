@@ -93,8 +93,10 @@ const loadingUI = document.querySelector('.loading-container');
 			    if (!e.data || e.data.type !== 'IFRAME_SCROLL') return;
 			    if (e.data.top === 0) {
 			      loadingUI.style.display = 'block';
-			      if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/loveFrame/Hoon-Hui_Frame.html')) {	
+			      if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/main.html')) {	
 					scrollUI.style.display = 'block';
+				  } else {
+					 scrollUI.style.display = 'none'; 
 				  }
 			    } else {
 			      loadingUI.style.display = 'none';
@@ -107,16 +109,10 @@ const loadingUI = document.querySelector('.loading-container');
 iframe.addEventListener('load', () => {
 	console.log('iframe current location first:', iframe.contentWindow.location.href);
   // 특정 URL일 경우에만 scrollIndicator 숨기기
-  if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/loveFrame/Hoon-Hui_Frame.html')) {
-	loadingUI.style.display = 'block';	
-      scrollUI.style.display = 'none';  // 첫 로드 시에만 숨기기
-	} else if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/loveFrame/navi.html')) {
+  if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/loveFrame/navi.html')) {
 	  loadingUI.style.display = 'none';
-      scrollUI.style.display = 'none';  // 첫 로드 시에만 숨기기
-	} else {
-	  loadingUI.style.display = 'block';
-	  scrollUI.style.display = 'block';
-  }
+	  scrollUI.style.display = 'none';
+	} 
 });
 		</script>
 	</body>
