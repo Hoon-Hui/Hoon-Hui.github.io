@@ -103,12 +103,15 @@ notify();
 document.addEventListener('DOMContentLoaded', function() {
   console.log('DOM fully loaded and parsed');
   notify(); // notify 함수 호출
-  document.documentElement.addEventListener('scroll', notify, { passive: true });
+  window.addEventListener('scroll', function() {
+  console.log('스크롤 이벤트 발생');
+  notify();
 });
 
 		</script>
 	</body>
 </html>
+
 
 
 
