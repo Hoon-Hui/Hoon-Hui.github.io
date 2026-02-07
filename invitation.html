@@ -718,7 +718,7 @@
 				const container = document.querySelector('.loading-container');
 				const bgm = document.getElementById('bgm');
 				
-				// 첫 터치: 음악 시작
+				// ✅ 모바일 최초 터치 – 재생 권한 확보
 				document.addEventListener(
 				  'touchstart',
 				  () => {
@@ -730,7 +730,7 @@
 				  { once: true }
 				);
 				
-				// 컨테이너 클릭 → 토글
+				// ✅ 클릭 / 터치 → 재생 토글
 				container.addEventListener('click', () => {
 				  if (bgm.paused) {
 				    bgm.play();
@@ -739,17 +739,15 @@
 				  }
 				});
 				
-				// 🔥 음악 재생되면 애니메이션 ON
+				// 🔥 실제 audio 상태 기준으로 애니메이션 제어
 				bgm.addEventListener('play', () => {
 				  container.classList.add('is-running');
 				});
 				
-				// 🔥 음악 멈추면 애니메이션 OFF
 				bgm.addEventListener('pause', () => {
 				  container.classList.remove('is-running');
 				});
 				
-				// (선택) 음악 끝났을 때도 OFF
 				bgm.addEventListener('ended', () => {
 				  container.classList.remove('is-running');
 				});
