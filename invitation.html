@@ -61,7 +61,7 @@
 		<script>
 			const container = document.querySelector('.loading-container');
 				const bgm = document.getElementById('bgm');
-					
+				/*	
 				// ✅ 첫 터치 시 음악 시작 (한 번만)
 				document.addEventListener('touchstart', () => {
 					alert('test');
@@ -74,7 +74,7 @@
 				    console.log('Autoplay blocked:', err);
 				  });
 				}, { once: true });
-			
+			*/
 			container.addEventListener('click', () => {
 			  if (bgm.paused) {
 				bgm.play();
