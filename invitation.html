@@ -60,16 +60,21 @@
 		<!-- Scripts -->
 		<script>
 			const container = document.querySelector('.loading-container');
-			const bgm = document.getElementById('bgm');
-			
-			['touchstart', 'touchend', 'pointerdown'].forEach(evt => {
-			  document.addEventListener(evt, unlockAudio, { once: true });
-			});
-			
-			function unlockAudio() {
-			  bgm.muted = false;
-			  bgm.play().catch(() => {});
-			}
+				const bgm = document.getElementById('bgm');
+				
+				let isPlaying = false;
+				
+				// ✅ 첫 터치 시 음악 시작 (한 번만)
+				document.addEventListener('touchstart', () => {
+				  container.classList.add('is-running');
+				
+				  bgm.muted = false;     // 음소거 해제
+				  bgm.play().then(() => {
+				    isPlaying = true;
+				  }).catch(err => {
+				    console.log('Autoplay blocked:', err);
+				  });
+				}, { once: true });
 			
 			container.addEventListener('click', () => {
 			  if (bgm.paused) {
