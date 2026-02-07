@@ -701,10 +701,12 @@
 		  scroller.addEventListener('scroll', notify, { passive: true });
 
 
-			document.addEventListener('touchstart', () => {				
+			document.addEventListener('touchstart', () => {		
+				if(parent.bgm.paused){
 				  parent.bgm.muted = false;     // 음소거 해제
 				  parent.bgm.play();
 				}, { once: true });
+			}
 		</script>
 
 
