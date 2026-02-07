@@ -749,28 +749,26 @@
 
 		</script>		
 		<script>
-  function notifyScroll() {
-    const top =
-      window.scrollY ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
+  const scroller = document.querySelector('#main'); // 🔥 실제 스크롤 div
 
+  if (!scroller) {
+    console.error('스크롤 요소 못 찾음');
+  }
+
+  function notify() {
     parent.postMessage(
       {
         type: 'IFRAME_SCROLL',
-        top: top
+        top: scroller.scrollTop
       },
       '*'
     );
   }
 
-  // 최초 상태 전달
-  notifyScroll();
-
-  // 스크롤 시마다 부모에 알림
-  window.addEventListener('scroll', notifyScroll, { passive: true });
+  notify();
+  scroller.addEventListener('scroll', notify, { passive: true });
 </script>
+
 
 	</body>
 </html>
