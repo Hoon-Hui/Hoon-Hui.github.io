@@ -705,6 +705,10 @@
 				  parent.bgm.muted = false;     // 음소거 해제
 				  parent.bgm.play();
 				}, { once: true });
+
+			window.addEventListener("load", () => {
+			  parent.bgmStat();
+			});
 		</script>
 
 
