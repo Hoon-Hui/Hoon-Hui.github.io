@@ -136,9 +136,27 @@
 .loading,
 #music {
   animation-play-state: paused;
-}
+}z
 
 .loading-container.is-running .loading,
 .loading-container.is-running #music {
   animation-play-state: running;
+}
+
+#audio-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
+}
+
+/* 기존 UI는 위에 보이게 */
+.loading-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* 음악 시작 후 터치 통과 */
+#audio-gate.disabled {
+  pointer-events: none;
 }
