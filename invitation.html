@@ -78,8 +78,10 @@
 			container.addEventListener('click', () => {
 			  if (bgm.paused) {
 				bgm.play();
+				container.classList.add('is-running');  
 			  } else {
 				bgm.pause();
+				  container.classList.remove('is-running');
 			  }
 			});
 
