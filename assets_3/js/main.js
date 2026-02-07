@@ -787,3 +787,4 @@ notify();
 
 // 실제 스크롤 이벤트
 window.addEventListener('scroll', notify, { passive: true });
+
