@@ -99,11 +99,17 @@ console.log('palace scroll', top);
 notify();
 
 // 실제 스크롤 이벤트
-window.addEventListener('scroll', notify, { passive: true });
+//window.addEventListener('scroll', notify, { passive: true });
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM fully loaded and parsed');
+  notify(); // notify 함수 호출
+  window.addEventListener('scroll', notify, { passive: true });
+});
 
 		</script>
 	</body>
 </html>
+
 
 
 
