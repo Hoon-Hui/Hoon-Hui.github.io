@@ -745,36 +745,40 @@
 				const gate = document.getElementById('audio-gate');
 const bgm = document.getElementById('bgm');
 const container = document.querySelector('.loading-container');
+const btnMotion = document.querySelector('.btn-motion');
 
 let started = false;
 
-function firstTouch() {
+function startBgm() {
   if (started) return;
   started = true;
 
   bgm.muted = false;
   bgm.play().then(() => {
+    // gate 비활성화
     gate.classList.add('disabled');
+
+    // btn-motion 숨기기
+    if (btnMotion) btnMotion.classList.add('hide');
+
+    // 애니메이션 시작
+    container.classList.add('is-running');
   }).catch(() => {
     started = false;
   });
 }
 
-gate.addEventListener('touchend', firstTouch);
-gate.addEventListener('click', firstTouch);
-
-bgm.addEventListener('play', () => {
-  container.classList.add('is-running');
+// 사용자 액션: 터치, 클릭, 스크롤
+['touchend', 'click', 'wheel', 'scroll'].forEach(evt => {
+  window.addEventListener(evt, startBgm, { once: true, passive: true });
 });
 
-bgm.addEventListener('pause', () => {
-  container.classList.remove('is-running');
-});
+// 음악 상태 이벤트
+bgm.addEventListener('play', () => container.classList.add('is-running'));
+bgm.addEventListener('pause', () => container.classList.remove('is-running'));
+bgm.addEventListener('ended', () => container.classList.remove('is-running'));
 
-bgm.addEventListener('ended', () => {
-  container.classList.remove('is-running');
-});
-
+// 백그라운드 대응
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
     container.classList.remove('is-running');
@@ -782,7 +786,6 @@ document.addEventListener('visibilitychange', () => {
     container.classList.add('is-running');
   }
 });
-
 		</script>		
 	</body>
 </html>
