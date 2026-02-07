@@ -94,7 +94,7 @@ const loadingUI = document.querySelector('.loading-container');
 	
 			window.addEventListener('message', (e) => {
 			    if (!e.data || e.data.type !== 'IFRAME_SCROLL') return;
-			
+			console.log("sssccccrroollllling");
 			    if (e.data.top === 0) {
 			      loadingUI.style.display = 'block';
 			      scrollUI.style.display = 'block';
