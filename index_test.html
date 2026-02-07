@@ -6,6 +6,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/mouse_scroll.css" />
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
+		<style>
+			.loading-container,
+.btn-motion {
+  position: fixed;
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.hidden-ui {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+			
+		</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 				<audio id="bgm" src="/images/bgm.mp3" loop muted></audio>
@@ -25,7 +41,7 @@
 				</div>
 
 	    <div style="height: 100dvh">
-					<iframe id="invitation" style="height: 100%; width:100%; border: none;" src="/invitation.html" scrolling="auto"></iframe>
+					<iframe id="invitation" style="height: 100%; width:100%; border: none;" src="/test2.html" scrolling="auto"></iframe>
 				</div>
 				
 		<!-- Scripts -->
@@ -66,5 +82,35 @@
 				});
 
 		</script>		
+		<script>
+  const iframe = document.getElementById('invitation');
+  const loadingUI = document.querySelector('.loading-container');
+  const scrollUI = document.getElementById('scrollIndicator');
+
+  iframe.addEventListener('load', () => {
+    const iframeWindow = iframe.contentWindow;
+    const iframeDoc = iframeWindow.document;
+
+    function checkScrollTop() {
+      const scrollTop =
+        iframeDoc.documentElement.scrollTop || iframeDoc.body.scrollTop;
+
+      if (scrollTop === 0) {
+        loadingUI.classList.remove('hidden-ui');
+        scrollUI.classList.remove('hidden-ui');
+      } else {
+        loadingUI.classList.add('hidden-ui');
+        scrollUI.classList.add('hidden-ui');
+      }
+    }
+
+    // 최초 상태 체크
+    checkScrollTop();
+
+    // iframe 내부 스크롤 감지
+    iframeWindow.addEventListener('scroll', checkScrollTop);
+  });
+</script>
+
 	</body>
 </html>
