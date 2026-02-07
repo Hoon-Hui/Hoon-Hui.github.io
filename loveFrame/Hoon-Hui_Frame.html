@@ -123,5 +123,14 @@
 				  checkHeaders(); // 로딩 시 한번 체크
 				});
 			</script>
+		<script>
+// C 진입 시 UI 강제 표시
+window.addEventListener('DOMContentLoaded', () => {
+    if(window.parent) {
+        window.parent.postMessage({ type: 'SHOW_AUDIO_UI' }, '*');
+    }
+});
+</script>
+
 	</body>
 </html>
