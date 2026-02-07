@@ -700,7 +700,16 @@
 		  notify();
 		  scroller.addEventListener('scroll', notify, { passive: true });
 		</script>
+		<script>
+  function unlockFromIframe() {
+    window.parent.postMessage({ type: 'UNLOCK_AUDIO' }, '*');
 
+    document.removeEventListener('touchstart', unlockFromIframe);
+    document.removeEventListener('pointerdown', unlockFromIframe);
+  }
 
+  document.addEventListener('touchstart', unlockFromIframe, { passive: true });
+  document.addEventListener('pointerdown', unlockFromIframe);
+</script>
 	</body>
 </html>
