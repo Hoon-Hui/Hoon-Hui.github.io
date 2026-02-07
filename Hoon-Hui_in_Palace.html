@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets_3/css/main.css" />
-		<!-- <noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript> -->
+		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 
@@ -71,24 +71,9 @@
 			<script src="assets_3/js/browser.min.js"></script>
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
-
-		<script>
-		    // window.opener가 무엇인지 로그로 찍어보기
-		    console.log("window.opener:", window.opener);
-			console.log("document.referrer:", document.referrer);
-		
-		    // 스크롤 이벤트 리스너 추가
-		    window.addEventListener('scroll', () => {
-		      if (window.opener) {  // 부모 창이 존재하면
-		        console.log("window.opener exists:", window.opener);  // 부모 창이 존재하면
-		        window.opener.postMessage('Scrolled in B!', window.origin);  // 부모 창에 메시지 보내기
-		      } else {
-		        console.log("window.opener is null.");  // 부모 창이 없으면
-		      }
-		    });
-		  </script>
 	</body>
 </html>
+
 
 
 
