@@ -55,40 +55,48 @@
 				
 		<!-- Scripts -->
 		<script>
-			const container = document.querySelector('.loading-container');
-			const bgm = document.getElementById('bgm');
-			
-			['touchstart', 'touchend', 'pointerdown'].forEach(evt => {
-			  document.addEventListener(evt, unlockAudio, { once: true });
-			});
-			
-			function unlockAudio() {
-			  bgm.muted = false;
-			  bgm.play().catch(() => {});
-			}
-			
-			container.addEventListener('click', () => {
-			  if (bgm.paused) {
-				bgm.play();
-			  } else {
-				bgm.pause();
-			  }
-			});
-			
-			bgm.addEventListener('play', () => {
-			  container.classList.add('is-running');
-			});
-			
-			bgm.addEventListener('pause', () => {
-			  container.classList.remove('is-running');
-			});
-			
-			bgm.addEventListener('ended', () => {
-			  container.classList.remove('is-running');
-			});
+  const bgm = document.getElementById('bgm');
+  const container = document.querySelector('.loading-container');
 
-		</script>		
-		<script>
+  let isUnlocked = false;
+
+  // 1️⃣ 첫 터치 → 무조건 음악 시작
+  function firstUnlock() {
+    if (isUnlocked) return;
+
+    bgm.muted = false;
+    bgm.play().catch(() => {});
+
+    isUnlocked = true;
+
+    document.removeEventListener('touchstart', firstUnlock);
+    document.removeEventListener('pointerdown', firstUnlock);
+  }
+
+  document.addEventListener('touchstart', firstUnlock, { passive: true });
+  document.addEventListener('pointerdown', firstUnlock);
+
+  // 2️⃣ 이후부터는 UI 클릭으로만 토글
+  container.addEventListener('click', () => {
+    if (!isUnlocked) return;
+
+    if (bgm.paused) {
+      bgm.play();
+    } else {
+      bgm.pause();
+    }
+  });
+
+  // 3️⃣ UI 애니메이션 상태
+  bgm.addEventListener('play', () => {
+    container.classList.add('is-running');
+  });
+
+  bgm.addEventListener('pause', () => {
+    container.classList.remove('is-running');
+  });
+</script>
+<script>
 			const loadingUI = document.querySelector('.loading-container');
 			const scrollUI = document.getElementById('scrollIndicator');
 		
