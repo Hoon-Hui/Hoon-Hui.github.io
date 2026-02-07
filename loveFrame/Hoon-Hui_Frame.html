@@ -123,32 +123,26 @@
 				  checkHeaders(); // 로딩 시 한번 체크
 				});
 			</script>
-		<script>const scroller = document.querySelector('#main');
-
-function notifyScroll() {
-    window.top.postMessage({
-        type: 'IFRAME_SCROLL',
-        top: scroller.scrollTop
-    }, '*');
-}
-
-// 초기 상태 알림
-notifyScroll();
-
-// 스크롤 이벤트
-scroller.addEventListener('scroll', notifyScroll, { passive: true });
-
-// 터치/클릭 시 오디오 언락
-function unlockAudio() {
-    window.top.postMessage({ type: 'UNLOCK_AUDIO' }, '*');
-    document.removeEventListener('touchstart', unlockAudio);
-    document.removeEventListener('pointerdown', unlockAudio);
-}
-
-document.addEventListener('touchstart', unlockAudio, { passive: true });
-document.addEventListener('pointerdown', unlockAudio);
-
-</script>
+		<script>
+			const scroller = document.querySelector('#main'); // 🔥 실제 스크롤 div
+		
+		  if (!scroller) {
+		    console.error('스크롤 요소 못 찾음');
+		  }
+		
+		  function notify() {
+		    parent.postMessage(
+		      {
+		        type: 'IFRAME_SCROLL',
+		        top: scroller.scrollTop
+		      },
+		      '*'
+		    );
+		  }
+		
+		  notify();
+		  scroller.addEventListener('scroll', notify, { passive: true });
+		</script>
 
 	</body>
 </html>
