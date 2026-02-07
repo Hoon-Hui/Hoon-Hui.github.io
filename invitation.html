@@ -61,20 +61,7 @@
 		<script>
 			const container = document.querySelector('.loading-container');
 				const bgm = document.getElementById('bgm');
-				/*	
-				// ✅ 첫 터치 시 음악 시작 (한 번만)
-				document.addEventListener('touchstart', () => {
-					alert('test');
-				  container.classList.add('is-running');
 				
-				  bgm.muted = false;     // 음소거 해제
-				  bgm.play().then(() => {
-				    isPlaying = true;
-				  }).catch(err => {
-				    console.log('Autoplay blocked:', err);
-				  });
-				}, { once: true });
-			*/
 			container.addEventListener('click', () => {
 			  if (bgm.paused) {
 				 bgm.muted = false; 
@@ -94,16 +81,7 @@
 				
 				bgm.addEventListener('ended', () => {
 				  container.classList.remove('is-running');
-				});
-			
-			window.addEventListener('load', function() {
-            if (bgm.paused) {
-				container.classList.remove('is-running');
-			  } else {
-				container.classList.add('is-running');  
-			  }
-        });
-			
+				});			
 
 			document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
