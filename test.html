@@ -703,18 +703,7 @@
 		
 			window.addEventListener("load", checkOrientation);
 			window.addEventListener("resize", checkOrientation);
-
 			/*
-			const container = document.querySelector('.loading-container');
-
-			document.addEventListener('touchstart', () => {
-			  container.classList.add('is-running');
-			}, { once: true });
-			
-			container.addEventListener('click', () => {
-			  container.classList.toggle('is-running');
-			});
-			*/
 				const container = document.querySelector('.loading-container');
 				const bgm = document.getElementById('bgm');
 				
@@ -751,6 +740,39 @@
 				bgm.addEventListener('ended', () => {
 				  container.classList.remove('is-running');
 				});
+			*/
+				const container = document.querySelector('.loading-container');
+const bgm = document.getElementById('bgm');
+
+function togglePlay() {
+  if (bgm.paused) {
+    bgm.muted = false;
+    bgm.play();
+  } else {
+    bgm.pause();
+  }
+}
+
+/* 모바일 + 데스크탑 통합 */
+container.addEventListener('touchend', (e) => {
+  e.preventDefault(); // iOS 중요
+  togglePlay();
+}, { passive: false });
+
+container.addEventListener('click', togglePlay);
+
+/* 상태 기반 애니메이션 */
+bgm.addEventListener('play', () => {
+  container.classList.add('is-running');
+});
+
+bgm.addEventListener('pause', () => {
+  container.classList.remove('is-running');
+});
+
+bgm.addEventListener('ended', () => {
+  container.classList.remove('is-running');
+});
 
 		</script>		
 	</body>
