@@ -30,17 +30,10 @@
 			  height: 100dvh;
 			  border: none;
 			}
-
-			#firstTouchLayer {
-			  position: fixed;
-			  inset: 0;
-			  z-index: 10000; /* iframe보다 위 */
-			  background: transparent;
-			}
 		</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
-		<audio id="bgm" src="/images/bgm.mp3" loop></audio>
+		<audio id="bgm" src="/images/bgm.mp3" loop autoplay></audio>
 		<div class="loading-container">
 			<div class="loading" style="display: flex; justify-content: center; align-items: center;">
 				<img id="music" src="/images/music.webp" style="width:70%">
@@ -66,8 +59,6 @@
 		<script>
 const bgm = document.getElementById('bgm');
 const container = document.querySelector('.loading-container');
-const firstLayer = document.getElementById('firstTouchLayer');
-
 let isUnlocked = false;
 
 function unlockAudio() {
@@ -76,14 +67,7 @@ function unlockAudio() {
 
   bgm.muted = false; // iOS 정책 대비
   bgm.play().catch(() => {});
-  firstLayer.remove();
 }
-
-// 모바일
-firstLayer.addEventListener('touchstart', unlockAudio);
-
-// 데스크톱
-firstLayer.addEventListener('pointerdown', unlockAudio, { once: true });
 
 // 이후 UI 토글
 container.addEventListener('click', () => {
