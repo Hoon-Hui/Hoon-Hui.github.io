@@ -11,6 +11,10 @@
 		body.fullscreen #viewer .inner .toggle {
 			top: 3.5em;
 		}
+		html, body {
+		  height: 100%;
+		  overflow: auto;  /* 스크롤 가능하게 설정 */
+		}
 	</style>
 	<body class="is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
 
@@ -100,6 +104,7 @@ window.addEventListener('scroll', notify, { passive: true });
 		</script>
 	</body>
 </html>
+
 
 
 
