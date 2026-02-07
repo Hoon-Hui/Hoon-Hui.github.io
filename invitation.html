@@ -111,7 +111,7 @@ function unlockAudio() {
   if (isUnlocked) return;
   isUnlocked = true;
 
-  bgm.muted = false; // iOS 정책 대비
+  bgm.muted = false;
   bgm.play().catch(() => {});
 }
 
@@ -130,15 +130,13 @@ window.addEventListener('message', (e) => {
 
     switch(e.data.type) {
         case 'IFRAME_SCROLL':
-            // B에서 보낸 메시지만 UI 토글
-            if(e.data.from === 'B') {
-                if(e.data.top === 0) {
-                    container.style.display = 'block';
-                    scrollUI.style.display = 'block';
-                } else {
-                    container.style.display = 'none';
-                    scrollUI.style.display = 'none';
-                }
+            // iframe 어디서 온지 상관없이 top 값으로 UI 토글
+            if(e.data.top === 0){
+                container.style.display = 'block';
+                scrollUI.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+                scrollUI.style.display = 'none';
             }
             break;
 
@@ -152,6 +150,7 @@ window.addEventListener('message', (e) => {
             break;
     }
 });
+
 		</script>
 	</body>
 </html>
