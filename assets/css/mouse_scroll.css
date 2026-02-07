@@ -146,14 +146,8 @@
 #audio-gate {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 999;
   background: transparent;
-}
-
-/* 기존 UI는 위에 보이게 */
-.loading-container {
-  position: relative;
-  z-index: 2;
 }
 
 /* 음악 시작 후 터치 통과 */
