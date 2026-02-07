@@ -718,31 +718,40 @@
 				const container = document.querySelector('.loading-container');
 				const bgm = document.getElementById('bgm');
 				
-				let isPlaying = false;
+				// 첫 터치: 음악 시작
+				document.addEventListener(
+				  'touchstart',
+				  () => {
+				    bgm.muted = false;
+				    bgm.play().catch(err => {
+				      console.log('Autoplay blocked:', err);
+				    });
+				  },
+				  { once: true }
+				);
 				
-				// ✅ 첫 터치 시 음악 시작 (한 번만)
-				document.addEventListener('touchstart', () => {
-				  container.classList.add('is-running');
-				
-				  bgm.muted = false;     // 음소거 해제
-				  bgm.play().then(() => {
-				    isPlaying = true;
-				  }).catch(err => {
-				    console.log('Autoplay blocked:', err);
-				  });
-				}, { once: true });
-				
-				// ✅ 클릭 시 음악 ON / OFF 토글
+				// 컨테이너 클릭 → 토글
 				container.addEventListener('click', () => {
-				  container.classList.toggle('is-running');
-				
-				  if (isPlaying) {
-				    bgm.pause();
-				  } else {
+				  if (bgm.paused) {
 				    bgm.play();
+				  } else {
+				    bgm.pause();
 				  }
+				});
 				
-				  isPlaying = !isPlaying;
+				// 🔥 음악 재생되면 애니메이션 ON
+				bgm.addEventListener('play', () => {
+				  container.classList.add('is-running');
+				});
+				
+				// 🔥 음악 멈추면 애니메이션 OFF
+				bgm.addEventListener('pause', () => {
+				  container.classList.remove('is-running');
+				});
+				
+				// (선택) 음악 끝났을 때도 OFF
+				bgm.addEventListener('ended', () => {
+				  container.classList.remove('is-running');
 				});
 
 		</script>		
