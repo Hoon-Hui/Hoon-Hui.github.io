@@ -701,8 +701,9 @@
 		  scroller.addEventListener('scroll', notify, { passive: true });
 
 
-			document.addEventListener('touchstart', () => {
-				  parent.bgm.muted = false;
+			document.addEventListener('touchstart', () => {				
+				  parent.bgm.muted = false;     // 음소거 해제
+				  parent.bgm.play();
 				}, { once: true });
 		</script>
 
