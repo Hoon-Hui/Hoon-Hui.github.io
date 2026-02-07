@@ -87,30 +87,23 @@
   const loadingUI = document.querySelector('.loading-container');
   const scrollUI = document.getElementById('scrollIndicator');
 
-  iframe.addEventListener('load', () => {
-    const iframeWindow = iframe.contentWindow;
-    const iframeDoc = iframeWindow.document;
-
-    function checkScrollTop() {
-      const scrollTop =
-        iframeDoc.documentElement.scrollTop || iframeDoc.body.scrollTop;
-
-      if (scrollTop === 0) {
-        loadingUI.classList.remove('hidden-ui');
-        scrollUI.classList.remove('hidden-ui');
-      } else {
-        loadingUI.classList.add('hidden-ui');
-        scrollUI.classList.add('hidden-ui');
-      }
+  function checkIframeScroll() {
+    if (iframe.scrollTop === 0) {
+      loadingUI.classList.remove('hidden-ui');
+      scrollUI.classList.remove('hidden-ui');
+    } else {
+      loadingUI.classList.add('hidden-ui');
+      scrollUI.classList.add('hidden-ui');
     }
+  }
 
-    // 최초 상태 체크
-    checkScrollTop();
+  // 최초 체크
+  checkIframeScroll();
 
-    // iframe 내부 스크롤 감지
-    iframeWindow.addEventListener('scroll', checkScrollTop);
-  });
+  // ✅ 핵심: iframe 자체 스크롤 감지
+  iframe.addEventListener('scroll', checkIframeScroll);
 </script>
+
 
 	</body>
 </html>
