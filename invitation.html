@@ -77,29 +77,32 @@
 			*/
 			container.addEventListener('click', () => {
 			  if (bgm.paused) {
+				 bgm.muted = false; 
 				bgm.play();
-				  alert('1');
-				container.classList.add('is-running');  
 			  } else {
 				bgm.pause();
-				  alert('2');
-				  container.classList.remove('is-running');
 			  }
 			});
 
 				bgm.addEventListener('play', () => {
-					alert('111');
 				  container.classList.add('is-running');
 				});
 				
 				bgm.addEventListener('pause', () => {
-					alert('222');
 				  container.classList.remove('is-running');
 				});
 				
 				bgm.addEventListener('ended', () => {
 				  container.classList.remove('is-running');
 				});
+			
+			window.addEventListener('load', function() {
+            if (bgm.paused) {
+				container.classList.remove('is-running');
+			  } else {
+				container.classList.add('is-running');  
+			  }
+        });
 			
 
 			document.addEventListener("visibilitychange", () => {
