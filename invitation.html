@@ -719,7 +719,7 @@
 				const bgm = document.getElementById('bgm');
 				
 				// ✅ 모바일 최초 터치 – 재생 권한 확보
-				document.addEventListener(
+				/*document.addEventListener(
 				  'touchstart',
 				  () => {
 				    bgm.muted = false;
@@ -728,7 +728,17 @@
 				    });
 				  },
 				  { once: true }
-				);
+				);*/
+
+				['touchstart', 'touchend', 'pointerdown'].forEach(evt => {
+				  document.addEventListener(evt, unlockAudio, { once: true });
+				});
+				
+				function unlockAudio() {
+				  bgm.muted = false;
+				  bgm.play().catch(() => {});
+				}
+
 				
 				// ✅ 클릭 / 터치 → 재생 토글
 				container.addEventListener('click', () => {
