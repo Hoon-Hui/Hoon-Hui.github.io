@@ -744,48 +744,45 @@
 			*/
 				const gate = document.getElementById('audio-gate');
 const bgm = document.getElementById('bgm');
-const music = document.getElementById('music');
+const container = document.querySelector('.loading-container');
 
 let started = false;
 
-/* 첫 터치 → 음악 시작 */
 function firstTouch() {
   if (started) return;
-
   started = true;
 
+  bgm.muted = false;
   bgm.play().then(() => {
-    gate.classList.add('disabled'); // 스크롤 & UI 터치 허용
+    gate.classList.add('disabled');
   }).catch(() => {
     started = false;
   });
 }
 
-/* iOS는 touchend 필수 */
 gate.addEventListener('touchend', firstTouch);
 gate.addEventListener('click', firstTouch);
 
-/* 이미지 클릭 → 토글 유지 */
-music.addEventListener('click', (e) => {
-  e.stopPropagation(); // gate로 이벤트 안 올라가게
-
-  if (bgm.paused) {
-    bgm.play();
-  } else {
-    bgm.pause();
-  }
-});
-
-/* 상태 기반 애니메이션 */
 bgm.addEventListener('play', () => {
-  document.querySelector('.loading-container')
-    .classList.add('is-running');
+  container.classList.add('is-running');
 });
 
 bgm.addEventListener('pause', () => {
-  document.querySelector('.loading-container')
-    .classList.remove('is-running');
+  container.classList.remove('is-running');
 });
+
+bgm.addEventListener('ended', () => {
+  container.classList.remove('is-running');
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    container.classList.remove('is-running');
+  } else if (!bgm.paused) {
+    container.classList.add('is-running');
+  }
+});
+
 		</script>		
 	</body>
 </html>
