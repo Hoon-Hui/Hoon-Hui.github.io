@@ -81,14 +81,18 @@
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>	
 		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-        window.addEventListener('scroll', function() {
-          alert('스크롤 이벤트 발생!');
-        });
-      });
-		</script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.scrollTo(0, 0); // 페이지가 로드되면 상단으로 이동
+
+    window.addEventListener('scroll', function() {
+      alert('스크롤 이벤트 발생!');
+    });
+  });
+</script>
+
 	</body>
 </html>
+
 
 
 
