@@ -89,6 +89,8 @@ const loadingUI = document.querySelector('.loading-container');
 			const scrollUI = document.getElementById('scrollIndicator');
 		
 			window.addEventListener('message', (e) => {
+				alert("test"+e.data);
+				
 			    if (!e.data || e.data.type !== 'IFRAME_SCROLL') return;
 			
 			    if (e.data.top === 0) {
