@@ -95,25 +95,23 @@ iframe#invitation {
 				});
 
 		</script>		
-		<script>iframe.addEventListener('load', () => {
-  const win = iframe.contentWindow;
+		<script>
+			<script>
   const loadingUI = document.querySelector('.loading-container');
   const scrollUI = document.getElementById('scrollIndicator');
 
-  function check() {
-    const y = win.scrollY || win.document.documentElement.scrollTop;
-    if (y === 0) {
-      loadingUI.classList.remove('hidden-ui');
-      scrollUI.classList.remove('hidden-ui');
-    } else {
-      loadingUI.classList.add('hidden-ui');
-      scrollUI.classList.add('hidden-ui');
-    }
-  }
+  window.addEventListener('message', (e) => {
+    if (!e.data || e.data.type !== 'IFRAME_SCROLL') return;
 
-  check();
-  win.addEventListener('scroll', check);
-});
+    if (e.data.top === 0) {
+      loadingUI.style.display = 'block';
+      scrollUI.style.display = 'block';
+    } else {
+      loadingUI.style.display = 'none';
+      scrollUI.style.display = 'none';
+    }
+  });
+</script>
 
 </script>
 
