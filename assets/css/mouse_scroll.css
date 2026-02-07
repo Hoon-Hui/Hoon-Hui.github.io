@@ -136,7 +136,7 @@
 .loading,
 #music {
   animation-play-state: paused;
-}z
+}
 
 .loading-container.is-running .loading,
 .loading-container.is-running #music {
