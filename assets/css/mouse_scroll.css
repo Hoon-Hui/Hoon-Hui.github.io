@@ -1,110 +1,144 @@
-/* =========================
-   Scroll Indicator
-========================= */
 .btn-motion {
     position: fixed;
     top: 2.5vh;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1100; /* gate보다 위 */
+    z-index: 1000;
 
     transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
+/* 스크롤 시 숨김 */
 .btn-motion.hide {
     opacity: 0;
     visibility: hidden;
 }
 
-/* =========================
-   Music Loading Icon
-========================= */
-.loading-container {
-    position: fixed;
-    top: 3vh;
-    left: 20px;
-    z-index: 1100; /* gate보다 위 */
-}
-
-.loading,
-.loading-container,
-#music {
-    pointer-events: auto;
-}
-
-.loading-container,
-.loading {
-    height: 25px;
-    width: 25px;
-    border-radius: 100%;
-}
-
-.loading {
-    box-shadow:
-        3px -3px 0 #FFB7C5,
-        3px  3px 0 #F7CFE1,
-       -3px  3px 0 #FFF8ED,
-       -3px -3px 0 #FBC9E4;
-
-    animation: rotate-loading 1.5s linear infinite;
-    transform-origin: 50% 50%;
-}
-
-#music {
+/* 마우스 모양 */
+.btn-motion1,
+.btn-motion1:before {
     position: absolute;
-    opacity: 1;
-    animation:
-        loading-text-opacity 2s linear infinite,
-        counter-rotate 1.5s linear infinite;
-    filter:
-        contrast(230%)
-        saturate(150%)
-        drop-shadow(0 0 6px rgba(0,0,0));
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* 초기 정지 */
+.btn-motion1 {
+    width: 15px;
+    height: 25px;
+
+    box-shadow: inset 0 0 0 2px #fff;
+    border-radius: 999px;
+}
+
+.btn-motion1:before {
+    content: '';
+    width: 2vw;
+    height: 2vw;
+    background: #fff;
+    top: 20%;
+    border-radius: 50%;
+    animation: btn-motion1 1.5s ease-in-out infinite;
+}
+
+/* 화살표 */
+.btn-motion2 {
+    position: relative;
+    margin-top: 20px;
+}
+
+.btn-motion2 span {
+    position: absolute;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: translateX(-50%) rotate(-45deg);
+    animation: btn-motion2 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+.btn-motion2 span:nth-of-type(1) { top: 0; animation-delay: 0s; }
+.btn-motion2 span:nth-of-type(2) { top: 3px; animation-delay: .15s; }
+.btn-motion2 span:nth-of-type(3) { top: 6px; animation-delay: .3s; }
+
+/* 애니메이션 */
+@keyframes btn-motion1 {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 10px); }
+}
+
+@keyframes btn-motion2 {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes rotate-loading {
+            0%  {transform: rotate(0deg);}
+            100% {transform: rotate(1800deg);;}
+        }
+
+        @keyframes loading-text-opacity {
+            0%  {opacity: 1}
+            20% {opacity: 1}
+            50% {opacity: 0.5}
+            100%{opacity: 1}
+        }
+        
+        .loading-container,
+        .loading {
+            height: 25px;
+            width: 25px;
+            border-radius: 100%;
+        }
+
+
+        .loading-container {
+            position: absolute;
+            top: 3vh; /* scrollIndicator와 동일한 Y축 */
+            left: 20px; /* 좌측 위치, 원하는 만큼 조정 가능 */
+            z-index: 1000;
+        }
+
+        .loading {
+            /*
+            border: 3.5px solid transparent;
+            border-color: transparent #fff transparent #FFF;
+            */
+            box-shadow: 3px -3px 0 #FFB7C5,
+                    3px 3px 0 #F7CFE1,
+                    -3px 3px 0 #FFF8ED,
+                    -3px -3px 0 #FBC9E4;
+            animation: rotate-loading 1.5s linear 0s infinite normal;
+            transform-origin: 50% 50%;
+        }
+
+        .loading-container .loading {
+            transition: all 0.5s ease-in-out;
+        }
+
+        #music{
+            animation: loading-text-opacity 2s linear 0s infinite normal, counter-rotate 1.5s linear infinite;
+            position: absolute;
+            opacity: 1;
+              filter:
+                contrast(230%)
+                saturate(150%)
+                drop-shadow(0 0 6px rgba(0,0,0));
+        }
+@keyframes counter-rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(-1800deg); }
+}
+
 .loading,
 #music {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
-/* 음악 재생 시 */
 .loading-container.is-running .loading,
 .loading-container.is-running #music {
-    animation-play-state: running;
-}
-
-/* =========================
-   Audio Gate (핵심)
-========================= */
-#audio-gate {
-    position: fixed;
-    inset: 0;
-    z-index: 1050; /* content 위, UI 아래 */
-    background: transparent;
-}
-
-/* 음악 시작 후 완전 비활성 */
-#audio-gate.disabled {
-    pointer-events: none;
-}
-
-/* =========================
-   Animations
-========================= */
-@keyframes rotate-loading {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(1800deg); }
-}
-
-@keyframes counter-rotate {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(-1800deg); }
-}
-
-@keyframes loading-text-opacity {
-    0%   { opacity: 1 }
-    20%  { opacity: 1 }
-    50%  { opacity: 0.5 }
-    100% { opacity: 1 }
+  animation-play-state: running;
 }
