@@ -124,12 +124,30 @@
 				});
 			</script>
 		<script>
-// C 진입 시 A에게 직접 메시지
-window.addEventListener('DOMContentLoaded', () => {
-    if (window.top) {
-        window.top.postMessage({ type: 'SHOW_AUDIO_UI' }, '*');
-    }
-});
+const scroller = document.querySelector('#main');
+
+function notifyScroll() {
+    window.top.postMessage({
+        type: 'IFRAME_SCROLL',
+        top: scroller.scrollTop
+    }, '*');
+}
+
+// 초기 상태 알림
+notifyScroll();
+
+// 스크롤 이벤트
+scroller.addEventListener('scroll', notifyScroll, { passive: true });
+
+// 터치/클릭 시 오디오 언락
+function unlockAudio() {
+    window.top.postMessage({ type: 'UNLOCK_AUDIO' }, '*');
+    document.removeEventListener('touchstart', unlockAudio);
+    document.removeEventListener('pointerdown', unlockAudio);
+}
+
+document.addEventListener('touchstart', unlockAudio, { passive: true });
+document.addEventListener('pointerdown', unlockAudio);
 </script>
 
 	</body>
