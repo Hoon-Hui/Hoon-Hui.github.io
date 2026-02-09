@@ -72,9 +72,10 @@
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
 			<script>
-				window.addEventListener('scroll', () => {
-				  console.log(window.scrollY);
-				}, { capture: true });			
+				window.addEventListener('scroll', (e) => {
+				  // e.target.scrollTop은 스크롤이 발생하는 해당 요소의 위치를 알려줍니다.
+				  console.log(e.target.scrollTop || window.scrollY);
+				}, { capture: true });		
 			</script>
 	</body>
 </html>
