@@ -1,113 +1,100 @@
-// 기본 값 설정
+// 기본 설정
 const defaults = {
     speed: 5,
     maxSize: 12,
     minSize: 9,
-    newOn: 300
+    newOn: 300 // 벚꽃 생성 간격 (ms)
 };
 
-// 1. 벚꽃잎 전용 CSS 추가 (기존 .cherry_blossom 영역은 건드리지 않음)
+// 1. 최적화된 애니메이션 스타일 주입
+// (기존 화면에 영향 없도록 벚꽃잎(petal)에만 적용되는 스타일입니다)
 const styles = `
 <style>
-    /* 벚꽃잎 래퍼: 위치 잡기용 */
-    .petal-container {
-        position: absolute; /* 부모 요소 기준 배치 */
+    .petal-layer {
+        position: absolute;
         top: -20px;
-        z-index: 9999; /* 다른 요소보다 위에 표시 */
-        pointer-events: none; /* 벚꽃이 클릭을 방해하지 않도록 설정 (중요) */
-        will-change: transform; /* 성능 최적화 */
+        z-index: 8888;     /* 배경보다 위에, 메뉴보다는 아래에 (필요시 조절) */
+        pointer-events: none; /* 벚꽃이 클릭을 막지 않게 함 (필수) */
+        will-change: transform;
     }
     
-    /* 벚꽃잎 본체: 회전 및 모양 */
-    .petal-inner {
+    .petal-shape {
         display: block;
         width: 100%;
         height: 100%;
-        background-color: #ffc0cb; /* 벚꽃색 */
+        /* 이미지가 있다면 아래 background-color를 지우고 background-image를 넣으세요 */
+        background-color: #ffc0cb; 
         border-radius: 50% 0 50% 0;
         will-change: transform;
     }
     
-    /* 떨어지는 애니메이션 (GPU 가속) */
-    @keyframes fall-drift {
+    /* 최적화된 낙하 애니메이션 (GPU 사용) */
+    @keyframes fall-opt {
         to { transform: translate3d(var(--end-x), var(--end-y), 0); }
     }
     
-    /* 3D 회전 애니메이션 */
-    @keyframes tumble {
-        0% { transform: rotate3d(1, 1, 1, 0deg); }
-        100% { transform: rotate3d(1, 1, 0, 360deg); }
+    /* 최적화된 회전 애니메이션 */
+    @keyframes spin-opt {
+        0% { transform: rotate3d(0, 0, 0, 0deg); }
+        100% { transform: rotate3d(1, 1, 1, 360deg); }
     }
 </style>
 `;
 $('head').append(styles);
 
-// 벚꽃 영역 변수
+// 벚꽃 영역 선택
 var $wrap = $('.cherry_blossom');
-let wrapW = $wrap.width();
-let wrapH = $wrap.height();
 
-// 2. 부모 요소에 position이 없으면 relative를 줘서 벚꽃이 영역 안에 갇히게 함
-// (기존 화면이 깨지지 않는 선에서 최소한의 안전장치)
-if ($wrap.css('position') === 'static') {
-    $wrap.css('position', 'relative');
-}
-// 벚꽃이 영역 밖으로 나가서 스크롤바가 생기지 않도록 처리
-if ($wrap.css('overflow') !== 'hidden') {
-    $wrap.css('overflow', 'hidden');
-}
-
-// 벚꽃 잎 템플릿 (미리 만들어두어 성능 향상)
-const $petalTemplate = $('<div class="petal-container"><span class="petal-inner"></span></div>');
+// 2. 벚꽃 잎 템플릿 (미리 생성)
+const $petalTemplate = $('<div class="petal-layer"><span class="petal-shape"></span></div>');
 
 const petalGen = () => {
-    // 다음 생성 예약
+    // 재귀 호출 (setTimeout 사용)
     setTimeout(() => requestAnimationFrame(petalGen), defaults.newOn);
 
+    // 영역 크기 실시간 계산 (반응형 대응)
+    const wrapW = $wrap.width();
+    const wrapH = $wrap.height();
+
     const $el = $petalTemplate.clone();
-    const $inner = $el.find('.petal-inner');
+    const $inner = $el.find('.petal-shape');
     
-    // 랜덤 값 계산
+    // 랜덤 값 설정
     const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
     const startLeft = Math.random() * wrapW;
     const fallTime = 5 + Math.random() * 5;
     
-    // 떨어지는 거리 (영역 높이 + 여유분)
+    // 끝나는 위치 계산
     const endY = wrapH + 50; 
-    // 좌우 흔들림 거리
-    const endX = (Math.random() * 2 - 1) * 200; 
+    const endX = (Math.random() * 2 - 1) * 150; // 좌우 흔들림 폭
     
     const spinTime = 2 + Math.random() * 3; 
 
-    // CSS 변수로 위치 및 애니메이션 정보 전달
+    // CSS 변수로 위치 전달 (JS가 매 프레임 위치를 계산하지 않도록 함)
     $el.css({
         width: size,
         height: size,
         left: startLeft,
         '--end-x': `${endX}px`,
         '--end-y': `${endY}px`,
-        animation: `fall-drift ${fallTime}s linear forwards`
+        animation: `fall-opt ${fallTime}s linear forwards`
     });
 
     $inner.css({
-        animation: `tumble ${spinTime}s linear infinite`
+        animation: `spin-opt ${spinTime}s linear infinite`
     });
 
-    // 애니메이션 종료 후 요소를 DOM에서 제거 (메모리 관리)
+    // 애니메이션 끝나면 제거
     $el.on('animationend', (e) => {
-        if (e.originalEvent.animationName.includes('fall-drift')) {
+        if (e.originalEvent.animationName.includes('fall-opt')) {
             $el.remove();
         }
     }).appendTo($wrap);
 };
 
-// 창 크기 변경 대응
-$(window).resize(() => {
-    wrapW = $wrap.width();
-    wrapH = $wrap.height();
-});
-
-// 실행
+// 시작
 $(window).on('load', () => {
+    // 벚꽃 영역에 relative가 없으면 위치가 어긋날 수 있어 체크하지만, 강제로 바꾸진 않음
+    // 만약 벚꽃이 엉뚱한데서 떨어지면 CSS 파일에서 .cherry_blossom { position: relative; } 를 추가하세요.
     requestAnimationFrame(petalGen);
 });
