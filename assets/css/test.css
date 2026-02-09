@@ -14,29 +14,31 @@
     background: linear-gradient(-45deg, #ffb6c1 0%, #ffc5d0 40%, #ffdfe6 80%);
     border-radius: 10% 50% 40% 50%;
     z-index: 1;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(255,255,255,0.8);
     pointer-events: none;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
 
-/* 낙하 */
+/* 낙하 애니메이션 (top과 opacity) */
 @keyframes fall {
-    0% { top: 0; opacity: 1; }
-    80% { opacity: 0.7; }
-    100% { top: 100%; opacity: 0.2; }
+    0% { top: -20px; opacity: 1; }
+    80% { opacity: 0.8; }
+    100% { top: 100vh; opacity: 0.3; }
 }
 
-/* 흔들림 + X축 회전 (10개 미리 정의) */
+/* 흔들림 + 회전 (10개) */
 ${[...Array(10)].map((_, i) => {
-    const rotateY = (Math.random() * 60 - 30).toFixed(2);
-    const rotateZ = (Math.random() * 120 - 30).toFixed(2);
-    const translateX = (Math.random() * 10 - 5).toFixed(2);
-    const translateY = (Math.random() * 10 - 10).toFixed(2);
-    const translateZ = (Math.random() * 15).toFixed(2);
+    const rotY = (Math.random() * 60 - 30).toFixed(2);
+    const rotZ = (Math.random() * 120 - 30).toFixed(2);
+    const transX = (Math.random() * 100 - 50).toFixed(2); // 좌우 이동 범위
+    const transZ = (Math.random() * 20 - 10).toFixed(2); // 깊이 이동
     return `
     @keyframes sway${i} {
-        0%,100% { transform: rotateX(0deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translate3d(${translateX}px, ${translateY}px, ${translateZ}px);}
-        50% { transform: rotateX(360deg) rotateY(${rotateY+5}deg) rotateZ(${rotateZ+5}deg) translate3d(${translateX+2}px, ${translateY+2}px, ${translateZ}px);}
+        0% { transform: rotateX(0deg) rotateY(${rotY}deg) rotateZ(${rotZ}deg) translate3d(0px,0px,${transZ}px); }
+        25% { transform: rotateX(90deg) rotateY(${rotY+10}deg) rotateZ(${rotZ+15}deg) translate3d(${transX/4}px,0px,${transZ}px); }
+        50% { transform: rotateX(180deg) rotateY(${rotY+20}deg) rotateZ(${rotZ+30}deg) translate3d(${transX/2}px,0px,${transZ}px); }
+        75% { transform: rotateX(270deg) rotateY(${rotY+10}deg) rotateZ(${rotZ+15}deg) translate3d(${transX*0.75}px,0px,${transZ}px); }
+        100% { transform: rotateX(360deg) rotateY(${rotY}deg) rotateZ(${rotZ}deg) translate3d(${transX}px,0px,${transZ}px); }
     }`;
 }).join('\n')}
