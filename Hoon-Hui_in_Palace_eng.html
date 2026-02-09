@@ -72,14 +72,16 @@
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
 			<script>
-				const main = document.querySelector('#main');
-
-				main.addEventListener('scroll', notify, { passive: true });
-				
-				function notify(e) {
-				  console.log('main 스크롤 중');
-				  console.log(main.scrollTop); // 세로 스크롤 위치
-				}
+				document.addEventListener('DOMContentLoaded', () => {
+						const main = document.querySelector('#main');
+		
+						main.addEventListener('scroll', notify, { passive: true });
+						
+						function notify(e) {
+						  console.log('main 스크롤 중');
+						  console.log(main.scrollTop); // 세로 스크롤 위치
+						}
+				});
 			</script>
 	</body>
 </html>
