@@ -73,8 +73,9 @@
 			<script src="assets_3/js/main.js"></script>
 			<script>
 				window.addEventListener('scroll', (e) => {
-				  // e.target.scrollTop은 스크롤이 발생하는 해당 요소의 위치를 알려줍니다.
-				  console.log(e.target.scrollTop || window.scrollY);
+				  // 스크롤 주체가 누구든 값을 가져오는 범용적인 방법입니다.
+				  const scrollTop = window.scrollY || e.target.scrollTop || document.documentElement.scrollTop;
+				  console.log("현재 스크롤 위치:", scrollTop);
 				}, { capture: true });		
 			</script>
 	</body>
