@@ -1,5 +1,5 @@
+// 기본 값 설정
 const defaults = {
-    speed: 5,
     maxSize: 12,
     minSize: 9,
     newOn: 250
@@ -8,30 +8,32 @@ const defaults = {
 const $wrap = $('.cherry_blossom');
 let wrapH = $wrap.height();
 let wrapW = $wrap.width();
-
 const $petal = $('<span class="petal"></span>');
 
+// 랜덤 숫자 생성
+const rand = (min, max) => Math.random() * (max - min) + min;
+
+// 랜덤 회전/흔들림 생성
 const getRandomRotate = () => {
     const rotateX = 360;
-    const rotateY = Math.random() * 70 - 35;
-    const rotateZ = Math.random() * 120 - 60;
-    const translateX = Math.random() * 10 - 5;
-    const translateY = Math.random() * 10 - 10;
-    const translateZ = Math.random() * 15;
+    const rotateY = rand(-35, 35);
+    const rotateZ = rand(-60, 60);
+    const translateX = rand(-5, 5);
+    const translateY = rand(-10, 0);
+    const translateZ = rand(0, 15);
     return `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translate3d(${translateX}px, ${translateY}px, ${translateZ}px)`;
 };
 
-const randomSwayAnims = [...Array(10)].map(getRandomRotate);
-
+// 흔들림 적용
 const applySwayAnim = (element) => {
-    const randomSway = randomSwayAnims[Math.floor(Math.random() * randomSwayAnims.length)];
+    const randomSway = getRandomRotate();
     element.css('transform', randomSway);
-    setTimeout(() => applySwayAnim(element), 500);
+    setTimeout(() => applySwayAnim(element), 1000); // 1초 간격
 };
 
-// X축 회전 1회 (더 빠르게)
+// X축 회전 1회 (느리지만 랜덤 속도)
 const spinXOnce = (element) => {
-    const duration = 0.2 + Math.random() * 0.5; // 0.2~0.7초 → 빠른 회전
+    const duration = rand(0.8, 1.5); // 0.8~1.5초
     element.css({
         transition: `transform ${duration}s linear`,
         transform: 'rotateX(360deg)'
@@ -39,22 +41,23 @@ const spinXOnce = (element) => {
     setTimeout(() => element.css('transform', 'rotateX(0deg)'), duration * 1000);
 };
 
-// X축 회전 루프 (더 짧은 간격)
+// X축 회전 루프
 const startXSpinLoop = (element) => {
     const loop = () => {
         spinXOnce(element);
-        const delay = 200 + Math.random() * 500; // 0.2~0.7초 간격
+        const delay = rand(800, 1500); // 0.8~1.5초 간격
         setTimeout(loop, delay);
     };
-    setTimeout(loop, 100 + Math.random() * 200);
+    setTimeout(loop, rand(200, 800));
 };
 
+// 꽃잎 생성
 const petalGen = () => {
     const petal = $petal.clone();
-    const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
-    const startLeft = Math.random() * wrapW;
-    const fallTime = 5 + Math.random() * 5;
-    const horizontalOffset = Math.random() * 2 - 1;
+    const size = Math.floor(rand(defaults.minSize, defaults.maxSize));
+    const startLeft = rand(0, wrapW);
+    const fallTime = rand(5, 10);
+    const horizontalOffset = rand(-1, 1);
 
     petal.css({
         width: size,
@@ -67,6 +70,7 @@ const petalGen = () => {
 
     setTimeout(() => petal.remove(), fallTime * 1000);
 
+    // 좌우 이동
     let left = startLeft;
     const updatePos = () => {
         left += horizontalOffset;
@@ -81,11 +85,13 @@ const petalGen = () => {
     setTimeout(petalGen, defaults.newOn);
 };
 
+// 창 크기 변경시
 $(window).resize(() => {
     wrapH = $wrap.height();
     wrapW = $wrap.width();
 });
 
+// 시작
 $(window).on('load', () => {
     petalGen();
 });
