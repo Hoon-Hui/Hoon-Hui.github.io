@@ -72,13 +72,14 @@
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
 			<script>
-				window.addEventListener('scroll', () => {
-				    // 1. html/body 스타일의 height: 100% 제거 필수
-				    // 2. window.scrollY 사용
-				    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-				    console.log('현재 스크롤 위치:', scrollTop);
-				});
-		
+				const main = document.querySelector('#main');
+
+				main.addEventListener('scroll', notify, { passive: true });
+				
+				function notify(e) {
+				  console.log('main 스크롤 중');
+				  console.log(main.scrollTop); // 세로 스크롤 위치
+				}
 			</script>
 	</body>
 </html>
