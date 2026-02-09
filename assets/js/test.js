@@ -1,4 +1,6 @@
+// ================================
 // 기본 값 설정
+// ================================
 const defaults = {
     speed: 5,
     maxSize: 12,
@@ -6,25 +8,50 @@ const defaults = {
     newOn: 300
 };
 
+// ================================
 // 벚꽃 영역
+// ================================
 var $wrap = $('.cherry_blossom');
 let wrapH = $wrap.height();
 let wrapW = $wrap.width();
 
+// ================================
 // 벚꽃 잎
+// ================================
 const $petal = $('<span class="petal"></span>');
 
 // ================================
-// IntersectionObserver 설정
+// 상태 / 메모리 관리용 WeakMap
 // ================================
 const petalState = new WeakMap();
+const swayTimers = new WeakMap();
+const spinTimers = new WeakMap();
+const rafIds = new WeakMap();
 
+// ================================
+// IntersectionObserver
+// ================================
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (!entry.isIntersecting) {
-            petalState.set(entry.target, false);
-            entry.target.remove();
-            observer.unobserve(entry.target);
+            const el = entry.target;
+
+            // 상태 제거
+            petalState.delete(el);
+
+            // 타이머 제거
+            clearTimeout(swayTimers.get(el));
+            clearTimeout(spinTimers.get(el));
+
+            // RAF 제거
+            cancelAnimationFrame(rafIds.get(el));
+
+            swayTimers.delete(el);
+            spinTimers.delete(el);
+            rafIds.delete(el);
+
+            observer.unobserve(el);
+            el.remove();
         }
     });
 }, {
@@ -46,8 +73,15 @@ const getRandomRotate = () => {
     const translateX = Math.random() * 10 - 5;
     const translateY = Math.random() * 10 - 10;
     const translateZ = Math.random() * 15;
-    return `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)
-            translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`;
+
+    return `
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        rotateZ(${rotateZ}deg)
+        translateX(${translateX}px)
+        translateY(${translateY}px)
+        translateZ(${translateZ}px)
+    `;
 };
 
 const randomSwayAnims = [...Array(10)].map(getRandomRotate);
@@ -58,12 +92,16 @@ const randomSwayAnims = [...Array(10)].map(getRandomRotate);
 const applySwayAnim = (element) => {
     if (!isAlive(element)) return;
 
-    const randomSway = randomSwayAnims[Math.floor(Math.random() * randomSwayAnims.length)];
+    const randomSway =
+        randomSwayAnims[Math.floor(Math.random() * randomSwayAnims.length)];
+
     element.css('transform', randomSway);
 
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
         applySwayAnim(element);
     }, 1000);
+
+    swayTimers.set(element[0], timerId);
 };
 
 // ================================
@@ -85,10 +123,25 @@ const startXSpinLoop = (element) => {
         if (!isAlive(element)) return;
 
         spinXOnce(element);
-        setTimeout(loop, 1000 + Math.random() * 500);
+
+        const timerId = setTimeout(loop, 1000 + Math.random() * 500);
+        spinTimers.set(element[0], timerId);
     };
 
-    setTimeout(loop, 1000);
+    const startId = setTimeout(loop, 1000);
+    spinTimers.set(element[0], startId);
+};
+
+// ================================
+// 좌우 이동 (RAF)
+// ================================
+const updatePos = (petal, offset) => {
+    if (!isAlive(petal)) return;
+
+    petal.css('left', `+=${offset}`);
+
+    const rafId = requestAnimationFrame(() => updatePos(petal, offset));
+    rafIds.set(petal[0], rafId);
 };
 
 // ================================
@@ -98,7 +151,10 @@ const petalGen = () => {
     setTimeout(requestAnimationFrame, defaults.newOn, petalGen);
 
     const petal = $petal.clone();
-    const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
+    const size =
+        Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) +
+        defaults.minSize;
+
     const startPosLeft = Math.random() * wrapW;
     const fallTime = 5 + Math.random() * 5;
     const horizontalOffset = Math.random() * 2 - 1;
@@ -114,15 +170,7 @@ const petalGen = () => {
     petalState.set(petal[0], true);
     observer.observe(petal[0]);
 
-    // 좌우 이동 (requestAnimationFrame)
-    const updatePos = () => {
-        if (!isAlive(petal)) return;
-
-        petal.css('left', `+=${horizontalOffset}`);
-        requestAnimationFrame(updatePos);
-    };
-
-    updatePos();
+    updatePos(petal, horizontalOffset);
     applySwayAnim(petal);
     startXSpinLoop(petal);
 };
@@ -130,12 +178,14 @@ const petalGen = () => {
 // ================================
 // 리사이즈 대응
 // ================================
-$(window).resize(() => {
+$(window).on('resize', () => {
     wrapH = $wrap.height();
     wrapW = $wrap.width();
 });
 
+// ================================
 // 시작
+// ================================
 $(window).on('load', () => {
     requestAnimationFrame(petalGen);
 });
