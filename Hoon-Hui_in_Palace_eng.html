@@ -81,7 +81,44 @@
 						  console.log('main 스크롤 중');
 						  console.log(main.scrollTop); // 세로 스크롤 위치
 						}
+
+						function notify() {
+						  const top = main.scrollTop;
+				
+						  window.top.postMessage(
+						    {
+						      type: 'IFRAME_SCROLL',
+						      top
+						    },
+						    '*'
+						  );
+						}
+						
+						// 최초 1회
+						notify();
+
+					
 				});
+
+
+				function notify() {
+				  const top =
+				    document.documentElement.scrollTop || document.body.scrollTop;
+				
+				  window.top.postMessage(
+				    {
+				      type: 'IFRAME_SCROLL',
+				      top
+				    },
+				    '*'
+				  );
+				}
+				
+				// 최초 1회
+				notify();
+				
+				// 실제 스크롤 이벤트
+				window.addEventListener('scroll', notify, { passive: true });
 			</script>
 	</body>
 </html>
