@@ -1,9 +1,8 @@
-// 기본 값 설정
 const defaults = {
     speed: 5,
     maxSize: 12,
     minSize: 9,
-    newOn: 250 // 생성 간격
+    newOn: 250
 };
 
 const $wrap = $('.cherry_blossom');
@@ -12,7 +11,6 @@ let wrapW = $wrap.width();
 
 const $petal = $('<span class="petal"></span>');
 
-// 랜덤 회전/위치 생성
 const getRandomRotate = () => {
     const rotateX = 360;
     const rotateY = Math.random() * 70 - 35;
@@ -23,19 +21,17 @@ const getRandomRotate = () => {
     return `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translate3d(${translateX}px, ${translateY}px, ${translateZ}px)`;
 };
 
-// 여러 흔들림 프리셋
 const randomSwayAnims = [...Array(10)].map(getRandomRotate);
 
-// 흔들림 적용
 const applySwayAnim = (element) => {
     const randomSway = randomSwayAnims[Math.floor(Math.random() * randomSwayAnims.length)];
     element.css('transform', randomSway);
-    setTimeout(() => applySwayAnim(element), 500); // 0.5초 간격
+    setTimeout(() => applySwayAnim(element), 500);
 };
 
-// X축 회전 1회
+// X축 회전 1회 (더 빠르게)
 const spinXOnce = (element) => {
-    const duration = 0.5 + Math.random() * 1; // 0.5~1.5초
+    const duration = 0.2 + Math.random() * 0.5; // 0.2~0.7초 → 빠른 회전
     element.css({
         transition: `transform ${duration}s linear`,
         transform: 'rotateX(360deg)'
@@ -43,17 +39,16 @@ const spinXOnce = (element) => {
     setTimeout(() => element.css('transform', 'rotateX(0deg)'), duration * 1000);
 };
 
-// X축 회전 루프
+// X축 회전 루프 (더 짧은 간격)
 const startXSpinLoop = (element) => {
     const loop = () => {
         spinXOnce(element);
-        const delay = 500 + Math.random() * 1000; // 0.5~1.5초
+        const delay = 200 + Math.random() * 500; // 0.2~0.7초 간격
         setTimeout(loop, delay);
     };
-    setTimeout(loop, 500 + Math.random() * 500);
+    setTimeout(loop, 100 + Math.random() * 200);
 };
 
-// 꽃잎 생성
 const petalGen = () => {
     const petal = $petal.clone();
     const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
@@ -70,10 +65,8 @@ const petalGen = () => {
         willChange: 'transform, opacity'
     }).appendTo($wrap);
 
-    // 낙하 완료 후 제거
     setTimeout(() => petal.remove(), fallTime * 1000);
 
-    // 위치 업데이트
     let left = startLeft;
     const updatePos = () => {
         left += horizontalOffset;
@@ -85,17 +78,14 @@ const petalGen = () => {
     applySwayAnim(petal);
     startXSpinLoop(petal);
 
-    // 다음 꽃잎 생성
     setTimeout(petalGen, defaults.newOn);
 };
 
-// 창 크기 변경시 업데이트
 $(window).resize(() => {
     wrapH = $wrap.height();
     wrapW = $wrap.width();
 });
 
-// 시작
 $(window).on('load', () => {
     petalGen();
 });
