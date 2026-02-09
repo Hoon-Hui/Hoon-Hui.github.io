@@ -74,7 +74,7 @@
 			<script>
 				window.addEventListener('scroll', (e) => {
 				  // 스크롤 주체가 누구든 값을 가져오는 범용적인 방법입니다.
-				  const scrollTop = window.scrollY || e.target.scrollTop || document.documentElement.scrollTop;
+				  const scrollTop = window.scrollY || document.target.scrollTop || document.documentElement.scrollTop;
 				  console.log("현재 스크롤 위치:", scrollTop);
 				}, { capture: true });		
 			</script>
