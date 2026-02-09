@@ -72,10 +72,9 @@
 			<script src="assets_3/js/breakpoints.min.js"></script>
 			<script src="assets_3/js/main.js"></script>
 			<script>
-				document.addEventListener('scroll', () => { 
-				  //스크롤을 할 때마다 로그로 현재 스크롤의 위치가 찍혀나온다.
-				  console.log(window.scrollX, window.scrollY);
-				});				
+				window.addEventListener('scroll', () => {
+				  console.log(window.scrollY);
+				}, { capture: true });			
 			</script>
 	</body>
 </html>
