@@ -1,7 +1,8 @@
 const defaults = {
     maxSize: 12,
     minSize: 9,
-    newOn: 200 // 꽃잎 생성 간격
+    newOn: 200, // 꽃잎 생성 간격
+    speed: 1 // 기본 속도 조절
 };
 
 const $wrap = $('.cherry_blossom');
@@ -11,42 +12,8 @@ const $petal = $('<span class="petal"></span>');
 
 const rand = (min, max) => Math.random() * (max - min) + min;
 
-// 랜덤 회전/흔들림/바람 생성
-const getRandomTransform = (windOffset) => {
-    const rotateX = 360;
-    const rotateY = rand(-35, 35);
-    const rotateZ = rand(-60, 60);
-    const translateX = rand(-5, 5) + windOffset; // 바람 영향 추가
-    const translateY = rand(-10, 0);
-    const translateZ = rand(0, 15);
-    return { rotateX, rotateY, rotateZ, translateX, translateY, translateZ };
-};
-
-// 흔들림 적용
-const applySwayAnim = (element, windOffset) => {
-    const t = getRandomTransform(windOffset);
-    element.css('transform', `rotateX(${t.rotateX}deg) rotateY(${t.rotateY}deg) rotateZ(${t.rotateZ}deg) translate3d(${t.translateX}px, ${t.translateY}px, ${t.translateZ}px)`);
-    setTimeout(() => applySwayAnim(element, windOffset), 1000);
-};
-
-// X축 회전 1회
-const spinXOnce = (element) => {
-    element.css({
-        transition: 'transform 1s linear',
-        transform: 'rotateX(360deg)'
-    });
-    setTimeout(() => element.css('transform', 'rotateX(0deg)'), 1000);
-};
-
-// X축 회전 루프
-const startXSpinLoop = (element) => {
-    const loop = () => {
-        spinXOnce(element);
-        const delay = rand(1000, 1500);
-        setTimeout(loop, delay);
-    };
-    setTimeout(loop, rand(200, 800));
-};
+// 꽃잎 리스트
+const petals = [];
 
 // 꽃잎 생성
 const petalGen = () => {
@@ -54,38 +21,66 @@ const petalGen = () => {
     const size = Math.floor(rand(defaults.minSize, defaults.maxSize));
     const startLeft = rand(0, wrapW);
     const fallTime = rand(5, 10);
-    const horizontalOffset = rand(-0.5, 0.5); // 약간 좌우 이동
-    const windOffset = rand(0.5, 2); // 바람 영향 (오른쪽으로 살짝 휘는 정도)
+    
+    // 랜덤 초기 속성
+    const t = {
+        x: startLeft,
+        y: -size,
+        size: size,
+        horizontalOffset: rand(-0.5, 0.5),
+        rotateX: 0,
+        rotateY: rand(-30, 30),
+        rotateZ: rand(-60, 60),
+        spinSpeed: rand(0.8, 1.5)
+    };
 
     petal.css({
         width: size,
         height: size,
-        left: startLeft,
+        left: t.x,
+        top: t.y,
         position: 'absolute',
-        animation: `fall ${fallTime}s linear forwards`,
         willChange: 'transform, opacity'
     }).appendTo($wrap);
 
-    // 낙하 완료 후 제거
-    setTimeout(() => petal.remove(), fallTime * 1000);
-
-    // 좌우 이동 + 바람
-    let left = startLeft;
-    const updatePos = () => {
-        left += horizontalOffset + windOffset * 0.1; // 바람이 살짝 꽃잎을 이동시킴
-        petal.css('left', left);
-        requestAnimationFrame(updatePos);
-    };
-    updatePos();
-
-    applySwayAnim(petal, windOffset);
-    startXSpinLoop(petal);
+    petals.push({ el: petal, state: t, startTime: performance.now(), fallTime });
 
     // 다음 꽃잎 생성
     setTimeout(petalGen, defaults.newOn);
 };
 
-// 창 크기 변경 시
+// 메인 애니메이션 루프
+const animatePetals = (time) => {
+    for (let i = petals.length - 1; i >= 0; i--) {
+        const p = petals[i];
+        const t = p.state;
+        const elapsed = (time - p.startTime) / 1000; // 초 단위
+
+        // 낙하
+        t.y += defaults.speed;
+        t.x += t.horizontalOffset;
+        
+        // X축 회전
+        t.rotateX = (t.rotateX + (360 / (p.fallTime / t.spinSpeed))) % 360;
+
+        // 좌우 흔들림 (rotateY/Z 랜덤으로 살짝 변경)
+        const swayY = t.rotateY + Math.sin(elapsed * 2) * 5;
+        const swayZ = t.rotateZ + Math.sin(elapsed * 1.5) * 5;
+
+        // transform 적용
+        p.el.css('transform', `translate3d(${t.x}px, ${t.y}px, 0) rotateX(${t.rotateX}deg) rotateY(${swayY}deg) rotateZ(${swayZ}deg)`);
+
+        // 화면 아래로 나가면 제거
+        if (t.y > wrapH) {
+            p.el.remove();
+            petals.splice(i, 1);
+        }
+    }
+
+    requestAnimationFrame(animatePetals);
+};
+
+// 창 크기 변경
 $(window).resize(() => {
     wrapW = $wrap.width();
     wrapH = $wrap.height();
@@ -94,4 +89,5 @@ $(window).resize(() => {
 // 시작
 $(window).on('load', () => {
     petalGen();
+    requestAnimationFrame(animatePetals);
 });
