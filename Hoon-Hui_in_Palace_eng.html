@@ -74,10 +74,11 @@
 			<script>
 				document.addEventListener('DOMContentLoaded', () => {
 						const main = document.querySelector('#main');
-		
+
+						main.addEventListener('scroll', test, { passive: true });
 						main.addEventListener('scroll', notify, { passive: true });
 						
-						function notify(e) {
+						function test(e) {
 						  console.log('main 스크롤 중');
 						  console.log(main.scrollTop); // 세로 스크롤 위치
 						}
