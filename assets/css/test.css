@@ -24,7 +24,6 @@
     0% {
         top: -10%;
         opacity: 1;
-        transform: translateX(0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     }
     50% {
         opacity: 0.8;
@@ -32,6 +31,5 @@
     100% {
         top: 100%;
         opacity: 0.2;
-        transform: translateX(var(--x-offset)) rotateX(360deg) rotateY(var(--y-rot)) rotateZ(var(--z-rot));
     }
 }
