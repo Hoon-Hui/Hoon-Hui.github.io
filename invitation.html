@@ -62,33 +62,7 @@
 				
 		<!-- Scripts -->
 		<script src="/assets_3/js/jquery.min.js"></script>
-		<!-- <script src="/assets/js/cherry_blossom.js"></script> -->
-
-		<!-- iframe -->
-		<!--
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-			    const iframe = document.getElementById('invitation');
-			    // DOM 준비 후 src 설정 → 렌더 직후 박스 표시 가능
-			    iframe.src = '/invitation_main.html';
-			});
-		</script>
-		-->
-		<!-- cherry_blossom.js 실행 지연 -->
-		<script>
-		    const iframe = document.getElementById('invitation');
-		
-		    iframe.onload = () => {
-		        console.log('iframe loaded → cherry_blossom start');
-		
-		        // iframe 렌더 후 0.1초 뒤에 벚꽃 JS 실행
-		        setTimeout(() => {
-		            const script = document.createElement('script');
-		            script.src = '/assets/js/cherry_blossom.js';
-		            document.body.appendChild(script);
-		        }, 100); 
-		    };
-		</script>
+		<script src="/assets/js/cherry_blossom.js"></script>
 
 		<!-- bgm play&paused -->
 		<script>
