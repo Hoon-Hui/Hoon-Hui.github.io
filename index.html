@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main2.css" />
-    <link rel="prefetch" href="assets/js/images.json" as="fetch">
+	<link rel="preconnect" href="https://hoon-hui.github.io/invitation_main.html">
+    <!-- <link rel="prefetch" href="assets/js/images.json" as="fetch"> -->  
   </head>
   <body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="height: 100dvh;">
     <!-- Background Video -->
@@ -48,16 +49,18 @@
     <script src="assets/js/main.js"></script> 
 
     <!-- prefetch img -->
+	<!--
     <script>
-			  fetch('assets/js/images.json', { cache: 'force-cache' })
-			    .then(res => res.json())
-			    .then(images => {
-			      images.forEach(src => {
-			        const img = new Image();
-			        img.loading = 'eager';
-			        img.src = src;
-			      });
-			    });
-			</script>
+	  fetch('assets/js/images.json', { cache: 'force-cache' })
+		.then(res => res.json())
+		.then(images => {
+		  images.forEach(src => {
+			const img = new Image();
+			img.loading = 'eager';
+			img.src = src;
+		  });
+		});
+	</script>
+	-->
   </body>
 </html>
