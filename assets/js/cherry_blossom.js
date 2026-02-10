@@ -113,12 +113,6 @@ $(window).resize(() => {
 });
 
 // ================= 시작 =================
-/*
 $(window).on('load', () => {
     requestAnimationFrame(petalGen);
 });
-*/
-window.startCherryBlossom = () => {
-    requestAnimationFrame(petalGen);
-};
-
