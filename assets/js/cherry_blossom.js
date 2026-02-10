@@ -4,7 +4,7 @@ const defaults = {
     maxSize: 12,
     minSize: 9,
     newOn: 300,
-    maxPetals: 30
+    maxPetals: 25 // 📱 모바일 개수 제한
 };
 
 // ================= 영역 설정 =================
@@ -95,15 +95,21 @@ const petalGen = () => {
         animation: `fall ${fallTime}s linear`
     }).appendTo($wrap);
 
+    // 위치 업데이트
     const updatePos = () => {
         if (!petal.data('alive')) return;
         petal.css('left', `+=${horizontalOffset}`);
         requestAnimationFrame(updatePos);
     };
 
-    updatePos();
-    applySwayAnim(petal);
-    startXSpinLoop(petal);
+    // ✅ 초기 렌더 멈칫 방지 (2프레임 지연)
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            updatePos();
+            applySwayAnim(petal);
+            startXSpinLoop(petal);
+        });
+    });
 };
 
 // ================= 리사이즈 대응 =================
