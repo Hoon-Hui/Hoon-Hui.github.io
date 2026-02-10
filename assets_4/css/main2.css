@@ -74,14 +74,7 @@ input, select, textarea {
 	}
 
 	body {
-		/* background: #fff; */
-		height: 100%;
-				overflow: hidden;
-				background-image: url(/images/couple.jpg);
-				margin: 0;
-				background-repeat: no-repeat;
-				background-size: 100%;
-				background-position: center center;
+		background: #fff;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
