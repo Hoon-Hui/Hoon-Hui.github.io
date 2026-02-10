@@ -29,14 +29,16 @@
             margin: 0;
             overflow: hidden;
         }
+
+        /* dvh fallback */
+        .iframe-container {
+            height: 100vh;
+            height: 100dvh;
+        }
     </style>
 </head>
 
-<body class="is-preload is-preload-0 is-preload-1 is-preload-2"
-      oncontextmenu="return false"
-      ondragstart="return false"
-      onselectstart="return false"
-      style="margin:0">
+<body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin:0">
 
     <!-- background animation (iframe 로드 후 활성화) -->
     <div class="cherry_blossom" style="display:none;"></div>
@@ -61,7 +63,7 @@
     </div>
 
     <!-- iframe (최우선 로딩) -->
-    <div style="height:100dvh">
+    <div class="iframe-container">
         <iframe
             id="invitation"
             src="/invitation_main.html"
@@ -135,14 +137,16 @@
     <script>
         const iframeEl = document.getElementById('invitation');
         const blossomEl = document.querySelector('.cherry_blossom');
+        let cherryBlossomStarted = false; // 중복 실행 방지
 
         iframeEl.addEventListener('load', () => {
-            // iframe 최우선 렌더 완료 후
             blossomEl.style.display = 'block';
 
-            // cherry_blossom.js 내부 시작 함수 호출
-            if (typeof startCherryBlossom === 'function') {
-                setTimeout(startCherryBlossom, 300);
+            if (!cherryBlossomStarted && typeof startCherryBlossom === 'function') {
+                cherryBlossomStarted = true;
+                setTimeout(() => {
+                    startCherryBlossom();
+                }, 300);
             }
         });
     </script>
