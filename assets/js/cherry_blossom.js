@@ -1,21 +1,20 @@
-// ================= 기본 값 설정 =================
+// 기본 값 설정
 const defaults = {
     speed: 5,
     maxSize: 12,
     minSize: 9,
-    newOn: 300,
-    maxPetals: 25
+    newOn: 300
 };
 
-// ================= 영역 설정 =================
+// 벚꽃 영역 크기를 저장할 변수
 var $wrap = $('.cherry_blossom');
 let wrapH = $wrap.height();
 let wrapW = $wrap.width();
 
-// ================= 벚꽃 잎 템플릿 =================
+// 벚꽃 잎 생성
 const $petal = $('<span class="petal"></span>');
 
-// ================= 랜덤 회전 =================
+// 랜덤 회전 값을 생성하는 함수
 const getRandomRotate = () => {
     const rotateX = 360;
     const rotateY = Math.random() * 70 - 30;
@@ -26,66 +25,32 @@ const getRandomRotate = () => {
     return `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px)`;
 };
 
-// ================= 흔들림 애니메이션 =================
+// 무작위 흔들림 애니메이션 배열 생성
 const randomSwayAnims = [...Array(10)].map(getRandomRotate);
 
+// 특정 요소에 흔들림 애니메이션 적용
 const applySwayAnim = (element) => {
-    if (!element.data('alive')) return;
-
     const randomSway = randomSwayAnims[Math.floor(Math.random() * randomSwayAnims.length)];
     element.css('transform', randomSway);
-
     setTimeout(() => {
         applySwayAnim(element);
     }, 1000);
 };
 
-// ================= X축 회전 =================
-const spinXOnce = (element) => {
-    if (!element.data('alive')) return;
-
-    element.css({
-        transition: 'transform 1s linear',
-        transform: 'rotateX(360deg)'
-    });
-
-    setTimeout(() => {
-        if (!element.data('alive')) return;
-        element.css('transform', 'rotateX(0deg)');
-    }, 1000);
-};
-
-const startXSpinLoop = (element) => {
-    const loop = () => {
-        if (!element.data('alive')) return;
-
-        spinXOnce(element);
-        const delay = 1000 + Math.random() * 500;
-        setTimeout(loop, delay);
-    };
-
-    setTimeout(loop, 1000);
-};
-
-// ================= 벚꽃 잎 생성 =================
+// 벚꽃 잎 생성 함수
 const petalGen = () => {
     setTimeout(requestAnimationFrame, defaults.newOn, petalGen);
 
-    // 🔒 개수 제한 (모바일 최적)
-    if ($wrap.children('.petal').length >= defaults.maxPetals) {
-        return;
-    }
-
     const petal = $petal.clone();
-    petal.data('alive', true);
-
     const size = Math.floor(Math.random() * (defaults.maxSize - defaults.minSize + 1)) + defaults.minSize;
     const startPosLeft = Math.random() * wrapW;
+    //const fallTime = (wrapH * 0.1 + Math.random() * 5) / defaults.speed;
+    
     const fallTime = 5 + Math.random() * 5;
     const horizontalOffset = Math.random() * 2 - 1;
 
+    // 애니메이션 끝나면 제거
     petal.on('animationend', () => {
-        petal.data('alive', false);
         petal.remove();
     }).css({
         width: size,
@@ -95,8 +60,8 @@ const petalGen = () => {
         animation: `fall ${fallTime}s linear`
     }).appendTo($wrap);
 
+    // 위치 업데이트 함수
     const updatePos = () => {
-        if (!petal.data('alive')) return;
         petal.css('left', `+=${horizontalOffset}`);
         requestAnimationFrame(updatePos);
     };
@@ -106,13 +71,34 @@ const petalGen = () => {
     startXSpinLoop(petal);
 };
 
-// ================= 리사이즈 대응 =================
+// 창 크기가 변경될 때 영역 크기 업데이트
 $(window).resize(() => {
     wrapH = $wrap.height();
     wrapW = $wrap.width();
 });
 
-// ================= 시작 =================
+// 로딩 완료 후 벚꽃 잎 생성 시작
 $(window).on('load', () => {
     requestAnimationFrame(petalGen);
 });
+
+const spinXOnce = (element) => {
+    element.css({
+        transition: 'transform 1s linear',
+        transform: 'rotateX(360deg)'
+    });
+
+    setTimeout(() => {
+        element.css('transform', 'rotateX(0deg)');
+    }, 1000);
+};
+
+const startXSpinLoop = (element) => {
+    const loop = () => {
+        spinXOnce(element);
+        const delay = 1000 + Math.random() * 500;
+        setTimeout(loop, delay);
+    };
+
+    setTimeout(loop, 1000);
+};
