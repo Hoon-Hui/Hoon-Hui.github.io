@@ -63,6 +63,22 @@
 		<!-- Scripts -->
 		<script src="/assets_3/js/jquery.min.js"></script>
 		<script src="/assets/js/cherry_blossom.js"></script>
+		
+		<!-- iframe -> cherry_blossom -->
+		<script>
+			const iframe = document.getElementById('invitation');
+		
+			iframe.addEventListener('load', () => {
+				// 다음 프레임에서 실행 (렌더 안정화)
+				requestAnimationFrame(() => {
+					requestAnimationFrame(() => {
+						if (window.startCherryBlossom) {
+							window.startCherryBlossom();
+						}
+					});
+				});
+			});
+		</script>
 
 		<!-- bgm play&paused -->
 		<script>
