@@ -204,6 +204,19 @@
 			  opacity: 1;
 			  transform: translateY(0);
 			}
+
+			html, body {
+			  height: 100%;
+			  overflow: hidden;
+			}
+			
+			#main {
+			  height: 100dvh;
+			  overflow: hidden;
+			}
+			#main.scrollable {
+			  overflow-y: auto;
+			}
 		</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
@@ -618,6 +631,7 @@
 				document.body.style.overflow = "auto";
 				document.documentElement.style.overflow = "auto";
 				document.getElementById("main").style.overflow = "auto";
+				document.getElementById("main").classList.add('scrollable');
 				  
 				typingEl.style.transition = "opacity 1.5s ease";
 				typingEl.style.opacity = 0;
