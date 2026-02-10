@@ -1,119 +1,151 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Invitation</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/assets/css/mouse_scroll.css" />
-		<link rel="stylesheet" href="/assets/css/cherry_blossom.css" />
-		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
-		<style>
-			.loading-container,
-			.btn-motion {
-			  position: fixed;
-			  z-index: 99999;
-			  transition: opacity 0.4s ease, visibility 0.4s ease;
-			}
-			
-			.hidden-ui {
-			  opacity: 0;
-			  visibility: hidden;
-			  pointer-events: none;
-			}			
-			
-			html, body {
-			  height: 100%;
-			  margin: 0;
-			  overflow: hidden;
-			}
-		</style>
-	</head>
-	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">	
-		<!-- background animation -->
-		<div class="cherry_blossom"></div>
+<head>
+    <title>Invitation</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-		<!-- bgm -->
-		<audio id="bgm" src="/images/bgm.mp3" loop muted></audio>
-		<div class="loading-container">
-			<div class="loading" style="display: flex; justify-content: center; align-items: center;">
-				<img id="music" src="/images/music.webp" style="width:70%">
-			</div>
-		</div>
-		
-		<!-- mouse scroll -->
-		<div class="btn-motion" id="scrollIndicator">
-			<div class="btn-motion1"></div>
-			<div class="btn-motion2">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-		</div>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/mouse_scroll.css" />
+    <link rel="stylesheet" href="/assets/css/cherry_blossom.css" />
+    <noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
 
-		<!-- iframe -->
-	    <div style="height: 100dvh">
-			<iframe id="invitation" style="height: 100%; width:100%; border: none;" src="/invitation_main.html" scrolling="auto"></iframe>
-		</div>
-				
-		<!-- Scripts -->
-		<script src="/assets_3/js/jquery.min.js"></script>
-		<script src="/assets/js/test.js"></script>
+    <style>
+        .loading-container,
+        .btn-motion {
+            position: fixed;
+            z-index: 99999;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
 
-		<!-- bgm play&paused -->
-		<script>
-			const container = document.querySelector('.loading-container');
-			const bgm = document.getElementById('bgm');
-				
-			container.addEventListener('click', () => {
-				if (bgm.paused) {
-					bgm.muted = false; 
-					bgm.play();
-			  	} else {
-					bgm.pause();
-			  	}
-			});
+        .hidden-ui {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
 
-			bgm.addEventListener('play', () => {
-			  container.classList.add('is-running');
-			});
-			
-			bgm.addEventListener('pause', () => {
-			  container.classList.remove('is-running');
-			});
-			
-			bgm.addEventListener('ended', () => {
-			  container.classList.remove('is-running');
-			});			
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
 
-			document.addEventListener("visibilitychange", () => {
-			    if (document.hidden) {
-			      bgm.pause();
-			    } else {
-			      bgm.play();
-			    }
-			});
-		</script>
+<body class="is-preload is-preload-0 is-preload-1 is-preload-2"
+      oncontextmenu="return false"
+      ondragstart="return false"
+      onselectstart="return false"
+      style="margin:0">
 
-		<!-- bgm, scroll UI display -->
-		<script>
-			const loadingUI = document.querySelector('.loading-container');
-			const iframe = document.getElementById('invitation');
-			const scrollUI = document.getElementById('scrollIndicator');
-			
-			window.addEventListener('message', (e) => {
-				if (!e.data || e.data.type !== 'IFRAME_SCROLL') return;
-				if (e.data.top === 0) {
-				  loadingUI.style.display = 'block';
-				  if (iframe.contentWindow.location.href.includes('https://hoon-hui.github.io/invitation_main.html')) {	
-					scrollUI.style.display = 'block';
-				  } else {
-					 scrollUI.style.display = 'none'; 
-				  }
-				} else {
-				  loadingUI.style.display = 'none';
-				  scrollUI.style.display = 'none';
-				}
-			});
-		</script>
-	</body>
+    <!-- background animation (iframe 로드 후 활성화) -->
+    <div class="cherry_blossom" style="display:none;"></div>
+
+    <!-- bgm (❗절대 수정 안 함) -->
+    <audio id="bgm" src="/images/bgm.mp3" loop muted></audio>
+
+    <div class="loading-container">
+        <div class="loading" style="display:flex; justify-content:center; align-items:center;">
+            <img id="music" src="/images/music.webp" style="width:70%">
+        </div>
+    </div>
+
+    <!-- mouse scroll -->
+    <div class="btn-motion" id="scrollIndicator">
+        <div class="btn-motion1"></div>
+        <div class="btn-motion2">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- iframe (최우선 로딩) -->
+    <div style="height:100dvh">
+        <iframe
+            id="invitation"
+            src="/invitation_main.html"
+            style="height:100%; width:100%; border:none;"
+            scrolling="auto">
+        </iframe>
+    </div>
+
+    <!-- Scripts (❗iframe 렌더 방해 안 하도록 defer) -->
+    <script src="/assets_3/js/jquery.min.js" defer></script>
+    <script src="/assets/js/cherry_blossom.js" defer></script>
+
+    <!-- bgm play & pause (❗그대로 유지) -->
+    <script>
+        const container = document.querySelector('.loading-container');
+        const bgm = document.getElementById('bgm');
+
+        container.addEventListener('click', () => {
+            if (bgm.paused) {
+                bgm.muted = false;
+                bgm.play();
+            } else {
+                bgm.pause();
+            }
+        });
+
+        bgm.addEventListener('play', () => {
+            container.classList.add('is-running');
+        });
+
+        bgm.addEventListener('pause', () => {
+            container.classList.remove('is-running');
+        });
+
+        bgm.addEventListener('ended', () => {
+            container.classList.remove('is-running');
+        });
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                bgm.pause();
+            } else {
+                bgm.play();
+            }
+        });
+    </script>
+
+    <!-- bgm, scroll UI display -->
+    <script>
+        const loadingUI = document.querySelector('.loading-container');
+        const iframe = document.getElementById('invitation');
+        const scrollUI = document.getElementById('scrollIndicator');
+
+        window.addEventListener('message', (e) => {
+            if (!e.data || e.data.type !== 'IFRAME_SCROLL') return;
+            if (e.data.top === 0) {
+                loadingUI.style.display = 'block';
+                if (iframe.contentWindow.location.href.includes('invitation_main.html')) {
+                    scrollUI.style.display = 'block';
+                } else {
+                    scrollUI.style.display = 'none';
+                }
+            } else {
+                loadingUI.style.display = 'none';
+                scrollUI.style.display = 'none';
+            }
+        });
+    </script>
+
+    <!-- iframe 로드 완료 후 cherry blossom 시작 -->
+    <script>
+        const iframeEl = document.getElementById('invitation');
+        const blossomEl = document.querySelector('.cherry_blossom');
+
+        iframeEl.addEventListener('load', () => {
+            // iframe 최우선 렌더 완료 후
+            blossomEl.style.display = 'block';
+
+            // cherry_blossom.js 내부 시작 함수 호출
+            if (typeof startCherryBlossom === 'function') {
+                setTimeout(startCherryBlossom, 300);
+            }
+        });
+    </script>
+
+</body>
 </html>
