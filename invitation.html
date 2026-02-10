@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets/css/mouse_scroll.css" />
 		<link rel="stylesheet" href="/assets/css/cherry_blossom.css" />
+		<link rel="preload" href="/invitation_main.html" as="document">
 		<noscript><link rel="stylesheet" href="assets_3/css/noscript.css" /></noscript>
 		<style>
 			.loading-container,
@@ -29,6 +30,11 @@
 		</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">	
+		<!-- iframe -->
+	    <div style="height: 100dvh">
+			<iframe id="invitation" style="height: 100%; width:100%; border: none;" src="/invitation_main.html" scrolling="auto" loading="eager" fetchpriority="high"></iframe>
+		</div>
+				
 		<!-- background animation -->
 		<div class="cherry_blossom"></div>
 
@@ -49,15 +55,18 @@
 				<span></span>
 			</div>
 		</div>
-
-		<!-- iframe -->
-	    <div style="height: 100dvh">
-			<iframe id="invitation" style="height: 100%; width:100%; border: none;" src="/invitation_main.html" scrolling="auto" loading="eager"></iframe>
-		</div>
 				
 		<!-- Scripts -->
 		<script src="/assets_3/js/jquery.min.js"></script>
-		<script src="/assets/js/cherry_blossom.js"></script>
+		<!-- <script src="/assets/js/cherry_blossom.js"></script> -->
+
+		<script>
+		  window.addEventListener('load', () => {
+		    const s = document.createElement('script');
+		    s.src = '/assets/js/cherry_blossom.js';
+		    document.body.appendChild(s);
+		  });
+		</script>
 		
 		<!-- bgm play&paused -->
 		<script>
