@@ -582,10 +582,11 @@
 			let charIndex = 0;
 			
 			function startTypingEffect() {
+			  /*
 			  document.body.style.overflow = "hidden";
 			  document.documentElement.style.overflow = "hidden";
 			  document.getElementById("main").style.overflow = "hidden";
-				
+			  */	
 			  content.classList.add("blur");
 			  typingEl.style.opacity = 1;
 			  typeLine();
@@ -797,6 +798,13 @@
 				document.getElementById("minutes").innerHTML=minutes
 				document.getElementById("seconds").innerHTML=seconds			
 			}, 1);
+		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+			    document.body.style.overflow = "hidden";
+				document.documentElement.style.overflow = "hidden";
+				document.getElementById("main").style.overflow = "hidden";
+			});
 		</script>
 	</body>
 </html>
