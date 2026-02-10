@@ -102,7 +102,8 @@ input, select, textarea {
 	}
 
 	html, body {
-		background-color: #101010;
+		/* background-color: #101010; */
+		background: url("/images/couple.jpg") center center / cover no-repeat !important;
 		overflow: hidden;
 	}
 
@@ -1362,3 +1363,4 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
+
