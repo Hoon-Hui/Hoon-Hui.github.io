@@ -103,13 +103,6 @@ input, select, textarea {
 
 	html, body {
 		/* background-color: #101010; */
-		height: 100%;
-		overflow: hidden;
-		background-image: url(/images/couple.jpg);
-		margin: 0;
-		background-repeat: no-repeat;
-		background-size: 100%;
-		background-position: center center;
 		overflow: hidden;
 	}
 
@@ -138,6 +131,13 @@ input, select, textarea {
 	body {
 		background-color: #fff;
 		color: #aaa;
+		height: 100%;
+		overflow: hidden;
+		background-image: url(/images/couple.jpg);
+		margin: 0;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: center center;
 	}
 
 	body, input, select, textarea {
@@ -1369,5 +1369,6 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
+
 
 
