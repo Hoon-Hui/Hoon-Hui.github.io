@@ -377,8 +377,7 @@ var main = (function($) { var _ = {
 	initViewer: function() {
 
 		// Bind thumbnail click event.
-			//_.$thumbnails
-			_.$swiper-slide
+			_.$thumbnails
 				.on('click', '.thumbnail', function(event) {
 
 					var $this = $(this);
@@ -772,6 +771,7 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 };
+
 
 
 
