@@ -282,6 +282,7 @@ body {
   z-index: 9999;
   padding: 60px 40px;
   box-sizing: border-box;
+	display: block !important;
 }
 
 /* fullscreen일 때 슬라이드 가운데 정렬 */
@@ -1011,21 +1012,36 @@ body.swiper-blur > *:not(.mySwiper2.fullscreen) {
 
 			  const $swiper = $('.mySwiper2');
 			  const $closeBtn = $('.swiper-close');
+			  const $originalParent = $swiper.parent();
+			  const originalNext = $swiper.next(); // 원래 위치 기억
 			
 			  // 이미지 클릭 → fullscreen
 			  $swiper.on('click', '.swiper-slide img', function () {
+			
+			    $('body').append($swiper);   // ✅ body 바로 아래로 이동
 			    $swiper.addClass('fullscreen');
 			    $('body').addClass('swiper-blur');
+			    $('body').css('overflow', 'hidden'); // 스크롤 잠금
 			  });
 			
 			  // 닫기
 			  $closeBtn.on('click', function (e) {
 			    e.stopPropagation();
+			
 			    $swiper.removeClass('fullscreen');
 			    $('body').removeClass('swiper-blur');
+			    $('body').css('overflow', '');
+			
+			    // ✅ 원래 자리로 복귀
+			    if (originalNext.length) {
+			      $swiper.insertBefore(originalNext);
+			    } else {
+			      $originalParent.append($swiper);
+			    }
 			  });
 			
-			});			
+			});
+		
 		</script>
 	</body>
 </html>
