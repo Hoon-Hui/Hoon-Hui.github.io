@@ -1,0 +1,317 @@
+/* =====================================================
+   FULL MERGED CSS (css1 + css2 COMPLETE)
+   기존 HTML 수정 없이 그대로 작동
+===================================================== */
+
+
+/* =========================
+   1. RESET
+========================= */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+hgroup, menu, nav, output, ruby,
+section, summary, time, mark,
+audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption,
+figure, footer, header, hgroup,
+menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    background: #fff;
+    color: #aaa;
+    -webkit-text-size-adjust: none;
+    overflow: hidden;
+}
+
+ol, ul { list-style: none; }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   2. TYPOGRAPHY
+========================= */
+
+html { font-size: 16pt; }
+
+@media (max-width: 1680px) { html { font-size: 12pt; } }
+@media (max-width: 1280px) { html { font-size: 11pt; } }
+
+body, input, select, textarea {
+    font-family: "Roboto", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.65;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 400;
+    line-height: 1.25;
+    color: #555;
+}
+
+p { margin-bottom: 1.25em; }
+
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+
+
+/* =========================
+   3. GRID SYSTEM (css1 원본 유지)
+========================= */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1.25em;
+}
+
+.row > * {
+    padding: 0 1.25em;
+}
+
+.col-12 { width: 100%; }
+.col-6  { width: 50%; }
+.col-4  { width: 33.333%; }
+.col-3  { width: 25%; }
+
+@media (max-width: 736px) {
+    .col-6, .col-4, .col-3 {
+        width: 100%;
+    }
+}
+
+
+/* =========================
+   4. BUTTON
+========================= */
+
+button,
+.button,
+input[type="submit"],
+input[type="button"] {
+    border-radius: 4px;
+    border: solid 1px #ccc;
+    padding: 0.75em 1.5em;
+    cursor: pointer;
+    background: transparent;
+    transition: 0.25s ease;
+}
+
+button:hover,
+.button:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+
+/* =========================
+   5. FORM
+========================= */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    border-radius: 4px;
+    border: solid 1px #ccc;
+    padding: 0.75em;
+}
+
+textarea { padding: 1em; }
+
+
+/* =========================
+   6. ICON / LIST / ACTION
+========================= */
+
+ul.icons li {
+    display: inline-block;
+    padding-right: 1em;
+}
+
+ul.actions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul.actions li {
+    padding-left: 0.625em;
+}
+
+
+/* =========================
+   7. MAIN PANEL
+========================= */
+
+#main {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 22.5em;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    z-index: 10000;
+    transition: 0.75s ease;
+}
+
+body.fullscreen #main {
+    right: -22.5em;
+    visibility: hidden;
+}
+
+
+/* =========================
+   8. VIEWER
+========================= */
+
+#viewer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 22.5em);
+    height: 100%;
+    transition: 0.75s ease;
+}
+
+body.fullscreen #viewer {
+    width: 100%;
+    height: 100dvh;
+}
+
+
+/* =========================
+   9. THUMBNAILS
+========================= */
+
+#thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#thumbnails article {
+    width: 50%;
+    border: 2px solid #fff;
+}
+
+#thumbnails article .thumbnail img {
+    width: 100%;
+}
+
+
+/* =========================
+   10. PREMIUM HEADER (css2)
+========================= */
+
+section#header {
+    height: 100dvh;
+    font-family: 'Noto Serif KR', serif;
+    color: #3a3a3a;
+    padding: 4em 0.5em 0 0.5em;
+    background: #ffffff;
+}
+
+section#header .inner {
+    height: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 9rem 2rem 5rem;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+section#header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    margin-bottom: 2.2rem;
+}
+
+
+/* =========================
+   11. ACCOUNT CARD
+========================= */
+
+.account-card {
+    background: linear-gradient(180deg,#fffdfa,#f6f3ec);
+    border-radius: 18px;
+    margin: 22px auto;
+    border: 1px solid rgba(200,185,140,0.35);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1.2em;
+    font-size: 16pt;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease;
+}
+
+.account-card.open .collapsible-content {
+    max-height: 600px;
+}
+
+
+/* =========================
+   12. TOAST
+========================= */
+
+#toast,
+#toastErr {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+#toast.show,
+#toastErr.show {
+    opacity: 1;
+    bottom: 50px;
+}
