@@ -2815,7 +2815,8 @@ input, select, textarea {
 		}
 
 .main {
-		padding: 6em 0 4em 0 ;
+		padding: 2em 1.5em 2em 1.5em;
+		text-align: center;
 	}
 
 		.main.style1 {
