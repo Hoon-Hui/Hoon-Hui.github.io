@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="/assets_3/css/main.css" />
 		<link rel="stylesheet" href="/assets_4/css/main2.css" />
-		<link rel="stylesheet" href="/assets/css/gallery.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 		<noscript><link rel="stylesheet" href="/assets_3/css/noscript.css" /></noscript>
 		<style>
 			/* d-day counter */
@@ -312,37 +312,76 @@
 			</section>
 			
 			<!-- section Thumbnail -->
-				<div class="gallery">
-				    <!-- 메인 슬라이드 -->
-				    <div class="list">
-				        <div class="inner">
-				        <ul class="swiper-wrapper slide_list">
-				            <li class="swiper-slide">1</li>
-				            <li class="swiper-slide">2</li>
-				            <li class="swiper-slide">3</li>
-				            <li class="swiper-slide">4</li>
-				            <li class="swiper-slide">5</li>
-				            <li class="swiper-slide">6</li>
-				            <li class="swiper-slide">7</li>
-				        </ul>
-				        <span class="btn btn_prev">이전</span>
-				        <span class="btn btn_next">다음</span>
-				        </div>
+				<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+				    <div class="swiper-wrapper">
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+				      </div>
 				    </div>
-				
-				    <!-- 갤러리 썸네일 -->
-				    <div class="thumbs">
-				        <ul class="swiper-wrapper slide_list">
-				        <li class="swiper-slide">1</li>
-				        <li class="swiper-slide">2</li>
-				        <li class="swiper-slide">3</li>
-				        <li class="swiper-slide">4</li>
-				        <li class="swiper-slide">5</li>
-				        <li class="swiper-slide">6</li>
-				        <li class="swiper-slide">7</li>
-				        </ul>
+				    <div class="swiper-button-next"></div>
+				    <div class="swiper-button-prev"></div>
+				  </div>
+				  <div thumbsSlider="" class="swiper mySwiper">
+				    <div class="swiper-wrapper">
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+				      </div>
+				      <div class="swiper-slide">
+				        <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+				      </div>
 				    </div>
-				</div>
+				  </div>
 
 			<!-- href button -->
 			<div style="padding: 1.5em;">
@@ -447,7 +486,28 @@
 		<script src="/assets_4/js/jquery.scrolly.min.js"></script>
 		<script src="/assets_4/js/util.js"></script>
 		<script src="/assets_4/js/main.js"></script>
-		<script src="/assets/js/gallery.js"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+		<script>
+		    var swiper = new Swiper(".mySwiper", {
+		      loop: true,
+		      spaceBetween: 10,
+		      slidesPerView: 4,
+		      freeMode: true,
+		      watchSlidesProgress: true,
+		    });
+		    var swiper2 = new Swiper(".mySwiper2", {
+		      loop: true,
+		      spaceBetween: 10,
+		      navigation: {
+		        nextEl: ".swiper-button-next",
+		        prevEl: ".swiper-button-prev",
+		      },
+		      thumbs: {
+		        swiper: swiper,
+		      },
+		    });
+		  </script>
 
 		<!--
 			2. 설치 스크립트
