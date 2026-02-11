@@ -212,120 +212,71 @@
 			  overflow-y: auto;
 			}
 
-			/* ================= 기본 swiper ================= */
+			.swiper {
+      width: 100%;
+      height: 100%;
+    }
 
-.swiper {
-  width: 100%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #FFFFFF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
-  background-position: center;
-}
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    body {
+      background: #000;
+      color: #000;
+    }
 
-body {
-  background: #000;
-  color: #000;
-}
+    .swiper {
+      width: 100%;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-/* ================= 썸네일 ================= */
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
 
-.mySwiper2 {
-  height: 80%;
-  width: 100%;
-  transition: all 0.4s ease;
-  position: relative;
-  z-index: 1;
-}
+    .mySwiper2 {
+      height: 80%;
+      width: 100%;
+    }
 
-.mySwiper {
-  height: 20%;
-  box-sizing: border-box;
-  padding: 10px 0;
-}
+    .mySwiper {
+      height: 20%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
 
-.mySwiper .swiper-slide {
-  width: 25%;
-  height: 100%;
-  opacity: 0.4;
-}
+    .mySwiper .swiper-slide {
+      width: 25%;
+      height: 100%;
+      opacity: 0.4;
+    }
 
-.mySwiper .swiper-slide-thumb-active {
-  opacity: 1;
-}
+    .mySwiper .swiper-slide-thumb-active {
+      opacity: 1;
+    }
 
-/* ================= 🔥 FULLSCREEN ================= */
-
-.mySwiper2.fullscreen {
-  position: fixed !important;
-  inset: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background: #000;
-  z-index: 999999 !important;
-  padding: 60px 40px;
-  box-sizing: border-box;
-}
-
-.mySwiper2.fullscreen .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000;
-}
-
-.mySwiper2.fullscreen .swiper-slide img {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 90vh;
-  object-fit: contain;
-}
-
-/* ================= BLUR ================= */
-
-body.swiper-blur #main {
-  filter: blur(12px);
-  transition: 0.4s;
-}
-
-/* ================= CLOSE BUTTON ================= */
-
-.swiper-close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 32px;
-  cursor: pointer;
-  z-index: 1000000;
-  display: none;
-}
-
-.mySwiper2.fullscreen .swiper-close {
-  display: block;
-}
-
-
-
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 		</style>
 	</head>
 	<body class="is-preload is-preload-0 is-preload-1 is-preload-2" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="margin: 0">
@@ -427,67 +378,66 @@ body.swiper-blur #main {
 			
 			<!-- section Thumbnail -->
 				<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff; border: none;" class="swiper mySwiper2">
-					<button class="swiper-close">✕</button>
 				    <div class="swiper-wrapper">
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/1.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/1.webp"><img src="images_3/fulls/1_Studio/1.webp" /></a>
 				      </div>
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/2.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/2.webp"><img src="images_3/fulls/1_Studio/2.webp" /></a>
 				      </div>
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/3.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/3.webp"><img src="images_3/fulls/1_Studio/3.webp" /></a>
 				      </div>
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/4.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/4.webp"><img src="images_3/fulls/1_Studio/4.webp" /></a>
 				      </div>
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/5.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/5.webp"><img src="images_3/fulls/1_Studio/5.webp" /></a>
 				      </div>
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/6.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/6.webp"><img src="images_3/fulls/1_Studio/6.webp" /></a>
 				      </div>
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/7.webp" style="height: 80%;"/>
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/7.webp"><img src="images_3/fulls/1_Studio/7.webp" style="height: 80%;"/></a>
 				      </div>
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/8.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/8.webp"><img src="images_3/fulls/1_Studio/8.webp" /></a>
 				      </div>
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/9.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/9.webp"><img src="images_3/fulls/1_Studio/9.webp" /></a>
 				      </div>
 				      <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/10.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/10.webp"><img src="images_3/fulls/1_Studio/10.webp" /></a>
 				      </div>
 					  <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/11.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/11.webp"><img src="images_3/fulls/1_Studio/11.webp" /></a>
 				      </div>
 					  <div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/12.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/12.webp"><img src="images_3/fulls/1_Studio/12.webp" /></a>
 				      </div>
 						<div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/13.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/13.webp"><img src="images_3/fulls/1_Studio/13.webp" /></a>
 				      </div>
 						<div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/14.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/14.webp"><img src="images_3/fulls/1_Studio/14.webp" /></a>
 				      </div>
 						<div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/15.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/15.webp"><img src="images_3/fulls/1_Studio/15.webp" /></a>
 				      </div>
 						<div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/16.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/16.webp"><img src="images_3/fulls/1_Studio/16.webp" /></a>
 				      </div>
 						<div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/17.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/17.webp"><img src="images_3/fulls/1_Studio/17.webp" /></a>
 				      </div>
 						<div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/18.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/18.webp"><img src="images_3/fulls/1_Studio/18.webp" /></a>
 				      </div>
 						<div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/19.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/19.webp"><img src="images_3/fulls/1_Studio/19.webp" /></a>
 				      </div>
 						<div class="swiper-slide">
-				        <img src="images_3/fulls/1_Studio/20.webp" />
+				        <a class="thumbnail" href="images_3/fulls/1_Studio/20.webp"><img src="images_3/fulls/1_Studio/20.webp" /></a>
 				      </div>
 				    </div>
 				    <div class="swiper-button-next"></div>
@@ -1004,47 +954,6 @@ body.swiper-blur #main {
 				document.getElementById("minutes").innerHTML=minutes
 				document.getElementById("seconds").innerHTML=seconds			
 			}, 1);
-		</script>
-		<script>
-			
-$(document).ready(function () {
-
-  const $swiper = $('.mySwiper2');
-  const $closeBtn = $('.swiper-close');
-
-  let originalParent = $swiper.parent();
-  let originalNext = $swiper.next();
-
-  // 이미지 클릭 → fullscreen
-  $swiper.on('click', '.swiper-slide img', function () {
-
-    // swiper를 body로 이동 (🔥 핵심)
-    $('body').append($swiper);
-
-    $swiper.addClass('fullscreen');
-    $('body').addClass('swiper-blur');
-    $('body').css('overflow', 'hidden');
-  });
-
-  // 닫기 버튼
-  $closeBtn.on('click', function (e) {
-    e.stopPropagation();
-
-    $swiper.removeClass('fullscreen');
-    $('body').removeClass('swiper-blur');
-    $('body').css('overflow', '');
-
-    // 원래 자리로 복귀
-    if (originalNext.length) {
-      $swiper.insertBefore(originalNext);
-    } else {
-      originalParent.append($swiper);
-    }
-  });
-
-});
-
-
 		</script>
 	</body>
 </html>
