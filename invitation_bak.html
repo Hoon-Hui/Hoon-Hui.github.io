@@ -270,22 +270,19 @@ body {
   opacity: 1;
 }
 
-/* ================= 🔥 FULLSCREEN 모드 ================= */
+/* ================= 🔥 FULLSCREEN ================= */
 
 .mySwiper2.fullscreen {
   position: fixed !important;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100dvh !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
   background: #000;
-  z-index: 9999;
+  z-index: 999999 !important;
   padding: 60px 40px;
   box-sizing: border-box;
-	display: block !important;
 }
 
-/* fullscreen일 때 슬라이드 가운데 정렬 */
 .mySwiper2.fullscreen .swiper-slide {
   display: flex;
   justify-content: center;
@@ -293,7 +290,6 @@ body {
   background: #000;
 }
 
-/* fullscreen일 때 이미지 비율 유지 */
 .mySwiper2.fullscreen .swiper-slide img {
   width: auto;
   height: auto;
@@ -302,14 +298,14 @@ body {
   object-fit: contain;
 }
 
-/* ================= 뒤 배경 블러 ================= */
+/* ================= BLUR ================= */
 
-body.swiper-blur > *:not(.mySwiper2.fullscreen) {
+body.swiper-blur #main {
   filter: blur(12px);
   transition: 0.4s;
 }
 
-/* ================= 닫기 버튼 ================= */
+/* ================= CLOSE BUTTON ================= */
 
 .swiper-close {
   position: absolute;
@@ -320,13 +316,15 @@ body.swiper-blur > *:not(.mySwiper2.fullscreen) {
   color: #fff;
   font-size: 32px;
   cursor: pointer;
-  z-index: 10000;
+  z-index: 1000000;
   display: none;
 }
 
 .mySwiper2.fullscreen .swiper-close {
   display: block;
 }
+
+
 
 		</style>
 	</head>
@@ -1008,40 +1006,45 @@ body.swiper-blur > *:not(.mySwiper2.fullscreen) {
 			}, 1);
 		</script>
 		<script>
-			$(document).ready(function () {
+			
+$(document).ready(function () {
 
-			  const $swiper = $('.mySwiper2');
-			  const $closeBtn = $('.swiper-close');
-			  const $originalParent = $swiper.parent();
-			  const originalNext = $swiper.next(); // 원래 위치 기억
-			
-			  // 이미지 클릭 → fullscreen
-			  $swiper.on('click', '.swiper-slide img', function () {
-			
-			    $('body').append($swiper);   // ✅ body 바로 아래로 이동
-			    $swiper.addClass('fullscreen');
-			    $('body').addClass('swiper-blur');
-			    $('body').css('overflow', 'hidden'); // 스크롤 잠금
-			  });
-			
-			  // 닫기
-			  $closeBtn.on('click', function (e) {
-			    e.stopPropagation();
-			
-			    $swiper.removeClass('fullscreen');
-			    $('body').removeClass('swiper-blur');
-			    $('body').css('overflow', '');
-			
-			    // ✅ 원래 자리로 복귀
-			    if (originalNext.length) {
-			      $swiper.insertBefore(originalNext);
-			    } else {
-			      $originalParent.append($swiper);
-			    }
-			  });
-			
-			});
-		
+  const $swiper = $('.mySwiper2');
+  const $closeBtn = $('.swiper-close');
+
+  let originalParent = $swiper.parent();
+  let originalNext = $swiper.next();
+
+  // 이미지 클릭 → fullscreen
+  $swiper.on('click', '.swiper-slide img', function () {
+
+    // swiper를 body로 이동 (🔥 핵심)
+    $('body').append($swiper);
+
+    $swiper.addClass('fullscreen');
+    $('body').addClass('swiper-blur');
+    $('body').css('overflow', 'hidden');
+  });
+
+  // 닫기 버튼
+  $closeBtn.on('click', function (e) {
+    e.stopPropagation();
+
+    $swiper.removeClass('fullscreen');
+    $('body').removeClass('swiper-blur');
+    $('body').css('overflow', '');
+
+    // 원래 자리로 복귀
+    if (originalNext.length) {
+      $swiper.insertBefore(originalNext);
+    } else {
+      originalParent.append($swiper);
+    }
+  });
+
+});
+
+
 		</script>
 	</body>
 </html>
