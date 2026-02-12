@@ -1566,7 +1566,7 @@ input, select, textarea {
 			border: 2px solid #ffffff;
 		}
 
-			#thumbnails article .thumbnail {
+			#thumbnails div .thumbnail {
 				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 				display: block;
 				position: relative;
@@ -1576,13 +1576,13 @@ input, select, textarea {
 				height: 100%;
 			}
 
-				#thumbnails article .thumbnail img {
+				#thumbnails div .thumbnail img {
 					display: block;
 					width: 100%;
 					height: 100%;
 				}
 
-				#thumbnails article .thumbnail:before {
+				#thumbnails div .thumbnail:before {
 					pointer-events: none;
 					-moz-transition: opacity 0.25s ease;
 					-webkit-transition: opacity 0.25s ease;
@@ -1599,21 +1599,21 @@ input, select, textarea {
 					z-index: 1;
 				}
 
-				#thumbnails article .thumbnail:focus:before {
+				#thumbnails div .thumbnail:focus:before {
 					opacity: 0.5;
 				}
 
-			#thumbnails article h2, #thumbnails article p {
+			#thumbnails div h2, #thumbnails article p {
 				display: none;
 			}
 
-			#thumbnails article.active .thumbnail:before {
+			#thumbnails div.active .thumbnail:before {
 				opacity: 1;
 			}
 
 		@media screen and (max-width: 480px) {
 
-			#thumbnails article .thumbnail:before {
+			#thumbnails div .thumbnail:before {
 				display: none;
 			}
 
