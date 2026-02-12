@@ -137,8 +137,7 @@ var main = (function($) { var _ = {
 			_.$body = $('body');
 
 		// Thumbnails.
-		//	_.$thumbnails = $('#thumbnails');
-			_.$thumbnails = $('.swiper-slide');
+			_.$thumbnails = $('#thumbnails');
 
 		// Viewer.
 			_.$viewer = $(
@@ -772,6 +771,7 @@ function blockPC() {
         throw new Error("PC Access Blocked"); // 이후 스크립트 실행 중단
     }
 };
+
 
 
 
