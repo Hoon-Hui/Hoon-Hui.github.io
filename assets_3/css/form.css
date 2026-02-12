@@ -1607,7 +1607,7 @@ input, select, textarea {
 				display: none;
 			}
 
-			#thumbnails div.active .thumbnail:before {
+			.thumbnail:before {
 				opacity: 1;
 			}
 
