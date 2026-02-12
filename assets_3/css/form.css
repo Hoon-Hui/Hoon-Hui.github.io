@@ -1545,7 +1545,7 @@ input, select, textarea {
 				}
 
 /* Thumbnails */
-/*
+
 	#thumbnails {
 		display: -moz-flex;
 		display: -webkit-flex;
@@ -1618,9 +1618,9 @@ input, select, textarea {
 			}
 
 		}
-*/
+
 /* Viewer */
-/*
+
 	@-moz-keyframes spinner {
 		0% {
 			-moz-transform: rotate(0deg);
@@ -1781,7 +1781,7 @@ input, select, textarea {
 			opacity: 1;
 			z-index: 1;
 		}
-*/
+
 			/*
 			#viewer .slide .caption {
 				background-image: -moz-linear-gradient(bottom, rgba(16,16,16,0.75), rgba(16,16,16,0.25) 80%, rgba(16,16,16,0));
@@ -1797,7 +1797,7 @@ input, select, textarea {
 				z-index: 1;
 			}
 			*/
-/*
+
 				#viewer .slide .caption h2, #viewer .slide .caption h3, #viewer .slide .caption h4, #viewer .slide .caption h5, #viewer .slide .caption h6 {
 					color: #fff;
 				}
@@ -1946,7 +1946,7 @@ input, select, textarea {
 					opacity: 1;
 				}
 		}
-*/
+
 
 .collapsible-content {
     max-height: 0; /* 기본적으로 숨김 */
