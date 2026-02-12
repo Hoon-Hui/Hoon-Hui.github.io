@@ -1566,7 +1566,7 @@ input, select, textarea {
 			border: 2px solid #ffffff;
 		}
 
-			#thumbnails div .thumbnail {
+			.thumbnail {
 				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 				display: block;
 				position: relative;
@@ -1576,13 +1576,13 @@ input, select, textarea {
 				height: 100%;
 			}
 
-				#thumbnails div .thumbnail img {
+				.thumbnail img {
 					display: block;
 					width: 100%;
 					height: 100%;
 				}
 
-				#thumbnails div .thumbnail:before {
+				.thumbnail:before {
 					pointer-events: none;
 					-moz-transition: opacity 0.25s ease;
 					-webkit-transition: opacity 0.25s ease;
@@ -1599,7 +1599,7 @@ input, select, textarea {
 					z-index: 1;
 				}
 
-				#thumbnails div .thumbnail:focus:before {
+				.thumbnail:focus:before {
 					opacity: 0.5;
 				}
 
