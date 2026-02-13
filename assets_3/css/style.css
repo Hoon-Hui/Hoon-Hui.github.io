@@ -2268,7 +2268,7 @@ section#header h3 {
 
 /* Parents & Couple Info */
 section#header div {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.85;
     color: #555;
     letter-spacing: 0.03em;
@@ -2281,7 +2281,7 @@ section#header div b {
 
 /* Greeting Text */
 section#header p {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     line-height: 1.75;
     color: #666;
     margin-top: 2rem;
