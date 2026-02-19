@@ -5,6 +5,51 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main2.css" />
+    <style>
+      .luxury-btn {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    letter-spacing: 4px;
+    border: 2px solid #03e9f4;
+    background: transparent;
+    font-weight: bold;
+}
+
+.btn-11:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+.btn-11:active{
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+@keyframes shiny-btn1 {
+    0% { transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { transform: scale(50) rotate(45deg); opacity: 0; }
+}
+
+    </style>
   </head>
   <body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="height: 100dvh;">
     <!-- Background Video -->
@@ -39,9 +84,19 @@
     </div>
   
     <!-- Button -->
+    <!--
     <form id="signup-form" method="post" onsubmit="validateChk_invitation();" class="subtitle fade-in delay-3">
       <input type="submit" value="축 하 하 기" class="luxury-btn" />
     </form>
+    -->
+    <form id="signup-form" method="post" onsubmit="validateChk_invitation();" class="subtitle fade-in delay-3">
+  <input type="submit" id="signup-btn" style="display:none;" />
+  
+  <label for="signup-btn" class="luxury-btn btn-11">
+    축 하 하 기
+  </label>
+</form>
+
   
     <!-- Scripts -->
     <script src="assets/js/main.js"></script> 
