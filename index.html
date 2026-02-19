@@ -5,6 +5,92 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main2.css" />
+    <style>
+      .luxury-btn {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.luxury-btn:hover {
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+/* 라인 애니메이션 */
+.luxury-btn span {
+    position: absolute;
+    display: block;
+}
+.luxury-btn span:nth-child(1){
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation: animate1 1s linear infinite;
+}
+@keyframes animate1{
+    0%{ left: -100%; }
+    50%,100%{ left: 100%; }
+}
+
+.luxury-btn span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes animate2{
+    0%{ top: -100%; }
+    50%,100%{ top: 100%; }
+}
+
+.luxury-btn span:nth-child(3){
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+@keyframes animate3{
+    0%{ right: -100%; }
+    50%,100%{ right: 100%; }
+}
+
+.luxury-btn span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#03e9f4);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes animate4{
+    0%{ bottom: -100%; }
+    50%,100%{ bottom: 100%; }
+}
+
+    </style>
   </head>
   <body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="height: 100dvh;">
     <!-- Background Video -->
@@ -39,9 +125,23 @@
     </div>
   
     <!-- Button -->
+    <!--
     <form id="signup-form" method="post" onsubmit="validateChk_invitation();" class="subtitle fade-in delay-3">
       <input type="submit" value="축 하 하 기" class="luxury-btn" />
     </form>
+    -->
+    <form id="signup-form" method="post" onsubmit="validateChk_invitation();" class="subtitle fade-in delay-3">
+      <input type="submit" id="signup-btn" style="display:none;" />
+      
+      <label for="signup-btn" class="luxury-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        축 하 하 기
+      </label>
+    </form>
+
   
     <!-- Scripts -->
     <script src="assets/js/main.js"></script> 
