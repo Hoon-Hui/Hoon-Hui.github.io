@@ -822,7 +822,7 @@
 				const particles = [];
 			
 				// first, third line - make sand
-				[0, 2].forEach(i => {
+				[0, 2, 3].forEach(i => {
 					ctx.fillText(linesArray[i], centerX, lineYs[i]);
 					const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 			
