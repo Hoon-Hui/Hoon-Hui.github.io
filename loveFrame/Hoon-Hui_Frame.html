@@ -76,24 +76,43 @@
 			<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
 
 			<script>
-document.getElementById("confettiBtn").addEventListener("click", function (e) {
+document.getElementById("confettiBtn").addEventListener("click", function () {
 
-  const rect = e.target.getBoundingClientRect();
+  const btn = this;
 
-  // 버튼 중앙 좌표 계산
-  const x = (rect.left + rect.width / 2) / window.innerWidth;
-  const y = (rect.top + rect.height / 2) / window.innerHeight;
+  // 버튼 안에 캔버스 생성
+  const canvas = document.createElement("canvas");
+  canvas.style.position = "absolute";
+  canvas.style.left = "0";
+  canvas.style.top = "0";
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
+  canvas.style.pointerEvents = "none";
+  canvas.style.zIndex = "10";
 
-  confetti({
-    particleCount: 80,
+  btn.appendChild(canvas);
+
+  const myConfetti = confetti.create(canvas, {
+    resize: true,
+    useWorker: true
+  });
+
+  myConfetti({
+    particleCount: 70,
     spread: 70,
-    startVelocity: 40,
-    origin: { x: x, y: y },
+    startVelocity: 35,
+    origin: { x: 0.5, y: 0.5 },
     colors: ['#ffccd5', '#ffffff', '#ffd6e0']
   });
 
+  // 1초 후 캔버스 제거 (깔끔하게)
+  setTimeout(() => {
+    canvas.remove();
+  }, 1000);
+
 });
 </script>
+
 
 
 
