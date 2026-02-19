@@ -4,7 +4,7 @@
 		<title>Invitation</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/assets_3/css/form.css" />
+		<link rel="stylesheet" href="/assets_3/css/style.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 		<noscript><link rel="stylesheet" href="/assets_3/css/noscript.css" /></noscript>
 		<style>
@@ -98,7 +98,7 @@
 			.typing-text {
 			  transition: opacity 0.8s ease;
 			  line-height: 1.6;
-			  font-size: 3rem;
+			  font-size: 1.7rem;
 			  font-weight: 600;
 			  font-family: 'Baby_love', cursive;
 			  color: rgba(255,255,255,0.95);
@@ -121,7 +121,7 @@
 			
 			/* info text */ 
 			.info { 
-				font-size: 1.5rem; 
+				font-size: 1.55rem; 
 				line-height: 2.1rem; 
 				font-weight: 700; 
 				font-family: 'Baby_love', cursive;
@@ -147,17 +147,6 @@
 			/* fadeIn animation */ 
 			@keyframes fadeIn { 
 				to { opacity: 1; } 
-			} 
-			
-			/* mobile check */ 
-			@media (max-width: 480px) { 
-				.typing-text { 
-					font-size: 2rem; 
-				} 
-				.info { 
-					font-size: 1.5rem; 
-					line-height: 1.5rem; 
-				} 
 			} 
 			
 			/* typing text fade in/out */ 
@@ -189,8 +178,9 @@
 			  border: 1px solid rgba(201, 179, 126, 0.9);
 			  color: #3a352f;
 			  padding: 0.9em 3.5em;
-			  font-size: 0.7em;
+			  font-size: 0.85em;
 			  transition: all 0.4s ease;
+			  font-weight: bold;
 			}
 
 			/* html scroll active */
@@ -297,7 +287,7 @@
 			</div>
 
 			<!-- typing action -->
-			<div class="typing-text" id="typing" style="width:100%; font-size:1.5rem; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:10;">
+			<div class="typing-text" id="typing" style="/*width:100%; font-size:1.7rem; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:10;*/" >
 				<span id="text"></span><span class="cursor"></span>
 			</div>				
 			<canvas id="textCanvas" style="position:absolute; top:0; left:0; pointer-events:none; z-index:5;"></canvas>
@@ -378,66 +368,66 @@
 			
 			<!-- section Thumbnail -->
 				<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff; border: none; padding: 0 0.5em;" class="swiper mySwiper2">
-				    <div id="thumbnails" class="swiper-wrapper">
+				    <div class="swiper-wrapper">
 				      <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/3.webp"><img src="images_3/fulls/1_Studio/3.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/1.webp" />
 				      </div>
 				      <div class="swiper-slide">
-						  <a class="thumbnail" href="images_3/fulls/1_Studio/3.webp"><img src="images_3/fulls/1_Studio/3.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/2.webp" />
 				      </div>
 				      <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/3.webp"><img src="images_3/fulls/1_Studio/3.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/3.webp" />
 				      </div>
 				      <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/4.webp"><img src="images_3/fulls/1_Studio/4.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/4.webp" />
 				      </div>
 				      <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/5.webp"><img src="images_3/fulls/1_Studio/5.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/5.webp" />
 				      </div>
 				      <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/6.webp"><img src="images_3/fulls/1_Studio/6.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/6.webp" />
 				      </div>
 				      <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/7.webp"><img src="images_3/fulls/1_Studio/7.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/7.webp" style="height: 80%;"/>
 				      </div>
 				      <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/8.webp"><img src="images_3/fulls/1_Studio/8.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/8.webp" />
 				      </div>
 				      <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/9.webp"><img src="images_3/fulls/1_Studio/9.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/9.webp" />
 				      </div>
 				      <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/10.webp"><img src="images_3/fulls/1_Studio/10.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/10.webp" />
 				      </div>
 					  <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/11.webp"><img src="images_3/fulls/1_Studio/11.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/11.webp" />
 				      </div>
 					  <div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/12.webp"><img src="images_3/fulls/1_Studio/12.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/12.webp" />
 				      </div>
 						<div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/13.webp"><img src="images_3/fulls/1_Studio/13.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/13.webp" />
 				      </div>
 						<div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/14.webp"><img src="images_3/fulls/1_Studio/14.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/14.webp" />
 				      </div>
 						<div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/15.webp"><img src="images_3/fulls/1_Studio/15.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/15.webp" />
 				      </div>
 						<div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/16.webp"><img src="images_3/fulls/1_Studio/16.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/16.webp" />
 				      </div>
 						<div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/17.webp"><img src="images_3/fulls/1_Studio/17.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/17.webp" />
 				      </div>
 						<div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/18.webp"><img src="images_3/fulls/1_Studio/18.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/18.webp" />
 				      </div>
 						<div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/19.webp"><img src="images_3/fulls/1_Studio/19.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/19.webp" />
 				      </div>
 						<div class="swiper-slide">
-				        <a class="thumbnail" href="images_3/fulls/1_Studio/20.webp"><img src="images_3/fulls/1_Studio/20.webp" /></a>
+				        <img src="images_3/fulls/1_Studio/20.webp" />
 				      </div>
 				    </div>
 				    <div class="swiper-button-next"></div>
