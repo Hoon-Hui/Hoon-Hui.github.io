@@ -5,6 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main2.css" />
+    <style>
+    .icon-white {
+      width: 50px;
+      height: 50px;
+    
+      /* 색 반전 */
+      filter: invert(1) brightness(2);
+    }
+    </style>
+
   </head>
   <body class="is-preload" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" style="height: 100dvh;">
     <!-- Background Video -->
@@ -47,11 +57,9 @@
     <form id="signup-form" method="post" onsubmit="validateChk_invitation();" class="subtitle fade-in delay-3">
       <button type="submit" class="luxury-btn">
         축 하 하 기
-        <img src="images/click.png" alt="클릭" style="width:20px; height:20px; margin-left:5px;">
+        <img src="images/click.png" alt="클릭" class="icon-white">
       </button>
-    </form>
-
-    
+    </form>    
   
     <!-- Scripts -->
     <script src="assets/js/main.js"></script> 
