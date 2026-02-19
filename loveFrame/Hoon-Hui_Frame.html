@@ -58,7 +58,7 @@
 							<section id="two" style="background-color: #ffffff";">
 								<div class="inner" style="display: flex; flex-direction: column; align-items: center; padding: 1.3em 0 0 0;"> 
 								    <ul class="actions" style="justify-content: center;"> 
-										<li><a href="javascript:void(0);" class="button next scrolly" style="padding: 0 3em;">예쁘게 잘 살겠습니다!</a></li> 
+										<li><a href="javascript:void(0);" id="confettiBtn" class="button next scrolly" style="padding: 0 3em;">예쁘게 잘 살겠습니다!</a></li> 
 								    </ul>
 								</div>
 							</section>
@@ -72,6 +72,18 @@
 			<script src="/assets_2/js/breakpoints.min.js"></script>
 			<script src="/assets_2/js/util.js"></script>
 			<script src="/assets_2/js/main.js"></script>
+
+			<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
+
+			<script>
+			document.getElementById("confettiBtn").addEventListener("click", function () {
+			  confetti({
+			    particleCount: 150,
+			    spread: 60,
+			    origin: { y: 0.6 }
+			  });
+			});
+			</script>
 
 			<script>
 			function scrollToOne() {
