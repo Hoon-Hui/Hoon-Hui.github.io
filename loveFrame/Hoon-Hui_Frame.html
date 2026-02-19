@@ -76,14 +76,50 @@
 			<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
 
 			<script>
-			document.getElementById("confettiBtn").addEventListener("click", function () {
-			  confetti({
-			    particleCount: 150,
-			    spread: 60,
-			    origin: { y: 0.6 }
+			const duration = 3 * 1000;
+			
+			function launchConfetti() {
+			  const end = Date.now() + duration;
+			  const isMobile = window.innerWidth <= 768;
+			
+			  // 하트 모양 path
+			  const heart = confetti.shapeFromPath({
+			    path: "M167 72c0-38-31-69-69-69-29 0-54 18-64 44C24 21-1 3-30 3-68 3-99 34-99 72c0 79 167 181 167 181S167 151 167 72z",
+			    matrix: [0.03, 0, 0, 0.03, 0, 0]
 			  });
+			
+			  (function frame() {
+			    confetti({
+			      particleCount: isMobile ? 8 : 4,
+			      angle: 60,
+			      spread: isMobile ? 100 : 70,
+			      origin: { x: 0 },
+			      shapes: [heart],
+			      scalar: isMobile ? 1.2 : 1,
+			      colors: ['#ffccd5', '#ffffff', '#ff8fab', '#ffd6e0']
+			    });
+			
+			    confetti({
+			      particleCount: isMobile ? 8 : 4,
+			      angle: 120,
+			      spread: isMobile ? 100 : 70,
+			      origin: { x: 1 },
+			      shapes: [heart],
+			      scalar: isMobile ? 1.2 : 1,
+			      colors: ['#ffccd5', '#ffffff', '#ff8fab', '#ffd6e0']
+			    });
+			
+			    if (Date.now() < end) {
+			      requestAnimationFrame(frame);
+			    }
+			  }());
+			}
+			
+			document.getElementById("confettiBtn").addEventListener("click", function () {
+			  launchConfetti();
 			});
 			</script>
+
 
 			<script>
 			function scrollToOne() {
