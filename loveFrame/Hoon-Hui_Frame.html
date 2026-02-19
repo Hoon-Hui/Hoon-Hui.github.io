@@ -76,66 +76,25 @@
 			<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1/dist/confetti.browser.min.js"></script>
 
 			<script>
-document.addEventListener("DOMContentLoaded", function () {
+document.getElementById("confettiBtn").addEventListener("click", function (e) {
 
-  // 🎯 우리가 직접 캔버스 생성
-  const canvas = document.createElement("canvas");
-  canvas.style.position = "fixed";
-  canvas.style.top = "0";
-  canvas.style.left = "0";
-  canvas.style.width = "100%";
-  canvas.style.height = "100%";
-  canvas.style.pointerEvents = "none";
-  canvas.style.zIndex = "99999"; // 무조건 최상단
-  document.body.appendChild(canvas);
+  const rect = e.target.getBoundingClientRect();
 
-  const myConfetti = confetti.create(canvas, {
-    resize: true,
-    useWorker: true
+  // 버튼 중앙 좌표 계산
+  const x = (rect.left + rect.width / 2) / window.innerWidth;
+  const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+  confetti({
+    particleCount: 80,
+    spread: 70,
+    startVelocity: 40,
+    origin: { x: x, y: y },
+    colors: ['#ffccd5', '#ffffff', '#ffd6e0']
   });
-
-  function launchConfetti() {
-    const duration = 3 * 1000;
-    const end = Date.now() + duration;
-    const isMobile = window.innerWidth <= 768;
-
-    const heart = confetti.shapeFromPath({
-      path: "M167 72c0-38-31-69-69-69-29 0-54 18-64 44C24 21-1 3-30 3-68 3-99 34-99 72c0 79 167 181 167 181S167 151 167 72z",
-      matrix: [0.03, 0, 0, 0.03, 0, 0]
-    });
-
-    (function frame() {
-      myConfetti({
-        particleCount: isMobile ? 12 : 6,
-        angle: 60,
-        spread: isMobile ? 120 : 90,
-        origin: { x: 0 },
-        shapes: [heart],
-        scalar: isMobile ? 1.4 : 1,
-        colors: ['#ffccd5', '#ffffff', '#ff8fab', '#ffd6e0']
-      });
-
-      myConfetti({
-        particleCount: isMobile ? 12 : 6,
-        angle: 120,
-        spread: isMobile ? 120 : 90,
-        origin: { x: 1 },
-        shapes: [heart],
-        scalar: isMobile ? 1.4 : 1,
-        colors: ['#ffccd5', '#ffffff', '#ff8fab', '#ffd6e0']
-      });
-
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
-      }
-    })();
-  }
-
-  document.getElementById("confettiBtn")
-    .addEventListener("click", launchConfetti);
 
 });
 </script>
+
 
 
 
